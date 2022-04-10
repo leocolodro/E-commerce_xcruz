@@ -10,25 +10,25 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/home.html"))
+    res.sendFile(path.join(__dirname, "/views/cart.html"))
 });
 
 app.get('/home', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/home.html"))
+    res.sendFile(path.join(__dirname, "/views/home.html"))
 });
 
 app.get('/register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/register.html"))
+    res.sendFile(path.join(__dirname, "/views/register.html"))
 })
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/login.html"))
+    res.sendFile(path.join(__dirname, "/views/login.html"))
 })
 
 app.get('/cart', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/cart.html"))
+    res.sendFile(path.join(__dirname, "/views/cart.html"))
 })
 
 app.get('/product_detail', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/productDetail.html"))
+    res.sendFile(path.join(__dirname, "/views/productDetail.html"))
 })
