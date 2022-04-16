@@ -1,27 +1,135 @@
+:root{
+    --session-color: #AAAAAA;
+}
 
+a{
+    text-decoration: none;
+    color: black;
+} 
+
+.account-container{
+    display: none;
+}
 .header-container{
-    background-color: beige;
-    display: flex;
-    justify-content:center;
-    flex-wrap:nowrap;
+    background-color: #FFFF;
     box-shadow: 0 1px 8px #ddd;
-}
-.header-container-item{
-    display: inline-block;
-}
-.nav-container{
     display: flex;
+    flex-wrap:nowrap;
+    justify-content: space-around;
+}
+
+.header-container i{
+    display: flex;
+    align-items: center;
     justify-content:center;
-    display: inline-block;
     flex-wrap: wrap;
 }
 
-.nav-flex-item{
-    list-style: none;
-    display: inline-block;
-    padding: 0 10px;
+.header-container .img-logo{ 
+    height: 70px;
+    justify-content: center;
+    width: 100px;
+    text-align: left;
 }
 
-@media (min-width: 300px){
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    text-align: right;
+}
 
+.nav-container ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0%;
+   
+}
+
+.nav-container .nav-item {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0.75rem 0.5rem;;
+}
+
+/*Desktop nav menu*/
+.nav-container-2{
+    display: none;
+}
+/*.nav-container .nav-item:nth-child(1){
+    background-color: lime;
+}*/
+
+@media (min-width: 350px){
+    .header-container .img-logo{
+        display: inline-block;
+        width: 150px;
+        height: 70px;
+    }
+
+
+}
+@media (min-width: 700px){
+    
+    .account-container{
+        display: block;
+        border-bottom: 1px solid #f1f1f1;
+        text-align: right;
+    }
+    
+    .account-container .item {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .account-container .item .text{
+        padding-left: 2px;
+    }
+
+    .nav-container .nav-item {
+        display: flex;
+        flex-direction: row;
+        padding: 1.75rem 1.5rem;
+        list-style: none;
+        justify-content: space-between; 
+    }
+    
+}
+
+@media (min-width: 1200px) {
+
+    .nav-container-2{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .nav-container-2 .nav-item {
+        display: flex;
+        flex-direction: row;
+        padding: 1.75rem 1.5rem;
+        list-style: none;
+        justify-content: space-between; 
+    }
+
+    .nav-container .toggle{
+        display: none; /*Hamburguer menu hide*/
+    }
+
+    .nav-container-2 ul {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0%;
+       
+    }
 }
