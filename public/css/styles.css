@@ -1,21 +1,29 @@
 :root{
-    --session-color: #AAAAAA;
+    --account-container-text-color: #AAAAAA;
+    --header-container-background-color: #FFFF;
 }
 
+/*Global*/
 a{
     text-decoration: none;
     color: black;
 } 
 
+/*Poner todo en mayusculas.*/
+.uppercase {
+    text-transform: uppercase;
+}
+
+/*Global - Header*/
 .account-container{
     display: none;
 }
 .header-container{
-    background-color: #FFFF;
+    background-color: var(--header-container-background-color);
     box-shadow: 0 1px 8px #ddd;
     display: flex;
     flex-wrap:nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .header-container i{
@@ -32,6 +40,13 @@ a{
     text-align: left;
 }
 
+.header-container i a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Global - Header - Nav menu*/
 .nav-container{
     display: flex;
     align-items: center;
@@ -58,13 +73,10 @@ a{
     padding: 0.75rem 0.5rem;;
 }
 
-/*Desktop nav menu*/
+/*Global - Header - Nav menu (Desktop)*/
 .nav-container-2{
     display: none;
 }
-/*.nav-container .nav-item:nth-child(1){
-    background-color: lime;
-}*/
 
 @media (min-width: 350px){
     .header-container .img-logo{
@@ -83,21 +95,26 @@ a{
         text-align: right;
     }
     
+    .account-container .item a i{
+        color: var(--account-container-text-color);
+    }
+
     .account-container .item {
         padding-left: 10px;
         padding-right: 10px;
     }
 
     .account-container .item .text{
+        color: var(--account-container-text-color);
         padding-left: 2px;
     }
 
     .nav-container .nav-item {
         display: flex;
         flex-direction: row;
-        padding: 1.75rem 1.5rem;
+        justify-content: space-between;
         list-style: none;
-        justify-content: space-between; 
+        padding: 1.75rem 1.5rem;        
     }
     
 }
@@ -105,10 +122,10 @@ a{
 @media (min-width: 1200px) {
 
     .nav-container-2{
-        display: flex;
         align-items: center;
+        display: flex;
+        flex-wrap: wrap; 
         justify-content:center;
-        flex-wrap: wrap;
         text-align: center;
     }
     .nav-container-2 .nav-item {
@@ -116,7 +133,7 @@ a{
         flex-direction: row;
         padding: 1.75rem 1.5rem;
         list-style: none;
-        justify-content: space-between; 
+        justify-content: space-between;
     }
 
     .nav-container .toggle{
