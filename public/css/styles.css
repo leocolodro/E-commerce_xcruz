@@ -1,6 +1,7 @@
 :root{
     --account-container-text-color: #AAAAAA;
     --header-container-background-color: #FFFF;
+    --main-title-container-sub-conteiner-1-boder-color: #000000;
 }
 
 /*Global*/
@@ -77,18 +78,65 @@ a{
 .nav-container-2{
     display: none;
 }
+/*HEADER - END*/
+
+/*MAIN - START*/
+
+.main-title-container{
+    display: block;
+   
+}
+
+.main-title-container .style-div{  
+    align-items: center;
+    border: 1px solid var(--main-title-container-sub-conteiner-1-boder-color);
+    border-radius: 5px;
+    margin: 2%
+}
+
+.main-title-container .style-div .flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.main-title-container .style-div .flex-container .sub-container-1{
+    margin: 5px; 
+}
+
+.main-title-container .style-div .flex-container .sub-container-1 .item-title{   
+    font-size: 12px;
+}
+
+.main-title-container .style-div .flex-container .sub-container-1 p{
+    display: none;
+    
+}
+
+.main-title-container .style-div .flex-container .sub-container-2{
+    display: none;
+
+}
+/*MAIN - END*/
 
 @media (min-width: 350px){
+
+    /*HEADER - START*/
     .header-container .img-logo{
         display: inline-block;
         width: 150px;
         height: 70px;
     }
 
+    .main-title-container .style-div .flex-container .sub-container-1 .item-title{   
+        font-size: 1em;
+    }
+
+    /*HEADER - END*/
 
 }
 @media (min-width: 700px){
-    
+    /*HEADER - START*/
     .account-container{
         display: block;
         border-bottom: 1px solid #f1f1f1;
@@ -115,6 +163,50 @@ a{
         justify-content: space-between;
         list-style: none;
         padding: 1.75rem 1.5rem;        
+    }
+    /*HEADER - END*/
+
+    /*MAIN - START*/
+    .main-title-container{
+        justify-content: space-between;
+    }
+    .main-title-container .style-div .flex-container{
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-1 > h4{
+        display: block;
+        margin-bottom: 2%;
+        
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-1 > p{
+        display: block;
+        margin-top: 2%;
+        
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-2{
+        display: block;
+        margin: 5px;
+        align-items: center;
+    
+    }
+    .main-title-container .style-div .flex-container .sub-container-2 .lock-title-span{
+        margin-bottom: 2%;
+        text-align: left;
+        align-items: center;
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-2 .lock-title-span > h4{
+        margin: 0%;
+        display: inline;
+    }
+    .main-title-container .style-div .flex-container .sub-container-2 > p{
+        margin-top: 2%;
+        margin-bottom: 0%;
+    
     }
     
 }
