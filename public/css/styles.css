@@ -117,6 +117,37 @@ a{
     display: none;
 
 }
+
+.product-container .sub-container-1{
+    align-items:center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.product-img {
+    display: inline-block;
+    height: 50%;
+    width: 50%;
+}
+
+.product-price {
+
+    font-size: 14px;
+    margin-top: 0%;
+}
+.product-off{
+    color: #88ec83;
+    font-size: 12px;
+    margin-bottom: 0%;
+    margin-top: 40%;
+}
+.product-title {
+    display: inline;
+}
+.product-title-off-price-conteiner{
+    align-items: center;
+}
+
 /*MAIN - END*/
 
 @media (min-width: 350px){
@@ -134,6 +165,10 @@ a{
 
     /*HEADER - END*/
 
+    /*MAIN - START*/
+
+    
+    /*MAIN - END*/
 }
 @media (min-width: 700px){
     /*HEADER - START*/
