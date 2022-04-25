@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+app.use(express.static('public'));
 
 //Express server port.
 const port = 3030;
@@ -9,8 +10,12 @@ app.listen(port, () => {
     console.log("Server status: Online");
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/views/home.html"))
+// app.get('/', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "/views/home.html"))
+// });
+
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/views/home.html');
 });
 
 app.get('/home', (req, res) => {
