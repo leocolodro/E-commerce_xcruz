@@ -123,14 +123,14 @@ a{
     padding: 0px 5% 5%;
 }
 
-.product-container .botonera{
+.product-container .sub-container-botonera-container .botonera{
     align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
 }
-.product-container .botonera > button{
+.product-container .sub-container-botonera-container .botonera > button{
    
     background: none;
     border: 1px #000000 solid;
@@ -138,11 +138,11 @@ a{
     margin: 5px;       
 }
 
-.product-container .botonera > button  #btn-icon{
+.product-container .sub-container-botonera-container .botonera > button  #btn-icon{
     padding-right: 5px;
 }
 
-.product-container .sub-container-1{
+.product-container .sub-container-botonera-container .sub-container-1{
     align-items:center;
     display: flex;
     flex-wrap: nowrap;
@@ -164,13 +164,13 @@ a{
     justify-content: flex-start;
 }
 
-.product-container .sub-container-1 .product-img {
+.product-container .sub-container-botonera-container .sub-container-1 .product-img {
     display: inline-block;
     height: 50%;
     width: 50%;
 }
 
-.product-container .sub-container-1 .product-title-off-price-conteiner{
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner{
     padding: 5%;
     margin: 2%;
 }
@@ -185,20 +185,20 @@ a{
     padding: 8%;
 }
 
-.product-container .sub-container-1 .product-title-off-price-conteiner .product-price {
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price {
 
     font-size: 14px;
     margin-top: 0%;
 }
 
-.product-container .sub-container-1 .product-title-off-price-conteiner .product-off{
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-off{
     color: #88ec83;
     font-size: 14px;
     margin-bottom: 0%;
     margin-top: 40%;
 }
 
-.product-container .sub-container-1 .product-title {
+.product-container .sub-container-botonera-container .sub-container-1 .product-title {
     display: inline;
     font-size: 14px;
 }
@@ -299,6 +299,17 @@ a{
     
     }
     
+    .product-container{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .product-container .sub-container-botonera-container .sub-container-1 .product-img {
+        height: 30%;
+        width: 30%;
+    }
 }
 
 @media (min-width: 1200px) {
