@@ -382,6 +382,18 @@ footer {
     }
 
 /*FOOTER - START*/
+    .footer-container{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-container .logo-img{
+        display: block;
+        height: 15%;
+        width: 15%;
+    }
 
 /*FOOTER - END*/
 }
@@ -486,11 +498,6 @@ footer {
     }
 
 /*FOOTER - START*/
-    .footer-container > img{
-        display: block;
-        height: 5%;
-        width: 5%;
-    }
 
 /*FOOTER - END*/
 }
