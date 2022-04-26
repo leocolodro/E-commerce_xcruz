@@ -104,7 +104,7 @@
                         <div class="product-title-off-price-conteiner">
                             <h4 class="product-title">Titulo</h4>
                             <p class="product-off">%Off</p>
-                            <p class="product-price">$$$$$$$</p>
+                            <p class="product-price-mobile">$$$$$$$</p>
                         </div>
                     </div>
                     <div class="botonera">
@@ -131,6 +131,17 @@
                             <option value="5">4</option>
                         </select>
                     </div>
+                </div>
+                <div class="price-container-desktop">
+                    <div class="sub-container-1">
+                        <p class="title">Precio unitario:</p>
+                        <p class="price">$$$$$$$$$</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <p class="title">Total:</p>
+                        <p class="total">$$$$$$$$$</p>
+                    </div>
+                </div>
             </article>
             <article class="product-container">
                 <div class="sub-container-botonera-container">
@@ -139,7 +150,7 @@
                         <div class="product-title-off-price-conteiner">
                             <h4 class="product-title">Titulo</h4>
                             <p class="product-off">%Off</p>
-                            <p class="product-price">$$$$$$$</p>
+                            <p class="product-price-mobile">$$$$$$$</p>
                         </div>
                     </div>
                     <div class="botonera">
@@ -167,6 +178,16 @@
                         </select>
                     </div>  
                 </div>
+                <div class="price-container-desktop">
+                    <div class="sub-container-1">
+                        <p class="title">Precio unitario:</p>
+                        <p class="price">$$$$$$$$$</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <p class="title">Total:</p>
+                        <p class="total">$$$$$$$$$</p>
+                    </div>
+                </div>
             </article>
             <article class="product-container">
                 <div class="sub-container-botonera-container">
@@ -175,7 +196,7 @@
                         <div class="product-title-off-price-conteiner">
                             <h4 class="product-title">Titulo</h4>
                             <p class="product-off">%Off</p>
-                            <p class="product-price">$$$$$$$</p>
+                            <p class="product-price-mobile">$$$$$$$</p>
                         </div>
                     </div>
                     <div class="botonera">
@@ -202,11 +223,48 @@
                             <option value="5">4</option>
                         </select>
                     </div>
+                </div>
+                <div class="price-container-desktop">
+                    <div class="sub-container-1">
+                        <p class="title">Precio unitario:</p>
+                        <p class="price">$$$$$$$$$</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <p class="title">Total:</p>
+                        <p class="total">$$$$$$$$$</p>
+                    </div>
+                </div>
             </article>
+       </section>
+       <section class="finalizar-compra-section">
+            <div class="discount-container">
+                <form action="/discount-code" method="POST">
+                    <label for="discount-code">Codigo de descuento</label>
+                    <input type="text" class="discount-code">
+                    <button>Agregar</button>
+                </form>
+                <img src="/images/cart/banner_cuotas_tarjetas_bottom.jpg" alt="Banner - Tarjetas - Cuotas sin interes" class="banner-cuotas-tarjetas">
+            </div>
+            <div class="precio-and-btn-container">
+                <div class="precio-container">
+                    <p class="title">Total:</p>
+                    <p class="price">$$$$$$$$$</p>
+                </div>
+                <button class="proceder-compra-btn">Proceder a la compra</button>
+            </div>
        </section>
     </main>
    <footer>
-
+        <div class="footer-container">
+            <div class="sitio-seguro-container">
+                <span class="lock-title-span">
+                    <h4>Compra segura</h4>
+                    <i class="fa-solid fa-lock"></i>   
+                </span>
+                <p> Sitio seguro con criptografía (SSL)</p>
+            </div>
+            <!--<img src="/images/logo.svg" class="logo-img" alt="Logo">--> 
+        </div>
    </footer>
 </body>
 </html>

@@ -37,8 +37,9 @@ a{
 .header-container .img-logo{ 
     height: 70px;
     justify-content: center;
-    width: 100px;
+    padding-left: 10px;
     text-align: left;
+    width: 100px;
 }
 
 .header-container i a{
@@ -81,6 +82,54 @@ a{
 /*HEADER - END*/
 
 /*MAIN - START*/
+.finalizar-compra-section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.finalizar-compra-section .discount-container .banner-cuotas-tarjetas{
+    display: none;
+}
+
+.finalizar-compra-section .discount-container > form > button{
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    color: #858585;
+}
+
+.finalizar-compra-section .precio-and-btn-container .proceder-compra-btn{
+    background: #3cbdaf;
+    border-radius: 2px;
+    color: #FFF;
+    padding: 8px;
+    width: 160px;
+
+}
+
+.finalizar-compra-section .precio-and-btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.finalizar-compra-section .precio-and-btn-container .precio-container{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.finalizar-compra-section .precio-and-btn-container .precio-container > p{
+    padding: 5px;
+}
+
+.finalizar-compra-section .precio-and-btn-container .precio-container .title{
+    font-weight: bold;
+}
 
 .main-title-container{
     display: block;
@@ -164,6 +213,16 @@ a{
     justify-content: flex-start;
 }
 
+.product-container .description-container .description-subcontainer .title{
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8%;
+}
+
+.product-container .description-container .description-subcontainer .value{
+    padding: 8%;
+}
+
 .product-container .sub-container-botonera-container .sub-container-1 .product-img {
     display: inline-block;
     height: 50%;
@@ -175,18 +234,8 @@ a{
     margin: 2%;
 }
 
-.product-container .description-container .description-subcontainer .title{
-    font-weight: bold;
-    font-size: 16px;
-    padding: 8%;
-}
 
-.product-container .description-container .description-subcontainer .value{
-    padding: 8%;
-}
-
-.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price {
-
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
     font-size: 14px;
     margin-top: 0%;
 }
@@ -203,15 +252,33 @@ a{
     font-size: 14px;
 }
 
+.product-container .price-container-desktop{
+    display: none;
+}
+
 /*MAIN - END*/
+
+/*FOOTER - START*/
+
+footer {
+ border-top: 1px #000000 solid;
+ padding-top: 2%;
+}
+
+.footer-container .sitio-seguro-container .lock-title-span > h4 {
+    display:inline;
+}
+
+/*FOOTER - END*/
 
 @media (min-width: 350px){
 
 /*HEADER - START*/
     .header-container .img-logo{
-        display: inline-block;
-        width: 150px;
+        display: inline-block;    
         height: 70px;
+        padding-left: 15px;
+        width: 150px;
     }
 
     .main-title-container .style-div .flex-container .sub-container-1 .item-title{   
@@ -310,9 +377,13 @@ a{
         height: 30%;
         width: 30%;
     }
+
+/*FOOTER - START*/
+
+/*FOOTER - END*/
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1160px) {
 
     .nav-container-2{
         align-items: center;
@@ -341,5 +412,78 @@ a{
         justify-content: space-between;
         padding: 0%;
        
+    } 
+/*HEADER - END*/
+
+/*MAIN - START*/
+    .finalizar-compra-section{
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
     }
+
+    .finalizar-compra-section .discount-container .banner-cuotas-tarjetas{
+        display: block;
+        padding-top: 20px;
+    }
+    .finalizar-compra-section .discount-container > form > input{
+        width: 40%
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .precio-container{
+        background-color: #ededed;
+    }
+    
+    .finalizar-compra-section .precio-and-btn-container .proceder-compra-btn{
+        margin-top: 10px;
+        width: 260px;
+    
+    }
+
+    .product-container{
+        justify-content: space-between;
+    }
+    .product-container .price-container-desktop{
+        border-left: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 22%;
+    }
+    .product-container .price-container-desktop .sub-container-1{
+        align-items: center;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+        padding-left: 30px;
+ 
+    }
+    .product-container .price-container-desktop .sub-container-2{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding-left: 30px;
+    }
+    .product-container .sub-container-botonera-container{
+        width: 25%;
+
+    }
+    .product-container .sub-container-botonera-container .sub-container-1 .product-img {
+        height: 80%;
+        width: 80%;
+    }
+    .product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
+        display: none;
+    }
+
+/*FOOTER - START*/
+
+
+/*FOOTER - END*/
 }
