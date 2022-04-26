@@ -268,6 +268,9 @@ footer {
 .footer-container .sitio-seguro-container .lock-title-span > h4 {
     display:inline;
 }
+.footer-container > img {
+    display: none;
+}
 
 /*FOOTER - END*/
 
@@ -475,15 +478,19 @@ footer {
 
     }
     .product-container .sub-container-botonera-container .sub-container-1 .product-img {
-        height: 80%;
-        width: 80%;
+        height: 50%;
+        width: 50%;
     }
     .product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
         display: none;
     }
 
 /*FOOTER - START*/
-
+    .footer-container > img{
+        display: block;
+        height: 5%;
+        width: 5%;
+    }
 
 /*FOOTER - END*/
 }
