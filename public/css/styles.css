@@ -131,6 +131,19 @@ a{
     font-weight: bold;
 }
 
+.finalizar-compra-section .precio-and-btn-container .subtotal-container{
+    display: flex;
+    background-color: #f5f5f5;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.finalizar-compra-section .precio-and-btn-container .subtotal-container > p{
+    font-size: 12px;
+    padding: 5px;
+}
+
 .main-title-container{
     display: block;
    
@@ -260,7 +273,7 @@ a{
 
 /*FOOTER - START*/
 
-footer {
+.cart-footer {
  border-top: 1px #000000 solid;
  padding-top: 2%;
 }
@@ -291,7 +304,36 @@ footer {
 /*HEADER - END*/
 
 /*MAIN - START*/
+    .finalizar-compra-section .precio-and-btn-container .iva-container{
+        background-color: #ededed;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        font-size: 10px;
+        margin: 0%;
+        margin-bottom: 1em;
+        padding-bottom: 15px;
+        width: 80%;
+    }
+    .finalizar-compra-section .precio-and-btn-container .iva-container .iva{
+        margin: 0%;
+    }
 
+    .finalizar-compra-section .precio-and-btn-container .precio-container{
+        background-color: #ededed;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        width: 80%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .subtotal-container{
+        background-color: #f5f5f5;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-top: 1px solid #000000;
+        margin-top: 1em;
+        width: 80%;
+    }
 /*MAIN - END*/
 }
 @media (min-width: 700px){
@@ -326,10 +368,22 @@ footer {
     /*HEADER - END*/
 
     /*MAIN - START*/
+    .finalizar-compra-section .precio-and-btn-container .iva-container{
+        width: 55%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .precio-container{
+        width: 55%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .subtotal-container{
+        width: 55%;
+    }
 
     .main-title-container{
         justify-content: space-between;
     }
+
     .main-title-container .style-div .flex-container{
         justify-content: space-between;
         align-items: center;
@@ -414,7 +468,7 @@ footer {
         list-style: none;
         justify-content: space-between;
     }
-
+    
     .nav-container .toggle{
         display: none; /*Hamburguer menu hide*/
     }
@@ -444,15 +498,27 @@ footer {
     .finalizar-compra-section .discount-container > form > input{
         width: 40%
     }
+    .finalizar-compra-section .precio-and-btn-container .iva-container{
+        width: 100%;
+    }
+    .finalizar-compra-section .precio-and-btn-container .iva{
+        text-align: right;
+    }
 
     .finalizar-compra-section .precio-and-btn-container .precio-container{
-        background-color: #ededed;
+        justify-content: space-between;
+        width: 100%;
     }
     
     .finalizar-compra-section .precio-and-btn-container .proceder-compra-btn{
         margin-top: 10px;
         width: 260px;
     
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .subtotal-container{
+        justify-content: space-between;
+        width: 100%;
     }
 
     .product-container{
@@ -490,8 +556,8 @@ footer {
 
     }
     .product-container .sub-container-botonera-container .sub-container-1 .product-img {
-        height: 50%;
-        width: 50%;
+        height: 55%;
+        width: 55%;
     }
     .product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
         display: none;
