@@ -234,43 +234,6 @@ a{
     justify-content: center;
 }
 
-.home-productos-destacados-titulo{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-weight: bold;
-    font-size: 15px;
-    margin-top: 20px;
-}
-
-.home-productos-destacados-hr{
-    margin-top: 20px;
-    height: 1px;
-    width: 50px;
-    background-color: black;
-}
-
-.contenedor-productos-home{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.contenedor-productos-home .item-caja img{
-    width: 160px;
-    height: 160px;
-}
-
-.contenedor-productos-home .item-caja{
-    margin: 15px;
-}
-
-.contenedor-productos-home .item-caja > p{
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
 .carrousel-ofertas{
     width: 100%;
    display: flex;
@@ -330,6 +293,136 @@ a{
    background-color: rgba(255, 255, 255, 0.721);
    padding: 10px;
    border-radius: 5px;
+}
+
+.contenedor-login{
+    padding: 0 20px;
+    margin: 170px auto;
+  
+}
+  
+.contenedor-login .wrapper{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+}
+  
+.contenedor-login .wrapper{
+    height: 90px;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.contenedor-login .wrapper .wrapper-form{
+    padding: 30px 25px 25px 25px;  
+}
+  
+.contenedor-login .wrapper .wrapper-form .row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+}
+  
+.contenedor-login .wrapper .wrapper-form .row input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+}
+
+.contenedor-login .wrapper .wrapper-form .row input:focus{
+    border-color: goldenrod;
+}
+  
+.contenedor-login .wrapper .wrapper-form .row input::placeholder{
+    color: #999;
+}
+  
+.contenedor-login .wrapper .wrapper-form .row .icono-login{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.contenedor-login .wrapper .wrapper-form .pass{
+    margin: -20px 0 20px 0;
+}
+  
+.contenedor-login .wrapper .wrapper-form .pass a{
+    color: black;
+    font-size: 13px;
+    text-decoration: none;
+}
+  
+.contenedor-login .wrapper .wrapper-form .button input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: black;
+    cursor: pointer;
+      border-radius: 70px;
+  }
+  
+.contenedor-login .wrapper .wrapper-form .button2 input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: black;
+    cursor: pointer;
+    margin-top: 10px;
+}
+  
+.contenedor-login .wrapper .wrapper-form .button3 input{
+    color: rgb(84, 84, 84);
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: rgb(241, 103, 52);
+    cursor: pointer;
+    margin-top: 10px;
+}
+  
+.contenedor-login .wrapper .wrapper-form .signup-link{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    color: black;
+}
+
+.contenedor-productos-home{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contenedor-productos-home .item-caja img{
+    width: 160px;
+    height: 160px;
+}
+
+.contenedor-productos-home .item-caja{
+    margin: 15px;
+}
+
+.contenedor-productos-home .item-caja > p{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .create-form-home{
@@ -434,6 +527,22 @@ a{
 .main-title-container{
     display: block;
    
+}
+
+.home-productos-destacados-titulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.home-productos-destacados-hr{
+    margin-top: 20px;
+    height: 1px;
+    width: 50px;
+    background-color: black;
 }
 
 .main-title-container .style-div{  
@@ -576,117 +685,6 @@ a{
 .product-container .price-container-desktop{
     display: none;
 }
-
-/* LOGIN */
-.contenedor-login{
-  padding: 0 20px;
-  margin: 170px auto;
-
-}
-
-.contenedor-login .wrapper{
-  width: 100%;
-  background: #fff;
-  border-radius: 5px;
-}
-
-.contenedor-login .wrapper{
-  height: 90px;
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contenedor-login .wrapper .wrapper-form{
-  padding: 30px 25px 25px 25px;  
-}
-
-.contenedor-login .wrapper .wrapper-form .row{
-  height: 45px;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-.wrapper .wrapper-form .row input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  padding-left: 60px;
-  border: 1px solid lightgrey;
-  font-size: 16px;
-}
-
-.contenedor-login .wrapper .wrapper-form .row input:focus{
-  border-color: goldenrod;
-}
-
-.contenedor-login .wrapper .wrapper-form .row input::placeholder{
-  color: #999;
-}
-
-.contenedor-login .wrapper .wrapper-form .row .icono-login{
-  position: absolute;
-  width: 47px;
-  height: 100%;
-  color: #fff;
-  font-size: 18px;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contenedor-login .wrapper .wrapper-form .pass{
-  margin: -20px 0 20px 0;
-}
-
-.contenedor-login .wrapper .wrapper-form .pass a{
-  color: black;
-  font-size: 13px;
-  text-decoration: none;
-}
-
-.contenedor-login .wrapper .wrapper-form .button input{
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  padding-left: 0px;
-  background: black;
-  cursor: pointer;
-    border-radius: 70px;
-}
-
-.contenedor-login .wrapper .wrapper-form .button2 input{
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  padding-left: 0px;
-  background: black;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.contenedor-login .wrapper .wrapper-form .button3 input{
-  color: rgb(84, 84, 84);
-  font-size: 20px;
-  font-weight: 500;
-  padding-left: 0px;
-  background: rgb(241, 103, 52);
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.contenedor-login .wrapper .wrapper-form .signup-link{
-  text-align: center;
-  margin-top: 20px;
-  font-size: 17px;
-  color: black;
-}
-/* Fin del LOGIN */
 
 /*MAIN - END*/
 

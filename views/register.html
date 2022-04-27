@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/47b81c9b5a.js" crossorigin="anonymous"></script>
+    <title>Registrarse</title>
+</head>
+<body>
+    <header>
+        <div class="announcement-container"></div>
+        <div class="account-container">
+          <span class="item">
+            <a href="/register">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              <small class="text uppercase">Crear cuenta</small>
+            </a>
+          </span>
+          <span class="item">
+            <a href="/login">
+              <i class="fa-solid fa-address-card"></i>
+              <small class="text uppercase">Iniciar sesión</small>
+            </a>
+          </span>
+        </div>
+        <!--Main Header-->
+        <div class="header-container">
+          <!--Main Header - Left-->
+          <i>
+            <a href="/">
+              <img src="/images/logo.svg" alt="Logo-Tienda" class="img-logo" />
+            </a>
+          </i>
+          <!--Main Header - Center-->
+          <nav class="nav-container-2">
+            <ul>
+              <li class="nav-item">
+                <a href="/" class="uppercase">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="uppercase">Zapatos</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="uppercase">Sucursales</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="uppercase">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="uppercase">Contacto</a>
+              </li>
+            </ul>
+          </nav>
+          <!--Main Header - Right-->
+          <nav class="nav-container">
+            <ul>
+              <li class="nav-item">
+                <a href="#">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#">
+                  <i class="fa-solid fa-bookmark"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/cart">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+              </li>
+              <li class="nav-item toggle">
+                <a href="#">
+                  <i class="fa-solid fa-bars"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+    </header>
+    <main>
+        <div class="register-container">
+            <form action="/register" method="POST" class="register-form">
+                <section>
+                    <label for="nombre"></label><br>
+                    <input type="text" name="nombre" class="nombre" placeholder="Nombre">
+                    <label for="apellido"></label><br>
+                    <input type="text" name="apellido" class="apellido" placeholder="Apellido">
+                </section>
+                <section>
+                    <label for="email"></label><br>
+                    <input type="email" name="email" class="email" placeholder="Email">
+                </section>
+                <section>
+                    <label for="contrasena"></label><br>
+                    <input type="password" name="contrasena" class="contrasena" placeholder="contraseña">
+                    <label for="confirmar-contrasena"></label><br>
+                    <input type="password" name="confirmar-contrasena" class="confirmar-contrasena" placeholder="Confirmar contraseña">
+                </section>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
