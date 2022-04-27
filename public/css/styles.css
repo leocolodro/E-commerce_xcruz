@@ -577,6 +577,117 @@ a{
     display: none;
 }
 
+/* LOGIN */
+.contenedor-login{
+  padding: 0 20px;
+  margin: 170px auto;
+
+}
+
+.contenedor-login .wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.contenedor-login .wrapper{
+  height: 90px;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-login .wrapper .wrapper-form{
+  padding: 30px 25px 25px 25px;  
+}
+
+.contenedor-login .wrapper .wrapper-form .row{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.wrapper .wrapper-form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+}
+
+.contenedor-login .wrapper .wrapper-form .row input:focus{
+  border-color: goldenrod;
+}
+
+.contenedor-login .wrapper .wrapper-form .row input::placeholder{
+  color: #999;
+}
+
+.contenedor-login .wrapper .wrapper-form .row .icono-login{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-login .wrapper .wrapper-form .pass{
+  margin: -20px 0 20px 0;
+}
+
+.contenedor-login .wrapper .wrapper-form .pass a{
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.contenedor-login .wrapper .wrapper-form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: black;
+  cursor: pointer;
+    border-radius: 70px;
+}
+
+.contenedor-login .wrapper .wrapper-form .button2 input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: black;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contenedor-login .wrapper .wrapper-form .button3 input{
+  color: rgb(84, 84, 84);
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: rgb(241, 103, 52);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contenedor-login .wrapper .wrapper-form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+  color: black;
+}
+/* Fin del LOGIN */
+
 /*MAIN - END*/
 
 /*FOOTER - START*/
@@ -799,6 +910,14 @@ a{
         height: 30%;
         width: 30%;
     }
+/* LOGIN */
+    .wrapper .wrapper-form{
+        padding: 30px 25px 25px 25px;
+        width: 50%;
+    }
+/* Fin del LOGIN */
+
+/*MAIN - END*/
 
 /*FOOTER - START*/
     .footer-container{
