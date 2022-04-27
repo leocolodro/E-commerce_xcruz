@@ -686,6 +686,57 @@ a{
     display: none;
 }
 
+.register-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.register-container .register-form{
+    margin-bottom: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.register-container .register-form .botonera-section > button {
+    background-color: #000000;
+    color: #FFF;
+    margin-top: 5%;
+}
+.register-container .o-separador {
+    text-align: center;
+}
+
+.register-container .registrarse-google-container .registrarse-google-btn {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(241, 103, 52);
+    border: 1px solid #000000;
+}
+
+.register-container .registrarse-google-container .registrarse-google-btn > p {
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.register-container .register-form > h3 {
+    text-align: center;
+}
+.register-container .register-form > section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.register-container .register-form > section > input{
+    margin-bottom: 8%;
+    margin-top: 4%;
+}
+
 /*MAIN - END*/
 
 /*FOOTER - START*/
@@ -908,12 +959,35 @@ a{
         height: 30%;
         width: 30%;
     }
-/* LOGIN */
+    .register-container .register-form {
+        width: 50%;
+    }
+    .register-container .registrarse-google-container {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-items: center;
+        width: 50%;
+    }
+    .register-container .registrarse-google-container > button{
+        width:100%;
+    }
+    .register-container .register-form .botonera-section{
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+    .register-container .register-form .botonera-section > button {
+        margin-top: 0%;
+    }
     .wrapper .wrapper-form{
         padding: 30px 25px 25px 25px;
         width: 50%;
     }
-/* Fin del LOGIN */
+    
 
 /*MAIN - END*/
 
@@ -1100,17 +1174,60 @@ a{
         justify-content: space-around;
         padding-left: 30px;
     }
+
     .product-container .sub-container-botonera-container{
         width: 25%;
 
     }
+
     .product-container .sub-container-botonera-container .sub-container-1 .product-img {
         height: 55%;
         width: 55%;
     }
+
     .product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
         display: none;
     }
+    .register-container{
+        flex-direction: column-reverse;
+    }
+
+    .register-container .register-form{
+        margin-top: 0%;
+    }
+    .register-container .register-form .contrasena-section .confirmar-contrasena{
+        margin-bottom: 2%;
+    }
+
+    .register-container .register-form .botonera-section > button {
+        font-size: 16px;
+        margin-top: 0%;
+        padding-bottom: 1%;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 1%;
+    }
+
+    .register-container .register-form > section > input{
+        padding: 2%;
+    }
+
+    .register-container  .registrarse-google-container{
+        margin-top: 5%;
+    }
+
+    .register-container  .registrarse-google-container .registrarse-google-btn{
+        padding: 2%;
+    }
+    .register-container  .registrarse-google-container .registrarse-google-btn  > p{
+        font-size: 18px;
+        text-align: center;
+    }
+    .register-container  .registrarse-google-container .registrarse-google-btn  > i{
+        font-size: 16px;
+    }
+
+/*MAIN - END*/    
 
 /*FOOTER - START*/
     .contendero-footer{
