@@ -12,13 +12,18 @@
     ></script>
   </head>
   <body>
-    <!-- carrousel -->
-    <nav>header</nav>
+    <a href="/views/login.html">Header</a>
+
+    <!-- Carrousel -->
     <section class="carrousel">
       <article class="conteCarrousel">
         <div class="itemCarrousel" id="itemCarrousel-1">
           <div class="itemCarrouselTarjeta">
-            <img src="/images/carrusel-img-1.jpg" alt="" />
+            <img
+              class="itemCarrousel-img"
+              src="/images/carrusel-img-1.jpg"
+              alt=""
+            />
           </div>
           <div class="itemCarrouselArrows">
             <a href="#itemCarrousel-3">
@@ -31,7 +36,11 @@
         </div>
         <div class="itemCarrousel" id="itemCarrousel-2">
           <div class="itemCarrouselTarjeta">
-            <img src="images/carrusel-img-2.jpg" alt="" />
+            <img
+              class="itemCarrousel-img"
+              src="images/carrusel-img-2.jpg"
+              alt=""
+            />
           </div>
           <div class="itemCarrouselArrows">
             <a href="#itemCarrousel-1">
@@ -44,7 +53,11 @@
         </div>
         <div class="itemCarrousel" id="itemCarrousel-3">
           <div class="itemCarrouselTarjeta">
-            <img src="/images/carrusel-img-3.jpg" alt="" />
+            <img
+              class="itemCarrousel-img"
+              src="/images/carrusel-img-3.jpg"
+              alt=""
+            />
           </div>
           <div class="itemCarrouselArrows">
             <a href="#itemCarrousel-2">
@@ -61,10 +74,11 @@
     <!-- PRODUCTOS -->
     <h1 class="titulo">PRODUCTOS DESTACADOS</h1>
 
+    <!-- Linea -->
     <center>
       <hr />
     </center>
-    <section class="container">
+    <section class="contenedor-productos">
       <div class="item-caja">
         <img src="/images/img-zapato.webp" alt="" />
         <p>Producto 1</p>
@@ -112,7 +126,12 @@
       <article class="conte-carrousel-ofertas">
         <div class="item-carrousel-ofertas" id="item-carrousel-ofertas-1">
           <div class="item-carrousel-Tarjeta-ofertas">
-            <img src="/images/carrusel-img-1.jpg" alt="" />
+            <img
+              class="itemCarrousel-img"
+              itemCarrousel-img
+              src="/images/carrusel-img-1.jpg"
+              alt=""
+            />
           </div>
           <div class="item-carrousel-arrows-ofertas">
             <a href="#item-carrousel-ofertas-3">
@@ -126,7 +145,11 @@
         </div>
         <div class="item-carrousel-ofertas" id="item-carrousel-ofertas-2">
           <div class="item-carrousel-Tarjeta-ofertas">
-            <img src="images/carrusel-img-2.jpg" alt="" />
+            <img
+              class="itemCarrousel-img"
+              src="images/carrusel-img-2.jpg"
+              alt=""
+            />
           </div>
           <div class="item-carrousel-arrows-ofertas">
             <a href="#item-carrousel-ofertas-1">
@@ -139,7 +162,11 @@
         </div>
         <div class="item-carrousel-ofertas" id="item-carrousel-ofertas-3">
           <div class="item-carrousel-Tarjeta-ofertas">
-            <img src="/images/carrusel-img-3.jpg" alt="" />
+            <img
+              class="itemCarrousel-img"
+              src="/images/carrusel-img-3.jpg"
+              alt=""
+            />
           </div>
           <div class="item-carrousel-arrows-ofertas">
             <a href="#item-carrousel-ofertas-2">
@@ -151,14 +178,6 @@
           </div>
         </div>
       </article>
-
-      <!-- Los 3  puntitos (En proceso) -->
-
-      <!-- <div class="conteCarrouselController">
-        <a href="#item-carrousel-ofertas-1">•</a>
-        <a href="#item-carrousel-ofertas-2">•</a>
-        <a href="##item-carrousel-ofertas-3">•</a>
-        </div> -->
     </section>
     <div class="puntos-carrusel-contralador">
       <a href="#item-carrousel-ofertas-1">•</a>
@@ -178,7 +197,7 @@
       <button class="boton-formulario">Inscribirse</button>
     </form>
 
-    <h3 class="newsletter-titulo-2">@ NUESTRO NEWSLETTER</h3>
+    <h3 class="newsletter-titulo">@ NUESTRO NEWSLETTER</h3>
 
     <div class="newsletter-contenedor__iconos">
       <i class="fa-brands fa-facebook"></i>
@@ -242,7 +261,7 @@
             </div>
           </div>
         </article>
-        <div class="puntos-carrusel-contralador">
+        <div class="puntos-carrusel-contralador-2">
           <a href="#carrousel-envios-1">•</a>
           <a href="#carrousel-envios-2">•</a>
           <a href="carrousel-envios-3">•</a>
@@ -251,44 +270,41 @@
     </div>
 
     <!-- Footer -->
-    <div class="contendero-footer"> 
+    <div class="contendero-footer">
+      <footer class="footer">
+        <section class="footer-contenedor-ul">
+          <h4 class="footer-contenedor__titulo">Titulo</h4>
+          <ul class="footer-lista">
+            <li class="lista-link"><a class="lista-link" href=""> link </a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+          </ul>
+        </section>
 
-    <footer class="footer">
-      <section class="footer-contenedor">
-        <h4 class="footer-contenedor__titulo">Titulo</h4>
-        <ul class="footer-lista">
-          <li  class="lista-link" ><a class="lista-link" href=""> link </a></li>
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li >
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-        </ul>
-      </section>
+        <section class="footer-contenedor-ul">
+          <h4 class="footer-contenedor__titulo">Titulo-2</h4>
+          <ul class="footer-lista">
+            <li class="lista-link"><a class="lista-link" href="">link</a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+          </ul>
+        </section>
 
-      <section class="footer-contenedor">
-        <h4 class="footer-contenedor__titulo">Titulo-2</h4>
-        <ul class="footer-lista">
-          <li  class="lista-link" ><a class="lista-link" href="">link</a></li>
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-        </ul>
-      </section>
-
-      <section class="footer-contenedor">
-        <h4 class="footer-contenedor__titulo">Titulo-3</h4>
-        <ul class="footer-lista">
-          <li  class="lista-link" ><a class="lista-link" href="">link </a></li>
-          <li  class="lista-link" ><a class="lista-link" href=""> link</a></li>
-          <li  class="lista-link" ><a class="lista-link" href=""> link</a></li>
-        </ul>
-      </section>
-      
-    </footer>
-
+        <section class="footer-contenedor-ul">
+          <h4 class="footer-contenedor__titulo">Titulo-3</h4>
+          <ul class="footer-lista">
+            <li class="lista-link"><a class="lista-link" href="">link </a></li>
+            <li class="lista-link"><a class="lista-link" href=""> link</a></li>
+            <li class="lista-link"><a class="lista-link" href=""> link</a></li>
+          </ul>
+        </section>
+      </footer>
     </div>
 
-        <section class="footer-copy">
+    <section class="footer-copy">
       <h6>Copyright X cruz - 2022.</h6>
     </section>
   </body>
