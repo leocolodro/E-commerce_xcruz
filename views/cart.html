@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/47b81c9b5a.js" crossorigin="anonymous"></script>
+    <title>Carrito de Compras</title>
+</head>
+<body>
+   <header>
+       <div class="announcement-container">
+        </div>
+        <div class="account-container">   
+            <span class="item">
+                <a href="#">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <small class="text uppercase">Crear cuenta</small>
+                </a>
+            </span>       
+            <span class="item">  
+                <a href="#">
+                <i class="fa-solid fa-address-card"></i>
+                <small class="text uppercase">Iniciar sesión</small>
+                </a>
+            </span> 
+          </div>
+        <!--Main Header-->
+        <div class="header-container">
+            <!--Main Header - Left-->
+            <i>
+                <a href="#">
+                    <img src="/images/logo.svg" alt="Logo-Tienda" class="img-logo">
+                </a>
+            </i>
+            <!--Main Header - Center-->
+            <nav class="nav-container-2">
+                <ul>
+                    <li class="nav-item">
+                        <a href="#" class="uppercase">Zapatos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="uppercase">Sucursales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="uppercase">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="uppercase">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+            <!--Main Header - Right-->
+            <nav class="nav-container">
+                <ul>
+                    <li class="nav-item">
+                        <a href="#">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">
+                            <i class="fa-solid fa-bookmark"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item toggle">
+                        <a href="#">
+                            <i class="fa-solid fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+   </header>
+   <main>
+       <div class="main-title-container">
+            <div class="style-div">
+                <div class="flex-container">
+                    <div class="sub-container-1">
+                        <h4 class="item-title">Carrito de compras</h4>
+                        <p class="item">"cantidad" productos</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <span class="lock-title-span">
+                            <i class="fa-solid fa-lock"></i>
+                            <h4 class="item">Sitio</h4>
+                        </span>
+                        <p class="item">protegido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <section>
+            <article class="product-container">
+                <div class="sub-container-botonera-container">
+                    <div class="sub-container-1">
+                        <img class="product-img"src="/images/zapatos/producto_1/zapato_cuero_marron_1.jpg" alt="Producto">
+                        <div class="product-title-off-price-conteiner">
+                            <h4 class="product-title">Titulo</h4>
+                            <p class="product-off">%Off</p>
+                            <p class="product-price-mobile">$$$$$$$</p>
+                        </div>
+                    </div>
+                    <div class="botonera">
+                        <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
+                        <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
+                    </div>
+                </div>
+                <div class="description-container">
+                    <div  class="description-subcontainer">
+                        <p class="title">Color:</p>
+                        <p class="value">xxxxx</p>
+                    </div>
+                    <div class="description-subcontainer">
+                        <p class="title">Talle:</p>
+                        <p class="value">xxxxx</p>
+                    </div>
+                    <div class="description-subcontainer">
+                        <p class="title">Cantidad:</p> 
+                        <select name="cantidad-value" id="select-cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="price-container-desktop">
+                    <div class="sub-container-1">
+                        <p class="title">Precio unitario:</p>
+                        <p class="price">$$$$$$$$$</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <p class="title">Total:</p>
+                        <p class="total">$$$$$$$$$</p>
+                    </div>
+                </div>
+            </article>
+            <article class="product-container">
+                <div class="sub-container-botonera-container">
+                    <div class="sub-container-1">
+                        <img class="product-img"src="/images/zapatos/producto_2/zapato_cuero_punta_negro_1.jpg" alt="Producto">
+                        <div class="product-title-off-price-conteiner">
+                            <h4 class="product-title">Titulo</h4>
+                            <p class="product-off">%Off</p>
+                            <p class="product-price-mobile">$$$$$$$</p>
+                        </div>
+                    </div>
+                    <div class="botonera">
+                        <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
+                        <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
+                    </div>
+                </div>
+                <div class="description-container">
+                    <div  class="description-subcontainer">
+                        <p class="title">Color:</p>
+                        <p class="value">xxxxx</p>
+                    </div>
+                    <div class="description-subcontainer">
+                        <p class="title">Talle:</p>
+                        <p class="value">xxxxx</p>
+                    </div>
+                    <div class="description-subcontainer">
+                        <p class="title">Cantidad:</p> 
+                        <select name="cantidad-value" id="select-cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">4</option>
+                        </select>
+                    </div>  
+                </div>
+                <div class="price-container-desktop">
+                    <div class="sub-container-1">
+                        <p class="title">Precio unitario:</p>
+                        <p class="price">$$$$$$$$$</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <p class="title">Total:</p>
+                        <p class="total">$$$$$$$$$</p>
+                    </div>
+                </div>
+            </article>
+            <article class="product-container">
+                <div class="sub-container-botonera-container">
+                    <div class="sub-container-1">
+                        <img class="product-img"src="/images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg" alt="Producto">
+                        <div class="product-title-off-price-conteiner">
+                            <h4 class="product-title">Titulo</h4>
+                            <p class="product-off">%Off</p>
+                            <p class="product-price-mobile">$$$$$$$</p>
+                        </div>
+                    </div>
+                    <div class="botonera">
+                        <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
+                        <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
+                    </div>
+                </div>
+                <div class="description-container">
+                    <div  class="description-subcontainer">
+                        <p class="title">Color:</p>
+                        <p class="value">xxxxx</p>
+                    </div>
+                    <div class="description-subcontainer">
+                        <p class="title">Talle:</p>
+                        <p class="value">xxxxx</p>
+                    </div>
+                    <div class="description-subcontainer">
+                        <p class="title">Cantidad:</p> 
+                        <select name="cantidad-value" id="select-cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="price-container-desktop">
+                    <div class="sub-container-1">
+                        <p class="title">Precio unitario:</p>
+                        <p class="price">$$$$$$$$$</p>
+                    </div>
+                    <div class="sub-container-2">
+                        <p class="title">Total:</p>
+                        <p class="total">$$$$$$$$$</p>
+                    </div>
+                </div>
+            </article>
+       </section>
+       <section class="finalizar-compra-section">
+            <div class="discount-container">
+                <form action="/discount-code" method="POST">
+                    <label for="discount-code">Codigo de descuento</label>
+                    <input type="text" class="discount-code">
+                    <button>Agregar</button>
+                </form>
+                <img src="/images/cart/banner_cuotas_tarjetas_bottom.jpg" alt="Banner - Tarjetas - Cuotas sin interes" class="banner-cuotas-tarjetas">
+            </div>
+            <div class="precio-and-btn-container">
+                <div class="subtotal-container">
+                    <p class="title">Subtotal:</p>
+                    <p class="price">$$$$$$$$$</p>
+                </div>
+                <div class="precio-container">
+                    <p class="title">Total:</p>
+                    <p class="price">$$$$$$$$$</p>
+                </div>
+                <div class="iva-container">
+                    <p class="iva">IVA incluido</p>
+                </div>
+                <button class="proceder-compra-btn">Proceder a la compra</button>
+            </div>
+       </section>
+    </main>
+   <footer class="cart-footer">
+        <div class="footer-container">
+            <div class="sitio-seguro-container">
+                <span class="lock-title-span">
+                    <h4>Compra segura</h4>
+                    <i class="fa-solid fa-lock"></i>   
+                </span>
+                <p> Sitio seguro con criptografía (SSL)</p>
+            </div>
+            <img src="/images/logo.svg" class="logo-img" alt="Logo">
+        </div>
+   </footer>
+</body>
+</html>

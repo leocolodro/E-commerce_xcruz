@@ -1,0 +1,569 @@
+:root{
+    --account-container-text-color: #AAAAAA;
+    --header-container-background-color: #FFFF;
+    --main-title-container-sub-conteiner-1-boder-color: #000000;
+}
+
+/*Global*/
+a{
+    text-decoration: none;
+    color: black;
+} 
+
+/*Poner todo en mayusculas.*/
+.uppercase {
+    text-transform: uppercase;
+}
+
+/*Global - Header*/
+.account-container{
+    display: none;
+}
+.header-container{
+    background-color: var(--header-container-background-color);
+    box-shadow: 0 1px 8px #ddd;
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+}
+
+.header-container i{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+
+.header-container .img-logo{ 
+    height: 70px;
+    justify-content: center;
+    padding-left: 10px;
+    text-align: left;
+    width: 100px;
+}
+
+.header-container i a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Global - Header - Nav menu*/
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    text-align: right;
+}
+
+.nav-container ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0%;
+   
+}
+
+.nav-container .nav-item {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0.75rem 0.5rem;
+}
+
+/*Global - Header - Nav menu (Desktop)*/
+.nav-container-2{
+    display: none;
+}
+/*HEADER - END*/
+
+/*MAIN - START*/
+.finalizar-compra-section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.finalizar-compra-section .discount-container .banner-cuotas-tarjetas{
+    display: none;
+}
+
+.finalizar-compra-section .discount-container > form > button{
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    color: #858585;
+}
+
+.finalizar-compra-section .precio-and-btn-container .proceder-compra-btn{
+    background: #3cbdaf;
+    border-radius: 2px;
+    color: #FFF;
+    padding: 8px;
+    width: 160px;
+
+}
+
+.finalizar-compra-section .precio-and-btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.finalizar-compra-section .precio-and-btn-container .precio-container{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.finalizar-compra-section .precio-and-btn-container .precio-container > p{
+    padding: 5px;
+}
+
+.finalizar-compra-section .precio-and-btn-container .precio-container .title{
+    font-weight: bold;
+}
+
+.finalizar-compra-section .precio-and-btn-container .subtotal-container{
+    display: flex;
+    background-color: #f5f5f5;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.finalizar-compra-section .precio-and-btn-container .subtotal-container > p{
+    font-size: 12px;
+    padding: 5px;
+}
+
+.main-title-container{
+    display: block;
+   
+}
+
+.main-title-container .style-div{  
+    align-items: center;
+    border: 1px solid var(--main-title-container-sub-conteiner-1-boder-color);
+    border-radius: 5px;
+    margin: 2%
+}
+
+.main-title-container .style-div .flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.main-title-container .style-div .flex-container .sub-container-1{
+    margin: 5px; 
+}
+
+.main-title-container .style-div .flex-container .sub-container-1 .item-title{   
+    font-size: 12px;
+}
+
+.main-title-container .style-div .flex-container .sub-container-1 p{
+    display: none;
+    
+}
+
+.main-title-container .style-div .flex-container .sub-container-2{
+    display: none;
+
+}
+
+.product-container{
+    border-bottom: 1px solid #AAAAAA;
+    padding: 0px 5% 5%;
+}
+
+.product-container .sub-container-botonera-container .botonera{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.product-container .sub-container-botonera-container .botonera > button{
+   
+    background: none;
+    border: 1px #000000 solid;
+    padding: 5px 10px;
+    margin: 5px;       
+}
+
+.product-container .sub-container-botonera-container .botonera > button  #btn-icon{
+    padding-right: 5px;
+}
+
+.product-container .sub-container-botonera-container .sub-container-1{
+    align-items:center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.product-container .description-container {
+    align-items:flex-start;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.product-container .description-container .description-subcontainer{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.product-container .description-container .description-subcontainer .title{
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8%;
+}
+
+.product-container .description-container .description-subcontainer .value{
+    padding: 8%;
+}
+
+.product-container .sub-container-botonera-container .sub-container-1 .product-img {
+    display: inline-block;
+    height: 50%;
+    width: 50%;
+}
+
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner{
+    padding: 5%;
+    margin: 2%;
+}
+
+
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
+    font-size: 14px;
+    margin-top: 0%;
+}
+
+.product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-off{
+    color: #88ec83;
+    font-size: 14px;
+    margin-bottom: 0%;
+    margin-top: 40%;
+}
+
+.product-container .sub-container-botonera-container .sub-container-1 .product-title {
+    display: inline;
+    font-size: 14px;
+}
+
+.product-container .price-container-desktop{
+    display: none;
+}
+
+/*MAIN - END*/
+
+/*FOOTER - START*/
+
+.cart-footer {
+ border-top: 1px #000000 solid;
+ padding-top: 2%;
+}
+
+.footer-container .sitio-seguro-container .lock-title-span > h4 {
+    display:inline;
+}
+.footer-container > img {
+    display: none;
+}
+
+/*FOOTER - END*/
+
+@media (min-width: 350px){
+
+/*HEADER - START*/
+    .header-container .img-logo{
+        display: inline-block;    
+        height: 70px;
+        padding-left: 15px;
+        width: 150px;
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-1 .item-title{   
+        font-size: 1em;
+    }
+
+/*HEADER - END*/
+
+/*MAIN - START*/
+    .finalizar-compra-section .precio-and-btn-container .iva-container{
+        background-color: #ededed;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        font-size: 10px;
+        margin: 0%;
+        margin-bottom: 1em;
+        padding-bottom: 15px;
+        width: 80%;
+    }
+    .finalizar-compra-section .precio-and-btn-container .iva-container .iva{
+        margin: 0%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .precio-container{
+        background-color: #ededed;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        width: 80%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .subtotal-container{
+        background-color: #f5f5f5;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-top: 1px solid #000000;
+        margin-top: 1em;
+        width: 80%;
+    }
+/*MAIN - END*/
+}
+@media (min-width: 700px){
+    /*HEADER - START*/
+    .account-container{
+        display: block;
+        border-bottom: 1px solid #f1f1f1;
+        text-align: right;
+    }
+    
+    .account-container .item a i{
+        color: var(--account-container-text-color);
+    }
+
+    .account-container .item {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .account-container .item .text{
+        color: var(--account-container-text-color);
+        padding-left: 2px;
+    }
+
+    .nav-container .nav-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+        padding: 1.75rem 1.5rem;        
+    }
+    /*HEADER - END*/
+
+    /*MAIN - START*/
+    .finalizar-compra-section .precio-and-btn-container .iva-container{
+        width: 55%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .precio-container{
+        width: 55%;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .subtotal-container{
+        width: 55%;
+    }
+
+    .main-title-container{
+        justify-content: space-between;
+    }
+
+    .main-title-container .style-div .flex-container{
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-1 > h4{
+        display: block;
+        margin-bottom: 2%;
+        
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-1 > p{
+        display: block;
+        margin-top: 2%;
+        
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-2{
+        display: block;
+        margin: 5px;
+        align-items: center;
+    
+    }
+    .main-title-container .style-div .flex-container .sub-container-2 .lock-title-span{
+        margin-bottom: 2%;
+        text-align: left;
+        align-items: center;
+    }
+
+    .main-title-container .style-div .flex-container .sub-container-2 .lock-title-span > h4{
+        margin: 0%;
+        display: inline;
+    }
+    .main-title-container .style-div .flex-container .sub-container-2 > p{
+        margin-top: 2%;
+        margin-bottom: 0%;
+    
+    }
+    
+    .product-container{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .product-container .sub-container-botonera-container .sub-container-1 .product-img {
+        height: 30%;
+        width: 30%;
+    }
+
+/*FOOTER - START*/
+    .footer-container{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-container .logo-img{
+        display: block;
+        height: 15%;
+        width: 15%;
+    }
+
+/*FOOTER - END*/
+}
+
+@media (min-width: 1160px) {
+
+    .nav-container-2{
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content:center;
+        text-align: center;
+    }
+    .nav-container-2 .nav-item {
+        display: flex;
+        flex-direction: row;
+        padding: 1.75rem 1.5rem;
+        list-style: none;
+        justify-content: space-between;
+    }
+    
+    .nav-container .toggle{
+        display: none; /*Hamburguer menu hide*/
+    }
+
+    .nav-container-2 ul {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0%;
+       
+    } 
+/*HEADER - END*/
+
+/*MAIN - START*/
+    .finalizar-compra-section{
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .finalizar-compra-section .discount-container .banner-cuotas-tarjetas{
+        display: block;
+        padding-top: 20px;
+    }
+    .finalizar-compra-section .discount-container > form > input{
+        width: 40%
+    }
+    .finalizar-compra-section .precio-and-btn-container .iva-container{
+        width: 100%;
+    }
+    .finalizar-compra-section .precio-and-btn-container .iva{
+        text-align: right;
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .precio-container{
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .finalizar-compra-section .precio-and-btn-container .proceder-compra-btn{
+        margin-top: 10px;
+        width: 260px;
+    
+    }
+
+    .finalizar-compra-section .precio-and-btn-container .subtotal-container{
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .product-container{
+        justify-content: space-between;
+    }
+    .product-container .price-container-desktop{
+        border-left: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 22%;
+    }
+    .product-container .price-container-desktop .sub-container-1{
+        align-items: center;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+        padding-left: 30px;
+ 
+    }
+    .product-container .price-container-desktop .sub-container-2{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding-left: 30px;
+    }
+    .product-container .sub-container-botonera-container{
+        width: 25%;
+
+    }
+    .product-container .sub-container-botonera-container .sub-container-1 .product-img {
+        height: 55%;
+        width: 55%;
+    }
+    .product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
+        display: none;
+    }
+
+/*FOOTER - START*/
+
+/*FOOTER - END*/
+}
