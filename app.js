@@ -3,13 +3,13 @@ const app = express();
 const path = require('path')
 
 app.listen(3030, ()=>{
-    console.log('Servidor funcionando');
+    console.log("Server Status: Online");
 });
 
 app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/cart.html"))
+    res.sendFile(path.join(__dirname, "/views/home.html"))
 });
 
 app.get('/home', (req, res) => {

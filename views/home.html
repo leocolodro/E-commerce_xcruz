@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html-home">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <script
       src="https://kit.fontawesome.com/b7372bc3ff.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-
     <header>
       <div class="announcement-container"></div>
       <div class="account-container">
@@ -33,13 +32,16 @@
       <div class="header-container">
         <!--Main Header - Left-->
         <i>
-          <a href="#">
+          <a href="/">
             <img src="/images/logo.svg" alt="Logo-Tienda" class="img-logo" />
           </a>
         </i>
         <!--Main Header - Center-->
         <nav class="nav-container-2">
           <ul>
+            <li class="nav-item">
+              <a href="/" class="uppercase">Home</a>
+            </li>
             <li class="nav-item">
               <a href="#" class="uppercase">Zapatos</a>
             </li>
@@ -68,7 +70,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#">
+              <a href="/cart">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </li>
@@ -89,9 +91,8 @@
             <div class="itemCarrouselTarjeta">
               <img
                 class="itemCarrousel-img"
-                src="/images/carrusel-img-1.jpg"
-                alt=""
-              />
+                src="/images/carrusel-img/carrusel-img-1.jpg"
+                alt=""/>
             </div>
             <div class="itemCarrouselArrows">
               <a href="#itemCarrousel-3">
@@ -106,7 +107,7 @@
             <div class="itemCarrouselTarjeta">
               <img
                 class="itemCarrousel-img"
-                src="images/carrusel-img-2.jpg"
+                src="/images/carrusel-img/carrusel-img-2.jpg"
                 alt=""
               />
             </div>
@@ -123,7 +124,7 @@
             <div class="itemCarrouselTarjeta">
               <img
                 class="itemCarrousel-img"
-                src="/images/carrusel-img-3.jpg"
+                src="/images/carrusel-img/carrusel-img-3.jpg"
                 alt=""
               />
             </div>
@@ -140,13 +141,13 @@
       </section>
 
       <!-- PRODUCTOS -->
-      <h1 class="titulo">PRODUCTOS DESTACADOS</h1>
+      <h1 class="home-productos-destacados-titulo">PRODUCTOS DESTACADOS</h1>
 
       <!-- Linea -->
       <center>
-        <hr />
+        <hr class="home-productos-destacados-hr">
       </center>
-      <section class="contenedor-productos">
+      <section class="contenedor-productos-home">
         <div class="item-caja">
           <img src="/images/img-zapato.webp" alt="" />
           <p>Producto 1</p>
@@ -197,7 +198,7 @@
               <img
                 class="itemCarrousel-img"
                 itemCarrousel-img
-                src="/images/carrusel-img-1.jpg"
+                src="/images/carrusel-img/carrusel-img-1.jpg"
                 alt=""
               />
             </div>
@@ -215,7 +216,7 @@
             <div class="item-carrousel-Tarjeta-ofertas">
               <img
                 class="itemCarrousel-img"
-                src="images/carrusel-img-2.jpg"
+                src="images/carrusel-img/carrusel-img-2.jpg"
                 alt=""
               />
             </div>
@@ -232,7 +233,7 @@
             <div class="item-carrousel-Tarjeta-ofertas">
               <img
                 class="itemCarrousel-img"
-                src="/images/carrusel-img-3.jpg"
+                src="/images/carrusel-img/carrusel-img-3.jpg"
                 alt=""
               />
             </div>
@@ -255,9 +256,9 @@
 
       <!-- newsletter -->
 
-      <h3 class="newsletter-titulo">NUESTRO NEWSLETTER</h3>
+      <h3 class="newsletter-home-titulo">NUESTRO NEWSLETTER</h3>
 
-      <form action="#" method="POST" class="create-form">
+      <form action="#" method="POST" class="create-form-home">
         <div class="control-formulario">
           <input
             type="text"
@@ -271,16 +272,16 @@
         <button class="boton-formulario">Inscribirse</button>
       </form>
 
-      <h3 class="newsletter-titulo">@ NUESTRO NEWSLETTER</h3>
+      <h3 class="newsletter-home-titulo">@ NUESTRO NEWSLETTER</h3>
 
-      <div class="newsletter-contenedor__iconos">
+      <div class="newsletter-home-contenedor__iconos">
         <i class="fa-brands fa-facebook"></i>
         <i class="fa-brands fa-instagram"></i>
       </div>
 
       <!-- Carrousel Envios -->
 
-      <div class="color-de-fondo">
+      <div class="carrousel-container">
         <section class="carrousel-envios">
           <article class="conte-carrousel-envios">
             <div class="item-carrousel-envios" id="carrousel-envios-1">
@@ -343,10 +344,9 @@
         </section>
       </div>
     </main>
-
     <!-- Footer -->
-    <div class="contendero-footer">
-      <footer class="footer">
+    <div class="contendero-footer-home">
+      <footer class="footer-home">
         <section class="footer-contenedor-ul">
           <h4 class="footer-contenedor__titulo">Titulo</h4>
           <ul class="footer-lista">
@@ -379,7 +379,7 @@
       </footer>
     </div>
 
-    <section class="footer-copy">
+    <section class="footer-copyright-home">
       <h6>Copyright X cruz - 2022.</h6>
     </section>
   </body>
