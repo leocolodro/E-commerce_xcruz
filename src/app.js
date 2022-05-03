@@ -1,6 +1,12 @@
+//Express
 const express = require('express');
 const app = express();
-const path = require('path')
+
+//Path
+const path = require('path');
+
+//Routes
+const homeRouter = require('./routes/homeRouter.js');
 
 app.listen(3030, ()=>{
     console.log("Server Status: Online");
@@ -9,6 +15,9 @@ app.listen(3030, ()=>{
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+
+//TEST
+/*app.use('/', homeRouter);*/
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/home.html"))

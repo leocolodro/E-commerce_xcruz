@@ -2,7 +2,7 @@
   "name": "grupo_3_hello_world",
   "version": "1.0.0",
   "description": "Tematica: \"Venta de calzados\"\r Basicamente, el ecommerce en cuestion desarrollará la actividad de venta de calzados elegantes tanto para mujeres como para hombre que posean una edad de 16 años en adelante.\r La tienda apunta a una clientela de clase media alta en adelante",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
