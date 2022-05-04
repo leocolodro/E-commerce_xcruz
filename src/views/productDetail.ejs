@@ -28,76 +28,21 @@
           <h5> Talles </h5>
           <select name="producto-detalle-talles" id="select-cantidad">
             <!--JS bucle "for" -> talles -->
-            =<% for( let i = 0; i < producto.talles.length; i++ ) { %>
+            <% for( let i = 0; i < producto.talles.length; i++ ) { %>
               <option value="1"> <%= producto.talles[i] %> </option>
             <% } %>
           </select>
           <h5> Seleccionar Color: </h5>
-          <div class="producto-detalle-colores">
-            <span class="color-negro"></span>
-            <span class="color-azul"></span>
+          <div class="producto-detalle-colores-container">
+            <% for( let i = 0; i < producto.colores.length; i++ ) { %>
+              <span class="color"> <%= producto.colores[i] %> </span>
+            <% } %>
           </div>
           <hr class="producto-detalle-linea"> 
           <button class="producto-detalle-boton-carrito">Agregar al carrito</button>
         </div>
       </section>
       <!-- Productos relacionados -->
-<!-- CARROUSEL-Productos Destacados -->
-<h4 class="producto-detalle-titulo-destacados">Productos Destacados</h4>
-<section class="contenedor-productos-destacados">
-<div class="conteItemsCarrusel-producto-detalle">
-<div class="itemCarrousel-producto-detalle" id="item-carrusel-1-producto-detalle">
-  <div class="tarjetaCarrusel-producto-detalle">
-    
-    <img class="producto-detalle-img" src="/images/img-zapato.webp" alt="">
-      <p>Producto 1</p>
-      <p>Precio: 20.000</p>
-  </div>
-  <div class="flechasCarrusel-producto-detalle">
-    <a class="detalle-producto-detalle-a" href="#item-carrusel-3-producto-detalle">
-       <i class="fas fa-chevron-left detalle-producto-i"></i>
-    </a>
-    <a class="detalle-producto-a" href="#item-carrusel-2-producto-detalle">
-      <i class="fas fa-chevron-right detalle-producto-i"></i>
-    </a>
-  </div>
-</div>
-
-<div class="itemCarrousel-producto-detalle" id="item-carrusel-2-producto-detalle">
-  <div class="tarjetaCarrusel-producto-detalle ">
-    
-    <img class="producto-detalle-img" src="/images/img-zapato.webp" alt="">
-      <p>Producto 2</p>
-      <p>Precio: 15.000</p>
-  </div>
-  <div class="flechasCarrusel-producto-detalle">
-    <a class="detalle-producto-detalle-a" href="#item-carrusel-1-producto-detalle">
-       <i class="fas fa-chevron-left detalle-producto-i"></i>
-    </a>
-    <a class="detalle-producto-a" href="#item-carrusel-3-producto-detalle">
-      <i class="fas fa-chevron-right detalle-producto-i"></i>
-    </a>
-  </div>
-</div>
-
-<div class="itemCarrousel-producto-detalle" id="item-carrusel-3-producto-detalle">
-  <div class="tarjetaCarrusel-producto-detalle">
-    
-    <img class="producto-detalle-img" src="/images/img-zapato.webp" alt="">
-      <p>Producto 3</p>
-      <p>Precio: 10.000</p>
-  </div>
-  <div class="flechasCarrusel-producto-detalle">
-    <a class="detalle-producto-detalle-a" href="#item-carrusel-2-producto-detalle">
-       <i class="fas fa-chevron-left detalle-producto-i"></i>
-    </a>
-    <a class="detalle-producto-a" href="#item-carrusel-1-producto-detalle">
-      <i class="fas fa-chevron-right detalle-producto-i"></i>
-    </a>
-  </div>
-</div>
-</div>
-</section>
     </main>
     <%- include('./partials/footerPrincipal') %>
   </body>

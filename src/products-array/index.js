@@ -14,6 +14,7 @@ const productos = [
         porcentajeDescuento: "0",
         precio: "10500",
         talles: [38, 40, 42, 43, 44],
+        colores:["Marron", "Negro"],
         imagenesUrl: ['../images/zapatos/producto_1/zapato_cuero_marron_1.jpg','../images/zapatos/producto_1/zapato_cuero_marron_2.jpg','../images/zapatos/producto_1/zapato_cuero_marron_3.jpg']
         
     },
@@ -25,6 +26,7 @@ const productos = [
         porcentajeDescuento: "0",
         precio: "12990",
         talles: [39, 41, 42],
+        colores:["Negro"],
         imagenesUrl: ['../images/zapatos/producto_2/zapato_cuero_punta_negro_1.jpg', '../images/zapatos/producto_2/zapato_cuero_punta_negro_2.jpg', '../images/zapatos/producto_2/zapato_cuero_punta_negro_3.jpg']
     },
     {
@@ -34,6 +36,7 @@ const productos = [
         porcentajeDescuento: "0",
         precio: "10500",
         talles: [40, 42],
+        colores:["Negro"],
         imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
     }
 ];
