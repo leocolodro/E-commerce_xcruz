@@ -12,93 +12,25 @@
     ></script>
   </head>
   <body>
-    <header>
-      <div class="announcement-container"></div>
-      <div class="account-container">
-        <span class="item">
-          <a href="#">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            <small class="text uppercase">Crear cuenta</small>
-          </a>
-        </span>
-        <span class="item">
-          <a href="/login">
-            <i class="fa-solid fa-address-card"></i>
-            <small class="text uppercase">Iniciar sesión</small>
-          </a>
-        </span>
-      </div>
-      <!--Main Header-->
-      <div class="header-container">
-        <!--Main Header - Left-->
-        <i>
-          <a href="/">
-            <img src="/images/logo.svg" alt="Logo-Tienda" class="img-logo" />
-          </a>
-        </i>
-        <!--Main Header - Center-->
-        <nav class="nav-container-2">
-          <ul>
-            <li class="nav-item">
-              <a href="/" class="uppercase">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Zapatos</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Sucursales</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Contacto</a>
-            </li>
-          </ul>
-        </nav>
-        <!--Main Header - Right-->
-        <nav class="nav-container">
-          <ul>
-            <li class="nav-item">
-              <a href="#">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#">
-                <i class="fa-solid fa-bookmark"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-            </li>
-            <li class="nav-item toggle">
-              <a href="#">
-                <i class="fa-solid fa-bars"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <%- include('./partials/header') %>
     <main>
+      <!--Producto-->
       <section class="contenedor-producto-detalle">
         <div class="producto-detalle-caja-1">
-          <img src="/images/img-zapato.webp" class="producto-detalle-img" alt=""/>
+          <!--Imagen-->
+          <img src="/images/<%= producto.imagenesUrl[0] %>" class="producto-detalle-img" alt="Zapato"/>
         </div>
+        <!-- Contenedor Titulo & Precio--> 
         <div class="producto-detalle-caja-2">
-          <p class="producto-detalle-titulo-talles">Producto 1</p>
-          <p class="producto-detalle-titulo-talles">Precio: 11.000$</p>
+          <p class="producto-detalle-titulo-talles"> <%= producto.titulo %> </p>
+          <p class="producto-detalle-titulo-talles">$ <%= producto.precio %> </p>
+          <!--Talles-->
           <h5> Talles </h5>
           <select name="producto-detalle-talles" id="select-cantidad">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">4</option>
-          <h5></h5>
+            <!--JS bucle "for" -> talles -->
+            =<% for( let i = 0; i < producto.talles.length; i++ ) { %>
+              <option value="1"> <%= producto.talles[i] %> </option>
+            <% } %>
           </select>
           <h5> Seleccionar Color: </h5>
           <div class="producto-detalle-colores">
@@ -109,8 +41,7 @@
           <button class="producto-detalle-boton-carrito">Agregar al carrito</button>
         </div>
       </section>
-    </main>
-<!-- Productos relacionados -->
+      <!-- Productos relacionados -->
 <!-- CARROUSEL-Productos Destacados -->
 <h4 class="producto-detalle-titulo-destacados">Productos Destacados</h4>
 <section class="contenedor-productos-destacados">
@@ -167,44 +98,7 @@
 </div>
 </div>
 </section>
-
-        <!-- Footer -->
-
-    <div class="contendero-footer-home">
-      <footer class="footer-home">
-        <section class="footer-contenedor-ul">
-          <h4 class="footer-contenedor__titulo">Titulo</h4>
-          <ul class="footer-lista">
-            <li class="lista-link"><a class="lista-link" href=""> link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-          </ul>
-        </section>
-        <section class="footer-contenedor-ul">
-          <h4 class="footer-contenedor__titulo">Titulo-2</h4>
-          <ul class="footer-lista">
-            <li class="lista-link"><a class="lista-link" href="">link</a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-          </ul>
-        </section>
-
-        <section class="footer-contenedor-ul">
-          <h4 class="footer-contenedor__titulo">Titulo-3</h4>
-          <ul class="footer-lista">
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href=""> link</a></li>
-            <li class="lista-link"><a class="lista-link" href=""> link</a></li>
-          </ul>
-        </section>
-      </footer>
-    </div>
-
-    <section class="footer-copyright-home">
-      <h6>Copyright X cruz - 2022.</h6>
-    </section>
+    </main>
+    <%- include('./partials/footerPrincipal') %>
   </body>
 </html>
