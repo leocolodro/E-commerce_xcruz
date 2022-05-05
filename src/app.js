@@ -8,6 +8,7 @@ const path = require('path');
 //Routes
 const homeRouter = require('./routes/homeRouter.js');
 const productDetailRouter = require('./routes/productDetailRouter.js');
+const cartRouter = require('./routes/cartRouter.js');
 
 app.listen(3030, ()=>{
     console.log("Server Status: Online");
