@@ -16,6 +16,17 @@ const ProductDetailController = {
             return producto.id == req.params.id;
         });
 
+        
+        //ONLY FOR TEST
+        /* Eliminar más adelante */
+        /*-------------------------------------------------------------------*/
+        let productosRelacionadosArray = [];
+        for(let i=0; i < 3; i++){
+            let randomNum = Math.floor(Math.random() * productos.length);
+            productosRelacionadosArray[i] = productos[randomNum];
+        }
+        /*-------------------------------------------------------------------*/
+
         /*Si no encuentra el producto*/
         if(producto == undefined){
             res.send("ERROR.\nProducto no encontrado!");
@@ -23,7 +34,7 @@ const ProductDetailController = {
 
         /*Sí encuentra el producto*/
         else{
-            res.render(path.join(__dirname, '../views/productDetail.ejs'), {producto: producto});
+            res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: producto, productosRelacionados: productosRelacionadosArray});
         }    
     }
 }

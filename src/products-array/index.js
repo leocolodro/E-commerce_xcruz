@@ -11,7 +11,7 @@ const productos = [
         titulo: "Siena",
         colores: ["Marrón"],
         categoria: "Botas",
-        porcentajeDescuento: "0",
+        porcentajeDescuento: 0,
         precio: "10500",
         talles: [38, 40, 42, 43, 44],
         colores:["Marron", "Negro"],
@@ -23,7 +23,7 @@ const productos = [
         titulo: "2558",
         colores: ["Negro"],
         categoria: "De vestir",
-        porcentajeDescuento: "0",
+        porcentajeDescuento: 0,
         precio: "12990",
         talles: [39, 41, 42],
         colores:["Negro"],
@@ -33,9 +33,29 @@ const productos = [
         id: "3",
         titulo: "RE9",
         colores: ["Marrón"],
-        porcentajeDescuento: "0",
+        porcentajeDescuento: 0,
         precio: "10500",
         talles: [40, 42],
+        colores:["Negro"],
+        imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
+    },
+    {
+        id: "4",
+        titulo: "xxx",
+        colores: ["xxxx"],
+        porcentajeDescuento: 0,
+        precio: "10500",
+        talles: [41, 42, 43],
+        colores:["Negro"],
+        imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
+    },
+    {
+        id: "5",
+        titulo: "xxx",
+        colores: ["xxxx"],
+        porcentajeDescuento: 0,
+        precio: "xxxx",
+        talles: [39, 42],
         colores:["Negro"],
         imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
     }

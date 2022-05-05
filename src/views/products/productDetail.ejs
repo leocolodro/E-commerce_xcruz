@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/styles.css" />
-    <script
-      src="https://kit.fontawesome.com/b7372bc3ff.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/b7372bc3ff.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     <main>
       <!--Producto-->
       <section class="contenedor-producto-detalle">
@@ -22,17 +19,18 @@
         </div>
         <!-- Contenedor Titulo & Precio--> 
         <div class="producto-detalle-caja-2">
-          <p class="producto-detalle-titulo-talles"> <%= producto.titulo %> </p>
-          <p class="producto-detalle-titulo-talles">$ <%= producto.precio %> </p>
+          <h2 class="titulo"> <%= producto.titulo %> </h2>
+          <p class="precio">$<%= producto.precio %> </p>
+          <p class="descuento"> <%= producto.porcentajeDescuento %>% Off</p>
           <!--Talles-->
-          <h5> Talles </h5>
+          <h4 class="talles-titulo"> Talles </h4>
           <select name="producto-detalle-talles" id="select-cantidad">
             <!--JS bucle "for" -> talles -->
             <% for( let i = 0; i < producto.talles.length; i++ ) { %>
               <option value="1"> <%= producto.talles[i] %> </option>
             <% } %>
           </select>
-          <h5> Seleccionar Color: </h5>
+          <h4 class="seleccionar-color-titulo"> Seleccionar Color: </h4>
           <div class="producto-detalle-colores-container">
             <% for( let i = 0; i < producto.colores.length; i++ ) { %>
               <span class="color"> <%= producto.colores[i] %> </span>
@@ -43,7 +41,24 @@
         </div>
       </section>
       <!-- Productos relacionados -->
+      <h5 class="product-detail-productos-relacionados-title">PRODUCTOS RELACIONADOS</h5>
+      <center>
+        <hr class="product-detail-destacados-hr"> 
+      </center>
+      <div class="productos-relacionados-container">
+        <div class="child-container">
+          <% productosRelacionados.forEach(element => { %>
+            <div class="flex-item">
+              <img src="/images/<%= element.imagenesUrl[0]  %>" alt="Producto" />
+              <div class="descripcion-container">
+                <p> <%= element.titulo %> </p>
+                <p>$ <%= element.precio %> </p>
+              </div>
+            </div>            
+          <% }); %> 
+        </div>
+    </div>
     </main>
-    <%- include('./partials/footerPrincipal') %>
+    <%- include('../partials/footerPrincipal') %>
   </body>
 </html>
