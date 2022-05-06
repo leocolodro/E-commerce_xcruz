@@ -22,6 +22,7 @@ app.use(express.static("public"));
 /*app.use('/', homeRouter);*/
 app.use('/producto', productDetailRouter);
 app.use('/', homeRouter);
+app.use('/cart', cartRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/home.html"))
