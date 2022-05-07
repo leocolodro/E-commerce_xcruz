@@ -6,7 +6,7 @@ const path = require('path');
 /*(!) Quitar, a futuro, por la database de los productos*/ 
 const productos = require('../products-array');
 
-const ProductDetailController = {
+const ProductController = {
     
     //Mostrar el detalle del producto
     display: function(req, res){
@@ -35,9 +35,19 @@ const ProductDetailController = {
         /*Sí encuentra el producto*/
         else{
             res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: producto, productosRelacionados: productosRelacionadosArray});
-        }    
+        }
+    },
+    
+    //Añadir producto
+
+    nuevo: function(req, res){
+        res.render(path.join(__dirname, '../views/products/newProduct.ejs'),);
+    },
+
+    editar: function(req, res){
+        res.render(path.join(__dirname, '../views/products/editProduct.ejs'),);
     }
 }
 
 //Export.
-module.exports = ProductDetailController;
+module.exports = ProductController;

@@ -6,7 +6,7 @@ const app = express();
 const path = require('path');
 
 //Routes
-const productDetailRouter = require('./src/routes/productDetailRouter.js');
+const productRouter = require('./src/routes/productRouter.js');
 const registerRouter = require('./src/routes/registerRouter.js');
 
 app.listen(3030, ()=>{
@@ -17,9 +17,8 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-//TEST
-/*app.use('/', homeRouter);*/
-app.use('/producto', productDetailRouter);
+
+app.use('/producto', productRouter);
 
 app.use('/registro', registerRouter);
 
@@ -37,8 +36,4 @@ app.get('/login', (req, res) => {
 
 app.get('/cart', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/cart.html"))
-})
-
-app.get('/productDetail', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/productDetail.html"))
 })
