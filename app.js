@@ -6,9 +6,8 @@ const app = express();
 const path = require('path');
 
 //Routes
-const homeRouter = require('./routes/homeRouter.js');
-const productDetailRouter = require('./routes/productDetailRouter.js');
-const cartRouter = require('./routes/cartRouter.js');
+const productDetailRouter = require('./src/routes/productDetailRouter.js');
+const registerRouter = require('./src/routes/registerRouter.js');
 
 app.listen(3030, ()=>{
     console.log("Server Status: Online");
@@ -21,8 +20,8 @@ app.use(express.static("public"));
 //TEST
 /*app.use('/', homeRouter);*/
 app.use('/producto', productDetailRouter);
-app.use('/', homeRouter);
-app.use('/cart', cartRouter);
+
+app.use('/registro', registerRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/home.html"))
@@ -31,10 +30,6 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/home.html"))
 });
-
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views//users/register.html"))
-})
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/users/login.html"))

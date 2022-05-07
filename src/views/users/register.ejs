@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/47b81c9b5a.js" crossorigin="anonymous"></script>
+    <title>Registrarse</title>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main>
+        <div class="register-container">
+            <form action="/register" method="POST" class="register-form">
+                <h3>Crea una cuenta</h3>
+                <section class="nombre-apellido-section">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" class="nombre-input" placeholder="Nombre" required>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" name="apellido" class="apellido-input" placeholder="Apellido" required>
+                </section>
+                <section class="telefono-section">
+                  <label for="telefono">Teléfono</label>
+                  <input type="telephone" name="telefono" class="telefono" placeholder="Teléfono">
+                </section>
+                <section class="email-section">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" class="email" placeholder="Email" required>
+                </section>
+                <section class="contrasena-section">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" name="contrasena" class="contrasena" placeholder="contraseña" required>
+                    <label for="confirmar-contrasena">Confirmar contraseña:</label>
+                    <input type="password" name="confirmar-contrasena" class="confirmar-contrasena" placeholder="Confirmar contraseña" required>
+                </section>
+                <section class="botonera-section">
+                    <button>Crear cuenta</button> 
+                </section>
+            </form>
+            <p class="o-separador">O</p>
+            <div class="registrarse-google-container"> 
+              <button class="registrarse-google-btn">
+                <p>Registrarse con Google</p>
+                <i class="fa-brands fa-google"></i>
+            </button>
+          </div>
+        </div>
+  </main>
+  <%- include('../partials/footerPrincipal') %>
+</body>
+</html>
