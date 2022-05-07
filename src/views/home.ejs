@@ -9,78 +9,8 @@
     <title>Home</title>
   </head>
   <body>
-    <header>
-      <div class="announcement-container"></div>
-      <div class="account-container">
-        <span class="item">
-          <a href="/register">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            <small class="text uppercase">Crear cuenta</small>
-          </a>
-        </span>
-        <span class="item">
-          <a href="/login">
-            <i class="fa-solid fa-address-card"></i>
-            <small class="text uppercase">Iniciar sesión</small>
-          </a>
-        </span>
-      </div>
-      <!--Main Header-->
-      <div class="header-container">
-        <!--Main Header - Left-->
-        <i>
-          <a href="/">
-            <img src="/images/logo.svg" alt="Logo-Tienda" class="img-logo" />
-          </a>
-        </i>
-        <!--Main Header - Center-->
-        <nav class="nav-container-2">
-          <ul>
-            <li class="nav-item">
-              <a href="/" class="uppercase">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Zapatos</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Sucursales</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="uppercase">Contacto</a>
-            </li>
-          </ul>
-        </nav>
-        <!--Main Header - Right-->
-        <nav class="nav-container">
-          <ul>
-            <li class="nav-item">
-              <a href="#">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#">
-                <i class="fa-solid fa-bookmark"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-            </li>
-            <li class="nav-item toggle">
-              <a href="#">
-                <i class="fa-solid fa-bars"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main>
+  <%- include('./partials/header') %>
+  <main>
       <!-- Carrousel -->
       <section class="carrousel">
         <article class="conteCarrousel">
@@ -340,44 +270,7 @@
           </div>
         </section>
       </div>
-    </main>
-    <!-- Footer -->
-    <footer class="contenedor-footer-home">
-      <div class="footer-home">
-        <section class="footer-contenedor-ul">
-          <h4 class="footer-contenedor__titulo">Titulo</h4>
-          <ul class="footer-lista">
-            <li class="lista-link"><a class="lista-link" href=""> link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-          </ul>
-        </section>
-
-        <section class="footer-contenedor-ul">
-          <h4 class="footer-contenedor__titulo">Titulo-2</h4>
-          <ul class="footer-lista">
-            <li class="lista-link"><a class="lista-link" href="">link</a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-          </ul>
-        </section>
-
-        <section class="footer-contenedor-ul">
-          <h4 class="footer-contenedor__titulo">Titulo-3</h4>
-          <ul class="footer-lista">
-            <li class="lista-link"><a class="lista-link" href="">link </a></li>
-            <li class="lista-link"><a class="lista-link" href=""> link</a></li>
-            <li class="lista-link"><a class="lista-link" href=""> link</a></li>
-          </ul>
-        </section>
-      </div>
-    </footer>
-
-    <section class="footer-copyright-home">
-      <h6>Copyright X cruz - 2022.</h6>
-    </section>
+  </main>
+  <%- include('./partials/footerPrincipal') %>
   </body>
 </html>
