@@ -26,7 +26,7 @@ app.use('/', homeRouter);
 
 app.use('/producto', productRouter);
 
-app.use('/registro', registerRouter);
+app.use('/register', registerRouter);
 
 app.use('/adm', adminRouter);
 
