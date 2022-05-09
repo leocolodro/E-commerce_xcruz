@@ -37,16 +37,6 @@ const ProductController = {
             res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: producto, productosRelacionados: productosRelacionadosArray});
         }
     },
-    
-    //Añadir producto
-
-    nuevo: function(req, res){
-        res.render(path.join(__dirname, '../views/products/newProduct.ejs'),);
-    },
-
-    editar: function(req, res){
-        res.render(path.join(__dirname, '../views/products/editProduct.ejs'),);
-    }
 }
 
 //Export.

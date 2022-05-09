@@ -8,6 +8,7 @@ const path = require('path');
 //Routes
 const productRouter = require('./src/routes/productRouter.js');
 const registerRouter = require('./src/routes/registerRouter.js');
+const adminRouter = require('./src/routes/adminRouter.js')
 
 app.listen(3030, ()=>{
     console.log("Server Status: Online");
@@ -21,6 +22,8 @@ app.use(express.static("public"));
 app.use('/producto', productRouter);
 
 app.use('/registro', registerRouter);
+
+app.use('/adm', adminRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "/views/home.html"))

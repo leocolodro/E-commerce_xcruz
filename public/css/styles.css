@@ -687,6 +687,114 @@ a{
     display: none;
 }
 
+    /*newProduct.ejs - START*/
+.crear-producto-container{
+    margin: 5%;
+}
+
+.crear-producto-container .nuevo-producto-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+}
+
+.crear-producto-container .nuevo-producto-form > div{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.crear-producto-container .nuevo-producto-form > div > section{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .color-subcontainer{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.crear-producto-container .nuevo-producto-form > div> section{
+    margin: 2% auto 2%;
+}
+.crear-producto-container .nuevo-producto-form > div > section > div{
+    text-align: center;
+    margin: 3% auto 3%;
+    height: 30px;
+    width: 100%;
+}
+
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .descripcion-subcontainer {
+    display: flex;
+    flex-direction: column;
+    height: 8em;
+    width: 100%;
+}
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .descripcion-subcontainer > label {
+    text-align: left;
+    width: 95%;  
+}
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .descripcion-subcontainer > textarea {
+    height: 80%;
+    width: 95%
+}
+
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 > div > div > select{
+    width: 100%;
+    height: 25px;
+}
+
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .titulo-subcontainer #titulo{
+    width: 80%;
+    height: 2em;
+}
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-2 .img-flex-container{
+    display: none;
+} 
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+}
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .precio-subcontainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .precio-subcontainer > label {
+    text-align: left;
+    width: 100%;
+}
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer > select{
+    width: 100%;
+    height: 25px;
+}
+
+    /*newProduct.ejs - END*/
+
     /*productDetail.ejs - START*/
 .contenedor-producto-detalle{
     display: flex;
@@ -783,7 +891,7 @@ a{
     width: 50px;
     background-color: black;
  }
-    /* PRODUCT - DETAIL - END */
+    /* productDetail - END */
 
     /*register.html - START*/
 .register-container{
@@ -1070,6 +1178,72 @@ footer .copyright-container > small {
         height: 30%;
         width: 30%;
     }
+
+        /*newProduct.ejs - START*/
+    .crear-producto-container .nuevo-producto-form{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .crear-producto-container .nuevo-producto-form .form-container-2{
+        border-left: 1px solid #000000;
+    }
+    
+    .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer > div{
+        width: 40%;
+    }
+    .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer > div > label{
+        text-align: left;
+        width: 100%;
+    }
+    .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .color-subcontainer .color-sub-sub-container{
+        margin-left: 6.5%;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .color-subcontainer .color-sub-sub-container > select{
+        width: 43%;
+    }
+
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-2{
+        border-bottom: 1px solid #000000;  
+    }
+
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-2 .agregar-imagen{
+        margin-top: 40px;
+        margin-bottom: 20px;  
+    }
+
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-2 .img-flex-container{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 20%;
+        justify-content: space-evenly;
+        padding-bottom: 5%;
+        width: 90%;
+    }
+
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-2 .img-flex-container > img{
+        box-shadow: 0 1px 8px #ddd;
+        width: 30%;
+        height: 100%;
+    }
+
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-3{
+        margin-top: 40px;
+    }
+
+    
+   .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera {
+        margin-top: 15%;
+    }
+
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
+        justify-content: space-evenly;
+    }
+        /*newProduct.ejs - END*/
+
         /*productDetail.ejs - START */
     .contenedor-producto-detalle{
         align-items: center;
