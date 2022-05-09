@@ -11,7 +11,85 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        
+       <div class="editar-producto-container">
+            <form action="/nuevo-producto" method="PUT" class="editar-producto-form">
+                <div class="form-container-1">
+                    <section class="section-1">
+                        <div class="titulo-subcontainer">
+                            <input type="text" name="titulo" id="titulo" placeholder=" <%= producto.titulo %> " required >
+                        </div>
+                        <div class="categoria-genero-subcontainer">
+                            <div class="categoria-subcontainer">
+                                <label for="categoria">Categoría</label><br />
+                                <%# Categorias Loop %> 
+                                <select name="categoria" id="categoria">          
+                                    <% categorias.forEach(categoria => { %>
+                                        <option value=" <%= categoria %>  "> <%= categoria %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <div class="genero-subcontainer">
+                                <label for="genero">Genero</label><br />
+                                <!--Genero Select-->
+                                <select name="genero" id="genero">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="color-subcontainer">
+                            <div class="color-sub-sub-container">
+                                <label for="color">Color</label><br /> 
+                                <select name="color" id="color">          
+                                    <% colores.forEach(color => { %>
+                                        <option value=" <%= color %>  "> <%= color %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="descripcion-subcontainer">
+                            <label for="descripcion">Descripción</label>
+                            <textarea name="descripcion" id="descripcion" placeholder=" <%= producto.descripcion %> "></textarea>
+                        </div>
+                    </section>
+                    </div>
+                    <div class="form-container-2">
+                    <section class="section-2">
+                        <div class="agregar-imagen">
+                            <input type="file" name="agregar-imagen" id="agregar-imagen" accept="image/png, image/jpeg, image/jpg" multiple="multiple">
+                        </div>
+                        <div class="img-flex-container">
+                            <% for( let i = 0; i < 3; i++ ) { %>
+                                <img src=" ../<%= producto.imagenesUrl[i] %>  " alt="Foto - Producto">
+                            <% } %> 
+                        </div>
+                    </section>
+                    <section class="section-3">
+                        <div class="talle-precio-subcontainer">
+                            <div class="talle-subcontainer">
+                                <label for="talles">Talles</label>
+                                <select name="talles" id="talles">
+                                    <% talles.forEach(talle => { %>
+                                        <option value=" <%= talle %> " > <%= talle %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <div class="precio-subcontainer">
+                                <label for="precio">Precio</label>
+                                <span>
+                                    <label for="precio">$</label>
+                                    <input type="text" name="precio" id="precio" placeholder="<%= producto.precio %>" required>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="botonera">
+                            <button type="submit" class="agregar-producto-btn">Agregar producto</button>
+                            <button type="reset" class="cancelar-btn">Cancelar</button>
+                        </div>
+                    </section>
+                </div>
+            </form>
+       </div> 
     </main>
     <%- include('../partials/footerPrincipal') %>
 </body>

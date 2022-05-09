@@ -15,6 +15,7 @@ const productos = [
         precio: "10500",
         talles: [38, 40, 42, 43, 44],
         colores:["Marron", "Negro"],
+        descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
         imagenesUrl: ['../images/zapatos/producto_1/zapato_cuero_marron_1.jpg','../images/zapatos/producto_1/zapato_cuero_marron_2.jpg','../images/zapatos/producto_1/zapato_cuero_marron_3.jpg']
         
     },
@@ -27,6 +28,7 @@ const productos = [
         precio: "12990",
         talles: [39, 41, 42],
         colores:["Negro"],
+        descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
         imagenesUrl: ['../images/zapatos/producto_2/zapato_cuero_punta_negro_1.jpg', '../images/zapatos/producto_2/zapato_cuero_punta_negro_2.jpg', '../images/zapatos/producto_2/zapato_cuero_punta_negro_3.jpg']
     },
     {
@@ -37,6 +39,7 @@ const productos = [
         precio: "10500",
         talles: [40, 42],
         colores:["Negro"],
+        descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
         imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
     },
     {
@@ -47,6 +50,7 @@ const productos = [
         precio: "10500",
         talles: [41, 42, 43],
         colores:["Negro"],
+        descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
         imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
     },
     {
@@ -57,6 +61,7 @@ const productos = [
         precio: "xxxx",
         talles: [39, 42],
         colores:["Negro"],
+        descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
         imagenesUrl: ['../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg','../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg', '../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg']
     }
 ];

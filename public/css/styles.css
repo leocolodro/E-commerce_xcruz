@@ -686,6 +686,123 @@ a{
 .product-container .price-container-desktop{
     display: none;
 }
+    /*editProduct.ejs - START*/
+    .editar-producto-container{
+        margin: 5%;
+    }
+    
+    .editar-producto-container .editar-producto-form{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        
+    }
+    
+    .editar-producto-container .editar-producto-form > div{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .editar-producto-container .editar-producto-form > div > section{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .color-subcontainer{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .editar-producto-container .editar-producto-form > div> section{
+        margin: 2% auto 2%;
+    }
+    .editar-producto-container .editar-producto-form > div > section > div{
+        text-align: center;
+        margin: 3% auto 3%;
+        height: 30px;
+        width: 100%;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .descripcion-subcontainer {
+        display: flex;
+        flex-direction: column;
+        height: 8em;
+        width: 100%;
+    }
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .descripcion-subcontainer > label {
+        text-align: left;
+        width: 95%;  
+    }
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .descripcion-subcontainer > textarea {
+        height: 80%;
+        width: 95%
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 > div > div > select{
+        width: 100%;
+        height: 25px;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .titulo-subcontainer #titulo{
+        width: 80%;
+        height: 2em;
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-2 .img-flex-container{
+        display: none;
+    } 
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .botonera{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .botonera .cancelar-btn{
+        margin-top: 10px;
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .botonera > button{
+        background: #3cbdaf;
+        border-radius: 2px;
+        color: #FFF;
+        padding: 8px;
+        width: 140px;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .precio-subcontainer{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .precio-subcontainer > label {
+        text-align: left;
+        width: 100%;
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer > select{
+        width: 100%;
+        height: 25px;
+    }
+    /*editProduct.ejs - END*/
 
     /*newProduct.ejs - START*/
 .crear-producto-container{
@@ -767,8 +884,19 @@ a{
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera{
     align-items: center;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera .cancelar-btn{
+    margin-top: 10px;
+}
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera > button{
+    background: #3cbdaf;
+    border-radius: 2px;
+    color: #FFF;
+    padding: 8px;
+    width: 140px;
 }
 
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
@@ -1179,7 +1307,80 @@ footer .copyright-container > small {
         width: 30%;
     }
 
+        /*editProduct.ejs - START*/
+
+    .editar-producto-container .editar-producto-form{        
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .editar-producto-container .editar-producto-form .form-container-2{
+        border-left: 1px solid #000000;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer > div{
+        width: 40%;
+        text-align: left;
+    }
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer > div > label{
+        text-align: left;
+        width: 100%;
+    }
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .color-subcontainer .color-sub-sub-container{
+        margin-left: 6.5%;
+        text-align: left;
+        width: 100%;
+    }
+        
+    .editar-producto-container .editar-producto-form .form-container-1 .section-1 .color-subcontainer .color-sub-sub-container > select{
+        width: 43%;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-2 .section-2{
+        border-bottom: 1px solid #000000;  
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-2 .section-2 .agregar-imagen{
+        margin-top: 40px;
+        margin-bottom: 20px;  
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-2 .section-2 .img-flex-container{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 20%;
+        justify-content: space-evenly;
+        padding-bottom: 5%;
+        width: 90%;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-2 .section-2 .img-flex-container > img{
+        box-shadow: 0 1px 8px #ddd;
+        width: 30%;
+        height: 100%;
+    }
+    
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3{
+        margin-top: 40px;
+    }
+    
+        
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .botonera {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 15%;
+        margin-bottom: 0px;
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .botonera .cancelar-btn{
+        margin-top: 0;
+    }
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
+        justify-content: space-evenly;
+    }
+
         /*newProduct.ejs - START*/
+
     .crear-producto-container .nuevo-producto-form{
         flex-direction: row;
         justify-content: space-evenly;
@@ -1190,6 +1391,7 @@ footer .copyright-container > small {
     
     .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer > div{
         width: 40%;
+        text-align: left;
     }
     .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .categoria-genero-subcontainer > div > label{
         text-align: left;
@@ -1236,9 +1438,14 @@ footer .copyright-container > small {
 
     
    .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera {
+        flex-direction: row;
+        justify-content: space-evenly;
         margin-top: 15%;
+        margin-bottom: 0px;
     }
-
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .botonera .cancelar-btn{
+        margin-top: 0;
+    }
     .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
         justify-content: space-evenly;
     }
@@ -1517,6 +1724,22 @@ footer .copyright-container > small {
     .product-container .sub-container-botonera-container .sub-container-1 .product-title-off-price-conteiner .product-price-mobile {
         display: none;
     }
+    /*editProduct.ejs - START*/
+
+    .edit-producto-container .edit-producto-form .form-container-1 .section-1 .descripcion-subcontainer > textarea {
+        height: 100%;
+    }
+    
+    /*editProduct.ejs - END*/
+
+    /*newProduct.ejs - START*/
+
+    .crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .descripcion-subcontainer > textarea {
+        height: 100%;
+    }
+
+    /*newProduct.ejs - END*/
+
     /*productDetail.ejs - START */
     .contenedor-producto-detalle{
         flex-direction: row;
