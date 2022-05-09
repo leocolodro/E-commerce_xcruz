@@ -9,6 +9,10 @@ const path = require('path');
 const productRouter = require('./src/routes/productRouter.js');
 const registerRouter = require('./src/routes/registerRouter.js');
 const adminRouter = require('./src/routes/adminRouter.js')
+const loginRouter = require('./src/routes/loginRouter.js');
+const homeRouter = require('./src/routes/homeRouter.js');
+const cartRouter = require('./src/routes/cartRouter.js');
+
 
 app.listen(3030, ()=>{
     console.log("Server Status: Online");
@@ -18,6 +22,7 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
+app.use('/', homeRouter);
 
 app.use('/producto', productRouter);
 
@@ -25,18 +30,8 @@ app.use('/registro', registerRouter);
 
 app.use('/adm', adminRouter);
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/home.html"))
-});
+app.use('/login', loginRouter);
 
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/home.html"))
-});
+app.use('/cart', cartRouter)
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/users/login.html"))
-})
 
-app.get('/cart', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/cart.html"))
-})
