@@ -14,7 +14,7 @@ const homeRouter = require('./src/routes/homeRouter.js');
 const cartRouter = require('./src/routes/cartRouter.js');
 
 
-app.listen(3030, ()=>{
+app.listen(process.env.PORT || 3030, ()=>{
     console.log("Server Status: Online");
 });
 
