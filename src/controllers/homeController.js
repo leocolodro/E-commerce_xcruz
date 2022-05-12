@@ -2,6 +2,7 @@ const path = require('path');
 
 const HomeController = {
     home: function(req, res){
+        console.log(__dirname);
         res.render(path.join(__dirname, '../views/home.ejs'));
     } ,
 
