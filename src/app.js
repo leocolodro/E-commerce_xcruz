@@ -5,6 +5,9 @@ const app = express();
 //Path
 const path = require('path');
 
+//Port
+const port = 3030;
+
 //Routes
 const productRouter = require(path.join(__dirname, '/routes/productRouter.js'));
 const registerRouter = require(path.join(__dirname,'/routes/registerRouter.js'));
@@ -14,7 +17,7 @@ const homeRouter = require(path.join(__dirname, '/routes/homeRouter.js'));
 const cartRouter = require(path.join(__dirname,'/routes/cartRouter.js'));
 
 
-app.listen(process.env.PORT || 3030, ()=>{
+app.listen(process.env.PORT || port, ()=>{
     console.log("Server Status: Online");
 });
 
