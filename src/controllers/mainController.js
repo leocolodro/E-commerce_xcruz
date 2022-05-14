@@ -1,7 +1,7 @@
 const path = require('path');
 
-const HomeController = {
-    home: function(req, res){
+const MainController = {
+    displayHome: function(req, res){
         res.render(path.join(__dirname, '../views/home.ejs'));
     } ,
 
@@ -21,4 +21,4 @@ const HomeController = {
     }*/
 }
 
-module.exports = HomeController;
+module.exports = MainController;

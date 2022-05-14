@@ -10,10 +10,8 @@ const port = 3030;
 
 //Routes
 const productRouter = require(path.join(__dirname, '/routes/productRouter.js'));
-const registerRouter = require(path.join(__dirname,'/routes/registerRouter.js'));
-const adminRouter = require(path.join(__dirname,'/routes/adminRouter.js'));
-const loginRouter = require(path.join(__dirname,'/routes/loginRouter.js'));
-const homeRouter = require(path.join(__dirname, '/routes/homeRouter.js'));
+const userRouter = require(path.join(__dirname,'/routes/userRouter.js'));
+const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
 const cartRouter = require(path.join(__dirname,'/routes/cartRouter.js'));
 
 
@@ -25,15 +23,11 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-app.use('/', homeRouter);
+app.use('/', mainRouter);
+
+app.use('/user', userRouter);
 
 app.use('/producto', productRouter);
-
-app.use('/register', registerRouter);
-
-app.use('/adm', adminRouter);
-
-app.use('/login', loginRouter);
 
 app.use('/cart', cartRouter)
 
