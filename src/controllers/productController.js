@@ -1,10 +1,14 @@
+//File System Module.
+const fs = require('fs');
+
 //Path Module.
 const path = require('path');
 
-//products-array Module.
-/*(!)Por el momento se le hara mención en comentarios semejandolo con una base de datos*/ 
-/*(!) Quitar, a futuro, por la database de los productos*/ 
-const productos = require('../products-array');
+//Path de la base de datos de los productos.
+const productosFilePath = path.join(__dirname, '../data/products-database.json');
+
+//Productos DataBase
+const productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8'));
 
 /*----------------------------------------------------------------------------*/
 //Los datos dentro de esta sección deberan ser colocados en una base de datos.
