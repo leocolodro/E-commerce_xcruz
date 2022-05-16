@@ -75,46 +75,13 @@
         <hr class="home-productos-destacados-hr">
       </center>
       <section class="contenedor-productos-home">
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 1</p>
-          <p>Precio: 11.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 2</p>
-          <p>Precio: 12.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 3</p>
-          <p>Precio: 14.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 4</p>
-          <p>Precio: 11.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 5</p>
-          <p>Precio: 9.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 6</p>
-          <p>Precio: 14.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 7</p>
-          <p>Precio: 40.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 8</p>
-          <p>Precio: 11.000$</p>
-        </div>
+        <% productos.forEach(producto => { %>
+          <article class="item-caja">
+            <img src=<%= producto.imagenesUrl[0] %> alt="producto" />
+            <p> <%= producto.titulo %> </p>
+            <p> <%= producto.precio %> </p>
+          </article>
+        <% }); %>
       </section>
       <!-- carrousel ofertas -->
 
