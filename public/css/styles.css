@@ -134,169 +134,6 @@ a{
     height: 100%;
 }
 
-.carrousel-container{
-    border: solid 20px black;
-    margin-bottom: 235px;
-}
-
-.carrousel-envios{
-    width: 100%;
-}
-
-.carrousel-envios-contenedor{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 80%;
-}
-
-.carrousel-envios .conte-carrousel-envios{
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background-color: black;
- 
-}
-
-.carrousel-envios .conte-carrousel-envios .item-carrousel-envios{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.carrousel-envios .conte-carrousel-envios .item-carrousel-envios .item-carrousel-tarjetas-envios{
-    width: 100%;
-    height: 100%;
-    display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.carrousel-envios .conte-carrousel-envios .item-carrousel-envios .item-carrousel-arrows{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px; 
-}
-
-.item-carrousel-arrows > i:hover {
-    cursor: pointer;
-}
-
-#carrousel-envios-1{
-    background-color: white;
-}
-
-#carrousel-envios-2{
-    background-color: white;
-}
-
-#carrousel-envios-3{
-    background-color: white;
-}
-
-.puntos-carrusel-contralador{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 170px;
-}
-
-.carrousel-envios .puntos-carrusel-contralador > a{
-    text-decoration: none;
-    font-size: 2em;
-    color: grey;
-}
-
-.carrousel-envios .conte-carrousel-envios .item-carrousel-envios .item-carrousel-arrows > a > i{
-    color: black;
-}
-
-.carrousel-envios .conte-carrousel-envios .item-carrousel-envios .item-carrousel-tarjetas-envios .carrousel-envios-contenedor .icono-credit-card{
-    font-size: 30px;
-}
-
-.carrousel-envios .conte-carrousel-envios .item-carrousel-envios .item-carrousel-tarjetas-envios .carrousel-envios-contenedor .carrousel-link-ver-mas{
-    text-decoration: none;
-    color: black;
-}   
-
-
-.carrousel-container .carrousel-envios .puntos-carrusel-contralador-2{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.carrousel-ofertas{
-    width: 100%;
-   display: flex;
-   justify-content: center;
-   margin-top: 150px;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas{
-  width: 85%;
-   height: 400px;
-   overflow: hidden;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrusel-ofertas{
-   border: solid 1px black;
-   height: 200px;
-   position: relative;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .tarjetas-carrusel-ofertas{
-   height: 100%;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrousel-ofertas{
-   position: relative;
-    width: 100%;
-   height: 100%;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrousel-ofertas .item-carrousel-Tarjeta-ofertas{
-   width: 100%;
-   height: 100%;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrousel-ofertas .item-carrousel-arrows-ofertas{
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   height: 100%; 
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 20px; 
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrousel-ofertas .item-carrousel-arrows-ofertas > i:hover{
-   cursor: pointer;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrousel-ofertas .item-carrousel-arrows-ofertas > a > i{
-   color:white;
-}
-
-.carrousel-ofertas .conte-carrousel-ofertas .item-carrousel-ofertas .item-carrousel-arrows-ofertas h2{
-   background-color: rgba(255, 255, 255, 0.721);
-   padding: 10px;
-   border-radius: 5px;
-}
-
 .contenedor-productos-home{
     width: 100%;
     display: flex;
@@ -304,20 +141,46 @@ a{
     justify-content: center;
 }
 
-.contenedor-productos-home .item-caja{
+.contenedor-productos-home .elements-subcontainer{
     margin: 15px;
     box-shadow: 0 1px 8px #ddd;
 }
 
-.contenedor-productos-home .item-caja img{
+.contenedor-productos-home .elements-subcontainer .img-container > img{
     width: 160px;
     height: 160px;
 }
 
-.contenedor-productos-home .item-caja > p{
+.contenedor-productos-home .elements-subcontainer .descripcion-container > p{
     text-align: center;
     font-size: 20px;
     margin-bottom: 5px;
+}
+.contenedor-productos-home .elements-subcontainer .truck-icon-container{
+   position: relative;
+}
+
+.contenedor-productos-home .elements-subcontainer .truck-icon-container .fa-truck {
+    color: green;
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    height: 30px;
+    width: 30px;
+    background-color: #FFF;
+    border: 1px solid #39b54a;
+    position: absolute;
+    border-radius: 50%;
+    top: -15px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform, 500ms;
+}
+
+.contenedor-productos-home .elements-subcontainer:hover .truck-icon-container .fa-truck {
+    transform: rotate(-90deg);
 }
     /*home.ejs - END*/
 
@@ -1249,12 +1112,12 @@ footer .copyright-container > small {
         width: 55%;
     }
     
-    .contenedor-productos-home .item-caja img{
+    .contenedor-productos-home .elements-subcontainer .img-subcontainer > img{
         width: 200px;
         height: 220px;
     }
     
-    .contenedor-productos-home .item-caja{
+    .contenedor-productos-home .elements-subcontainer{
         margin: 20px;
     }
 
@@ -1636,6 +1499,16 @@ footer .copyright-container > small {
          overflow: hidden;
      }
 
+     .contenedor-productos-home .elements-subcontainer .img-container > img{
+        width: 280px;
+        height: 280px;
+    }
+    
+    .contenedor-productos-home .elements-subcontainer{
+        margin: 25px;
+    
+    }
+
     .finalizar-compra-section{
         align-items: center;
         flex-direction: row;
@@ -1672,15 +1545,6 @@ footer .copyright-container > small {
         width: 100%;
     }
 
-    .contenedor-productos-home .item-caja img{
-        width: 280px;
-        height: 280px;
-    }
-    
-    .contenedor-productos-home .item-caja{
-        margin: 25px;
-    
-    }
     .newsletter-contenedor__iconos > i{
         margin: 20px;
         font-size: 80px;

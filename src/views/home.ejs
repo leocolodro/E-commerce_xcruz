@@ -76,10 +76,17 @@
       </center>
       <section class="contenedor-productos-home">
         <% productos.forEach(producto => { %>
-          <article class="item-caja">
-            <img src=<%= producto.imagenesUrl[0] %> alt="producto" />
-            <p> <%= producto.titulo %> </p>
-            <p> <%= producto.precio %> </p>
+          <article class="elements-subcontainer">
+            <section class="img-container">
+              <img src=<%= producto.imagenesUrl[0] %> alt="producto" />
+            </section>
+            <section class="truck-icon-container">
+              <i class="fa-solid fa-truck fa-xl"></i>
+            </section>
+            <section class="descripcion-container">
+              <p> <%= producto.titulo %> </p>
+              <p> $<%= producto.precio %> </p>
+            </section>
           </article>
         <% }); %>
       </section>
@@ -171,71 +178,6 @@
       <div class="newsletter-home-contenedor__iconos">
         <i class="fa-brands fa-facebook"></i>
         <i class="fa-brands fa-instagram"></i>
-      </div>
-
-      <!-- Carrousel Envios -->
-
-      <div class="carrousel-container">
-        <section class="carrousel-envios">
-          <article class="conte-carrousel-envios">
-            <div class="item-carrousel-envios" id="carrousel-envios-1">
-              <div class="item-carrousel-tarjetas-envios">
-                <div class="carrousel-envios-contenedor">
-                  <i class="fa-solid fa-credit-card icono-credit-card"></i>
-                  <p>Pagos y envios</p>
-                  <a href="#" class="carrousel-link-ver-mas">Ver más</a>
-                </div>
-              </div>
-              <div class="item-carrousel-arrows">
-                <a href="#carrousel-envios-3">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#carrousel-envios-2">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-            <div class="item-carrousel-envios" id="carrousel-envios-2">
-              <div class="item-carrousel-tarjetas-envios">
-                <div class="carrousel-envios-contenedor">
-                  <i class="fa-solid fa-file-lines icono-credit-card"></i>
-                  <p>Contactanos</p>
-                  <a href="#" class="carrousel-link-ver-mas">Ver más</a>
-                </div>
-              </div>
-              <div class="item-carrousel-arrows">
-                <a href="#carrousel-envios-1">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#carrousel-envios-3">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-            <div class="item-carrousel-envios" id="carrousel-envios-3">
-              <div class="item-carrousel-tarjetas-envios">
-                <div class="carrousel-envios-contenedor">
-                  <i class="fa-solid fa-wrench icono-credit-card"></i>
-                  <p>¿Como Cuidarlos?</p>
-                  <a href="#" class="carrousel-link-ver-mas">Ver más</a>
-                </div>
-              </div>
-              <div class="item-carrousel-arrows">
-                <a href="#carrousel-envios-2">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#carrousel-envios-1">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-          <div class="puntos-carrusel-contralador-2">
-            <a href="#carrousel-envios-1">•</a>
-            <a href="#carrousel-envios-2">•</a>
-            <a href="carrousel-envios-3">•</a>
-          </div>
-        </section>
       </div>
   </main>
   <%- include('./partials/footerPrincipal') %>
