@@ -121,11 +121,11 @@ a{
     padding: 20px; 
 }
 
-.itemCarrouselArrows > i:hover {
+.conteCarrousel .itemCarrousel .itemCarrouselArrows > i:hover {
     cursor: pointer;
 }
 
-.itemCarrouselArrows > a > i{
+.conteCarrousel .itemCarrousel .itemCarrouselArrows > a > i{
     color: white;
 }
 
@@ -139,6 +139,7 @@ a{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .contenedor-productos-home .elements-subcontainer{
@@ -164,23 +165,18 @@ a{
     color: green;
     display: block;
     padding: 5px;
-    font-size: 16px;
-    height: 30px;
-    width: 30px;
+    font-size: 12px;
+    height: 15px;
+    width: 15px;
     background-color: #FFF;
     border: 1px solid #39b54a;
     position: absolute;
     border-radius: 50%;
     top: -15px;
-    right: 20px;
+    right: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform, 500ms;
-}
-
-.contenedor-productos-home .elements-subcontainer:hover .truck-icon-container .fa-truck {
-    transform: rotate(-90deg);
 }
     /*home.ejs - END*/
 
@@ -1111,15 +1107,29 @@ footer .copyright-container > small {
     .finalizar-compra-section .precio-and-btn-container .subtotal-container{
         width: 55%;
     }
-    
-    .contenedor-productos-home .elements-subcontainer .img-subcontainer > img{
-        width: 200px;
-        height: 220px;
+
+    /*home.ejs - START*/
+    .contenedor-productos-home{
+        justify-content: space-evenly;
+        margin-top: 35px;
+        margin-bottom: 35px;
     }
-    
     .contenedor-productos-home .elements-subcontainer{
-        margin: 20px;
+        margin: auto;
     }
+
+    .contenedor-productos-home .elements-subcontainer .img-subcontainer > img{
+        height: 220px;
+        width: 200px;     
+    }
+
+    .contenedor-productos-home .elements-subcontainer .truck-icon-container .fa-truck {
+        font-size: 14px;
+        height: 20px;
+        right: 15px;
+        width: 20px;
+    }
+    /*home.ejs - END*/
 
     .main-title-container{
         justify-content: space-between;
@@ -1473,13 +1483,6 @@ footer .copyright-container > small {
 /*HEADER - END*/
 
 /*MAIN - START*/
-    .carrousel-ofertas{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 80px;
-        margin-bottom: 80px;
-    }
 
     .create-form-home .control-formulario{
         margin-bottom: 15px;
@@ -1492,23 +1495,17 @@ footer .copyright-container > small {
         height: 300px;
         overflow: hidden;
     }
-
-    .conte-carrousel-ofertas{
-        width: 60%;
-         height: 300px;
-         overflow: hidden;
-     }
-
-     .contenedor-productos-home .elements-subcontainer .img-container > img{
+    .contenedor-productos-home .elements-subcontainer .truck-icon-container .fa-truck {
+        font-size: 16px;
+        height: 30px;
+        right: 20px;
+        width: 30px;
+    }
+    .contenedor-productos-home .elements-subcontainer .img-container > img{
         width: 280px;
         height: 280px;
     }
-    
-    .contenedor-productos-home .elements-subcontainer{
-        margin: 25px;
-    
-    }
-
+    /*home.ejs - END*/
     .finalizar-compra-section{
         align-items: center;
         flex-direction: row;
