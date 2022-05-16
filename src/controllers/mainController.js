@@ -22,13 +22,28 @@ const MainController = {
         }
         //Si es el tamaño del array: "productos" es mayor al valor de la constante "minArraylenght" 
         else{
-            //Sortear de manera aleatoria entre 4 items del array: "productos"
+
+            //Sortear de manera aleatoria los elementos del array: "productos"
             productos.sort(() => Math.random() > 0.5 ? 1 : -1);
             
+            //Array de productos con porcentajeDescuento mayor a 0
+            let productosEnOferta = productos.filter(producto =>{
+                if(producto.porcentajeDescuento > 0){
+                    return producto;
+                }
+            });
+
+            //Reducir tamaño de array a 4.
+            productosEnOferta = productosEnOferta.slice(0,4);
+
             //Tomar 4 productos del array productos.
             productosDestacadosArray = productos.slice(0,4);
 
-            res.render(path.join(__dirname, '../views/home.ejs'), {productos: productosDestacadosArray});
+            res.render(path.join(__dirname, '../views/home.ejs'), 
+            {
+                productos: productosDestacadosArray, 
+                productosEnOferta: productosEnOferta
+            });
         }
     }
 }

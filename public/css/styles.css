@@ -178,6 +178,38 @@ a{
     justify-content: center;
     align-items: center;
 }
+
+.home-ofertas-titulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 80px;
+}
+
+.home-ofertas-hr{
+    margin-top: 20px;
+    height: 1px;
+    width: 50px;
+    background-color: black;
+}
+
+.home-productos-destacados-titulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.home-productos-destacados-hr{
+    margin-top: 20px;
+    height: 1px;
+    width: 50px;
+    background-color: black;
+}
     /*home.ejs - END*/
 
     /*login.ejs - START*/
@@ -291,43 +323,6 @@ a{
 }
      /*home.ejs - END*/
 
-.create-form-home{
-    display: flex;
-    flex-direction: column;
-    align-items:   center ;
-    height: 200px;
-    padding: 20px 15px;
-    justify-content: space-evenly;
-}
-
-.create-form-home .control-formulario{
-    margin-bottom: 15px;
-    width: 60%;
-}
-
-.create-form-home .control-formulario .control{
-    text-align: left;
-    width: 100%;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.create-form-home .boton-formulario{
-    text-decoration:none;
-    font-weight: 600;
-    font-size: 20px;
-    color:#f9f9f9;
-    padding-top:15px;
-    padding-bottom:15px;
-    padding-left:40px;
-    padding-right:40px;
-    background-color:#444444;
-    border-color: #d8d8d8;
-    border-width: 3px;
-    border-style: solid;
-    border-radius:35px;
-}
-
 .finalizar-compra-section{
     display: flex;
     flex-direction: column;
@@ -395,22 +390,6 @@ a{
    
 }
 
-.home-productos-destacados-titulo{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-weight: bold;
-    font-size: 15px;
-    margin-top: 20px;
-}
-
-.home-productos-destacados-hr{
-    margin-top: 20px;
-    height: 1px;
-    width: 50px;
-    background-color: black;
-}
-
 .main-title-container .style-div{  
     align-items: center;
     border: 1px solid var(--main-title-container-sub-conteiner-1-boder-color);
@@ -440,27 +419,6 @@ a{
 .main-title-container .style-div .flex-container .sub-container-2{
     display: none;
 
-}
-
-.newsletter-home-titulo{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.newsletter-home-contenedor__iconos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px;
-}
-
-.newsletter-home-contenedor__iconos > i{
-    margin: 20px;
-    font-size: 50px;
-    margin-bottom: 150px;
 }
 
 .product-container{

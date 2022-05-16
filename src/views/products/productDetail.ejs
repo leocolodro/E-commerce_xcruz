@@ -21,7 +21,9 @@
         <div class="producto-detalle-caja-2">
           <h2 class="titulo"> <%= producto.titulo %> </h2>
           <p class="precio">$<%= producto.precio %> </p>
-          <p class="descuento"> <%= producto.porcentajeDescuento %>% Off</p>
+          <%  if (producto.porcentajeDescuento > 0) { %>
+            <p class="descuento"> <%= producto.porcentajeDescuento %>% Off</p>
+          <% } %>
           <!--Talles-->
           <h4 class="talles-titulo"> Talles </h4>
           <select name="producto-detalle-talles" id="select-cantidad">

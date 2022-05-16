@@ -67,13 +67,15 @@
         </article>
       </section>
 
-      <!-- PRODUCTOS -->
-      <h1 class="home-productos-destacados-titulo">PRODUCTOS DESTACADOS</h1>
+      <!-- PRODUCTOS DESTACADOS - TITULO -->
+      <h2 class="home-productos-destacados-titulo">PRODUCTOS DESTACADOS</h2>
 
-      <!-- Linea -->
+      <!-- LINA DE SEPARACIÓN-->
       <center>
         <hr class="home-productos-destacados-hr">
       </center>
+
+      <!-- PRODUCTOS DESTACADOS - GENERADOR -->
       <section class="contenedor-productos-home">
         <% productos.forEach(producto => { %>
           <a href="/producto/<%= producto.id %>">
@@ -92,31 +94,35 @@
           </a>
         <% }); %>
       </section>
+      
+      <!-- OFERTAS IMPERDIBLES! - TITULO -->
+      <h2 class="home-ofertas-titulo">OFERTAS IMPERDIBLES!</h2>
 
-      <!-- newsletter -->
+      <!-- LINA DE SEPARACIÓN-->
+      <center>
+        <hr class="home-ofertas-hr">
+      </center>
 
-      <h3 class="newsletter-home-titulo">NUESTRO NEWSLETTER</h3>
-
-      <form action="#" method="POST" class="create-form-home">
-        <div class="control-formulario">
-          <input
-            type="text"
-            placeholder="Email"
-            name=""
-            id=""
-            class="control"
-          />
-        </div>
-
-        <button class="boton-formulario">Inscribirse</button>
-      </form>
-
-      <h3 class="newsletter-home-titulo">@ NUESTRO NEWSLETTER</h3>
-
-      <div class="newsletter-home-contenedor__iconos">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-      </div>
+      <!-- OFERTAS - GENERADOR -->
+      <section class="contenedor-productos-home">
+        <% productosEnOferta.forEach(producto => { %>
+          <a href="/producto/<%= producto.id %>">
+            <article class="elements-subcontainer">
+              <section class="img-container">
+                <img src=<%= producto.imagenesUrl[0] %> alt="producto" />
+              </section>
+              <section class="truck-icon-container">
+                <i class="fa-solid fa-truck fa-xl"></i>
+              </section>
+              <section class="descripcion-container">
+                <p> <%= producto.titulo %> </p>
+                <p> %<%= producto.porcentajeDescuento %> Off</p>
+                <p> $<%= producto.precio %> </p>
+              </section>
+            </article>
+          </a>
+        <% }); %>
+      </section>
   </main>
   <%- include('./partials/footerPrincipal') %>
   </body>
