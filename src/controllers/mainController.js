@@ -15,10 +15,24 @@ const MainController = {
         //Tamaño minimo array para aleatoriedad
         const minArrayLength = 4; 
         let productosDestacadosArray = [];
+        let productosEnOferta = [];
 
         //Si el tamaño del array "productos" es inferior al valor de la constante "minArraylenght" 
         if(productos.length < minArrayLength){
             productosDestacadosArray = productos;
+            //Array de productos con porcentajeDescuento mayor a 0         
+            productosEnOferta = productos.filter(producto =>{
+                if(producto.porcentajeDescuento > 0){
+                    return producto;
+                }
+            });
+
+
+            res.render(path.join(__dirname, '../views/home.ejs'), 
+            {
+                productos: productosDestacadosArray, 
+                productosEnOferta: productosEnOferta
+            });
         }
         //Si es el tamaño del array: "productos" es mayor al valor de la constante "minArraylenght" 
         else{
@@ -27,7 +41,7 @@ const MainController = {
             productos.sort(() => Math.random() > 0.5 ? 1 : -1);
             
             //Array de productos con porcentajeDescuento mayor a 0
-            let productosEnOferta = productos.filter(producto =>{
+            productosEnOferta = productos.filter(producto =>{
                 if(producto.porcentajeDescuento > 0){
                     return producto;
                 }
@@ -47,6 +61,5 @@ const MainController = {
         }
     }
 }
-
 
 module.exports = MainController;

@@ -154,9 +154,17 @@ a{
 
 .contenedor-productos-home .elements-subcontainer .descripcion-container > p{
     text-align: center;
-    font-size: 20px;
+    font-size: 14px;
     margin-bottom: 5px;
 }
+
+.contenedor-productos-home .elements-subcontainer .descripcion-container .descuento{
+    color: #00a650;
+}
+.contenedor-productos-home .elements-subcontainer .descripcion-container .titulo{
+    font-weight: bold;
+}
+
 .contenedor-productos-home .elements-subcontainer .truck-icon-container{
    position: relative;
 }
@@ -321,7 +329,7 @@ a{
     font-size: 17px;
     color: black;
 }
-     /*home.ejs - END*/
+     /*login.ejs - END*/
 
 .finalizar-compra-section{
     display: flex;

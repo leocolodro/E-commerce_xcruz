@@ -87,7 +87,10 @@
                 <i class="fa-solid fa-truck fa-xl"></i>
               </section>
               <section class="descripcion-container">
-                <p> <%= producto.titulo %> </p>
+                <p class="titulo"> <%= producto.titulo %> </p>
+                <% if (producto.porcentajeDescuento > 0) { %>
+                  <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>  
+                <% } %>
                 <p> $<%= producto.precio %> </p>
               </section>
             </article>
@@ -115,8 +118,8 @@
                 <i class="fa-solid fa-truck fa-xl"></i>
               </section>
               <section class="descripcion-container">
-                <p> <%= producto.titulo %> </p>
-                <p> %<%= producto.porcentajeDescuento %> Off</p>
+                <p class="titulo"> <%= producto.titulo %> </p>
+                <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>
                 <p> $<%= producto.precio %> </p>
               </section>
             </article>

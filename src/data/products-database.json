@@ -32,13 +32,13 @@
     },
     {
         "id":"4",
-        "titulo":"xxx",
+        "titulo":"Siena (Marroni)",
         "colores":["Negro"],
-        "porcentajeDescuento":10,
-        "precio":"10500",
-        "talles":[41,42,43],
+        "porcentajeDescuento":0,
+        "precio":"13299",
+        "talles":[40,41,42,43],
         "descripcion":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
-        "imagenesUrl":["../images/zapatos/producto_3/bota_chelsea_cuero_negro_1.jpg","../images/zapatos/producto_3/bota_chelsea_cuero_negro_2.jpg","../images/zapatos/producto_3/bota_chelsea_cuero_negro_3.jpg","../images/zapatos/producto_3/bota_chelsea_cuero_negro_4.jpg"]
+        "imagenesUrl":["../images/zapatos/producto_4/zapato_siena_cuero_negro_1.jpg","../images/zapatos/producto_4/zapato_siena_cuero_negro_2.jpg","../images/zapatos/producto_4/zapato_siena_cuero_negro_.jpg"]
     },
     {
         "id":"5",
