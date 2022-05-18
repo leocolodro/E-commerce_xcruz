@@ -12,5 +12,8 @@ router.get('/:id', ProductController.display);
 //Editar datos de un producto
 router.get('/:id/editar', ProductController.editById);
 
+router.get('/', ProductController.listadoDeProductos)
+
+router.delete('/:id/borrar', ProductController.borrar)
 
 module.exports = router;
