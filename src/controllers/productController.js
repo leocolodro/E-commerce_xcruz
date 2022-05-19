@@ -34,12 +34,12 @@ const ProductController = {
         //Sort and slice.
         productosRelacionadosArray = arrayRandomSortSlicer(products, sliceSize);
 
-        //PRODUCT NOT FIND
+        //PRODUCT NOT FOUND
         if(product == undefined){
             res.send("ERROR.\nProducto no encontrado!");
         }
 
-        //PRODUCT FINDED
+        //PRODUCT FOUNDED
         else{
             res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: product, productosRelacionados: productosRelacionadosArray});
         }
