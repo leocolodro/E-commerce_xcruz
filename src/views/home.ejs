@@ -67,209 +67,67 @@
         </article>
       </section>
 
-      <!-- PRODUCTOS -->
-      <h1 class="home-productos-destacados-titulo">PRODUCTOS DESTACADOS</h1>
+      <!-- PRODUCTOS DESTACADOS - TITULO -->
+      <h2 class="home-productos-destacados-titulo">PRODUCTOS DESTACADOS</h2>
 
-      <!-- Linea -->
+      <!-- LINA DE SEPARACIÓN-->
       <center>
         <hr class="home-productos-destacados-hr">
       </center>
+
+      <!-- PRODUCTOS DESTACADOS - GENERADOR -->
       <section class="contenedor-productos-home">
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 1</p>
-          <p>Precio: 11.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 2</p>
-          <p>Precio: 12.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 3</p>
-          <p>Precio: 14.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 4</p>
-          <p>Precio: 11.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 5</p>
-          <p>Precio: 9.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 6</p>
-          <p>Precio: 14.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 7</p>
-          <p>Precio: 40.000$</p>
-        </div>
-        <div class="item-caja">
-          <img src="/images/img-zapato.webp" alt="" />
-          <p>Producto 8</p>
-          <p>Precio: 11.000$</p>
-        </div>
+        <% productos.forEach(producto => { %>
+          <a href="/producto/<%= producto.id %>">
+            <article class="elements-subcontainer">
+              <section class="img-container">
+                <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="producto" />
+              </section>
+              <section class="truck-icon-container">
+                <i class="fa-solid fa-truck fa-xl"></i>
+              </section>
+              <section class="descripcion-container">
+                <p class="titulo"> <%= producto.titulo %> </p>
+                <% if (producto.porcentajeDescuento > 0) { %>
+                  <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>  
+                <%} else { %>
+                  <p class="descuento"> - </p>  
+                <% } %>
+                <p> $<%= producto.precio %> </p>
+              </section>
+            </article>
+          </a>
+        <% }); %>
       </section>
-      <!-- carrousel ofertas -->
+      
+      <!-- OFERTAS IMPERDIBLES! - TITULO -->
+      <h2 class="home-ofertas-titulo">OFERTAS IMPERDIBLES!</h2>
 
-      <section class="carrousel-ofertas">
-        <article class="conte-carrousel-ofertas">
-          <div class="item-carrousel-ofertas" id="item-carrousel-ofertas-1">
-            <div class="item-carrousel-Tarjeta-ofertas">
-              <img
-                class="itemCarrousel-img"
-                itemCarrousel-img
-                src="/images/carrusel-img/carrusel-img-1.jpg"
-                alt=""
-              />
-            </div>
-            <div class="item-carrousel-arrows-ofertas">
-              <a href="#item-carrousel-ofertas-3">
-                <i class="fas fa-chevron-left"></i>
-              </a>
-              <h2>OFERTAS</h2>
-              <a href="#item-carrousel-ofertas-2">
-                <i class="fas fa-chevron-right"></i>
-              </a>
-            </div>
-          </div>
-          <div class="item-carrousel-ofertas" id="item-carrousel-ofertas-2">
-            <div class="item-carrousel-Tarjeta-ofertas">
-              <img
-                class="itemCarrousel-img"
-                src="images/carrusel-img/carrusel-img-2.jpg"
-                alt=""
-              />
-            </div>
-            <div class="item-carrousel-arrows-ofertas">
-              <a href="#item-carrousel-ofertas-1">
-                <i class="fas fa-chevron-left"></i>
-              </a>
-              <a href="#item-carrousel-ofertas-3">
-                <i class="fas fa-chevron-right"></i>
-              </a>
-            </div>
-          </div>
-          <div class="item-carrousel-ofertas" id="item-carrousel-ofertas-3">
-            <div class="item-carrousel-Tarjeta-ofertas">
-              <img
-                class="itemCarrousel-img"
-                src="/images/carrusel-img/carrusel-img-3.jpg"
-                alt=""
-              />
-            </div>
-            <div class="item-carrousel-arrows-ofertas">
-              <a href="#item-carrousel-ofertas-2">
-                <i class="fas fa-chevron-left"></i>
-              </a>
-              <a href="#item-carrousel-ofertas-1">
-                <i class="fas fa-chevron-right"></i>
-              </a>
-            </div>
-          </div>
-        </article>
+      <!-- LINA DE SEPARACIÓN-->
+      <center>
+        <hr class="home-ofertas-hr">
+      </center>
+
+      <!-- OFERTAS - GENERADOR -->
+      <section class="contenedor-productos-home">
+        <% productosEnOferta.forEach(producto => { %>
+          <a href="/producto/<%= producto.id %>">
+            <article class="elements-subcontainer">
+              <section class="img-container">
+                <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="producto" />
+              </section>
+              <section class="truck-icon-container">
+                <i class="fa-solid fa-truck fa-xl"></i>
+              </section>
+              <section class="descripcion-container">
+                <p class="titulo"> <%= producto.titulo %> </p>
+                <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>
+                <p> $<%= producto.precio %> </p>
+              </section>
+            </article>
+          </a>
+        <% }); %>
       </section>
-      <div class="puntos-carrusel-contralador">
-        <a href="#item-carrousel-ofertas-1">•</a>
-        <a href="#item-carrousel-ofertas-2">•</a>
-        <a href="item-carrousel-ofertas-3">•</a>
-      </div>
-
-      <!-- newsletter -->
-
-      <h3 class="newsletter-home-titulo">NUESTRO NEWSLETTER</h3>
-
-      <form action="#" method="POST" class="create-form-home">
-        <div class="control-formulario">
-          <input
-            type="text"
-            placeholder="Email"
-            name=""
-            id=""
-            class="control"
-          />
-        </div>
-
-        <button class="boton-formulario">Inscribirse</button>
-      </form>
-
-      <h3 class="newsletter-home-titulo">@ NUESTRO NEWSLETTER</h3>
-
-      <div class="newsletter-home-contenedor__iconos">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-      </div>
-
-      <!-- Carrousel Envios -->
-
-      <div class="carrousel-container">
-        <section class="carrousel-envios">
-          <article class="conte-carrousel-envios">
-            <div class="item-carrousel-envios" id="carrousel-envios-1">
-              <div class="item-carrousel-tarjetas-envios">
-                <div class="carrousel-envios-contenedor">
-                  <i class="fa-solid fa-credit-card icono-credit-card"></i>
-                  <p>Pagos y envios</p>
-                  <a href="#" class="carrousel-link-ver-mas">Ver más</a>
-                </div>
-              </div>
-              <div class="item-carrousel-arrows">
-                <a href="#carrousel-envios-3">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#carrousel-envios-2">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-            <div class="item-carrousel-envios" id="carrousel-envios-2">
-              <div class="item-carrousel-tarjetas-envios">
-                <div class="carrousel-envios-contenedor">
-                  <i class="fa-solid fa-file-lines icono-credit-card"></i>
-                  <p>Contactanos</p>
-                  <a href="#" class="carrousel-link-ver-mas">Ver más</a>
-                </div>
-              </div>
-              <div class="item-carrousel-arrows">
-                <a href="#carrousel-envios-1">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#carrousel-envios-3">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-            <div class="item-carrousel-envios" id="carrousel-envios-3">
-              <div class="item-carrousel-tarjetas-envios">
-                <div class="carrousel-envios-contenedor">
-                  <i class="fa-solid fa-wrench icono-credit-card"></i>
-                  <p>¿Como Cuidarlos?</p>
-                  <a href="#" class="carrousel-link-ver-mas">Ver más</a>
-                </div>
-              </div>
-              <div class="item-carrousel-arrows">
-                <a href="#carrousel-envios-2">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#carrousel-envios-1">
-                  <i class="fas fa-chevron-right"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-          <div class="puntos-carrusel-contralador-2">
-            <a href="#carrousel-envios-1">•</a>
-            <a href="#carrousel-envios-2">•</a>
-            <a href="carrousel-envios-3">•</a>
-          </div>
-        </section>
-      </div>
   </main>
   <%- include('./partials/footerPrincipal') %>
   </body>

@@ -4,11 +4,9 @@ const fs = require('fs');
 //Path Module.
 const path = require('path');
 
-//Path de la base de datos de los productos.
-const productosFilePath = path.join(__dirname, '../data/products-database.json');
-
-//Productos DataBase
-const productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8'));
+//Helpers
+const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
+const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js')
 
 /*----------------------------------------------------------------------------*/
 //Los datos dentro de esta sección deberan ser colocados en una base de datos.
@@ -21,43 +19,43 @@ const ProductController = {
     
     //Mostrar el detalle del producto
     display: function(req, res){
+        
+        //Get products DataBase
+        const products = jsonProductAnalyzer.read();
+        let productosRelacionadosArray = [];
+        /*Don´t  touch*/
+        const sliceSize = 4;
 
-        //Buscar  en la base la id del producto pasado por paramentros en el req.
-        const producto = productos.find(producto => {
-            return producto.id == req.params.id;
+        //Search product in "Products"
+        const product = products.find(product => {
+            return product.id == req.params.id;
         });
 
-        
-        //ONLY FOR TEST
-        /* Eliminar más adelante */
-        /*-------------------------------------------------------------------*/
-        let productosRelacionadosArray = [];
-        for(let i=0; i < 3; i++){
-            let randomNum = Math.floor(Math.random() * productos.length);
-            productosRelacionadosArray[i] = productos[randomNum];
-        }
-        /*-------------------------------------------------------------------*/
+        //Sort and slice.
+        productosRelacionadosArray = arrayRandomSortSlicer(products, sliceSize);
 
-        /*Si no encuentra el producto*/
-        if(producto == undefined){
+        //PRODUCT NOT FOUND
+        if(product == undefined){
             res.send("ERROR.\nProducto no encontrado!");
         }
 
-        /*Sí encuentra el producto*/
+        //PRODUCT FOUNDED
         else{
-            res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: producto, productosRelacionados: productosRelacionadosArray});
+            res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: product, productosRelacionados: productosRelacionadosArray});
         }
     },
 
     editById: function(req, res){
+        //Get products DataBase
+        const products = jsonProductAnalyzer.read();
 
-        //Buscar  en la base la id del producto pasado por paramentros en el req.
-        const producto = productos.find(producto => {
-            return producto.id == req.params.id;
+        //Search product in "Products"
+        const product = products.find(product => {
+            return product.id == req.params.id;
         });
         
         /*Si no encuentra el producto*/
-        if(producto == undefined){
+        if(product == undefined){
             res.send("ERROR.\nProducto no encontrado!");
         }
 
@@ -65,7 +63,7 @@ const ProductController = {
         else{
             res.render(path.join(__dirname, '../views/products/editProduct.ejs'),
             {
-                producto: producto,  
+                producto: product,  
                 categorias: categoriasArray, 
                 colores: coloresArray, 
                 talles: tallesArray  

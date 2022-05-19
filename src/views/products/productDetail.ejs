@@ -15,13 +15,15 @@
       <section class="contenedor-producto-detalle">
         <div class="producto-detalle-caja-1">
           <!--Imagen-->
-          <img src="/images/<%= producto.imagenesUrl[0] %>" class="producto-detalle-img" alt="Zapato"/>
+          <img src="/images/products/<%= producto.imagenesUrl[0] %>" class="producto-detalle-img" alt="Zapato"/>
         </div>
         <!-- Contenedor Titulo & Precio--> 
         <div class="producto-detalle-caja-2">
           <h2 class="titulo"> <%= producto.titulo %> </h2>
           <p class="precio">$<%= producto.precio %> </p>
-          <p class="descuento"> <%= producto.porcentajeDescuento %>% Off</p>
+          <%  if (producto.porcentajeDescuento > 0) { %>
+            <p class="descuento"> <%= producto.porcentajeDescuento %>% Off</p>
+          <% } %>
           <!--Talles-->
           <h4 class="talles-titulo"> Talles </h4>
           <select name="producto-detalle-talles" id="select-cantidad">
@@ -45,19 +47,22 @@
       <center>
         <hr class="product-detail-destacados-hr"> 
       </center>
-      <div class="productos-relacionados-container">
+      <section class="productos-relacionados-container">
         <div class="child-container">
+          <!-- Solucionar problema <a> -->
           <% productosRelacionados.forEach(element => { %>
-            <div class="flex-item">
-              <img src="/images/<%= element.imagenesUrl[0]  %>" alt="Producto" />
+            <a href="/producto/<%= element.id %>">
+            <article class="flex-item">
+              <img src="/images/products/<%= element.imagenesUrl[0] %>" alt="Producto" />
               <div class="descripcion-container">
                 <p> <%= element.titulo %> </p>
                 <p>$ <%= element.precio %> </p>
               </div>
-            </div>            
+            </article>
+          </a>            
           <% }); %> 
         </div>
-    </div>
+    </section>
     </main>
     <%- include('../partials/footerPrincipal') %>
   </body>
