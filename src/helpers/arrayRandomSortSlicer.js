@@ -1,18 +1,17 @@
 //Author: Bautista.
 
-//El modulo devuelve el 4 elementos del array pasado 
-//por parametros, y con las posiciones cambiadas 
-//aleatoriamente. 
+//The module returns an array randomly sorted and 
+//reduces it size to the same value of maxRange (params: 2)
 function ArrayRandomSortSlicer(array, maxRange) {
     
-            //Sortear de manera aleatoria los elementos del array
+            //Sorts randomly elements from array
             array.sort(() => Math.random() > 0.5 ? 1 : -1);
                 
             if(array.length <= maxRange){
                 return array;
             }
             else{
-                //Reducir tamaño de array al mismo valor que maxRanger.
+                //Reduces size to the same value of maxRange
                 return array = array.slice(0, maxRange);
             }
 

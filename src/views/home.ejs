@@ -90,6 +90,8 @@
                 <p class="titulo"> <%= producto.titulo %> </p>
                 <% if (producto.porcentajeDescuento > 0) { %>
                   <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>  
+                <%} else { %>
+                  <p class="descuento"> - </p>  
                 <% } %>
                 <p> $<%= producto.precio %> </p>
               </section>

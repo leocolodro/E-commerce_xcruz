@@ -18,12 +18,13 @@
         "precio":"12990",
         "talles":[39,41,42],
         "descripcion":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
-        "imagenesUrl":["/producto_2/zapato_cuero_punta_negro_1.jpg","../producto_2/zapato_cuero_punta_negro_2.jpg","/producto_2/zapato_cuero_punta_negro_3.jpg"]
+        "imagenesUrl":["/producto_2/zapato_cuero_punta_negro_1.jpg","/producto_2/zapato_cuero_punta_negro_2.jpg","/producto_2/zapato_cuero_punta_negro_3.jpg"]
         },
     {
         "id":"3",
-        "titulo":"RE9",
+        "titulo":"Beatle",
         "colores":["Negro"],
+        "categoria":"Botas",
         "porcentajeDescuento":15,
         "precio":"10500",
         "talles":[40,42],
@@ -32,8 +33,9 @@
     },
     {
         "id":"4",
-        "titulo":"Siena (Marroni)",
+        "titulo":"Siena",
         "colores":["Negro"],
+        "categoria":"Zapatillas",
         "porcentajeDescuento":0,
         "precio":"13299",
         "talles":[40,41,42,43],
@@ -42,12 +44,35 @@
     },
     {
         "id":"5",
-        "titulo":"xxx",
+        "titulo":"Positano",
         "colores":["Negro"],
-        "porcentajeDescuento":5,
-        "precio":"xxxx",
+        "categoria":"Urbano",
+        "porcentajeDescuento": 0,
+        "precio":"12990",
         "talles":[39,42],
         "descripcion":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
-        "imagenesUrl":["/producto_3/bota_chelsea_cuero_negro_1.jpg","/producto_3/bota_chelsea_cuero_negro_2.jpg","/producto_3/bota_chelsea_cuero_negro_3.jpg","/producto_3/bota_chelsea_cuero_negro_4.jpg"]
+        "imagenesUrl":["/producto_5/zapatilla_positano_cuero_negro_1.jpg","/producto_5/zapatilla_positano_cuero_negro_2.jpg","/producto_5/zapatilla_positano_cuero_negro_3.jpg"]
+    },
+    {
+        "id":"6",
+        "titulo":"xx",
+        "colores":["Negro"],
+        "categoria":"Urbano",
+        "porcentajeDescuento": 0,
+        "precio":"10000",
+        "talles":[39,42],
+        "descripcion":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
+        "imagenesUrl":["/img-zapato-default.webp"]
+    },
+    {
+        "id":"7",
+        "titulo":"9849",
+        "colores":["Marron"],
+        "categoria":"De vestir",
+        "porcentajeDescuento": 15,
+        "precio":"12299",
+        "talles":[39,42,44],
+        "descripcion":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
+        "imagenesUrl":["/producto_7/zapato_9849_cuero_marron_1.jpg","/producto_7/zapato_9849_cuero_marron_2.jpg","/producto_7/zapato_9849_cuero_marron_3.jpg","/producto_7/zapato_9849_cuero_marron_4.jpg"]
     }
 ]
