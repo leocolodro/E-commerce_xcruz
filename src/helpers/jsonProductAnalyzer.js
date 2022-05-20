@@ -39,7 +39,7 @@ const JsonProductsAnalyzer = {
 
     write: function(newProduct) {
         //Get products DataBase.
-        let products = this.read;
+        let products = this.read();
         
         //Adds new product
         products.push(newProduct);

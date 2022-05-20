@@ -54,12 +54,12 @@ const ProductController = {
             return product.id == req.params.id;
         });
         
-        /*Si no encuentra el producto*/
+        //Product not found
         if(product == undefined){
             res.send("ERROR.\nProducto no encontrado!");
         }
 
-        /*Sí encuentra el producto*/
+        //Product founded
         else{
             res.render(path.join(__dirname, '../views/products/editProduct.ejs'),
             {
@@ -78,6 +78,34 @@ const ProductController = {
             colores: coloresArray, 
             talles: tallesArray
         });
+    },
+
+    create: function(req, res){
+    
+        const products = jsonProductAnalyzer.read();
+
+        const newProductId = products.length + 1; 
+
+        const newProduct = {
+            id: newProductId,
+            titulo: req.body.titulo,
+            colores: req.body.color,
+            categoria: req.body.categoria,
+            genero: req.body.genero,
+            porcentajeDescuento: Number.parseInt("0"),
+            precio: Number.parseFloat(req.body.precio),
+            talles: [40,42,43],
+            descripcion: req.body.descripcion,
+            imagenesUrl: ["/img-zapato-default.webp"],
+        }
+
+        jsonProductAnalyzer.write(newProduct);
+        
+        res.redirect('/producto/' + newProductId);
+    },
+
+    delete: function(req, res){
+
     }
 }
 

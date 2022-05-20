@@ -8,6 +8,10 @@ const path = require('path');
 //Port
 const port = 3030;
 
+//Middleware´s (Don´t touch)
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 //Routes
 const productRouter = require(path.join(__dirname, '/routes/productRouter.js'));
 const userRouter = require(path.join(__dirname,'/routes/userRouter.js'));
