@@ -1,10 +1,13 @@
+//File-System Module.
+const fs = require('fs');
 
 //Path Module.
 const path = require('path');
 
 //Helpers
 const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
-const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js')
+const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
+const { join } = require('path');
 
 /*----------------------------------------------------------------------------*/
 //Los datos dentro de esta sección deberan ser colocados en una base de datos.
@@ -79,22 +82,24 @@ const ProductController = {
     },
 
     create: function(req, res){
-    
+        
         const products = jsonProductAnalyzer.read();
 
         const newProductId = products.length + 1; 
+        
+        let imagesPaths = getImages(newProductId);
 
         const newProduct = {
             id: newProductId,
             titulo: req.body.titulo,
-            colores: req.body.color,
+            colores: [req.body.color],
             categoria: req.body.categoria,
             genero: req.body.genero,
             porcentajeDescuento: Number.parseInt("0"),
             precio: Number.parseFloat(req.body.precio),
             talles: [40,42,43],
             descripcion: req.body.descripcion,
-            imagenesUrl: ["/img-zapato-default.webp"],
+            imagenesUrl: [],
         }
 
         jsonProductAnalyzer.write(newProduct);
@@ -105,6 +110,27 @@ const ProductController = {
     delete: function(req, res){
 
     }
+}
+
+function getImages(newProductId, cb){
+    
+    const productImagesDirectoryPath = path.join(__dirname, '../../public/images/products/producto_' + newProductId.toString());
+    const imgPath = '/producto_' + newProductId.toString();
+    let imagesPaths = [];
+
+
+    fs.readdir(productImagesDirectoryPath, function (err, files) {
+        //handling error
+        if (err) {
+            console.log('Unable to scan directory: ' + err);
+            return [];
+        } 
+        //listing all files using forEach
+        imagesPaths = files.map(function (file) {
+           return imgPath + '/' + file;
+            
+        });
+    });
 }
 
 //Export.

@@ -5,34 +5,29 @@ const app = express();
 //Path
 const path = require('path');
 
-//Port
+//Server port
 const port = 3030;
+
+//Static Resources
+app.use(express.static("public"));
 
 //Middleware´s (Don´t touch)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//Routes
-const productRouter = require(path.join(__dirname, '/routes/productRouter.js'));
-const userRouter = require(path.join(__dirname,'/routes/userRouter.js'));
-const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
-const cartRouter = require(path.join(__dirname,'/routes/cartRouter.js'));
+//View Engine
+app.set("view engine", "ejs");
 
+/*+++++++++++++++ Main Router - requiere ++++++++++++++++++*/
+const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
 
 app.listen(process.env.PORT || port, ()=>{
     console.log("Server Status: Online");
 });
 
-app.set("view engine", "ejs");
-
-app.use(express.static("public"));
-
+//Main Router - invocation
 app.use('/', mainRouter);
 
-app.use('/user', userRouter);
 
-app.use('/producto', productRouter);
-
-app.use('/cart', cartRouter)
 
 
