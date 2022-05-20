@@ -12,7 +12,7 @@
     <%- include('../partials/header') %>
     <main>
        <div class="crear-producto-container">
-            <form action="/producto" method="POST" class="nuevo-producto-form">
+            <form action="/producto" method="POST" class="nuevo-producto-form" enctype="multipart/form-data">
                 <div class="form-container-1">
                     <section class="section-1">
                         <div class="titulo-subcontainer">
@@ -56,7 +56,7 @@
                     <div class="form-container-2">
                     <section class="section-2">
                         <div class="agregar-imagen">
-                            <input type="file" name="agregar-imagen" id="agregar-imagen" accept="image/png, image/jpeg, image/jpg" enctype="multipart/form-data">
+                            <input type="file" name="agregar-imagen" id="agregar-imagen" accept="image/png, image/jpeg, image/jpg" multiple="multiple">
                         </div>
                         <div class="img-flex-container">
                             <img src="../../../images/img-zapato.webp" alt="Foto - Nuevo producto">
@@ -78,7 +78,7 @@
                                 <label for="precio">Precio</label>
                                 <span>
                                     <label for="precio">$</label>
-                                    <input type="text" name="precio" id="precio" placeholder="$$$$$$" required>
+                                    <input type="number" name="precio" id="precio" placeholder="$$$$$$" required>
                                 </span>
                             </div>
                         </div>

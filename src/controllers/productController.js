@@ -1,5 +1,3 @@
-//File System Module.
-const fs = require('fs');
 
 //Path Module.
 const path = require('path');

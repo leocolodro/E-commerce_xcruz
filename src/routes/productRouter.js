@@ -1,6 +1,7 @@
 /************* Require's ************/
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 const multer = require('multer');
 const path  = require('path');
 const JsonProductsAnalyzer = require('../helpers/jsonProductAnalyzer.js');
@@ -11,13 +12,11 @@ const ProductController = require('../controllers/productController.js');
 /************* Multer Storage ************/
 const storage = multer.diskStorage({		
     destination: (req, file, cb) => {
-        const newProductId = JsonProductsAnalyzer.read().length;
+        const newProductId = JsonProductsAnalyzer.read().length + 1;
 
-        console.log(newProductId);
-
-        const newFolderPath = path.join(__dirname, '../../public/images/products/producto_x');
+        const newFolderPath = path.join(__dirname, '../../public/images/products/producto_' + newProductId.toString());
         
-        
+        fs.mkdirSync(newFolderPath, { recursive: true })
 
         cb(null, newFolderPath);
     },
@@ -25,18 +24,21 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         console.log(file);
 
-        const newFileName= req.body.categoria + req.body.color + Date.now();
+        let newFileName = req.body.categoria + req.body.color + Date.now() + path.extname(file.originalname);
+
+        newFileName.replace(/\s+/g, "-");
+        console.log(newFileName)
 
         cb(null, newFileName);
     }
 });
 
-const upload = multer({storage: storage});
+const upload = multer({storage: storage})
 
 
 /*+++++++++++++++++++++ Create Product +++++++++++++++++++++++*/
 router.get('/nuevo', ProductController.newProduct);
-router.post('/', upload.single('agregar-imagen'), ProductController.create);
+router.post('/', upload.array('agregar-imagen'), ProductController.create);
 
 /*+++++++++++++++++++++ Show Product By ID +++++++++++++++++++++++*/
 router.get('/:id', ProductController.display);
