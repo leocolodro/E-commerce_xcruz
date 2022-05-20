@@ -1,3 +1,5 @@
+//Author: Bautista.
+
 /************* Require's ************/
 const express = require('express');
 const router = express.Router();
@@ -12,27 +14,28 @@ const ProductController = require('../controllers/productController.js');
 /************* Multer Storage ************/
 const storage = multer.diskStorage({		
     destination: (req, file, cb) => {
+        
+        //Id for new product -> get products length + 1
         const newProductId = JsonProductsAnalyzer.read().length + 1;
-
+        
+        //Folder path
         const newFolderPath = path.join(__dirname, '../../public/images/products/producto_' + newProductId.toString());
         
+        //Crete new folder
         fs.mkdirSync(newFolderPath, { recursive: true })
 
         cb(null, newFolderPath);
     },
 
     filename: (req, file, cb) => {
-        console.log(file);
-
-        let newFileName = req.body.categoria + req.body.color + Date.now() + path.extname(file.originalname);
-
-        newFileName.replace(/\s+/g, "-");
-        console.log(newFileName)
+        //File name with no spaces and all lower cased
+        const newFileName = (req.body.categoria + req.body.color + Date.now() + path.extname(file.originalname)).trim().replace(/ +/g,'-').toLowerCase();
 
         cb(null, newFileName);
     }
 });
 
+/************* Multer Upload ************/
 const upload = multer({storage: storage})
 
 
