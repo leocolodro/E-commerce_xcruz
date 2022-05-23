@@ -648,14 +648,14 @@ a{
     
 }
 
-.crear-producto-container .nuevo-producto-form > div{
+.crear-producto-container .nuevo-producto-form > article{
     align-items: center;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.crear-producto-container .nuevo-producto-form > div > section{
+.crear-producto-container .nuevo-producto-form > article > section{
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -675,10 +675,10 @@ a{
     display: flex;
     justify-content: center;
 }
-.crear-producto-container .nuevo-producto-form > div> section{
+.crear-producto-container .nuevo-producto-form > article > section{
     margin: 2% auto 2%;
 }
-.crear-producto-container .nuevo-producto-form > div > section > div{
+.crear-producto-container .nuevo-producto-form > article > section > article{
     text-align: center;
     margin: 3% auto 3%;
     height: 30px;
