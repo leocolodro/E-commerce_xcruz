@@ -13,35 +13,34 @@
   </head>
   <body>
   <%- include('../partials/header') %>
-  <main>
-      <div class="contenedor-login">
-        <div class="wrapper">
-          <!-- <div class="title"><span>Login Form</span></div> -->
+  
+      <main class="contenedor-login">
+        <section class="wrapper">
           <form class="wrapper-form" action="#">
-            <div class="row">
+            <article class="row">
               <i class="icono-login fas fa-user"></i>
               <input type="email" placeholder="Email" required />
-            </div>
-            <div class="row">
+            </article>
+            <article class="row">
               <i class="icono-login fas fa-lock"></i>
               <input type="password" placeholder="Contraseña" required />
-            </div>
-            <div class="pass"><a href="#">¿Has olvidado tu contraseña?</a></div>
-            <div class="row button">
+            </article>
+            <article class="pass"><a href="#">¿Has olvidado tu contraseña?</a></article>
+            <article class="row button">
               <input type="submit" value="Inicia sesión" />
-            </div>
-            <div class="signup-link">¿No eres Miembro?</div>
-            <div class="row button2">
+            </article>
+            <article class="signup-link">¿No eres Miembro?</article>
+            <article class="row button2">
               <input type="submit" value="Crear Cuenta" />
-            </div>
-            <div class="signup-link">O</div>
-            <div class="row button3">
+            </article>
+            <article class="signup-link">O</article>
+            <article class="row button3">
               <input type="submit" value="Continuar con Google" />
-            </div>
+            </article>
           </form>
-        </div>
-      </div>
-  </main>
+        </section>
+      </main>
+  
   <%- include('../partials/footerPrincipal') %>
 
     <!-- /login -->
