@@ -81,13 +81,18 @@ const ProductController = {
         });
     },
 
-    create: function(req, res){
-        
+    create: function(req, res){    
         const products = jsonProductAnalyzer.read();
 
         const newProductId = products.length + 1; 
         
-        let imagesPaths = getImages(newProductId);
+        const imgPath = '/producto_' + newProductId.toString() + '/';
+
+        let newProductImages = req.files.map(file =>{
+            return imgPath +file.filename;
+        }) 
+
+        console.log(newProductImages);
 
         const newProduct = {
             id: newProductId,
@@ -99,7 +104,7 @@ const ProductController = {
             precio: Number.parseFloat(req.body.precio),
             talles: [40,42,43],
             descripcion: req.body.descripcion,
-            imagenesUrl: imagesPaths,
+            imagenesUrl: newProductImages
         }
 
         jsonProductAnalyzer.write(newProduct);
@@ -165,34 +170,6 @@ const ProductController = {
             
         }
     }
-}
-
-function getImages(newProductId, cb){
-    
-    const productImagesDirectoryPath = path.join(__dirname, '../../public/images/products/producto_' + newProductId.toString());
-    const imgPath = '/producto_' + newProductId.toString();
-    let imagesPaths = [];
-
-
-    let images = fs.readdir(productImagesDirectoryPath, function (err, files) {
-        //handling error
-        if (err) {
-            console.log('Unable to scan directory: ' + err);
-            return [];
-        } 
-        //listing all files using forEach
-        console.log(files)
-        
-        files.forEach(file => {
-            console.log("file:", file);
-            imagesPaths.push(imgPath + '/' + file)
-        });
-        console.log("ImagesPaths:", imagesPaths);
-        return imagesPaths;
-        
-    });
-    console.log("Images", images);
-    return images;
 }
 
 //Export.

@@ -47,7 +47,7 @@ const JsonProductsAnalyzer = {
         products.push(newProduct);
 
         //Transform to JSON.
-		const newData = JSON.stringify(products);
+		const newData = JSON.stringify(products, null, "\t");
 
         //Write File.
 		fs.writeFile(productsFilePath, newData, err => {
@@ -78,6 +78,7 @@ const JsonProductsAnalyzer = {
         this.write(newProduct);
     },
 
+    /*+++++++++++++++TEST METHOD++++++++++++++++++*/
     delete: function(product){
         let products = this.read();
 
