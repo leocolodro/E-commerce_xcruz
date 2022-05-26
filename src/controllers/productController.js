@@ -167,7 +167,7 @@ const ProductController = {
         
         //Product founded
         else{
-            
+          jsonProductAnalyzer.delete(product);  
         }
     }
 }
