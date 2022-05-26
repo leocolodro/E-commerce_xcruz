@@ -99,12 +99,51 @@ const ProductController = {
             precio: Number.parseFloat(req.body.precio),
             talles: [40,42,43],
             descripcion: req.body.descripcion,
-            imagenesUrl: [],
+            imagenesUrl: imagesPaths,
         }
 
         jsonProductAnalyzer.write(newProduct);
         
         res.redirect('/producto/' + newProductId);
+    },
+
+    edit: function(req, res){
+
+        //Get products DataBase
+        const products = jsonProductAnalyzer.read();
+
+                
+        //Search product in "Products"      
+        const product = products.find(product => {         
+        return product.id == req.params.id;
+        });
+        
+        //Product not found
+        if(product == undefined){
+            res.send("ERROR.\nProducto no encontrado!");
+        }
+                
+        //Product founded
+        else{
+            
+            //Generate new product
+            let newProduct = {
+                id : product.id,
+                title : req.body.titulo,
+                colores : [req.body.color],
+                categoria : req.body.categoria,
+                genero : req.body.genero,
+                porcentajeDescuento : Number.parseInt("0"),
+                precio : Number.parseFloat(req.body.precio),
+                talles : [40,42,43],
+                descripcion : req.body.descripcion,
+                imagenesUrl : product.imagenesUrl
+            }
+
+            jsonProductAnalyzer.edit(product, newProduct);
+
+            res.redirect('/producto/' + newProduct.id);
+        }
     },
 
     delete: function(req, res){
@@ -135,18 +174,25 @@ function getImages(newProductId, cb){
     let imagesPaths = [];
 
 
-    fs.readdir(productImagesDirectoryPath, function (err, files) {
+    let images = fs.readdir(productImagesDirectoryPath, function (err, files) {
         //handling error
         if (err) {
             console.log('Unable to scan directory: ' + err);
             return [];
         } 
         //listing all files using forEach
-        imagesPaths = files.map(function (file) {
-           return imgPath + '/' + file;
-            
+        console.log(files)
+        
+        files.forEach(file => {
+            console.log("file:", file);
+            imagesPaths.push(imgPath + '/' + file)
         });
+        console.log("ImagesPaths:", imagesPaths);
+        return imagesPaths;
+        
     });
+    console.log("Images", images);
+    return images;
 }
 
 //Export.

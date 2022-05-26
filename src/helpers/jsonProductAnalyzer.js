@@ -57,6 +57,47 @@ const JsonProductsAnalyzer = {
 
 			console.log("New data added -> products-database");
 		});  
+    },
+
+    edit: function(oldProduct, newProduct){
+        //Get products DataBase.
+        let products = this.read();
+
+        //Get index of old product
+        const index = products.findIndex(object => {
+            return object.id === oldProduct.id;
+          });
+        
+        //Remove product
+        products.splice(index, 1);
+
+        //Transform to JSON.
+		const newData = JSON.stringify(products);
+          
+        //Write File.
+        this.write(newProduct);
+    },
+
+    delete: function(product){
+        let products = this.read();
+
+        const index = products.findIndex(object => {
+            return object.id === product.id;
+          });
+
+        products.splice(index, 1);
+
+        //Transform to JSON.
+		const newData = JSON.stringify(products);
+          
+        //Write File.
+		fs.writeFile(productsFilePath, newData, err => {
+			
+            // error checking
+			if(err) throw err;
+
+			console.log("product", product.titulo ,"has been deleted -> products-database");
+		});
     }
 }
 

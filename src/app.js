@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 
+//Method-override
+const methodOverride = require('method-override');
+
 //Path
 const path = require('path');
 
@@ -14,6 +17,8 @@ app.use(express.static("public"));
 //Middleware´s (Don´t touch)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use(methodOverride("_method"));
 
 //View Engine
 app.set("view engine", "ejs");

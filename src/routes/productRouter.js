@@ -41,15 +41,16 @@ const upload = multer({storage: storage})
 
 /*+++++++++++++++++++++ Create Product +++++++++++++++++++++++*/
 router.get('/nuevo', ProductController.newProduct);
-router.post('/', upload.array('agregar-imagen'), ProductController.create);
+router.post('/nuevo', upload.array('agregar-imagen'), ProductController.create);
 
 /*+++++++++++++++++++++ Show Product By ID +++++++++++++++++++++++*/
 router.get('/:id', ProductController.display);
 
 /*+++++++++++++++++++++ Edit Product By ID +++++++++++++++++++++++*/
 router.get('/:id/editar', ProductController.editById);
+router.put('/:id/editar', ProductController.edit);
 
 /*+++++++++++++++++++++ Delete Product By ID +++++++++++++++++++++++*/
-router.delete('/:id', ProductController.delete)
+router.delete('/:id',upload.array('agregar-imagen'), ProductController.delete)
 
 module.exports = router;
