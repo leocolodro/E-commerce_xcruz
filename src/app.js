@@ -30,7 +30,7 @@ app.set("view engine", "ejs");
 const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
 
 app.listen(process.env.PORT || port, ()=>{
-    console.log("Server Status: Online");
+    console.log("Server Status: Online\nUrl: localhost:3030/");
 });
 
 //Main Router - invocation
