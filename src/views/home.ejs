@@ -78,7 +78,7 @@
       <!-- PRODUCTOS DESTACADOS - GENERADOR -->
       <section class="contenedor-productos-home">
         <% productos.forEach(producto => { %>
-          <a href="/producto/<%= producto.id %>">
+          <a href="/productos/<%= producto.id %>">
             <article class="elements-subcontainer">
               <section class="img-container">
                 <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="producto" />
@@ -111,7 +111,7 @@
       <!-- OFERTAS - GENERADOR -->
       <section class="contenedor-productos-home">
         <% productosEnOferta.forEach(producto => { %>
-          <a href="/producto/<%= producto.id %>">
+          <a href="/productos/<%= producto.id %>">
             <article class="elements-subcontainer">
               <section class="img-container">
                 <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="producto" />

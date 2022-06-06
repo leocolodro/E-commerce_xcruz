@@ -47,7 +47,7 @@ const ProductController = {
     },
     displayAll: function(req, res){
         const products = jsonProductAnalyzer.read();
-        res.render(path.join(__dirname, '../views/products/productsList.ejs'), {products : products});
+        res.render(path.join(__dirname, '../views/products/productsList.ejs'), {productos : products});
     },
     editById: function(req, res){
         //Get products DataBase

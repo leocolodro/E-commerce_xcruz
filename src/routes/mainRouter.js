@@ -17,7 +17,7 @@ router.get('/', mainController.displayHome);
 
 router.use('/usuario', userRouter);
 
-router.use('/producto', productRouter);
+router.use('/productos', productRouter);
 
 router.use('/cart', cartRouter);
 

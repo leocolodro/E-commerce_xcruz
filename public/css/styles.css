@@ -858,9 +858,73 @@ a{
     width: 50px;
     background-color: black;
  }
-    /* productDetail - END */
+    /* productDetail.ejs - END */
 
-    /*register.html - START*/
+    /* productList.ejs- START */
+
+.products-list-main-title{
+    font-size: 22px;
+    text-align: center;
+    margin: 25px auto 25px;
+}
+
+.products-list-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.products-list-container .enlace .product-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.products-list-container .enlace .product-container .image-container{
+    width: 80%;
+    height: 20%;
+}
+.products-list-container .enlace .product-container .image-container > img{
+    width: 100%;
+    height: 100%;
+}
+
+.products-list-container .enlace .product-container .price-discount-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.products-list-container .enlace .product-container .price-discount-container > div{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.products-list-container .enlace .product-container .price-discount-container > div .discount{
+    color: #88ec83;
+}
+
+.products-list-container .enlace .product-container .price-discount-container > div > p{
+    margin-bottom: 0px
+}
+
+.products-list-container .enlace .product-container .price-discount-container > p{
+    font-size: 20px;
+}
+
+.products-list-container .enlace .product-container .title-container .title{
+    font-size: 18px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+    /* productList.ejs - END */
+
+    /*register.ejs - START*/
 .register-container{
     align-items: center;
     display: flex;

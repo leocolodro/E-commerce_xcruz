@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Productos</title>
         <link rel="stylesheet" href="/css/styles.css" />
         <script src="https://kit.fontawesome.com/b7372bc3ff.js" crossorigin="anonymous"></script>
     </head>
@@ -12,31 +12,41 @@
         <%- include('../partials/header') %>
         <main>
             <!--Main title-->
-            <h1>Nuestros Productos</h1>
+            <h1 class="products-list-main-title">Nuestros Productos</h1>
 
             <!--Main Container-->
             <section class="products-list-container">
 
                  <!--Product Generator-->
-                <% array.forEach(element => { %> 
-                    <a href="/producto/<%= producto.id %>" class="enlace">
+                <% productos.forEach(producto => { %> 
+                    <a href="/productos/<%= producto.id %>" class="enlace">
                         <article class="product-container">
                             <section class="image-container">
-                                <img src="" alt="product-img">
+                                <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="product-img">
                             </section>
                             <section class="title-container">
-
+                                <h2 class="title"> <%= producto.titulo %> </h2>
                             </section>
-                            <section class="price-discout-container">
-                                <p class="discount">
+                            <section class="price-discount-container">
+                                <!--If product has %Off-->
+                                 <% if (producto.porcentajeDescuento > 0) { %>
+                                    <div>
+                                        <!--Price without discount-->
+                                        <p class="price"><del> $<%= producto.precio %> </del></p>
 
-                                </p>
-                                <article class=" prices-container">
-                                    <p class="price">
-
+                                        <!--%Off-->
+                                        <p class="discount"> <%= producto.porcentajeDescuento %>% Off </p>
+                                    </div>
+                                    <!--Price with discount-->
+                                    <p class="price-with-discount">
+                                        $<%= producto.precio - ((producto.precio * producto.porcentajeDescuento) / 100) %> 
                                     </p>
-                                    <p class="price-with-discount"></p>
-                                </article>
+                                        
+                                <!--If not-->
+                                <% } else { %>
+                                    <!--Price-->
+                                    <p class="price"> $<%= producto.precio %> </p>
+                                <% } %>
                             </section>
                         </article>
                     </a>
