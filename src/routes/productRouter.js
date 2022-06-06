@@ -38,7 +38,8 @@ const storage = multer.diskStorage({
 /************* Multer Upload ************/
 const upload = multer({storage: storage})
 
-
+/*+++++++++++++++++++++ Products List +++++++++++++++++++++++*/
+router.get('/', ProductController.displayAll);
 /*+++++++++++++++++++++ Create Product +++++++++++++++++++++++*/
 router.get('/nuevo', ProductController.newProduct);
 router.post('/nuevo', upload.array('agregar-imagen'), ProductController.create);

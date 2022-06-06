@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="html-home">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+        <script src="https://kit.fontawesome.com/b7372bc3ff.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
+            <!--Main title-->
+            <h1>Nuestros Productos</h1>
+
+            <!--Main Container-->
+            <section class="products-list-container">
+
+                 <!--Product Generator-->
+                <% array.forEach(element => { %> 
+                    <a href="/producto/<%= producto.id %>" class="enlace">
+                        <article class="product-container">
+                            <section class="image-container">
+                                <img src="" alt="product-img">
+                            </section>
+                            <section class="title-container">
+
+                            </section>
+                            <section class="price-discout-container">
+                                <p class="discount">
+
+                                </p>
+                                <article class=" prices-container">
+                                    <p class="price">
+
+                                    </p>
+                                    <p class="price-with-discount"></p>
+                                </article>
+                            </section>
+                        </article>
+                    </a>
+                <% }) %>
+            </section>
+        </main>
+        <%- include('../partials/footerPrincipal') %>
+    </body>
+</html>
