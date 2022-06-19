@@ -8,6 +8,9 @@ const methodOverride = require('method-override');
 //Morgan
 const morgan = require('morgan');
 
+//Session
+const session = require('express-session');
+
 //Path
 const path = require('path');
 
@@ -22,7 +25,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(methodOverride("_method"));
-
+app.use(session({
+    secret : 'topSecret',
+    resave: true,
+    saveUninitialized: true,
+}))
 //View Engine
 app.set("view engine", "ejs");
 
