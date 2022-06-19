@@ -112,7 +112,7 @@ const ProductController = {
 
         jsonProductAnalyzer.write(newProduct);
         
-        res.redirect('/producto/' + newProductId);
+        res.redirect('/productos');
     },
 
     edit: function(req, res){

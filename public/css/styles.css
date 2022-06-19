@@ -872,21 +872,28 @@ a{
     align-items: center;
     display: flex;
     flex-direction: column;
+
 }
 
 .products-list-container .enlace .product-container{
     align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 1px 8px #ddd;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    height: 334px;
+
 }
 .products-list-container .enlace .product-container .image-container{
-    width: 80%;
-    height: 20%;
+    width: 280px;
+    text-align: center;
 }
 .products-list-container .enlace .product-container .image-container > img{
-    width: 100%;
-    height: 100%;
+    width: 218px;
+    height: 218px;
 }
 
 .products-list-container .enlace .product-container .price-discount-container{
@@ -900,12 +907,13 @@ a{
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     width: 100%;
+    justify-content: center;
 }
 
 .products-list-container .enlace .product-container .price-discount-container > div .discount{
     color: #88ec83;
+    margin-left: 10px;
 }
 
 .products-list-container .enlace .product-container .price-discount-container > div > p{
@@ -913,15 +921,35 @@ a{
 }
 
 .products-list-container .enlace .product-container .price-discount-container > p{
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 0px;
 }
 
 .products-list-container .enlace .product-container .title-container .title{
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 0px;
     text-align: center;
 }
-
+.products-list-container .enlace .product-container .truck-icon-container{
+    position: relative;
+}
+.products-list-container .enlace .product-container .truck-icon-container .fa-truck {
+    color: green;
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    height: 15px;
+    width: 15px;
+    background-color: #FFF;
+    border: 1px solid #39b54a;
+    position: absolute;
+    border-radius: 50%;
+    top: -15px;
+    right: -115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     /* productList.ejs - END */
 
     /*register.ejs - START*/
@@ -1427,6 +1455,16 @@ footer .copyright-container > small {
         width: 110px;
     }
     /*productDetail.ejs - END */
+    
+    /*productList.ejs - START */
+
+    .products-list-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    /*productList.ejs - END */
 
     /*register.html - START*/
     .register-container .register-form {

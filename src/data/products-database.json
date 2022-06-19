@@ -17,7 +17,7 @@
 			43,
 			44
 		],
-		"cantidad" : 10,
+		"cantidad": 10,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_1/zapato_cuero_marron_1.jpg",
@@ -40,7 +40,7 @@
 			41,
 			42
 		],
-		"cantidad" : 15,
+		"cantidad": 15,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_2/zapato_cuero_punta_negro_1.jpg",
@@ -62,7 +62,7 @@
 			40,
 			42
 		],
-		"cantidad" : 13,
+		"cantidad": 13,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_3/bota_chelsea_cuero_negro_1.jpg",
@@ -87,7 +87,7 @@
 			42,
 			43
 		],
-		"cantidad" : 20,
+		"cantidad": 20,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_4/zapato_siena_cuero_negro_1.jpg",
@@ -108,7 +108,7 @@
 			39,
 			42
 		],
-		"cantidad" : 25,
+		"cantidad": 25,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_5/zapatilla_positano_cuero_negro_1.jpg",
@@ -133,7 +133,7 @@
 			43,
 			44
 		],
-		"cantidad" : 18,
+		"cantidad": 18,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_6/botas_vancouver_cuero_marron_1.jpg",
@@ -156,7 +156,7 @@
 			42,
 			44
 		],
-		"cantidad" : 17,
+		"cantidad": 17,
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
 			"/producto_7/zapato_9849_cuero_marron_1.jpg",
