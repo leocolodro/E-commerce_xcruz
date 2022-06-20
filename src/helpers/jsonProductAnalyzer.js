@@ -103,11 +103,11 @@ const JsonProductsAnalyzer = {
 
         //Search and remove product.
         const productsFiltered = products.filter(product => {
-            return product.id = productId
+            return product.id != productId
         });
 
         //Transform to JSON.
-		const newData = JSON.stringify(productsFiltered);
+		const newData = JSON.stringify(productsFiltered, null, "\t");
           
         //Write File.
 		fs.writeFile(productsFilePath, newData, err => {
