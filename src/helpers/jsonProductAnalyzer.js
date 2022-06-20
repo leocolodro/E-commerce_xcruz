@@ -59,23 +59,38 @@ const JsonProductsAnalyzer = {
 		});  
     },
 
-    edit: function(oldProduct, newProduct){
+    edit: function(productId, newProductData){
         //Get products DataBase.
         let products = this.read();
 
-        //Get index of old product
-        const index = products.findIndex(object => {
-            return object.id === oldProduct.id;
-          });
-        
-        //Remove product
-        products.splice(index, 1);
-
+          //Edit product
+          products.forEach(product => {
+            if(product.id == productId){
+            product.titulo = newProductData.titulo;
+            /*Modifiy*/
+            product.colores = newProductData.colores;
+            product.categoria = newProductData.categoria;
+            product.genero = newProductData.genero;
+            product.porcentajeDescuento = newProductData.porcentajeDescuento;
+            product.precio = newProductData.precio;
+            /*Modifiy*/
+            product.talles = newProductData.talles;
+            product.descripcion = newProductData.descripcion;
+            /*Modifiy*/
+            product.imagenesUrl = newProductData.imagenesUrl;  
+            }});
+          
         //Transform to JSON.
-		const newData = JSON.stringify(products);
+		const newData = JSON.stringify(products, null, "\t");
           
         //Write File.
-        this.write(newProduct);
+        fs.writeFile(productsFilePath, newData, err => {
+			
+            // error checking
+			if(err) throw err;
+
+			console.log("data modified -> products-database");
+		});
     },
 
     /*+++++++++++++++TEST METHOD++++++++++++++++++*/

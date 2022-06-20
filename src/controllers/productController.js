@@ -11,7 +11,7 @@ const { join } = require('path');
 
 /*----------------------------------------------------------------------------*/
 //Los datos dentro de esta sección deberan ser colocados en una base de datos.
-const categoriasArray = ["Botas", "Mocacines", "Urbano", "Zapatillas"];
+const categoriasArray = ["Botas", "Mocacines", "Urbano", "Zapatillas", "De vestir"];
 const coloresArray = ["Marron", "Chocolate", "Negro", "Blanco", "Azul", "Habano"];
 const tallesArray = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
 /*----------------------------------------------------------------------------*/
@@ -119,7 +119,6 @@ const ProductController = {
 
         //Get products DataBase
         const products = jsonProductAnalyzer.read();
-
                 
         //Search product in "Products"      
         const product = products.find(product => {         
@@ -135,9 +134,8 @@ const ProductController = {
         else{
             
             //Generate new product
-            let newProduct = {
-                id : product.id,
-                title : req.body.titulo,
+            let newProductData = {
+                titulo : req.body.titulo,
                 colores : [req.body.color],
                 categoria : req.body.categoria,
                 genero : req.body.genero,
@@ -148,9 +146,9 @@ const ProductController = {
                 imagenesUrl : product.imagenesUrl
             }
 
-            jsonProductAnalyzer.edit(product, newProduct);
+            jsonProductAnalyzer.edit(product.id, newProductData);
 
-            res.redirect('/producto/' + newProduct.id);
+            res.redirect('/productos/' + product.id);
         }
     },
 
