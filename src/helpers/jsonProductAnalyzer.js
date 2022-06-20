@@ -93,7 +93,6 @@ const JsonProductsAnalyzer = {
 		});
     },
 
-    /*+++++++++++++++TEST METHOD++++++++++++++++++*/
     delete: function(productId){
         //Get products from DataBase
         let products = this.read();

@@ -170,6 +170,8 @@ const ProductController = {
         //Product founded
         else{
             jsonProductAnalyzer.delete(req.params.id);
+
+            res.redirect('/productos');
         }
     }
 }
