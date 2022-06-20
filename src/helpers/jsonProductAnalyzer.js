@@ -63,9 +63,9 @@ const JsonProductsAnalyzer = {
         //Get products DataBase.
         let products = this.read();
 
-          //Edit product
-          products.forEach(product => {
-            if(product.id == productId){
+        //Edit product
+        products.forEach(product => {
+        if(product.id == productId){
             product.titulo = newProductData.titulo;
             /*Modifiy*/
             product.colores = newProductData.colores;
@@ -78,7 +78,7 @@ const JsonProductsAnalyzer = {
             product.descripcion = newProductData.descripcion;
             /*Modifiy*/
             product.imagenesUrl = newProductData.imagenesUrl;  
-            }});
+        }});
           
         //Transform to JSON.
 		const newData = JSON.stringify(products, null, "\t");
@@ -94,26 +94,36 @@ const JsonProductsAnalyzer = {
     },
 
     /*+++++++++++++++TEST METHOD++++++++++++++++++*/
-    delete: function(product){
+    delete: function(productId){
+        //Get products from DataBase
         let products = this.read();
+        
+        //Product images folder path.
+        const productImagesFolderPath = path.join(__dirname, '../../public/images/products/producto_' + productId.toString());
 
-        const index = products.findIndex(object => {
-            return object.id === product.id;
-          });
-
-        products.splice(index, 1);
+        //Search and remove product.
+        const productsFiltered = products.filter(product => {
+            return product.id = productId
+        });
 
         //Transform to JSON.
-		const newData = JSON.stringify(products);
+		const newData = JSON.stringify(productsFiltered);
           
         //Write File.
 		fs.writeFile(productsFilePath, newData, err => {
-			
-            // error checking
+            //Error checking
 			if(err) throw err;
 
-			console.log("product", product.titulo ,"has been deleted -> products-database");
+			console.log("product", products.Filtered,"has been deleted -> products-database");
 		});
+
+        //Delete files & directory 
+        fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
+            if (err) {
+                throw err;
+            }   
+            console.log(`${productImagesFolderPath} is deleted!`);
+        });
     }
 }
 

@@ -52,6 +52,6 @@ router.get('/:id/editar', ProductController.editById);
 router.put('/:id/editar', ProductController.edit);
 
 /*+++++++++++++++++++++ Delete Product By ID +++++++++++++++++++++++*/
-router.delete('/:id', ProductController.delete)
+router.delete('/:id/eliminar', ProductController.delete)
 
 module.exports = router;

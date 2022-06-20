@@ -143,7 +143,7 @@
 	{
 		"id": 7,
 		"titulo": "9849",
-		"colores": [ 
+		"colores": [
 			"Marron"
 		],
 		"categoria": "De vestir",
@@ -162,6 +162,26 @@
 			"/producto_7/zapato_9849_cuero_marron_2.jpg",
 			"/producto_7/zapato_9849_cuero_marron_3.jpg",
 			"/producto_7/zapato_9849_cuero_marron_4.jpg"
+		]
+	},
+	{
+		"id": 8,
+		"titulo": "Test",
+		"colores": [
+			" Marron  "
+		],
+		"categoria": " Urbano  ",
+		"genero": "Femenino",
+		"porcentajeDescuento": 0,
+		"precio": 56664,
+		"talles": [
+			40,
+			42,
+			43
+		],
+		"descripcion": "sgsfgfsdhshgsd",
+		"imagenesUrl": [
+			"/producto_8/urbano-marron-1655746639626.jpg"
 		]
 	}
 ]

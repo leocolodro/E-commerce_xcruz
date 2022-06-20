@@ -153,22 +153,23 @@ const ProductController = {
     },
 
     delete: function(req, res){
+
         //Get products DataBase
         const products = jsonProductAnalyzer.read();
 
-        //Search product in "Products"
-        const product = products.find(product => {
+        //Search product in "Products"      
+        const product = products.find(product => {         
             return product.id == req.params.id;
         });
-
+        
         //Product not found
         if(product == undefined){
             res.send("ERROR.\nProducto no encontrado!");
         }
-        
+                
         //Product founded
         else{
-          jsonProductAnalyzer.delete(product);  
+            jsonProductAnalyzer.delete(req.params.id);
         }
     }
 }
