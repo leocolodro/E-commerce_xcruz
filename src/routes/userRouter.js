@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const multer = require('multer');
+const userController = require('../controllers/userController.js');
 
 const { body } = require('express-validator');
 
@@ -14,61 +14,78 @@ const controllersUser = require(path.resolve(__dirname, '../controllers/userCont
 //JSON
 let archivoUsuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users-database.json')))
 
-//Guardado de imagens
+/************* Multer Storage ************/
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '../../public/images/users'));    //Guardar imagen en '../../public/images/usuarios'
+        
+        //Id for new product -> get products length + 1
+        //const newUserId = JsonUsersAnalyzer.read().length + 1;
+        
+        //Folder path
+        //const newFolderPath = path.join(__dirname, '../../public/images/users/user_' + newUserId.toString());
+        const newFolderPath = path.join(__dirname, "../../public/images/users/user_test");
+        //Crete new folder
+        fs.mkdirSync(newFolderPath, { recursive: true })
+
+        cb(null, newFolderPath);
     },
     filename: function (req, file, cb) {
-      cb(null, 'foto' + '-' + Date.now()+ path.extname(file.originalname));      
+      cb(null, 'profile-pic' + '-' + Date.now()+ path.extname(file.originalname));      
     }
   })
 
+/************* Multer Upload ************/
 const upload= multer({ storage })
 
-//Validaciones del Registro
-const validacionesRegistro = [
-    body('first_name').isLength({
-          min: 1
-        }).withMessage('El campo nombre no puede estar vacío'),
-      body('last_name').isLength({min: 1
-        }).withMessage('El campo apellido no puede estar vacío'),
-      body('email').isEmail().withMessage('Agregar un email válido'),
+
+/*+++++++++++++++++++++ Register Validations+++++++++++++++++++++++*/
+const validateRegister = [
+    body('firstName')
+    .notEmpty().withMessage('Coloca tu nombre!').bail(),
+
+    body('lastName')
+    .notEmpty().withMessage('Coloca tu apellido!').bail(),
+    
+    body('email')
+    .notEmpty().withMessage("Coloca tu email!").bail()
+    .isEmail().withMessage('Agrega un email válido!'),
   
-      //Valida la password 
-      body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
+    //Validate password
+    body('password')
+    .notEmpty().withMessage("Coloca una contraseña").bail()
+    .isLength({min: 6}).withMessage('La contraseña debe contener al menos 6 caractéres'),
       
-      //Valido la confimacion de la password dispuesto por el usuario
-      body('confirm_password').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+    //Validate password confirmation
+    body('confirm-password')
+    .notEmpty().withMessage('Confirma tu contraseña!').bail(),
 
-      //Validar si las contraseñas son validas
-      
-      body('confirm_password').custom((value, {req}) =>{
-          if(req.body.password == value ){
-              return true    // Si yo retorno un true  no se muestra el error     
-          }else{
-              return false   // Si retorno un false si se muestra el error
-          }    
-      }).withMessage('Las contraseñas deben ser iguales'),
+    //Validate both password and confirmation
+    body('confirm-password').custom((value, {req}) => {
+      if(req.body.password == value ){
+        return true
+      }
+      else{
+        return false 
+      }    
+      }).withMessage('Las contraseñas deben coincidir'),
 
-        //Seleccionar un avatar  
-      body('avatar').custom((value, {req}) =>{
-          if(req.file != undefined){
-              return true
-          }
-          return false;
-      }).withMessage('Debe elegir su avatar y debe ser un archivo con formato: .JPG ó JPEG ó PNG')
-    ]
+        //Select profile-pic
+    body('profile-pic').custom((value, {req}) =>{
+      if(req.file != undefined){
+        return true
+      }
+      else{
+        return false;
+      }
+      }).withMessage('Debe elegir una foto de perfil!')
+    ];
 
-
-const userController = require('../controllers/userController.js');
-
+/*+++++++++++++++++++++ Login +++++++++++++++++++++++*/
 router.get('/login', userController.displayLogin);
 
+/*+++++++++++++++++++++ Register +++++++++++++++++++++++*/
 router.get('/register', userController.displayRegister);
-
-//En esta ruta envio al controlador el avatar del usuario asi como las validaciones
-router.post('/register', upload.single('avatar'),validacionesRegistro, userController.create);
+router.post('/register', upload.single('profile-pic'), validateRegister, userController.create);
 
 
 module.exports = router;

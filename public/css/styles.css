@@ -908,10 +908,15 @@ a{
 }
 
 .register-container .register-form > section > input{
-    margin-bottom: 8%;
+    margin-bottom: 4%;
     margin-top: 4%;
 }
-    /*register.html - END*/
+
+.register-form-error-msg{
+     color: #e98c00;
+     margin-top: 0px;
+}
+    /*register.ejs - END*/
     
 /*MAIN - END*/
 

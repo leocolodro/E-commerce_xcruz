@@ -11,56 +11,88 @@
 <body>
   <%- include('../partials/header') %>
   <main>
-        <% if(typeof(errors) != 'undefined'){%>
-                           <ul class="alert alert-danger">
-                              <% errors.forEach(error => { %>
-                                 <li><%= error.msg%></li>
-                              <%});%>
-                            </ul>
-        <%}%> 
-        <div class="register-container">
-            <form action="/register" method="POST" class="register-form">
-                <h3>Crea una cuenta</h3>
-                <section class="nombre-apellido-section">
-                    <label for="nombre">Nombre:</label>
-                    <!-- <input type="text" name="nombre" class="nombre-input" placeholder="Nombre" required> -->
-                    <input required type="text" class="nombre-input" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
-                    <label for="apellido">Apellido:</label>
-                    <!-- <input type="text" name="apellido" class="apellido-input" placeholder="Apellido" required> -->
-                    <input type="text" class="apellido-input" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
-                </section>
-                <!-- <section class="telefono-section">
-                  <label for="telefono">Teléfono</label>
-                  <input type="telephone" name="telefono" class="telefono" placeholder="Teléfono">
-                </section> -->
-                <section class="email-section">
-                    <label for="email">Email:</label>
-                    <!-- <input type="email" name="email" class="email" placeholder="Email" required> -->
-                    <input type="email" class="email" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
-                </section>
-                <section class="contrasena-section">
-                    <label for="contrasena">Contraseña:</label>
-                    <!-- <input type="password" name="contrasena" class="contrasena" placeholder="contraseña" required> -->
-                    <input type="password" class="contrasena name="password" placeholder="Contraseña"  >
-                    <label for="confirmar-contrasena">Confirmar contraseña:</label>
-                    <!-- <input type="password" name="confirmar-contrasena" class="confirmar-contrasena" placeholder="Confirmar contraseña" required> -->
-                    <input type="password" class="confirmar-contrasena" name="confirm_password" placeholder="Confirma Contraseña" >
-                </section>
-                <section>
-                    <input type="file"  name="avatar"  placeholder="Debes eligir tu avatar...">
-                </section>
-                <section class="botonera-section">
-                  <button type="submit" class="btn btn btn-info">Crear cuenta</button>
-                </section>
-            </form>
-            <p class="o-separador">O</p>
-            <div class="registrarse-google-container"> 
-              <button class="registrarse-google-btn">
-                <p>Registrarse con Google</p>
-                <i class="fa-brands fa-google"></i>
-            </button>
-          </div>
-        </div>
+    <div class="register-container">
+      <form action="/usuarios/register" method="POST" class="register-form" enctype="multipart/form-data">
+      <h3>Crea una cuenta</h3>
+        <!--firstnName & lastName-->
+        <section class="nombre-apellido-section">
+          <!--firstName-->
+          <label for="nombre">Nombre:</label>
+          <input type="text" name="firstName" class="nombre-input" placeholder="Nombre" value="<%= locals.old && old.firstName ? old.firstName : '' %>">
+          
+          <!--firstName - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='firstName') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %>
+
+          <!--lastName-->
+          <label for="apellido">Apellido:</label>
+          <input type="text" name="lastName" class="apellido-input" placeholder="Apellido" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+
+          <!--lastName - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='lastName') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %>
+          </section>
+        <section class="telefono-section">
+          <label for="telefono">Teléfono</label>
+          <input type="telephone" name="telephone" class="telefono" placeholder="Teléfono" requiered>
+        </section>
+        <!--email-->
+        <section class="email-section">
+          <label for="email">Email:</label>
+          <input type="email" name="email" class="email" placeholder="Email" value="<%=  locals.old && old.email ? old.email : '' %>">
+
+        <!--email - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='email') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %>          
+        </section>
+        <!--password & confirm password-->
+        <section class="contrasena-section">
+          <!--password-->
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" name="password" class="contrasena" placeholder="Contraseña" >
+
+        <!--password - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='password') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %> 
+          <!--confirm-password-->
+          <label for="confirmar-contrasena">Confirmar contraseña:</label>
+          <input type="password" name="confirm-password" class="confirmar-contrasena" placeholder="Confirmar contraseña">
+          
+          <!--confirm-password - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='confirm-password') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %> 
+
+        </section>
+        <section>
+          <input type="file" name="profile-pic" placeholder="Elige tu foto de perfil...">
+        </section>
+        <section class="botonera-section">
+          <button type="submit" class="btn btn btn-info">Crear cuenta</button>
+        </section>
+      </form>
+      <p class="o-separador">O</p>
+      <div class="registrarse-google-container"> 
+        <button class="registrarse-google-btn">
+          <p>Registrarse con Google</p>
+          <i class="fa-brands fa-google"></i>
+        </button>
+      </div>
+    </div>
   </main>
   <%- include('../partials/footerPrincipal') %>
 </body>
