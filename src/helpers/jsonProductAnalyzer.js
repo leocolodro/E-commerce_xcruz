@@ -39,6 +39,7 @@ const JsonProductsAnalyzer = {
         }
     },
 
+    /*++++++++++++++++++++Change to create+++++++++++++++++++++++++++*/
     write: function(newProduct) {
         //Get products DataBase.
         let products = this.read();
@@ -113,7 +114,7 @@ const JsonProductsAnalyzer = {
             //Error checking
 			if(err) throw err;
 
-			console.log("product", products.Filtered,"has been deleted -> products-database");
+			console.log("product #"+ productId, "has been deleted -> products-database");
 		});
 
         //Delete files & directory 
