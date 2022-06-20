@@ -1003,7 +1003,61 @@ a{
     margin-bottom: 8%;
     margin-top: 4%;
 }
-    /*register.html - END*/
+    /*register.ejs - END*/
+
+.users-list-main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.users-list-main-container .user-container {
+    align-items: center;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+}
+.users-list-main-container .user-container .data-container{
+    margin-left: 40px;
+}
+
+.users-list-main-container .user-container .data-container .name-title{
+    margin-top: 14px;
+}
+
+.users-list-main-container .user-container .data-container .email{
+    display: none;
+}
+
+.users-list-main-container .user-container .image-id-container {
+    background-color:#dddada ;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100px;
+}
+.users-list-main-container .user-container .image-id-container .image-sub-container > img {
+    border-radius: 100%;
+    height: 55px;
+    margin-top: 8px;
+    width: 64px;
+    
+}
+.users-list-main-container .user-container .image-id-container .id-sub-container {
+    margin-top: 5px;
+}
+.users-list-main-container .user-container .image-id-container .id-sub-container .id{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+    /*usersList.ejs - END*/
     
 /*MAIN - END*/
 
@@ -1497,6 +1551,16 @@ footer .copyright-container > small {
     }
     /*register.html - END*/
 
+    /*usersList.ejs - STAR*/
+    .users-list-main-container .user-container .image-id-container {
+        width: 250px;
+    }
+
+    .users-list-main-container .user-container .data-container .email{
+        display: block;
+    }
+
+    /*usersList.ejs - END*/
 /*MAIN - END*/
 
 /*FOOTER - START*/
@@ -1782,8 +1846,15 @@ footer .copyright-container > small {
     .register-container  .registrarse-google-container .registrarse-google-btn  > i{
         font-size: 16px;
     }
-    /*register.html - END*/
-    
+    /*register.ejs - END*/
+
+    /*usersList.ejs - START*/
+
+    .users-list-main-container .user-container .image-id-container {
+        width: 350px;
+    }
+
+    /*usersList.ejs - END*/
 /*MAIN - END*/    
 
 /*FOOTER - START*/
