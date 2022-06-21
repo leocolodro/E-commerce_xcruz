@@ -39,6 +39,7 @@ const JsonProductsAnalyzer = {
         }
     },
 
+    /*++++++++++++++++++++Change to create+++++++++++++++++++++++++++*/
     write: function(newProduct) {
         //Get products DataBase.
         let products = this.read();
@@ -59,46 +60,70 @@ const JsonProductsAnalyzer = {
 		});  
     },
 
-    edit: function(oldProduct, newProduct){
+    edit: function(productId, newProductData){
         //Get products DataBase.
         let products = this.read();
 
-        //Get index of old product
-        const index = products.findIndex(object => {
-            return object.id === oldProduct.id;
-          });
-        
-        //Remove product
-        products.splice(index, 1);
-
+        //Edit product
+        products.forEach(product => {
+        if(product.id == productId){
+            product.titulo = newProductData.titulo;
+            /*Modifiy*/
+            product.colores = newProductData.colores;
+            product.categoria = newProductData.categoria;
+            product.genero = newProductData.genero;
+            product.porcentajeDescuento = newProductData.porcentajeDescuento;
+            product.precio = newProductData.precio;
+            /*Modifiy*/
+            product.talles = newProductData.talles;
+            product.descripcion = newProductData.descripcion;
+            /*Modifiy*/
+            product.imagenesUrl = newProductData.imagenesUrl;  
+        }});
+          
         //Transform to JSON.
-		const newData = JSON.stringify(products);
+		const newData = JSON.stringify(products, null, "\t");
           
         //Write File.
-        this.write(newProduct);
-    },
-
-    /*+++++++++++++++TEST METHOD++++++++++++++++++*/
-    delete: function(product){
-        let products = this.read();
-
-        const index = products.findIndex(object => {
-            return object.id === product.id;
-          });
-
-        products.splice(index, 1);
-
-        //Transform to JSON.
-		const newData = JSON.stringify(products);
-          
-        //Write File.
-		fs.writeFile(productsFilePath, newData, err => {
+        fs.writeFile(productsFilePath, newData, err => {
 			
             // error checking
 			if(err) throw err;
 
-			console.log("product", product.titulo ,"has been deleted -> products-database");
+			console.log("data modified -> products-database");
 		});
+    },
+
+    delete: function(productId){
+        //Get products from DataBase
+        let products = this.read();
+        
+        //Product images folder path.
+        const productImagesFolderPath = path.join(__dirname, '../../public/images/products/producto_' + productId.toString());
+
+        //Search and remove product.
+        const productsFiltered = products.filter(product => {
+            return product.id != productId
+        });
+
+        //Transform to JSON.
+		const newData = JSON.stringify(productsFiltered, null, "\t");
+          
+        //Write File.
+		fs.writeFile(productsFilePath, newData, err => {
+            //Error checking
+			if(err) throw err;
+
+			console.log("product #"+ productId, "has been deleted -> products-database");
+		});
+
+        //Delete files & directory 
+        fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
+            if (err) {
+                throw err;
+            }   
+            console.log(`${productImagesFolderPath} is deleted!`);
+        });
     }
 }
 

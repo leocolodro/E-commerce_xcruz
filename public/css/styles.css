@@ -858,9 +858,101 @@ a{
     width: 50px;
     background-color: black;
  }
-    /* productDetail - END */
+    /* productDetail.ejs - END */
 
-    /*register.html - START*/
+    /* productList.ejs- START */
+
+.products-list-main-title{
+    font-size: 22px;
+    text-align: center;
+    margin: 25px auto 25px;
+}
+
+.products-list-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.products-list-container .enlace .product-container{
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 1px 8px #ddd;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    height: 334px;
+
+}
+.products-list-container .enlace .product-container .image-container{
+    width: 280px;
+    text-align: center;
+}
+.products-list-container .enlace .product-container .image-container > img{
+    width: 218px;
+    height: 218px;
+}
+
+.products-list-container .enlace .product-container .price-discount-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.products-list-container .enlace .product-container .price-discount-container > div{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.products-list-container .enlace .product-container .price-discount-container > div .discount{
+    color: #88ec83;
+    margin-left: 10px;
+}
+
+.products-list-container .enlace .product-container .price-discount-container > div > p{
+    margin-bottom: 0px
+}
+
+.products-list-container .enlace .product-container .price-discount-container > p{
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.products-list-container .enlace .product-container .title-container .title{
+    font-size: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.products-list-container .enlace .product-container .truck-icon-container{
+    position: relative;
+}
+.products-list-container .enlace .product-container .truck-icon-container .fa-truck {
+    color: green;
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    height: 15px;
+    width: 15px;
+    background-color: #FFF;
+    border: 1px solid #39b54a;
+    position: absolute;
+    border-radius: 50%;
+    top: -15px;
+    right: -115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* productList.ejs - END */
+
+    /*register.ejs - START*/
 .register-container{
     align-items: center;
     display: flex;
@@ -917,6 +1009,61 @@ a{
      margin-top: 0px;
 }
     /*register.ejs - END*/
+    /*register.ejs - END*/
+
+.users-list-main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.users-list-main-container .user-container {
+    align-items: center;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+}
+.users-list-main-container .user-container .data-container{
+    margin-left: 40px;
+}
+
+.users-list-main-container .user-container .data-container .name-title{
+    margin-top: 14px;
+}
+
+.users-list-main-container .user-container .data-container .email{
+    display: none;
+}
+
+.users-list-main-container .user-container .image-id-container {
+    background-color:#dddada ;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100px;
+}
+.users-list-main-container .user-container .image-id-container .image-sub-container > img {
+    border-radius: 100%;
+    height: 55px;
+    margin-top: 8px;
+    width: 64px;
+    
+}
+.users-list-main-container .user-container .image-id-container .id-sub-container {
+    margin-top: 5px;
+}
+.users-list-main-container .user-container .image-id-container .id-sub-container .id{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+    /*usersList.ejs - END*/
     
 /*MAIN - END*/
 
@@ -1368,6 +1515,16 @@ footer .copyright-container > small {
         width: 110px;
     }
     /*productDetail.ejs - END */
+    
+    /*productList.ejs - START */
+
+    .products-list-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    /*productList.ejs - END */
 
     /*register.html - START*/
     .register-container .register-form {
@@ -1400,6 +1557,16 @@ footer .copyright-container > small {
     }
     /*register.html - END*/
 
+    /*usersList.ejs - STAR*/
+    .users-list-main-container .user-container .image-id-container {
+        width: 250px;
+    }
+
+    .users-list-main-container .user-container .data-container .email{
+        display: block;
+    }
+
+    /*usersList.ejs - END*/
 /*MAIN - END*/
 
 /*FOOTER - START*/
@@ -1685,8 +1852,15 @@ footer .copyright-container > small {
     .register-container  .registrarse-google-container .registrarse-google-btn  > i{
         font-size: 16px;
     }
-    /*register.html - END*/
-    
+    /*register.ejs - END*/
+
+    /*usersList.ejs - START*/
+
+    .users-list-main-container .user-container .image-id-container {
+        width: 350px;
+    }
+
+    /*usersList.ejs - END*/
 /*MAIN - END*/    
 
 /*FOOTER - START*/

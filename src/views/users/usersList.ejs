@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users List</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/b7372bc3ff.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="users-list-main-container">
+            <!--User generator-->
+            <% users.forEach(user => { %>
+              <article class="user-container">
+                  <section class="image-id-container">
+                    <article class="image-sub-container">
+                      <img src="/images/users<%= user.image %>" alt="profile-pic">
+                    </article>
+                    <article class="id-sub-container">
+                      <p class="id"> #<%= user.id %> </p>  
+                    </article>
+                  </section>
+                  <section class="data-container">
+                    <h3 class="name-title"> <%= user.firstName + " " + user.lastName %> </h3>
+                    <p class="category"> <strong>Categoría:</strong> <%= user.category %> </p>
+                    <p class="email"> <strong>Email:</strong> <%= user.email %> </p>
+                  </section>
+              </article>
+            <% }) %>
+        </section>
+    </main>
+    <%- include('../partials/footerPrincipal') %>
+  </body>
+</html>

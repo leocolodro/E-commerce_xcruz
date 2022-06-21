@@ -81,6 +81,8 @@ const validateRegister = [
     ];
 
 /*+++++++++++++++++++++ Login +++++++++++++++++++++++*/
+router.get('/', userController.displayUsersList);
+
 router.get('/login', userController.displayLogin);
 
 /*+++++++++++++++++++++ Register +++++++++++++++++++++++*/

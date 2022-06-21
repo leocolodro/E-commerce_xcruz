@@ -38,7 +38,8 @@ const storage = multer.diskStorage({
 /************* Multer Upload ************/
 const upload = multer({storage: storage})
 
-
+/*+++++++++++++++++++++ Products List +++++++++++++++++++++++*/
+router.get('/', ProductController.displayAll);
 /*+++++++++++++++++++++ Create Product +++++++++++++++++++++++*/
 router.get('/nuevo', ProductController.newProduct);
 router.post('/nuevo', upload.array('agregar-imagen'), ProductController.create);
@@ -51,6 +52,6 @@ router.get('/:id/editar', ProductController.editById);
 router.put('/:id/editar', ProductController.edit);
 
 /*+++++++++++++++++++++ Delete Product By ID +++++++++++++++++++++++*/
-router.delete('/:id',upload.array('agregar-imagen'), ProductController.delete)
+router.delete('/:id/eliminar', ProductController.delete)
 
 module.exports = router;
