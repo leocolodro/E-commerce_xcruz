@@ -69,7 +69,7 @@ const validateRegister = [
       }    
       }).withMessage('Las contraseñas deben coincidir'),
 
-        //Select profile-pic
+    //Select profile-pic
     body('profile-pic').custom((value, {req}) =>{
       if(req.file != undefined){
         return true
