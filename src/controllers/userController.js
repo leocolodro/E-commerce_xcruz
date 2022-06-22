@@ -25,14 +25,16 @@ const UserController = {
 
     create: (req, res) => {
       let errors = validationResult(req);
-      
+      const newUserId = jsonUsersAnalyzer.read().length + 1;
+      const newUserImagePath = "/" + newUserId + "/";
       if (errors.isEmpty()) {
         let user = {
+          id: newUserId,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
           password: bcrypt.hashSync(req.body.password, 10),
-          image:  req.file ? req.file.filename : ''
+          image:  req.file ? (newUserImagePath + req.file.filename) : "/default_profile_pic.png"
         }
         
         let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../data/users-database.json'), 'utf-8');

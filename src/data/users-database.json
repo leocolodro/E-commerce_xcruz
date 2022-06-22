@@ -1,20 +1,36 @@
 [
-    {
-        "id":1,
-        "firstName":"Hugo",
-        "lastName":"Nail",
-        "email":"hnail0@hotmail.com",
-        "password":"XFUQp6g",
-        "category":"user",
-        "image":"/default_profile_pic.png"
-    },
-    {
-        "id":2,
-        "firstName":"Marcelo",
-        "lastName":"Cavala",
-        "email":"marcelocavala20120@gmail.com",
-        "password":"tssPlG2",
-        "category":"user",
-        "image":"/2/profile_pic.jpg"
-    }
- ]
+	{
+		"id": 1,
+		"firstName": "Hugo",
+		"lastName": "Nail",
+		"email": "hnail0@hotmail.com",
+		"password": "XFUQp6g",
+		"category": "user",
+		"image": "/default_profile_pic.png"
+	},
+	{
+		"id": 2,
+		"firstName": "Marcelo",
+		"lastName": "Cavala",
+		"email": "marcelocavala20120@gmail.com",
+		"password": "tssPlG2",
+		"category": "user",
+		"image": "/2/profile_pic.jpg"
+	},
+	{
+		"id": 3,
+		"firstName": "Juan",
+		"lastName": "Carlos",
+		"email": "juancaboca@gmail.com",
+		"password": "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m",
+		"image": "/default_profile_pic.png"
+	},
+	{
+		"id": 4,
+		"firstName": "Maria Estela",
+		"lastName": "Suarez",
+		"email": "marysuarez@live.com",
+		"password": "$2a$10$ifaU9rBP0zNE.mAV.5Os1Oa2vD.edR7KcwqmBSr/lw5a9IcmPSrmK",
+		"image": "/4/profile-pic-1655877593406.jpg"
+	}
+]

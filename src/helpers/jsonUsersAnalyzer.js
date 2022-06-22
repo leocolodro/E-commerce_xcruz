@@ -22,8 +22,8 @@ const JsonUsersAnalyzer = {
             return [
                 {
                     id: 1,
-                    first_name: "Example",
-                    last_name: "Example",
+                    firstName: "Example",
+                    lastName: "Example",
                     email: "example@gmail.com",
                     password:"example",
                     category:"user",

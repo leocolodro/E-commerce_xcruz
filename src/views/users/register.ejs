@@ -41,6 +41,13 @@
         <section class="telefono-section">
           <label for="telefono">Teléfono</label>
           <input type="telephone" name="telephone" class="telefono" placeholder="Teléfono" requiered>
+
+          <!--telephone - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='telephone') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %>  
         </section>
         <!--email-->
         <section class="email-section">
@@ -79,7 +86,7 @@
 
         </section>
         <section>
-          <input type="file" name="profile-pic" placeholder="Elige tu foto de perfil...">
+          <input type="file" name="profile-pic" placeholder="Elige tu foto de perfil..." accept="image/png, image/jpeg, image/jpg">
         </section>
         <section class="botonera-section">
           <button type="submit" class="btn btn btn-info">Crear cuenta</button>
