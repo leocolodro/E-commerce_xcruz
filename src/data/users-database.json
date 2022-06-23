@@ -5,7 +5,7 @@
 		"lastName": "Nail",
 		"email": "hnail0@hotmail.com",
 		"password": "XFUQp6g",
-		"category": "user",
+		"category": "Usuario",
 		"image": "/default_profile_pic.png"
 	},
 	{
@@ -14,8 +14,8 @@
 		"lastName": "Cavala",
 		"email": "marcelocavala20120@gmail.com",
 		"password": "tssPlG2",
-		"category": "user",
-		"image": "/2/profile_pic.jpg"
+		"category": "Usuario",
+		"image": "/default_profile_pic.png"
 	},
 	{
 		"id": 3,
@@ -23,6 +23,7 @@
 		"lastName": "Carlos",
 		"email": "juancaboca@gmail.com",
 		"password": "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m",
+		"category": "Usuario",
 		"image": "/default_profile_pic.png"
 	},
 	{
@@ -31,6 +32,16 @@
 		"lastName": "Suarez",
 		"email": "marysuarez@live.com",
 		"password": "$2a$10$ifaU9rBP0zNE.mAV.5Os1Oa2vD.edR7KcwqmBSr/lw5a9IcmPSrmK",
+		"category": "Usuario",
 		"image": "/4/profile-pic-1655877593406.jpg"
+	},
+	{
+		"id": 5,
+		"firstName": "Carla",
+		"lastName": "Lopez",
+		"email": "carlopez@live.com",
+		"password": "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q",
+		"category": "Usuario",
+		"image": "/default_profile_pic.png"
 	}
 ]

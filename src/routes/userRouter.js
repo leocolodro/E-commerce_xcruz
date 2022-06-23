@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const multer = require('multer');
 const registerValidations = require('../middlewares/registerValidations.js');
+const loginValidations = require('../middlewares/loginValidations.js');
 const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer.js');
 const userController = require('../controllers/userController.js');
 
@@ -31,15 +32,16 @@ const storage = multer.diskStorage({
 /************* Multer Upload ************/
 const upload = multer({ storage })
 
-
-/*+++++++++++++++++++++ Login +++++++++++++++++++++++*/
+/*+++++++++++++++++++ Users List +++++++++++++++++++++*/
 router.get('/', userController.displayUsersList);
 
+/*+++++++++++++++++++++ Login +++++++++++++++++++++++*/
 router.get('/login', userController.displayLogin);
+router.post('/login', loginValidations, userController.processLogin);
 
 /*+++++++++++++++++++++ Register +++++++++++++++++++++++*/
 router.get('/register', userController.displayRegister);
-router.post('/register', upload.single('profile-pic'), registerValidations, userController.create);
+router.post('/register', upload.single('profile-pic'), registerValidations, userController.createUser);
 
 
 module.exports = router;

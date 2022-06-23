@@ -110,7 +110,7 @@ const ProductController = {
             imagenesUrl: newProductImages
         }
 
-        jsonProductAnalyzer.write(newProduct);
+        jsonProductAnalyzer.create(newProduct);
         
         res.redirect('/productos');
     },

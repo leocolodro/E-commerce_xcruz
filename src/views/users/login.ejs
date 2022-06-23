@@ -16,26 +16,40 @@
   
       <main class="contenedor-login">
         <section class="wrapper">
-          <form class="wrapper-form" action="#">
+          <form action="/usuarios/login" method="POST" class="wrapper-form" enctype="application/json">
             <article class="row">
               <i class="icono-login fas fa-user"></i>
-              <input type="email" placeholder="Email" required />
+              <input type="email" name="email" placeholder="Email" value="<%=  locals.old && old.email ? old.email : '' %>" />
+              
+              email - Error handling
+              <% if(locals.errorMessages) { %>
+                <% errorMessages.forEach(error => { %>
+                  <% if (error.param == 'email') {%>
+                    <p class="register-form-error-msg"><%= error.msg %></p>
+              <% }})} %> 
             </article>
             <article class="row">
               <i class="icono-login fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" required />
+              <input type="password" name="password" placeholder="Contraseña" />
+
+              <!--password - Error handling-->
+              <% if(locals.errorMessages) { %>
+                <% errorMessages.forEach(error => { %>
+                  <% if (error.param == 'password') {%>
+                    <p class="register-form-error-msg"><%= error.msg %></p>
+              <% }})} %> 
             </article>
             <article class="pass"><a href="#">¿Has olvidado tu contraseña?</a></article>
             <article class="row button">
-              <input type="submit" value="Inicia sesión" />
+              <input type="submit" value="Iniciar sesión"/>
             </article>
             <article class="signup-link">¿No eres Miembro?</article>
             <article class="row button2">
-              <input type="submit" value="Crear Cuenta" />
+              <input type="button" value="Crear Cuenta" />
             </article>
             <article class="signup-link">O</article>
             <article class="row button3">
-              <input type="submit" value="Continuar con Google" />
+              <input type="button" value="Continuar con Google" />
             </article>
           </form>
         </section>

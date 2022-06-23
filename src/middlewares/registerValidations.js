@@ -5,16 +5,21 @@ const { body } = require('express-validator');
 
 /*+++++++++++++++++++++ Register Validations+++++++++++++++++++++++*/
 const registerValidations = [
+
+   //Validate fist name
     body('firstName')
     .notEmpty().withMessage('Coloca tu nombre!').bail(),
-
+    
+    //Validate last name
     body('lastName')
     .notEmpty().withMessage('Coloca tu apellido!').bail(),
 
+    //Validate phone number
     body('telephone')
     .notEmpty().withMessage("Coloca un número de teléfono!").bail()
     .isNumeric({min: 8}).withMessage("Coloca un número de teléfono valido!"),
 
+    //Validate email
     body('email')
     .notEmpty().withMessage("Coloca tu email!").bail()
     .isEmail().withMessage('Agrega un email válido!'),

@@ -37,15 +37,9 @@ const JsonUsersAnalyzer = {
         }
     },
 
-    write: function(newUser) {
-        //Get products DataBase.
-        let users = this.read();
-        
-        //Adds new product
-        users.push(newUser);
-
+    write(usersArray){
         //Transform to JSON.
-		const newData = JSON.stringify(users, null, "\t");
+		const newData = JSON.stringify(usersArray, null, "\t");
 
         //Write File.
 		fs.writeFile(usersFilePath, newData, err => {
@@ -53,11 +47,21 @@ const JsonUsersAnalyzer = {
             // error checking
 			if(err) throw err;
 
-			console.log("New data added -> users-database");
+			console.log("New data written -> users-database");
 		});  
     },
 
-    edit: function(oldProduct, newProduct){
+    create: function(newUser) {
+        //Get products DataBase.
+        let users = this.read();
+        
+        //Adds new product
+        users.push(newUser);
+
+        this.write(users);  
+    },
+
+    edit: function(oldUser, newUser){
         //Get products DataBase.
         let users = this.read();
 

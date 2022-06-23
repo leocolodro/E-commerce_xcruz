@@ -33,18 +33,18 @@ app.use(express.static("public"));
     /*For Json*/
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
     /*For Storage*/
 app.use(morgan("dev"));
 
     /*For PUT & DELETE */
 app.use(methodOverride("_method"));
     /*For Session*/
-app.use(session({
-    secret : 'topSecret',
-    resave: true,
-    saveUninitialized: true,
-}));
+app.use(session(
+    {
+        secret : 'secret',
+        resave: true,
+        saveUninitialized: true
+    }));
 
 // For View Engine
 app.set("view engine", "ejs");

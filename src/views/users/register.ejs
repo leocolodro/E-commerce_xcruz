@@ -40,7 +40,7 @@
           </section>
         <section class="telefono-section">
           <label for="telefono">Teléfono</label>
-          <input type="telephone" name="telephone" class="telefono" placeholder="Teléfono" requiered>
+          <input type="telephone" name="telephone" class="telefono" placeholder="Teléfono" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
 
           <!--telephone - Error handling-->
           <% if(locals.errorMessages) { %>
