@@ -1,7 +1,7 @@
 //@Author: Bautista
 
 /*this middleware is to restrict routes to not logged users*/
-function authorizationChecker(req, res, next){
+function userRoutes(req, res, next){
     const user = req.session.userLogged;
 
     if(user == undefined){
@@ -13,4 +13,4 @@ function authorizationChecker(req, res, next){
     }
 }
 
-module.exports = authorizationChecker;
+module.exports = userRoutes;
