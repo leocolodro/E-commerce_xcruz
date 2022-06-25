@@ -26,7 +26,7 @@ const JsonUsersAnalyzer = {
                     lastName: "Example",
                     email: "example@gmail.com",
                     password:"example",
-                    category:"user",
+                    category:"Usuario",
                     image:"/default_profile_pic.png"
                 }
             ];
@@ -61,46 +61,53 @@ const JsonUsersAnalyzer = {
         this.write(users);  
     },
 
-    edit: function(oldUser, newUser){
+    edit: function(userId, newUserData){
         //Get products DataBase.
         let users = this.read();
-
-        //Get index of old product
-        const index = products.findIndex(object => {
-            return object.id === oldProduct.id;
-          });
         
-        //Remove product
-        products.splice(index, 1);
+        users.forEach(user => {
+            if(user.id == userId){
+               user.firstName = newUserData.firstName;
+               user.lastName = newUserData.lastName;
+               user.email = newUserData.categoria;
+               user.password = newUserData.genero;scripcion;
+               user.image= newUserData.imagenesUrl;  
+            }});
+
 
         //Transform to JSON.
-		const newData = JSON.stringify(products);
+		const newData = JSON.stringify(users, null, "\t");
           
         //Write File.
-        this.write(newProduct);
+        this.write(newData);
     },
 
     /*+++++++++++++++TEST METHOD++++++++++++++++++*/
-    delete: function(product){
-        let products = this.read();
+    delete: function(userId){
+        //Get users from DataBase
+        let users = this.read();
+        
+        //User profile pic folder path.
+        const productImagesFolderPath = path.join(__dirname, '../../public/images/users/' + userId.toString());
 
-        const index = products.findIndex(object => {
-            return object.id === product.id;
-          });
-
-        products.splice(index, 1);
-
-        //Transform to JSON.
-		const newData = JSON.stringify(products);
-          
+        //Search and remove user.
+        const usersFiltered = users.filter(user => {
+            return user.id != userId
+        });
+   
         //Write File.
-		fs.writeFile(productsFilePath, newData, err => {
-			
-            // error checking
-			if(err) throw err;
+        this.write(usersFiltered);
 
-			console.log("product", product.titulo ,"has been deleted -> products-database");
-		});
+		console.log("User #"+ userId, "has been deleted -> users-database");
+
+
+        //Delete files & directory 
+        fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
+            if (err) {
+                throw err;
+            }   
+            console.log(`${productImagesFolderPath} is deleted!`);
+        });
     }
 }
 

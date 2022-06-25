@@ -5,6 +5,7 @@ const { body } = require('express-validator');
 
 /*+++++++++++++++++++++ Login Validations+++++++++++++++++++++++*/
 const loginValidations = [
+    //Validate email
     body('email')
     .notEmpty().withMessage("Coloca tu email!").bail()
     .isEmail().withMessage('Agrega un email válido!'),

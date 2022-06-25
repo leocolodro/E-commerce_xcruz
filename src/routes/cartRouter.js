@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const cartController = require('../controllers/cartController.js');
-const userAuthorizationChecker = require('../middlewares/userAuthorizationChecker.js');
+const userRoutes = require('../middlewares/userRoutes.js');
 
 
-router.get('/', userAuthorizationChecker, cartController.display);
+router.get('/', userRoutes, cartController.display);
 
 module.exports = router;

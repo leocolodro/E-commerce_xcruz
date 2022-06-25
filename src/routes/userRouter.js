@@ -8,7 +8,12 @@ const multer = require('multer');
 const registerValidations = require('../middlewares/registerValidations.js');
 const loginValidations = require('../middlewares/loginValidations.js');
 const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer.js');
+const adminRoutes = require('../middlewares/adminRoutes.js');
+
+
+/************* Controller ************/
 const userController = require('../controllers/userController.js');
+
 
 /************* Multer Storage ************/
 const storage = multer.diskStorage({
@@ -29,11 +34,13 @@ const storage = multer.diskStorage({
     }
   })
 
+
 /************* Multer Upload ************/
 const upload = multer({ storage })
 
+
 /*+++++++++++++++++++ Users List +++++++++++++++++++++*/
-router.get('/', userController.displayUsersList);
+router.get('/', adminRoutes, userController.displayUsersList);
 
 /*+++++++++++++++++++++ Login +++++++++++++++++++++++*/
 router.get('/login', userController.displayLogin);
