@@ -10,11 +10,10 @@ const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users-database.json');
 
 //Users DataBase
-
 const JsonUsersAnalyzer = {
 
     read: function() {
-        //Products DataBase
+        //User DataBase
         let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
         //if array is empty, returns a default mockup

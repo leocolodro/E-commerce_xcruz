@@ -23,6 +23,7 @@ const ProductController = {
         
         //Get products DataBase
         const products = jsonProductAnalyzer.read();
+        
         let productosRelacionadosArray = [];
         /*Don´t  touch*/
         const sliceSize = 4;
@@ -47,6 +48,7 @@ const ProductController = {
     },
     displayAll: function(req, res){
         const products = jsonProductAnalyzer.read();
+
         res.render(path.join(__dirname, '../views/products/productsList.ejs'), {productos : products});
     },
     editById: function(req, res){
