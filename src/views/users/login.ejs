@@ -12,50 +12,60 @@
     ></script>
   </head>
   <body>
-  <%- include('../partials/header') %>
-  
-      <main class="contenedor-login">
-        <section class="wrapper">
-          <form action="/usuarios/login" method="POST" class="wrapper-form" enctype="application/json">
-            <article class="row">
-              <i class="icono-login fas fa-user"></i>
-              <input type="email" name="email" placeholder="Email" value="<%=  locals.old && old.email ? old.email : '' %>" />
-              
-              email - Error handling
-              <% if(locals.errorMessages) { %>
-                <% errorMessages.forEach(error => { %>
-                  <% if (error.param == 'email') {%>
-                    <p class="register-form-error-msg"><%= error.msg %></p>
-              <% }})} %> 
-            </article>
-            <article class="row">
-              <i class="icono-login fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Contraseña" />
+    <%- include('../partials/header') %>
 
-              <!--password - Error handling-->
-              <% if(locals.errorMessages) { %>
-                <% errorMessages.forEach(error => { %>
-                  <% if (error.param == 'password') {%>
-                    <p class="register-form-error-msg"><%= error.msg %></p>
-              <% }})} %> 
-            </article>
-            <article class="pass"><a href="#">¿Has olvidado tu contraseña?</a></article>
-            <article class="row button">
-              <input type="submit" value="Iniciar sesión"/>
-            </article>
-            <article class="signup-link">¿No eres Miembro?</article>
-            <article class="row button2">
-              <input type="button" value="Crear Cuenta" />
-            </article>
-            <article class="signup-link">O</article>
-            <article class="row button3">
-              <input type="button" value="Continuar con Google" />
-            </article>
-          </form>
-        </section>
-      </main>
-  
-  <%- include('../partials/footerPrincipal') %>
+    <main class="container-login">
+      <section class="wrapper">
+        <form action="/usuarios/login" method="POST" class="wrapper-form" enctype="application/json">
+          <article class="login-form-row">
+            <i class="icono-login fas fa-user"></i>
+             <input class="input-login" type="email" name="email" placeholder="Email" value="<%=  locals.old && old.email ? old.email : '' %>"/>
+
+            <!-- email - Error handling -->
+              <% if(locals.errorMessages) { %> <% errorMessages.forEach(error => {
+              %> <% if (error.param == 'email') {%>
+              <p class="register-form-error-msg"><%= error.msg %></p>
+              <% }})} %>
+          </article>
+          <article class="login-form-row">
+            <i class="icono-login fas fa-lock"></i>
+            <input class="input-login" type="password" name="password" placeholder="Contraseña" />
+
+            <!-- password - Error handling -->
+            <% if(locals.errorMessages) { %> <% errorMessages.forEach(error => {
+            %> <% if (error.param == 'password') {%>
+            <p class="register-form-error-msg"><%= error.msg %></p>
+            <% }})} %>
+          </article>
+          <article class="pass">
+                <a  href="#" class="pass-link-a">¿Has olvidado tu contraseña?</a>            
+          </article>
+          <article class="login-form-row login-button-sub-container button">
+            <% if(locals.errorMessages) { %> <% errorMessages.forEach(error => {
+            %> <% if (error.param == 'invalid-credentials') {%>
+            <p class="register-form-error-msg"><%= error.msg %></p>
+            <% }})} %>
+            <button type="submit" class="login-button">Iniciar sesión</button>
+          </article>
+          <article class="signup-link">
+             ¿No eres Miembro?
+          </article>
+          <article class="login-form-row button2">
+            <button type="button" class="login-create-button">
+              Crear Cuenta
+            </button>
+          </article>
+          <article class="signup-link">O</article>
+          <article class="login-form-row button3">
+            <button type="button" class="login-google-button">
+              Continuar con Google
+            </button>
+          </article>
+        </form>
+      </section>
+    </main>
+
+    <%- include('../partials/footerPrincipal') %>
 
     <!-- /login -->
   </body>
