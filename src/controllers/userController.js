@@ -80,7 +80,7 @@ const UserController = {
           {
             errorMessages: [
               {
-                msg: "Credenciales invalidas",
+                msg: "Credenciales invalidas!",
                 param: "invalid-credentials"
               }
             ], 

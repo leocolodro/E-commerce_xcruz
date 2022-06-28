@@ -221,59 +221,59 @@ a{
     /*home.ejs - END*/
 
     /*login.ejs - START*/
-.contenedor-login{
+.container-login{
     padding: 0 20px;
     margin: 170px auto;
-  
 }
   
-.contenedor-login .wrapper{
+.container-login .wrapper{
     width: 100%;
     background: #fff;
     border-radius: 5px;
 }
   
-.contenedor-login .wrapper{
-    height: 90px;
+.container-login .wrapper{
+    height: 100px;
     border-radius: 5px 5px 0 0;
     color: #fff;
-    font-size: 30px;
-    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-  
-.contenedor-login .wrapper .wrapper-form{
-    padding: 30px 25px 25px 25px;  
+    
+.container-login .wrapper .wrapper-form .login-button-sub-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
-  
-.contenedor-login .wrapper .wrapper-form .row{
-    height: 45px;
-    margin-bottom: 15px;
+
+.container-login .wrapper .wrapper-form .login-form-row{
+    height: 50px;
+    margin-bottom: 20px;
     position: relative;
 }
   
-.contenedor-login .wrapper .wrapper-form .row input{
-    height: 42px;
+.container-login .wrapper .wrapper-form .login-form-row input{
+    height: 41px;
     outline: none;
     padding-left: 60px;
     border: 1px solid lightgrey;
     font-size: 16px;
 }
 
-.contenedor-login .wrapper .wrapper-form .row input:focus{
+.container-login .wrapper .wrapper-form .login-form-row input:focus{
     border-color: goldenrod;
 }
   
-.contenedor-login .wrapper .wrapper-form .row input::placeholder{
+.container-login .wrapper .wrapper-form .login-form-row input::placeholder{
     color: #999;
 }
   
-.contenedor-login .wrapper .wrapper-form .row .icono-login{
+.container-login .wrapper .wrapper-form .login-form-row .icono-login{
     position: absolute;
     width: 47px;
-    height: 100%;
+    height: 45px;
     color: #fff;
     font-size: 18px;
     background: black;
@@ -282,28 +282,27 @@ a{
     justify-content: center;
 }
   
-.contenedor-login .wrapper .wrapper-form .pass{
-    margin: -20px 0 20px 0;
+.container-login .wrapper .wrapper-form .pass{
+    margin: -10px 0 20px 0;
 }
   
-.contenedor-login .wrapper .wrapper-form .pass a{
+.container-login .wrapper .wrapper-form .pass a{
     color: black;
     font-size: 13px;
     text-decoration: none;
 }
   
-.contenedor-login .wrapper .wrapper-form .button input{
+.container-login .wrapper .wrapper-form .button .login-button{
     color: #fff;
     font-size: 20px;
     font-weight: 500;
-    padding-left: 0px;
     background: black;
     cursor: pointer;
-    border-radius: 70px;
     width: 100%;
+    height: 85%;
   }
   
-.contenedor-login .wrapper .wrapper-form .button2 input{
+.container-login .wrapper .wrapper-form .button2 .login-create-button{
     color: #fff;
     font-size: 20px;
     font-weight: 500;
@@ -312,9 +311,10 @@ a{
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
+    height: 85%;
 }
   
-.contenedor-login .wrapper .wrapper-form .button3 input{
+.container-login .wrapper .wrapper-form .button3 .login-google-button{
     color: rgb(84, 84, 84);
     font-size: 20px;
     font-weight: 500;
@@ -323,13 +323,14 @@ a{
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
+    height: 100%;
 }
   
-.contenedor-login .wrapper .wrapper-form .signup-link{
+.container-login .wrapper .wrapper-form .signup-link{
     text-align: center;
-    margin-top: 20px;
     font-size: 17px;
     color: black;
+    margin-top: 5px;
 }
      /*login.ejs - END*/
 
@@ -1257,6 +1258,28 @@ footer .copyright-container > small {
     }
     /*home.ejs - END*/
 
+    /* login.ejs - START */
+      .container-login .wrapper .wrapper-form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .container-login .wrapper .wrapper-form .login-form-row .input-login{
+        width: 315px; 
+    }
+    .container-login .wrapper .wrapper-form .button .login-button{
+        width: 315px;
+    }    
+    .container-login .wrapper .wrapper-form .button2 .login-create-button{
+        width: 315px;
+    }  
+    .container-login .wrapper .wrapper-form .button3 .login-google-button{
+        width: 315px;
+    }  
+
+    /* login.ejs - END */
+
     .main-title-container{
         justify-content: space-between;
     }
@@ -1594,14 +1617,6 @@ footer .copyright-container > small {
     }
 
 /*FOOTER - END*/
-    .contenedor-login .wrapper .wrapper-form .row input{
-    height: 42px;
-    outline: none;
-    padding-left: 60px;
-    border: 1px solid lightgrey;
-    font-size: 16px;
-    width: 100%;
-    }
 
 }
 
@@ -1661,6 +1676,13 @@ footer .copyright-container > small {
         height: 280px;
     }
     /*home.ejs - END*/
+
+    /* login.ejs - START */
+    .container-login .wrapper .wrapper-form .login-form-row .input-login{
+        width: 605px; 
+    }
+    /* login.ejs - END */
+
     .finalizar-compra-section{
         align-items: center;
         flex-direction: row;
@@ -1872,5 +1894,6 @@ footer .copyright-container > small {
         padding-left: 15px;
     }
 /*FOOTER - END*/
+   
 }
 
