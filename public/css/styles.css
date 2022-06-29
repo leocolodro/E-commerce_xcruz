@@ -1010,7 +1010,8 @@ a{
      margin-top: 0px;
 }
     /*register.ejs - END*/
-    /*register.ejs - END*/
+    
+    /*userList.ejs - START*/
 
 .users-list-main-container {
     align-items: center;
@@ -1029,6 +1030,37 @@ a{
     width: 100%;
     margin-top: 20px;
 }
+.users-list-main-container .user-container .buttons-container{
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 80%;
+}
+.users-list-main-container .user-container .buttons-container .buttons-subcontainer{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-right: 50px;
+}
+
+.users-list-main-container .user-container .buttons-container .delete-user-button {
+    margin-top: 15px;
+}
+
+.users-list-main-container .user-container .buttons-container .edit-user-button {
+    margin-bottom: 15px;
+}
+
+.users-list-main-container .user-container .buttons-container .edit-user-button .fa-user-pen{
+   font-size: 18px;
+}
+
+.users-list-main-container .user-container .buttons-container .delete-user-button .fa-trash{
+    font-size: 18px;
+ }
+
 .users-list-main-container .user-container .data-container{
     margin-left: 40px;
 }
@@ -1179,8 +1211,10 @@ footer .copyright-container > small {
         margin-top: 1em;
         width: 80%;
     }
-/*MAIN - END*/
+
+    /*MAIN - END*/
 }
+
 @media (min-width: 700px){
     /*HEADER - START*/
     .account-container{
@@ -1580,7 +1614,8 @@ footer .copyright-container > small {
     }
     /*register.html - END*/
 
-    /*usersList.ejs - STAR*/
+    /*usersList.ejs - START*/
+
     .users-list-main-container .user-container .image-id-container {
         width: 250px;
     }

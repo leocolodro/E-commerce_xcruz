@@ -41,7 +41,7 @@
 		"lastName": "Lopez",
 		"email": "carlopez@live.com",
 		"password": "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q",
-		"category": "Usuario",
+		"category": "Administrador",
 		"image": "/default_profile_pic.png"
 	}
 ]
