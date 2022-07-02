@@ -1098,6 +1098,86 @@ a{
 
     /*usersList.ejs - END*/
     
+    /*userDetail.ejs - START*/
+
+.user-detail-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 35px;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-title{
+    display: flex;
+    justify-content: center;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-img_p{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left{
+    align-items: center;
+    display: flex;
+    flex-direction: column;     
+    width: 90%;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left .user-subcontainer-input_file{
+    margin: 10px;
+    width: 65%;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-article .user-subcontainer-article-input{
+    border-radius: 3px;  
+    border: 1px solid lightgrey;  
+    height: 30px;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_1{
+    background: black;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    width: 22%;
+    height: 30px;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_2{
+    background: black;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    width: 45%;
+    height: 30px;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left .user-subcontainer-img_avatar{
+    border-radius: 50%;
+    width: 65%;
+    height: 65%;
+}
+
+.user-detail-container .user-subcontainer .user-subcontainer-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+    /*userDetail.ejs - END*/
+
 /*MAIN - END*/
 
 /*FOOTER - START*/
@@ -1625,6 +1705,46 @@ footer .copyright-container > small {
     }
 
     /*usersList.ejs - END*/
+
+  /*userDetail.ejs - START*/
+      .user-detail-container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .user-detail-container .user-subcontainer{
+    width: 40%;
+    }
+
+    .user-detail-container .user-subcontainer .user-subcontainer-title{
+        justify-content: space-between;
+    }
+
+    .user-detail-container .user-subcontainer .user-subcontainer-img_p{
+        justify-content: left;
+    }
+
+    .user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left{
+        width: 60%;
+    }
+
+    .user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left .user-subcontainer-img_avatar{
+        border-radius: 50%;
+        width: 100%;
+        height: 65%;
+    }
+
+    .user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_2{
+        width: 110px;
+    }
+    .user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left .user-subcontainer-img_avatar{
+        border-radius: 50%;
+        width: 55%;
+        height: 55%;
+    }
+        /*userDetail.ejs - END*/
+
 /*MAIN - END*/
 
 /*FOOTER - START*/
