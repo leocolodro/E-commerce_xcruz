@@ -2,7 +2,7 @@
 
 /*this middleware is to restrict routes to user without "Administrador" category*/
 function adminRoutes(req, res, next){
-    const user = req.session.userLogged;
+    const user = req.session.loggedUser;
 
     if(user == undefined){
 

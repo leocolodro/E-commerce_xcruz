@@ -4,6 +4,9 @@
 const express = require('express');
 const app = express();
 
+//Path
+const path = require('path');
+
 //Method-override
 const methodOverride = require('method-override');
 
@@ -13,8 +16,11 @@ const morgan = require('morgan');
 //Session
 const session = require('express-session');
 
-//Path
-const path = require('path');
+//Cookie Parser
+const cookieParser = require('cookie-parser');
+
+//accountRememberer
+const accountRememberer = require(path.join(__dirname, '/middlewares/accountRememberer.js'));
 
 //Main Router
 const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
@@ -38,6 +44,7 @@ app.use(morgan("dev"));
 
     /*For PUT & DELETE */
 app.use(methodOverride("_method"));
+
     /*For Session*/
 app.use(session(
     {
@@ -45,6 +52,12 @@ app.use(session(
         resave: true,
         saveUninitialized: true
     }));
+    
+    /*For Cookies*/
+app.use(cookieParser());
+
+//For cookie "rememberMe" analyzation 
+app.use(accountRememberer);
 
 // For View Engine
 app.set("view engine", "ejs");

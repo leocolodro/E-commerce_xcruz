@@ -57,25 +57,32 @@ const UserController = {
     },
 
     processLogin: function(req, res) {
+      //Get validation results
       let errors = validationResult(req);
       let userLoggingIn;
+      
+      //Checking validation errors
       if (errors.isEmpty()) {
         //Get users from Database
         const users = jsonUsersAnalyzer.read();
 
+        //Search user
         for(let i = 0; i<users.length; i++){
+          //compare emails
           if(users[i].email == req.body.email){
-            console.log('email confirmado');
+            //decrypt password and compare
             if(bcrypt.compareSync(req.body.password, users[i].password)){
-              console.log("contraseña confirmada");
               userLoggingIn = users[i];
               break;
             }
           }
         }
 
+        //Save Session
+        req.session.loggedUser = userLoggingIn;
+
+        //If user wasn't found 
         if(userLoggingIn == undefined){
-          console.log("Hola, me activé!");
           return res.render(path.join(__dirname, '../views/users/login.ejs'), 
           {
             errorMessages: [
@@ -85,11 +92,18 @@ const UserController = {
               }
             ], 
               old: req.body
-            });
-          }
+          });
+        }
 
-          req.session.userLogged = userLoggingIn;
+        //Analayze rememberMe from form.
+        if(req.body.rememberMe != undefined){
 
+          //Save cookie, maxAge=24 Hs
+          res.cookie('rememberMe', bcrypt.hashSync(userLoggingIn.email, 10), {maxAge: 3600000});
+
+        }
+
+        
           res.redirect('/'); 
       }
       else{
