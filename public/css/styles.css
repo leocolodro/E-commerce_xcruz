@@ -223,38 +223,34 @@ a{
     /*login.ejs - START*/
 .container-login{
     padding: 0 20px;
-    margin: 170px auto;
+    margin: 60px auto;
 }
   
-.container-login .wrapper{
-    width: 100%;
-    background: #fff;
-    border-radius: 5px;
-}
+
   
-.container-login .wrapper{
-    height: 100px;
-    border-radius: 5px 5px 0 0;
+.container-login .wrapper-form{
+    align-items: center;
     color: #fff;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+
+
 }
     
-.container-login .wrapper .wrapper-form .login-button-sub-container{
+.container-login .wrapper-form .login-button-sub-container{
     align-items: center;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }
 
-.container-login .wrapper .wrapper-form .login-form-row{
+.container-login .wrapper-form .login-form-row{
     height: 50px;
     margin-bottom: 20px;
-    position: relative;
+    margin-top: 15px
 }
   
-.container-login .wrapper .wrapper-form .login-form-row input{
+.container-login .wrapper-form .login-form-row input{
     height: 41px;
     outline: none;
     padding-left: 60px;
@@ -262,15 +258,15 @@ a{
     font-size: 16px;
 }
 
-.container-login .wrapper .wrapper-form .login-form-row input:focus{
+.container-login .wrapper-form .login-form-row input:focus{
     border-color: goldenrod;
 }
   
-.container-login .wrapper .wrapper-form .login-form-row input::placeholder{
+.container-login .wrapper-form .login-form-row input::placeholder{
     color: #999;
 }
   
-.container-login .wrapper .wrapper-form .login-form-row .icono-login{
+.container-login  .wrapper-form .login-form-row .icono-login{
     position: absolute;
     width: 47px;
     height: 45px;
@@ -282,51 +278,65 @@ a{
     justify-content: center;
 }
   
-.container-login .wrapper .wrapper-form .pass{
+.container-login .wrapper-form .options-row{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     margin: -10px 0 20px 0;
+    width: 259px;
+
 }
-  
-.container-login .wrapper .wrapper-form .pass a{
+.container-login  .wrapper-form .options-row > a  {
     color: black;
     font-size: 13px;
-    text-decoration: none;
+    text-align: left
+}
+
+.container-login  .wrapper-form .options-row .remember-user-container{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.container-login  .wrapper-form .options-row .remember-user-container > label  {
+    color: black;
+    font-size: 13px;
 }
   
-.container-login .wrapper .wrapper-form .button .login-button{
+.container-login  .wrapper-form .button .login-button{
     color: #fff;
     font-size: 20px;
     font-weight: 500;
     background: black;
     cursor: pointer;
-    width: 100%;
+    width: 211px;
     height: 85%;
   }
   
-.container-login .wrapper .wrapper-form .button2 .login-create-button{
+.container-login  .wrapper-form .button2 .login-create-button{
     color: #fff;
     font-size: 20px;
     font-weight: 500;
-    padding-left: 0px;
     background: black;
     cursor: pointer;
     margin-top: 10px;
-    width: 100%;
+    width: 211px;
     height: 85%;
 }
   
-.container-login .wrapper .wrapper-form .button3 .login-google-button{
+.container-login  .wrapper-form .button3 .login-google-button{
     color: rgb(84, 84, 84);
     font-size: 20px;
     font-weight: 500;
-    padding-left: 0px;
     background: rgb(241, 103, 52);
     cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
+    width: 211px;
     height: 100%;
 }
   
-.container-login .wrapper .wrapper-form .signup-link{
+.container-login  .wrapper-form .signup-link{
     text-align: center;
     font-size: 17px;
     color: black;
@@ -1373,24 +1383,32 @@ footer .copyright-container > small {
     /*home.ejs - END*/
 
     /* login.ejs - START */
-      .container-login .wrapper .wrapper-form{
+      .container-login .wrapper-form{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
     }
-    .container-login .wrapper .wrapper-form .login-form-row .input-login{
+
+    .container-login .wrapper-form .login-form-row .input-login{
         width: 315px; 
     }
-    .container-login .wrapper .wrapper-form .button .login-button{
+
+    .container-login .wrapper-form .button .login-button{
         width: 315px;
-    }    
-    .container-login .wrapper .wrapper-form .button2 .login-create-button{
+    } 
+
+    .container-login .wrapper-form .button2 .login-create-button{
         width: 315px;
-    }  
-    .container-login .wrapper .wrapper-form .button3 .login-google-button{
+    } 
+
+    .container-login .wrapper-form .button3 .login-google-button{
         width: 315px;
-    }  
+    }
+
+    .container-login .wrapper-form .options-row{  
+        width: 315px;
+    }
 
     /* login.ejs - END */
 
@@ -1833,8 +1851,12 @@ footer .copyright-container > small {
     /*home.ejs - END*/
 
     /* login.ejs - START */
-    .container-login .wrapper .wrapper-form .login-form-row .input-login{
+    .container-login .wrapper-form .login-form-row .input-login{
         width: 605px; 
+    }
+
+    .container-login .wrapper-form .options-row{  
+        width: 605px;
     }
     /* login.ejs - END */
 

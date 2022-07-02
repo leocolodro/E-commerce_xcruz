@@ -14,8 +14,8 @@
   <body>
     <%- include('../partials/header') %>
 
-    <main class="container-login">
-      <section class="wrapper">
+    <main>
+      <section class="container-login">
         <form action="/usuarios/login" method="POST" class="wrapper-form" enctype="application/json">
           <article class="login-form-row">
             <i class="icono-login fas fa-user"></i>
@@ -37,14 +37,18 @@
             <p class="register-form-error-msg"><%= error.msg %></p>
             <% }})} %>
           </article>
-          <article class="pass">
-                <a  href="#" class="pass-link-a">¿Has olvidado tu contraseña?</a>            
+          <article class="options-row">
+              <a href="#">¿Has olvidado tu contraseña?</a>
+              <span class="remember-user-container">
+                <label for="rememberMe">Recordame</label>   
+                <input type="checkbox" name="rememberMe" />  
+              </span>     
           </article>
-          <article class="login-form-row login-button-sub-container button">
-            <% if(locals.errorMessages) { %> <% errorMessages.forEach(error => {
+          <% if(locals.errorMessages) { %> <% errorMessages.forEach(error => {
             %> <% if (error.param == 'invalid-credentials') {%>
             <p class="register-form-error-msg"><%= error.msg %></p>
             <% }})} %>
+          <article class="login-form-row login-button-sub-container button">
             <button type="submit" class="login-button">Iniciar sesión</button>
           </article>
           <article class="signup-link">
