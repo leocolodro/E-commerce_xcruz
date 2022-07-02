@@ -12,10 +12,12 @@ function accountRememberer (req, res, next){
         const users = jsonUsersAnalyzer.read();
         //Search user
         for(let i = 0; i<users.length; i++){
-            //compare emails
-            if(bcrypt.compareSync(users[i].email, req.cookies.rememberMe)) {
-                console.log("entré!!!")
+            //decrypt and comapre data.
+            if(bcrypt.compareSync(users[i].password, req.cookies.rememberMe)) {
+
+                //Save user in session
                 userLoggingIn = users[i];
+
                 break;
             }
         }

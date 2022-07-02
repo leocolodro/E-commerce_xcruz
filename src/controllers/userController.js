@@ -99,7 +99,7 @@ const UserController = {
         if(req.body.rememberMe != undefined){
 
           //Save cookie, maxAge=24 Hs
-          res.cookie('rememberMe', bcrypt.hashSync(userLoggingIn.email, 10), {maxAge: 3600000});
+          res.cookie('rememberMe', bcrypt.hashSync(userLoggingIn.password, 10), {maxAge: 3600000});
 
         }
 
