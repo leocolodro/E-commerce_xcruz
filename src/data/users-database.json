@@ -73,20 +73,5 @@
 		"password": "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q",
 		"category": "Administrador",
 		"image": "/default_profile_pic.png"
-	},
-	{
-		"id": 6,
-		"firstName": "TEST",
-		"lastName": "TEST",
-		"address": "Billinghurst 1148",
-		"zipCode": "1174",
-		"city": "Capital Federal",
-		"province": "Buenos Aires",
-		"telephone": "1145671533",
-		"gender": "Femenino",
-		"email": "carlopez@live.com",
-		"password": "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q",
-		"category": "Administrador",
-		"image": "/default_profile_pic.png"
 	}
 ]

@@ -101,12 +101,23 @@ const JsonUsersAnalyzer = {
 
 
         //Delete files & directory 
-        fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
-            if (err) {
-                throw err;
-            }   
-            console.log(`${productImagesFolderPath} is deleted!`);
-        });
+        
+        fs.access(productImagesFolderPath, fs.F_OK, (err) => {
+            if (!err) {
+               
+            fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
+                if (err) {
+                    throw err;
+                }   
+                console.log(`${productImagesFolderPath} is deleted!`);
+            });
+              return
+            }
+            
+            return
+          });
+
+        return
     }
 }
 

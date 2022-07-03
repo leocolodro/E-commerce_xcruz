@@ -78,7 +78,11 @@ const UserController = {
     },
 
     deleteUser: function(req, res){
-      res.send("usuarioEliminado");
+      //Delete user from Database
+      jsonUsersAnalyzer.delete(req.params.id);
+
+      //Redirect to users list
+      res.redirect('/usuarios');
     },
 
     processLogin: function(req, res) {
