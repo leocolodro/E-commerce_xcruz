@@ -34,11 +34,15 @@
                   <section class="buttons-container">
                     <div class="buttons-subcontainer">
                       <button class="edit-user-button">
-                        <i class="fa-solid fa-user-pen"></i>
+                        <a href="/usuarios/<%= user.id %>">
+                          <i class="fa-solid fa-user-pen"></i>
+                        </a>
                       </button>
-                      <button class="delete-user-button">
-                        <i class="fa-solid fa-trash"></i>
-                      </button>
+                      <form action="/usuarios/<%= user.id %>/eliminar?_method=DELETE" method="POST" class="buttons-container"></form>
+                        <button type="submit" class="delete-user-button">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </form>
                     </div>
                   </section>
               </article>

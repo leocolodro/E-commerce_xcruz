@@ -12,6 +12,27 @@ const userCategories = {
 };
 
 const UserController = {
+    displayUser: function (req, res){
+      //Get users DataBase
+      const users = jsonUsersAnalyzer.read();
+        
+
+      //Search user in "users"
+      const user = users.find(user => {
+          return user.id == req.params.id;
+      });
+
+
+      //USER NOT FOUND
+      if(user == undefined){
+          res.send("ERROR.\nUsuario no encontrado!");
+      }
+
+      //USER FOUNDED
+      else{
+          res.render(path.join(__dirname, '../views/users/userDetail.ejs'), {user: user});
+      }
+    },
 
     displayUsersList: function(req, res){
         //Get all users from Database.
@@ -54,6 +75,10 @@ const UserController = {
           old: req.body
         });
       }
+    },
+
+    deleteUser: function(req, res){
+      res.send("usuarioEliminado");
     },
 
     processLogin: function(req, res) {

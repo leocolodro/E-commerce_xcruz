@@ -7,8 +7,12 @@ const fs = require('fs');
 const multer = require('multer');
 const registerValidations = require('../middlewares/registerValidations.js');
 const loginValidations = require('../middlewares/loginValidations.js');
+
+/************* Middlewares Requieres ************/
 const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer.js');
 const adminRoutes = require('../middlewares/adminRoutes.js');
+const userDetailAuthorization = require('../middlewares/userDetailAuthorization.js');
+const loginRegisterCancelation = require('../middlewares/loginRegisterCancelation.js');
 
 
 /************* Controller ************/
@@ -43,12 +47,15 @@ const upload = multer({ storage })
 router.get('/', adminRoutes, userController.displayUsersList);
 
 /*+++++++++++++++++++++ Login +++++++++++++++++++++++*/
-router.get('/login', userController.displayLogin);
+router.get('/login', loginRegisterCancelation,userController.displayLogin);
 router.post('/login', loginValidations, userController.processLogin);
 
 /*+++++++++++++++++++++ Register +++++++++++++++++++++++*/
-router.get('/register', userController.displayRegister);
+router.get('/register', loginRegisterCancelation, userController.displayRegister);
 router.post('/register', upload.single('profile-pic'), registerValidations, userController.createUser);
 
+/*+++++++++++++++++++++ Show User By ID +++++++++++++++++++++++*/
+router.get('/:id', userDetailAuthorization, userController.displayUser);
+router.delete('/:id/eliminar', userController.deleteUser);
 
 module.exports = router;
