@@ -1160,8 +1160,8 @@ a{
     color: #fff;
     cursor: pointer;
     font-size: 15px;
-    width: 22%;
-    height: 30px;
+    width: 78px;
+    height: 40px;
 }
 
 .user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_2{
@@ -1170,8 +1170,8 @@ a{
     color: #fff;
     cursor: pointer;
     font-size: 15px;
-    width: 45%;
-    height: 30px;
+    width: 130px;
+    height: 40px;
 }
 
 .user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left .user-subcontainer-img_avatar{
@@ -1181,6 +1181,7 @@ a{
 }
 
 .user-detail-container .user-subcontainer .user-subcontainer-buttons{
+    align-items: center;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -1752,9 +1753,14 @@ footer .copyright-container > small {
         width: 100%;
         height: 65%;
     }
+    .user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_1{
+        width: 128px;
+
+    }
 
     .user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_2{
-        width: 110px;
+        width: 112px;
+        height: 40px;
     }
     .user-detail-container .user-subcontainer .user-subcontainer-img_p .user-subcontainer-left .user-subcontainer-img_avatar{
         border-radius: 50%;
@@ -2052,6 +2058,17 @@ footer .copyright-container > small {
         font-size: 16px;
     }
     /*register.ejs - END*/
+
+    /*usersDetail.ejs - START*/
+    .user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_1{
+        height: 30px;
+    }
+    .user-detail-container .user-subcontainer .user-subcontainer-buttons .user-subcontainer-button_2{
+        height: 30px;
+        width: 160px;
+    }
+
+    /*usersDetail.ejs - END*/
 
     /*usersList.ejs - START*/
 

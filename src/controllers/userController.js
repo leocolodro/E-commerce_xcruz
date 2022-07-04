@@ -76,6 +76,50 @@ const UserController = {
         });
       }
     },
+    editUser: function(req,res){
+
+      //Get userId
+      const userId = req.params.id;
+      
+      //Get users DataBase
+      const users = jsonUsersAnalyzer.read();
+        
+
+      //Search user in "users"
+      const user = users.find(user => {
+          return user.id == userId;
+      });
+
+      //USER NOT FOUND
+      if(user == undefined){
+          res.send("ERROR.\nUsuario no encontrado!");
+      }
+
+      //USER FOUNDED
+      else{
+        //User's new image path
+        const newUserImagePath = "/" + userId + "/";
+
+        let newUserData = {
+          firstName: req.body.firstName ? req.body.firstName : user.firstName,
+          lastName: req.body.lastName ? req.body.firstName : user.lastName,
+          address: req.body.address ? req.body.address : user.address,
+          zipCode: req.body.zipCode ? req.body.zipCode : user.zipCode,
+          city: req.body.city ? req.body.city : user.city,
+          province: req.body.province ?  req.body.province : user.province,
+          telephone: req.body.telephone ?  req.body.telephone : user.telephone,
+          gender: req.body.gender ?  req.body.gender : user.gender,
+          email: user.email,
+          password: user.password ,
+          category: user.category,
+          image: req.file ? (newUserImagePath + req.file.filename) : user.image
+        }
+        
+        jsonUsersAnalyzer.edit(userId, newUserData);
+
+        return res.redirect('/');
+      }
+    },
 
     deleteUser: function(req, res){
       //Delete user from Database
