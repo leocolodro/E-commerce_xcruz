@@ -85,7 +85,7 @@ const JsonUsersAnalyzer = {
         console.log("User #"+ userId +" has been edited -> users-database");
           
         //Write File.
-        this.write(user);
+        this.write(users);
     },
 
     /*+++++++++++++++TEST METHOD++++++++++++++++++*/
