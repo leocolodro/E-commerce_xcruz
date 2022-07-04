@@ -16,6 +16,9 @@ const coloresArray = ["Marron", "Chocolate", "Negro", "Blanco", "Azul", "Habano"
 const tallesArray = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
 /*----------------------------------------------------------------------------*/
 
+//requerir la base de datos
+let db = require ("../database/models");
+
 const ProductController = {
     
     //Mostrar el detalle del producto
@@ -175,7 +178,14 @@ const ProductController = {
 
             res.redirect('/productos');
         }
-    }
+    },
+
+    //borarr esto si no funciona
+    // prueba: function(req,res){
+    //     res.render(path.join(__dirname, '../views/products/Prueba.ejs'))
+    //}
+        
+    
 }
 
 //Export.
