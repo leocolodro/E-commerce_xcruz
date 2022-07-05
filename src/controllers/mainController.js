@@ -52,7 +52,7 @@ const MainController = {
 
             //Tomar 4 productos del array productos.
             productosDestacadosArray = productos.slice(0,4);
-
+            console.log(req.session.loggedUser)
             res.render(path.join(__dirname, '../views/home.ejs'), 
             {
                 productos: productosDestacadosArray, 

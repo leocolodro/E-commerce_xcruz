@@ -30,7 +30,7 @@ const UserController = {
 
       //USER FOUNDED
       else{
-          res.render(path.join(__dirname, '../views/users/userDetail.ejs'), {user: user});
+          res.render(path.join(__dirname, '../views/users/userDetails.ejs'), {user: user});
       }
     },
 
