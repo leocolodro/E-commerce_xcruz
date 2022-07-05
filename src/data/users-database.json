@@ -11,6 +11,8 @@
 		"gender": " ",
 		"email": "hnail0@hotmail.com",
 		"password": "XFUQp6g",
+		"securityQuestion": " ",
+		"securityAnswer": " ",
 		"category": "Usuario",
 		"image": "/default_profile_pic.png"
 	},
@@ -26,6 +28,8 @@
 		"gender": " ",
 		"email": "marcelocavala20120@gmail.com",
 		"password": "tssPlG2",
+		"securityQuestion": " ",
+		"securityAnswer": " ",
 		"category": "Usuario",
 		"image": "/default_profile_pic.png"
 	},
@@ -41,6 +45,8 @@
 		"gender": " ",
 		"email": "juancaboca@gmail.com",
 		"password": "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m",
+		"securityQuestion": " ",
+		"securityAnswer": " ",
 		"category": "Usuario",
 		"image": "/default_profile_pic.png"
 	},
@@ -56,6 +62,8 @@
 		"gender": " ",
 		"email": "marysuarez@live.com",
 		"password": "$2a$10$ifaU9rBP0zNE.mAV.5Os1Oa2vD.edR7KcwqmBSr/lw5a9IcmPSrmK",
+		"securityQuestion": " ",
+		"securityAnswer": " ",
 		"category": "Usuario",
 		"image": "/4/profile-pic-1655877593406.jpg"
 	},
@@ -71,6 +79,8 @@
 		"gender": " ",
 		"email": "carlopez@live.com",
 		"password": "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q",
+		"securityQuestion": " ",
+		"securityAnswer": " ",
 		"category": "Administrador",
 		"image": "/default_profile_pic.png"
 	}
