@@ -12,8 +12,6 @@ function accountRememberer (req, res, next){
         const users = jsonUsersAnalyzer.read();
         //Search user
         for(let i = 0; i<users.length; i++){
-            console.log("me activé");
-            console.log(bcrypt.compareSync(users[i].password, req.cookies.rememberMe));
             //decrypt and comapre data.
             if(bcrypt.compareSync(users[i].password, req.cookies.rememberMe)) {
 
@@ -26,7 +24,6 @@ function accountRememberer (req, res, next){
 
         //Save Session
         req.session.loggedUser = userLoggingIn;
-        console.log("guardé la info");
     }
 }
 

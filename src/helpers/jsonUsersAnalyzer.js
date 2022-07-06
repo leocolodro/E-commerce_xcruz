@@ -41,7 +41,7 @@ const JsonUsersAnalyzer = {
 		const newData = JSON.stringify(usersArray, null, "\t");
 
         //Write File.
-		fs.writeFile(usersFilePath, newData, err => {
+		fs.writeFileSync(usersFilePath, newData, err => {
 			
             // error checking
 			if(err) throw err;

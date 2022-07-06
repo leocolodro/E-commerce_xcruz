@@ -50,7 +50,8 @@ app.use(session(
     {
         secret : 'secret',
         resave: true,
-        secure: false
+        saveUninitialized: true,
+        secure: true
     }));
     
     /*For Cookies*/
