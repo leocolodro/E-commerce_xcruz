@@ -27,8 +27,8 @@ module.exports = (sequelize, dataTypes) => {
     Cart.associate = function(models){
        
         //cart association with users
-        Cart.belongsTo(models.Users,{
-            as: "User_Carts",
+        Cart.hasOne(models.Users,{
+            as: "Users",
             foreingKey: "CART_ID"
         } )
 

@@ -7,7 +7,12 @@ const path = require('path');
 //Helpers
 const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
-const { join } = require('path');
+/*-------------------------------SERVICES----------------------------------*/
+
+const userService = require('../services/UserService.js');
+const userCategoryService = require('../services/UserCategoryService.js');
+
+/*-------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
 //Los datos dentro de esta sección deberan ser colocados en una base de datos.
@@ -179,14 +184,18 @@ const ProductController = {
             res.redirect('/productos');
         }
     },
-
-    //borarr esto si no funciona
-    // prueba: function(req,res){
-    //     res.render(path.join(__dirname, '../views/products/Prueba.ejs'))
-    //}
+    //FOR TESTING
+    prueba: function(req,res){
         
-    
+        //PREGUNTAR SI CONVIENE TENER SEPARADA LA LOGICA DEL NEGOCIO MEDIANTE SERVICIOS O IMPLEMENTAR DIRECTAMENTE SOBRE EL CONTROLADOR, ¿QUE METODO ES BUENA PRACTICA?
+        userCategoryService.getById(1)
+            .then((userCategory) => {
+                res.send(userCategory);
+            });
+    }
+       
 }
+
 
 //Export.
 module.exports = ProductController;
