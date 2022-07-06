@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/47b81c9b5a.js" crossorigin="anonymous"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    
+    <main>
+        <form action="/usuarios/<%= user.id %>/editar?_method=PUT" method="POST" class="user-detail-container" enctype="multipart/form-data">
+            <section class="user-subcontainer">
+                <article class="user-subcontainer-title">
+                    <h3 class="subcontainer-title"><i class="fa-solid fa-user"></i> Informacion Personal </h3> 
+                </article>
+                <article class="user-subcontainer-img_p">
+                    <div class="user-subcontainer-left">
+                        <img class="user-subcontainer-img_avatar" src="/images/users<%= user.image %>" alt="profile-pic">                    
+                        <input name="profile-pic" type="file" class="user-subcontainer-input_file" accept="image/png, image/jpeg, image/jpg">
+                    </div>
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Nombre</label>
+                    <input name="firstName" class="user-subcontainer-article-input" type="text" placeholder="<%= user.firstName %>" >
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Apellido</label>
+                    <input name="lastName" class="user-subcontainer-article-input" type="text" placeholder="<%= user.lastName %>">
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Email</label>
+                    <input name="email" class="user-subcontainer-article-input" type="email" placeholder="<%= user.email %>" readonly>
+                </article>
+                <article class="user-subcontainer-article">
+                    <select name="gender" class="user-subcontainer-article-input"> 
+                        <option> <%= user.gender %> </option>
+                        <% if (user.gender == "Masculino") { %>
+                            <option>Femenino</option>
+                        <% } else { %>
+                            <option>Masculino</option>
+                        <% } %>
+                    </select>
+                </article>
+            </section>  
+            <section class="user-subcontainer">
+                <article class="user-subcontainer-title">
+                    <h3 class="subcontainer-title"> <i class="fa-solid fa-id-badge"></i> Informacion de contacto </h3> 
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Dirección</label>
+                    <input name="address" class="user-subcontainer-article-input" type="text" placeholder="<%= user.address %>">
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Codigo postal</label>
+                    <input name="zipCode" class="user-subcontainer-article-input" type="text" placeholder="<%= user.zipCode %>" >
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Ciudad</label>
+                    <input name="city" class="user-subcontainer-article-input" type="text" placeholder="<%= user.city %>">
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Provincia</label>
+                    <input name="province" class="user-subcontainer-article-input" type="text" placeholder="<%= user.province %>">
+                </article>
+                <article class="user-subcontainer-article">
+                    <label for="">Teléfono</label>
+                    <input name="telephone" class="user-subcontainer-article-input" type="telephone" placeholder="<%= user.telephone %>">
+                </article>
+                <article class="user-subcontainer-buttons">
+                    <button type="submit" class="user-subcontainer-button_1">Guardar</button>
+                    <button class="user-subcontainer-button_2">Cambiar Contraseña</button>
+                </article>
+            </section>
+        </form>   
+    </main>
+
+    <%- include('../partials/footerPrincipal') %>
+</body>
+</html>

@@ -41,7 +41,7 @@ const JsonUsersAnalyzer = {
 		const newData = JSON.stringify(usersArray, null, "\t");
 
         //Write File.
-		fs.writeFile(usersFilePath, newData, err => {
+		fs.writeFileSync(usersFilePath, newData, err => {
 			
             // error checking
 			if(err) throw err;
@@ -64,21 +64,28 @@ const JsonUsersAnalyzer = {
         //Get products DataBase.
         let users = this.read();
         
+        //Search and edit user
         users.forEach(user => {
             if(user.id == userId){
-               user.firstName = newUserData.firstName;
-               user.lastName = newUserData.lastName;
-               user.email = newUserData.categoria;
-               user.password = newUserData.genero;scripcion;
-               user.image= newUserData.imagenesUrl;  
+                user.firstName = newUserData.firstName,
+                user.lastName = newUserData.lastName,
+                user.address = newUserData.address,
+                user.zipCode = newUserData.zipCode,
+                user.city = newUserData.city,
+                user.province = newUserData.province,
+                user.telephone= newUserData.telephone,
+                user.gender = newUserData.gender,
+                user.email = newUserData.email,
+                user.password = newUserData.password,
+                user.category = newUserData.category, 
+                user.image = newUserData.image
+
             }});
 
-
-        //Transform to JSON.
-		const newData = JSON.stringify(users, null, "\t");
+        console.log("User #"+ userId +" has been edited -> users-database");
           
         //Write File.
-        this.write(newData);
+        this.write(users);
     },
 
     /*+++++++++++++++TEST METHOD++++++++++++++++++*/
@@ -101,12 +108,23 @@ const JsonUsersAnalyzer = {
 
 
         //Delete files & directory 
-        fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
-            if (err) {
-                throw err;
-            }   
-            console.log(`${productImagesFolderPath} is deleted!`);
-        });
+        
+        fs.access(productImagesFolderPath, fs.F_OK, (err) => {
+            if (!err) {
+               
+            fs.rmdir(productImagesFolderPath, { recursive: true }, (err) => {
+                if (err) {
+                    throw err;
+                }   
+                console.log(`${productImagesFolderPath} is deleted!`);
+            });
+              return
+            }
+            
+            return
+          });
+
+        return
     }
 }
 
