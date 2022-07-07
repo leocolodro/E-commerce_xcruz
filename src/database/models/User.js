@@ -1,78 +1,79 @@
 module.exports = (sequelize, Sequelize) => {
-    let alias = "Users";
+    let alias = "User";
     
     let cols = {
-        ID: {
+        id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             notNull: true,
         },
-        FIRST_NAME:{
+        first_name:{
             type: Sequelize.STRING(100),
             defaultValue: null,
         },
-        LAST_NAME:{
+        last_name:{
             type: Sequelize.STRING(100),
             defaultValue: null,
         },
-        ADDRESS:{
+        address:{
             type: Sequelize.STRING(100),
             defaultValue: null,
         },
-        ZIP_CODE:{
+        zip_code:{
             type: Sequelize.STRING(10),
             defaultValue: null,
         },
-        CITY:{
+        city:{
             type: Sequelize.STRING(50),
             defaultValue: null,
         },
-        PROVINCE:{
+        province:{
             type: Sequelize.STRING(50),
             defaultValue: null,
         },
-        TELEPHONE:{
+        telephone:{
             type: Sequelize.INTEGER(25),
             defaultValue: null,
         },
-        GENDER:{
+        gender:{
             type: Sequelize.STRING(15),
             defaultValue: null,
         },
-        EMAIL:{
+        email:{
             type: Sequelize.STRING(320),
             defaultValue: null,
         },
-        PASSWORD:{
+        password:{
             type: Sequelize.STRING(450),
             defaultValue: null,
         },
-        SECURITY_QUESTION_ID:{
+/*        SECURITY_QUESTION_ID:{
             type: Sequelize.SMALLINT(3),
             notNull: true
-        },
-        SECURITY_ANSWER: {
+        },*/
+        security_answer: {
             type: Sequelize.STRING(320),
             defaultValue: null,
         },
-        IMAGE: {
+        image: {
             type: Sequelize.STRING(120),
             defaultValue: null,
         },
-        CATEGORY_ID:{
+        category_id:{
             type: Sequelize.SMALLINT(3),
-            notNull: true,
+            notNull: true
         },
-        CART_ID:{
+ /*       CART_ID:{
             type: Sequelize.INTEGER,
-            notNull: true,
-        }
+            notNull: true
+        }/*/
     }
 
     let config = {
-        tableName: "USERS",
-        timestamps: false
+        tableName: "users",
+        timestamps: false,
+        underscored: true
     }
 
     const User = sequelize.define(alias, cols, config);
@@ -81,23 +82,23 @@ module.exports = (sequelize, Sequelize) => {
     User.associate = function(models){
 
         //user association with his category
-        User.belongsTo(models.UserCategories,{
-            as: "User_Category",
-            foreingKey: "CATEGORY_ID"
-        });
+       User.belongsTo(models.UserCategory, {
+        foreignKey: "category_id"
+       })
 
-        //user association with his cart
-        User.belongsTo(models.Carts,{
-            as: "Cart",
+    /*    //user association with his cart
+        User.belongsTo(models.Cart,{
+            as: "UserCart",
             foreingKey: "CART_ID"
         });
 
-        User.belongsTo(models.Security_Questions, 
+        User.belongsTo(models.SecurityQuestion, 
             {
-                as: "Security_Question",
+                as: "UserSecurityQuestion",
                 foreingKey: "SECURITY_QUESTION_ID"
+                
             }
-        );
+        );*/
     }
 
     return User;

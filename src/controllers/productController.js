@@ -11,6 +11,7 @@ const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
 
 const userService = require('../services/UserService.js');
 const userCategoryService = require('../services/UserCategoryService.js');
+const securityQuestionService = require('../services/SecurityQuestionService.js');
 
 /*-------------------------------------------------------------------------*/
 
@@ -188,9 +189,9 @@ const ProductController = {
     prueba: function(req,res){
         
         //PREGUNTAR SI CONVIENE TENER SEPARADA LA LOGICA DEL NEGOCIO MEDIANTE SERVICIOS O IMPLEMENTAR DIRECTAMENTE SOBRE EL CONTROLADOR, ¿QUE METODO ES BUENA PRACTICA?
-        userCategoryService.getById(1)
-            .then((userCategory) => {
-                res.send(userCategory);
+        userService.getAll()
+            .then((dbResponse) => {
+                res.send(dbResponse);
             });
     }
        

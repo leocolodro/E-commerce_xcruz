@@ -1,9 +1,9 @@
 const db = require('../database/models');
 
-const UserCategoryService = {
+const SecurityQuestionService = {
     getById: function(id){
 
-        const userCategory =  db.UserCategory.findByPk(id)
+        let securityQuestion =  db.SecurityQuestion.findByPk(id)
             .then((dbResponse) => {
                return dbResponse;
             })
@@ -11,19 +11,19 @@ const UserCategoryService = {
                 console.log(error);
             });
         
-            return userCategory
+            return securityQuestion
     },
 
     getAll: function() {
-        const categories = db.UserCategory.findAll()
+        const securityQuestions = db.SecurityQuestion.findAll()
             .then((dbResponse) => {
                 return dbResponse;
             })            
             .catch((error) => {
                 console.log(error);
             });
-        return categories;
+        return securityQuestions;
     }
 }
 
-module.exports = UserCategoryService;
+module.exports = SecurityQuestionService;

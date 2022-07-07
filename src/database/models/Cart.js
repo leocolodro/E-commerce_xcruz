@@ -1,16 +1,16 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Carts";
+    let alias = "Cart";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             notNull: true,
         },
-        SUBTOTAL:{
+        subtotal:{
             type: dataTypes.DECIMAL(11,2),
             defaultValue: null,
         },
-        TOTAL:{
+        total:{
             type: dataTypes.DECIMAL(11,2),
             defaultValue: null,
         }
@@ -27,18 +27,17 @@ module.exports = (sequelize, dataTypes) => {
     Cart.associate = function(models){
        
         //cart association with users
-        Cart.hasOne(models.Users,{
-            as: "Users",
-            foreingKey: "CART_ID"
+        Cart.hasOne(models.User,{
+            foreingKey: "cart_id"
         } )
 
-        Cart.belongsToMany(models.Products,{
+ /*       Cart.belongsToMany(models.Product,{
             as: "Products",
             through: "CARTS/PRODUCTS",
             foreingKey: "CART_ID",
             otherKey: "PRODUCT_ID",
             timestamps: false
-        })
+        })*/
     }
 
     return Cart;

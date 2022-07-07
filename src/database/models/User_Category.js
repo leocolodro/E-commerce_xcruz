@@ -1,31 +1,32 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "UserCategories";
-    let cols = {
-        ID: {
-            type: dataTypes.SMALLINT(3),
-            notNull: true,
+module.exports = (sequelize, Sequelize) => {
+    let alias = "UserCategory";
+    let cols ={
+        id: {
+            type: Sequelize.SMALLINT(3),
             primaryKey: true,
-            
+            autoIncrement: true,
+            notNull: true,
         },
-        NAME:{
-            type: dataTypes.STRING(80),
+        name:{
+            type: Sequelize.STRING(80),
             defaultValue: null,
         }
-    }
-
+    };
     let config = {
-        tableName: "USER_CATEGORIES",
-        timestamps: false
+        tableName: "user_categories",
+        timestamps: false,
+        underscored: true
+    };
+    
+    const UserCategory = sequelize.define(alias, cols, config);
+
+    UserCategory.associate = function(models){
+
+        //user association with his category
+       UserCategory.hasMany(models.User ,{
+        foreignKey: "category_id"
+       })
     }
+    return UserCategory;
 
-    const User_Category = sequelize.define(alias, cols, config);
-
-    User_Category.associate = function(models){
-        User_Category.hasMany(models.Users,{
-            as: "Users",
-            foreingKey: "CATEGORY_ID"
-        } )
-    }
-
-    return User_Category;
 }
