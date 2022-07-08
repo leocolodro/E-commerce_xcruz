@@ -9,9 +9,8 @@ const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
 /*-------------------------------SERVICES----------------------------------*/
 
-const userService = require('../services/UserService.js');
-const userCategoryService = require('../services/UserCategoryService.js');
-const securityQuestionService = require('../services/SecurityQuestionService.js');
+const productService = require('../services/ProductService.js');
+
 
 /*-------------------------------------------------------------------------*/
 
@@ -189,7 +188,7 @@ const ProductController = {
     prueba: function(req,res){
         
         //PREGUNTAR SI CONVIENE TENER SEPARADA LA LOGICA DEL NEGOCIO MEDIANTE SERVICIOS O IMPLEMENTAR DIRECTAMENTE SOBRE EL CONTROLADOR, ¿QUE METODO ES BUENA PRACTICA?
-        userService.getAll()
+        productService.getById(1)
             .then((dbResponse) => {
                 res.send(dbResponse);
             });
