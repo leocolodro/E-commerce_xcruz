@@ -6,18 +6,18 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true,
             primaryKey: true,
         },
-        PRODUCT_ID: {
+        product_id: {
             type: dataTypes.INTEGER,
             defaultValue: null,
         },
-        IMAGE_PATH:{
+        image_path:{
             type: dataTypes.STRING(350),
             defaultValue: null,
         }   
     }
 
     let config = {
-        tableName: "PRODUCT_IMAGES",
+        tablename: "product_images",
         timestamps: false
     }
 
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Image.hasMany(models.Product,{
             as: "Product",
-            foreingKey: "PRODUCT_ID"
+            foreingKey: "product_id" 
         } )
     }
     return Image;

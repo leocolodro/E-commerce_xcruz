@@ -6,14 +6,14 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true,
             primaryKey: true,
         },
-        NAME:{
+        name:{
             type: dataTypes.STRING(60),
             defaultValue: null,
         }
     }
 
     let config = {
-        tableName: "PRODUCT_CATEGORIES",
+        tablename: "PRODUCT_CATEGORIES",
         timestamps: false
     }
 
@@ -23,8 +23,7 @@ module.exports = (sequelize, dataTypes) => {
 
         
         Product_Category.hasMany(models.Product,{
-            as: "Products",
-            foreingKey: "CATEGORY_ID"
+            foreingKey: "category_id"
         } )
 
        
