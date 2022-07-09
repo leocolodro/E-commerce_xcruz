@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let config = {
-        tablename: "BRANDS",
+        tableName: "brands", 
         timestamps: false
     }
 
@@ -23,7 +23,6 @@ module.exports = (sequelize, dataTypes) => {
 
         
         Brand.hasMany(models.Product,{
-            as: "Products",
             foreingKey: "brand_id" 
         } )
 

@@ -1,24 +1,25 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Carts_Products";
     let cols = {
-        CART_ID: {
+        
+        cart_id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             notNull: true,
         },
-        PRODUCT_ID:{
+        product_id:{
             type: dataTypes.INTEGER,
             notNull: true,
             primaryKey: true,
         },
-        QUANTITY:{
+        quantity:{
             type: dataTypes.SMALLINT(3),
             defaultValue: null,
         }
     }
 
     let config = {
-        tableName: "CARTS/PRODUCTS",
+        tableName: "carts_products", 
         timestamps: false
     }
 
