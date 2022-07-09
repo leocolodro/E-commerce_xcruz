@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
     Size.associate = function(models){
 
         Size.belongsToMany(models.Product,{
-            through: "ProductSize",
+            through: models.ProductSize,
             foreingKey: "size_id",
             otherKey: "product_id",
             timestamps: false
