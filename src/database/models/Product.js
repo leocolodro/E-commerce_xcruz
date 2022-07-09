@@ -70,19 +70,18 @@ module.exports = (sequelize, dataTypes) => {
         } )*/
 
         Product.belongsToMany(models.Cart,{
-            through: "CARTS/PRODUCTS",
+            through: "cart_products",
             foreingKey: "product_id",
             otherKey: "cart_id",
             timestamps: false
         })
-/*
-        Product.belongsToMany(models.Sizes,{
-            as: "Sizes",
-            through: "PRODUCT/SIZES",
-            foreingKey: "PRODUCT_ID",
-            otherKey: "SIZE_ID",
+
+        Product.belongsToMany(models.Size,{
+            through: "ProductSize",
+            foreingKey: "product_id",
+            otherKey: "size_id",
             timestamps: false
-        })*/
+        })
 
     }
 

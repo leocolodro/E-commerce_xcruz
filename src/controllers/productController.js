@@ -10,6 +10,7 @@ const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
 /*-------------------------------SERVICES----------------------------------*/
 
 const productService = require('../services/ProductService.js');
+const userService = require('../services/UserService.js');
 
 
 /*-------------------------------------------------------------------------*/

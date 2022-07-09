@@ -17,7 +17,7 @@ const UserService = {
     getAll: function(){
         const users = db.User.findAll(
             {
-               include: "UserCategory"
+               include: ["UserCategory", "SecurityQuestion"]
             }
         )
             .then((dbResponse) => {

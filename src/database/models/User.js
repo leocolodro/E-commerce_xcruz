@@ -48,10 +48,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING(450),
             defaultValue: null,
         },
-/*        SECURITY_QUESTION_ID:{
+        security_question_id:{
             type: Sequelize.SMALLINT(3),
             notNull: true
-        },*/
+        },
         security_answer: {
             type: Sequelize.STRING(320),
             defaultValue: null,
@@ -64,10 +64,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.SMALLINT(3),
             notNull: true
         },
- /*       CART_ID:{
+        cart_id:{
             type: Sequelize.INTEGER,
             notNull: true
-        }/*/
+        }
     }
 
     let config = {
@@ -90,15 +90,15 @@ module.exports = (sequelize, Sequelize) => {
         User.belongsTo(models.Cart,{
             as: "UserCart",
             foreingKey: "CART_ID"
-        });
+        });*/
 
         User.belongsTo(models.SecurityQuestion, 
             {
-                as: "UserSecurityQuestion",
-                foreingKey: "SECURITY_QUESTION_ID"
+                
+                foreingKey: "security_question_id"
                 
             }
-        );*/
+        );
     }
 
     return User;
