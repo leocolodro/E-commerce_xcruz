@@ -7,7 +7,13 @@ const path = require('path');
 //Helpers
 const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
-const { join } = require('path');
+/*-------------------------------SERVICES----------------------------------*/
+
+const productService = require('../services/ProductService.js');
+const userService = require('../services/UserService.js');
+
+
+/*-------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
 //Los datos dentro de esta sección deberan ser colocados en una base de datos.
@@ -15,6 +21,9 @@ const categoriasArray = ["Botas", "Mocacines", "Urbano", "Zapatillas", "De vesti
 const coloresArray = ["Marron", "Chocolate", "Negro", "Blanco", "Azul", "Habano"];
 const tallesArray = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
 /*----------------------------------------------------------------------------*/
+
+//requerir la base de datos
+let db = require ("../database/models");
 
 const ProductController = {
     
@@ -175,8 +184,19 @@ const ProductController = {
 
             res.redirect('/productos');
         }
+    },
+    //FOR TESTING
+    prueba: function(req,res){
+        
+        //PREGUNTAR SI CONVIENE TENER SEPARADA LA LOGICA DEL NEGOCIO MEDIANTE SERVICIOS O IMPLEMENTAR DIRECTAMENTE SOBRE EL CONTROLADOR, ¿QUE METODO ES BUENA PRACTICA?
+        productService.getById(1)
+            .then((dbResponse) => {
+                res.send(dbResponse);
+            });
     }
+       
 }
+
 
 //Export.
 module.exports = ProductController;

@@ -45,6 +45,7 @@ router.get('/', ProductController.displayAll);
 router.get('/nuevo', adminRoutes, ProductController.newProduct);
 router.post('/nuevo', upload.array('agregar-imagen'), ProductController.create);
 
+router.get('/prueba', ProductController.prueba);
 /*+++++++++++++++++++++ Show Product By ID +++++++++++++++++++++++*/
 router.get('/:id', ProductController.display);
 
@@ -54,5 +55,8 @@ router.put('/:id/editar', ProductController.edit);
 
 /*+++++++++++++++++++++ Delete Product By ID +++++++++++++++++++++++*/
 router.delete('/:id/eliminar', ProductController.delete)
+
+
+
 
 module.exports = router;
