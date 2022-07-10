@@ -173,9 +173,9 @@ LOCK TABLES `PRODUCTS` WRITE;
 
 INSERT INTO `PRODUCTS` (`ID`, `BRAND_ID`, `GENDER`, `DISCOUNT_PERCENTAGE`,`PRICE`, `DESCRIPTION`, `COLOR`, `CATEGORY_ID`)  VALUES 
 	(1, 1, "Masculino", 11, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 1),
-	/*(2, 1, "Masculino", 11, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Marrón", 1),*/
     (2, 2, "Masculino", 20, 12990, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 5),
-    (3, 3, "Masculino", 15, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 1);
+    (3, 3, "Masculino", 15, 13290, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 1),
+	(4, 1, "Masculino", 11, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Marrón", 1);
     
     
 /*!40000 ALTER TABLE `PRODUCTS` ENABLE KEYS */;
@@ -292,7 +292,19 @@ INSERT INTO `PRODUCT_SIZES` (`PRODUCT_ID`, `SIZE_ID`) VALUES
     (3, 21),
     (3, 22),
     (3, 23),
-    (3, 24);
+    (3, 24),
+	(4, 9),
+    (4, 10),
+    (4, 11),
+    (4, 12),
+    (4, 13),
+    (4, 14),
+	(4, 15),
+    (4, 16),
+    (4, 17),
+    (4, 18),
+    (4, 19),
+    (4, 20);
     
 /*!40000 ALTER TABLE `PRODUCT_SIZES` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -313,16 +325,20 @@ LOCK TABLES `PRODUCT_IMAGES` WRITE;
 /*!40000 ALTER TABLE `PRODUCT_IMAGES` DISABLE KEYS */;
 
 INSERT INTO `PRODUCT_IMAGES` (`ID`, `PRODUCT_ID`, `IMAGE_PATH`) VALUES 
-	(1, 1, "/producto_1/zapato_cuero_marron_1.jpg"),
-    (2, 1,  "/producto_1/zapato_cuero_marron_2.jpg"),
-	(3, 1,  "/producto_1/zapato_cuero_marron_3.jpg"),
+	(1, 1, "/producto_1/zapato_cuero_suela_1.jpg"),
+    (2, 1,  "/producto_1/zapato_cuero_suela_2.jpg"),
+	(3, 1,  "/producto_1/zapato_cuero_suela_3.jpg"),
     (4, 2,  "/producto_2/zapato_cuero_punta_negro_1.jpg"),
     (5, 2,  "/producto_2/zapato_cuero_punta_negro_2.jpg"),
     (6, 2,  "/producto_2/zapato_cuero_punta_negro_3.jpg"),
     (7, 3,  "/producto_3/bota_chelsea_cuero_negro_1.jpg"),
     (8, 3,  "/producto_3/bota_chelsea_cuero_negro_2.jpg"),
     (9, 3,  "/producto_3/bota_chelsea_cuero_negro_3.jpg"),
-    (10, 3, "/producto_3/bota_chelsea_cuero_negro_4.jpg");
+    (10, 3, "/producto_3/bota_chelsea_cuero_negro_4.jpg"),
+    (11, 4,  "/producto_3/zapato_siena_cuero_marron_1.jpg"),
+    (12, 4,  "/producto_3/zapato_siena_cuero_marron_2.jpg"),
+    (13, 4,  "/producto_3/zapato_siena_cuero_marron_3.jpg");
+    
     
 /*!40000 ALTER TABLE `PRODUCT_IMAGES` ENABLE KEYS */;
 UNLOCK TABLES;
