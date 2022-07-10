@@ -83,20 +83,19 @@ module.exports = (sequelize, Sequelize) => {
 
         //user association with his category
        User.belongsTo(models.UserCategory, {
-        foreignKey: "category_id"
+            foreignKey: "category_id"
        })
 
-    /*    //user association with his cart
-        User.belongsTo(models.Cart,{
-            as: "UserCart",
-            foreingKey: "CART_ID"
-        });*/
+       //user association with his cart
+        User.belongsTo(models.Cart,
+            {
+                foreignKey: "cart_id"
+            }
+        );
 
         User.belongsTo(models.SecurityQuestion, 
             {
-                
-                foreingKey: "security_question_id"
-                
+                foreignKey: "security_question_id"
             }
         );
     }

@@ -24,7 +24,8 @@ module.exports = (sequelize, Sequelize) => {
 
         //user association with his category
        UserCategory.hasMany(models.User ,{
-        foreignKey: "category_id"
+        foreignKey: "category_id",
+        as: "user_category"
        })
     }
     return UserCategory;

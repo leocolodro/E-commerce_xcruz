@@ -189,9 +189,12 @@ const ProductController = {
     prueba: function(req,res){
         
         //PREGUNTAR SI CONVIENE TENER SEPARADA LA LOGICA DEL NEGOCIO MEDIANTE SERVICIOS O IMPLEMENTAR DIRECTAMENTE SOBRE EL CONTROLADOR, ¿QUE METODO ES BUENA PRACTICA?
-        productService.getById(1)
+        userService.getById(1)
             .then((dbResponse) => {
                 res.send(dbResponse);
+            })
+            .catch((error) =>{
+                res.send("ERROR.\nProducto no encontrado!");
             });
     }
        

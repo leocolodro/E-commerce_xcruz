@@ -6,8 +6,8 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             notNull: true,
         },
-        title:{
-            type: dataTypes.STRING(150),
+        brand_id:{
+            type: dataTypes.SMALLINT(8),
             defaultValue: null,
         },
         gender:{
@@ -33,11 +33,7 @@ module.exports = (sequelize, dataTypes) => {
         category_id:{
             type: dataTypes.SMALLINT(3),
             defaultValue: null,
-        },
-        brand_id:{
-            type: dataTypes.SMALLINT(8),
-            defaultValue: null,
-        },
+        }
     }
 
     let config = {
@@ -50,39 +46,26 @@ module.exports = (sequelize, dataTypes) => {
 
     //++++++++++++++ Products associations ++++++++++++++++++++++++++
     Product.associate = function(models){
-
         
-    /*    Product.belongsTo(models.Brand,{
-            as: "Brands",
-            foreingKey: "BRAND_ID"
-        } )
-
-
-        Product.belongsTo(models.ProductCategory,{
-            as: "Categories",
-            foreingKey: "CATEGORY_ID"
-        } )
-
-        //preguntar esto
-        Product.belongsTo(models.ProductImage,{
-            as: "Images",
-            foreingKey: "PRODUCT_ID"
-        } )*/
-
-        Product.belongsToMany(models.Cart,{
-            through: "cart_products",
-            foreingKey: "product_id",
+       /* Product.belongsToMany(models.Cart,{
+            through: "Cart_Product",
+            foreignKey: "product_id",
             otherKey: "cart_id",
             timestamps: false
-        })
+        })*/
 
-        Product.belongsToMany(models.Size,{
-            through: models.ProductSize,
-            foreingKey: "product_id",
+        /*Product.belongsToMany(models.Size,{
+            through: "ProductSize",
+            foreignKey: "product_id",
             otherKey: "size_id",
             timestamps: false
-        })
+        })*/
 
+        Product.belongsTo(models.Brand,{
+            foreingKey: "brand_id",
+        });
+
+            //TO DO -> Product_Category
     }
 
     return Product;

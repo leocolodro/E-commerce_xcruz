@@ -4,9 +4,13 @@ const db = require('../database/models');
 const UserService = {
     getById: function(id){
 
-        const user = db.User.findByPk(id)
+        const user = db.User.findByPk(id,
+            {
+                include: ["UserCategory", "SecurityQuestion", "Cart"]
+            }
+            )
             .then((dbResponse) => {
-                console.log(dbResponse);
+                return JSON.stringify(dbResponse, null, "\t");
             })
             .catch((error) => {
                 console.log(error);
@@ -21,7 +25,7 @@ const UserService = {
             }
         )
             .then((dbResponse) => {
-                console.log(JSON.stringify(dbResponse, null, "\t"));
+                return JSON.stringify(dbResponse, null, "\t");
              })
             .catch((error) => {
                 console.log(error);
@@ -37,7 +41,7 @@ const UserService = {
                 }
             })
             .then((dbResponse) => {
-                return dbResponse
+                return JSON.stringify(dbResponse, null, "\t")
             })
             .catch((error) =>{
                 console.log(error);

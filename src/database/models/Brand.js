@@ -1,32 +1,30 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, Sequelize) => {
     let alias = "Brand";
     let cols = {
         id: {
-            type: dataTypes.SMALLINT(8),
+            type: Sequelize.SMALLINT(8),
             primaryKey: true,
             notNull: true,
         },
         name:{
-            type: dataTypes.STRING(150),
+            type: Sequelize.STRING(150),
             defaultValue: null,
         }
     }
 
     let config = {
         tableName: "brands", 
-        timestamps: false
+        timestamps: false,
+        underscored: true
     }
 
     const Brand = sequelize.define(alias, cols, config);
 
     Brand.associate = function(models){
-
-        
         Brand.hasMany(models.Product,{
-            foreingKey: "brand_id" 
-        } )
+            foreignKey: "brand_id"
 
-       
+        });
     }
 
     return Brand;

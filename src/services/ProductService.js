@@ -1,12 +1,16 @@
 const db = require('../database/models');
 
+
 const ProductService = {
     getById: function(id){
         const product = db.Product.findByPk(id,
             {
-                include: "Size"
+                include: [ 
+                    {association: "Brand"},
+                     
+                ]
             }
-        )
+)
         .then((dbResponse) => {
             return (JSON.stringify(dbResponse, null, "\t"));
         })
