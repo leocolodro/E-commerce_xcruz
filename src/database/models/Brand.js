@@ -1,19 +1,19 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Brand";
     let cols = {
-        ID: {
+        id: {
             type: dataTypes.SMALLINT(8),
             primaryKey: true,
             notNull: true,
         },
-        NAME:{
+        name:{
             type: dataTypes.STRING(150),
             defaultValue: null,
         }
     }
 
     let config = {
-        tableName: "BRANDS",
+        tableName: "brands", 
         timestamps: false
     }
 
@@ -23,8 +23,7 @@ module.exports = (sequelize, dataTypes) => {
 
         
         Brand.hasMany(models.Product,{
-            as: "Products",
-            foreingKey: "BRAND_ID"
+            foreingKey: "brand_id" 
         } )
 
        
