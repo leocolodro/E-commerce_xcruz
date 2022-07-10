@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Cart";
+    let alias = "Carts";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -18,19 +18,19 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let config = {
-        tableName: "CARTS",
+        tableName: "carts",
         timestamps: false
     }
 
     const Cart = sequelize.define(alias, cols, config);
 
     Cart.associate = function(models){
-        /*Cart.belongsToMany(models.Product,{
-            through: "Cart_Product",
-            foreignKey: "cart_id",
-            otherKey: "product_id",
+        Cart.belongsToMany(models.Product,{
+            through: 'CartProducts',
+            foreignKey: 'cart_id',
+            otherKey: 'product_id',
             timestamps: false
-        });*/
+        })
 
         //cart association with users
         Cart.hasOne(models.User,{

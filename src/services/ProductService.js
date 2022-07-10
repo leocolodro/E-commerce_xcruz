@@ -6,13 +6,16 @@ const ProductService = {
         const product = db.Product.findByPk(id,
             {
                 include: [ 
-                    {association: "Brand"},
+                    {association: "productBrand"},
+                    {association: "productImages"},
+                    {association: "Sizes"},
+                    {association: "Carts"}
                      
                 ]
             }
 )
         .then((dbResponse) => {
-            return (JSON.stringify(dbResponse, null, "\t"));
+            console.log(JSON.stringify(dbResponse, null, "\t"));
         })
         .catch((error) => {
             console.log(error);

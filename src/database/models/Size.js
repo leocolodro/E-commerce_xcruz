@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Size";
+    let alias = "Sizes";
     let cols = {
         id: {
             type: dataTypes.SMALLINT(3),
@@ -27,10 +27,10 @@ module.exports = (sequelize, dataTypes) => {
 
     Size.associate = function(models){
 
-        Size.belongsToMany(models.Product,{
-            through: "ProductSize",
-            foreignKey: "size_id",
-            otherKey: "product_id",
+       Size.belongsToMany(models.Product,{
+            through: 'ProductSizes',
+            foreignKey: 'size_id',
+            otherKey: 'product_id',
             timestamps: false
         })
 

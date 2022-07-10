@@ -87,7 +87,7 @@ module.exports = (sequelize, Sequelize) => {
        })
 
        //user association with his cart
-        User.belongsTo(models.Cart,
+        User.belongsTo(models.Carts,
             {
                 foreignKey: "cart_id"
             }
