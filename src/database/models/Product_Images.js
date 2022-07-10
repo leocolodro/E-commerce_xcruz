@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let config = {
-        tablename: "product_images",
+        tableName: "product_images",
         timestamps: false
     }
 
@@ -26,7 +26,6 @@ module.exports = (sequelize, dataTypes) => {
     Image.associate = function(models){
 
         Image.hasMany(models.Product,{
-            as: "Product",
             foreingKey: "product_id" 
         } )
     }
