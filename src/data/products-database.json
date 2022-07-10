@@ -19,9 +19,9 @@
 		],
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
-			"/producto_1/zapato_cuero_marron_1.jpg",
-			"/producto_1/zapato_cuero_marron_2.jpg",
-			"/producto_1/zapato_cuero_marron_3.jpg"
+			"/producto_1/zapato_cuero_suela_1.jpg",
+			"/producto_1/zapato_cuero_suela_2.jpg",
+			"/producto_1/zapato_cuero_suela_3.jpg"
 		]
 	},
 	{
@@ -55,7 +55,7 @@
 		"categoria": "Botas",
 		"genero": "masculino",
 		"porcentajeDescuento": 15,
-		"precio": 10500,
+		"precio": 13299,
 		"talles": [
 			40,
 			42
@@ -77,7 +77,7 @@
 		"categoria": "Zapatillas",
 		"genero": "masculino",
 		"porcentajeDescuento": 0,
-		"precio": 13299,
+		"precio": 10500,
 		"talles": [
 			40,
 			41,
@@ -86,9 +86,9 @@
 		],
 		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!",
 		"imagenesUrl": [
-			"/producto_4/zapato_siena_cuero_negro_1.jpg",
-			"/producto_4/zapato_siena_cuero_negro_2.jpg",
-			"/producto_4/zapato_siena_cuero_negro_.jpg"
+			"/producto_4/zapato_siena_cuero_marron_1.jpg",
+			"/producto_4/zapato_siena_cuero_marron_2.jpg",
+			"/producto_4/zapato_siena_cuero_marron_3.jpg"
 		]
 	},
 	{
