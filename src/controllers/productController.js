@@ -30,7 +30,6 @@ const ProductController = {
     //show product details.
     display: function(req, res){
         
-        
         /*total products to be search for "relationedProducts"*/
         const quantity = 4;
 
@@ -45,18 +44,34 @@ const ProductController = {
 
             .then(([relationatedProducts, product]) => {
 
-                //show product
-                res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {product: product, relationatedProducts: relationatedProducts})
+                if(product != null){
+                    //show product
+                    res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {product: product, relationatedProducts: relationatedProducts});
+                }
+                else{
+                    res.send("ERROR!. \nProducto no encontrado!")
+                }
             })
-        
-        
-  
-
+            .catch((error) =>{
+                console.log(error);
+                res.send("Ha ocurrido un problema!");
+            });
     },
-    displayAll: function(req, res){
-        const products = jsonProductAnalyzer.read();
 
-        res.render(path.join(__dirname, '../views/products/productsList.ejs'), {productos : products});
+    //list products
+    displayAll: function(req, res){
+        
+        //get all products
+        productService.getAllWithBrandAndImages()
+            .then((products) => {
+                //list products
+                res.render(path.join(__dirname, '../views/products/productsList.ejs'), {products : products});
+            })
+            .catch((error) =>{
+                console.log(error);
+                res.send("Ha ocurrido un problema!");
+            });
+
     },
     editById: function(req, res){
         //Get products DataBase

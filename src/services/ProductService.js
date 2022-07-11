@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize')
 
 
 const ProductService = {
-    
+
     getById: function(id){
         const product = db.Product.findByPk(id,
             {
@@ -61,10 +61,32 @@ const ProductService = {
         );
         
         return products
+
         }catch(error){
             console.log(error);
         }  
-    }
+    },
+
+    //Use this method to bring all products and their joins with Brand and Product_Image from database.
+    getAllWithBrandAndImages: async function() {
+        try{
+            const products = await db.Product.findAll(
+                {
+                    include: [ 
+                        {association: "productBrand"},
+                        {association: "productImages"},
+
+                    ]
+            }
+        );
+        
+        return products
+
+        }catch(error){
+            console.log(error);
+        }  
+    },
 }
+
 
 module.exports = ProductService;

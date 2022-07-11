@@ -18,37 +18,37 @@
             <section class="products-list-container">
 
                  <!--Product Generator-->
-                <% productos.forEach(producto => { %> 
-                    <a href="/productos/<%= producto.id %>" class="enlace">
+                <% products.forEach(product => { %> 
+                    <a href="/productos/<%= product.id %>" class="enlace">
                         <article class="product-container">
                             <section class="image-container">
-                                <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="product-img">
+                                <img src="/images/products<%= product.productImages[0].image_path %>" alt="product-img">
                             </section>
                             <section class="truck-icon-container">
                                 <i class="fa-solid fa-truck fa-xl"></i>
                             </section>
                             <section class="title-container">
-                                <h2 class="title"> <%= producto.titulo %> </h2>
+                                <h2 class="title"> <%= product.productBrand.name %> </h2>
                             </section>
                             <section class="price-discount-container">
                                 <!--If product has %Off-->
-                                 <% if (producto.porcentajeDescuento > 0) { %>
+                                 <% if (product.discount_percentage > 0) { %>
                                     <div>
                                         <!--Price without discount-->
-                                        <p class="price"><del> $<%= producto.precio %> </del></p>
+                                        <p class="price"><del> $<%= product.price %> </del></p>
 
                                         <!--%Off-->
-                                        <p class="discount"> <%= producto.porcentajeDescuento %>% Off </p>
+                                        <p class="discount"> <%= product.discount_percentage %>% Off </p>
                                     </div>
                                     <!--Price with discount-->
                                     <p class="price-with-discount">
-                                        $<%= producto.precio - ((producto.precio * producto.porcentajeDescuento) / 100) %> 
+                                        $<%= product.price - ((product.price * product.discount_percentage) / 100) %> 
                                     </p>
                                         
                                 <!--If not-->
                                 <% } else { %>
                                     <!--Price-->
-                                    <p class="price"> $<%= producto.precio %> </p>
+                                    <p class="price"> $<%= product.price %> </p>
                                 <% } %>
                             </section>
                         </article>
