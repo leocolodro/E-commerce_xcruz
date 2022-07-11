@@ -27,33 +27,31 @@ let db = require ("../database/models");
 
 const ProductController = {
     
-    //Mostrar el detalle del producto
+    //show product details.
     display: function(req, res){
         
-        //Get products DataBase
-        const products = jsonProductAnalyzer.read();
         
-        let productosRelacionadosArray = [];
-        /*Don´t  touch*/
-        const sliceSize = 4;
+        /*total products to be search for "relationedProducts"*/
+        const quantity = 4;
 
-        //Search product in "Products"
-        const product = products.find(product => {
-            return product.id == req.params.id;
-        });
+        /*Get <quantity> products from database*/
+        const relationatedProducts = productService.getSomeRandomlySorted(quantity);
 
-        //Sort and slice.
-        productosRelacionadosArray = arrayRandomSortSlicer(products, sliceSize);
+        /*Get product where product.id = req.params.id from database*/
+        const product = productService.getById(req.params.id)
 
-        //PRODUCT NOT FOUND
-        if(product == undefined){
-            res.send("ERROR.\nProducto no encontrado!");
-        }
+        /*fulfill all promises*/
+        Promise.all([relationatedProducts, product])
 
-        //PRODUCT FOUNDED
-        else{
-            res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {producto: product, productosRelacionados: productosRelacionadosArray});
-        }
+            .then(([relationatedProducts, product]) => {
+
+                //show product
+                res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {product: product, relationatedProducts: relationatedProducts})
+            })
+        
+        
+  
+
     },
     displayAll: function(req, res){
         const products = jsonProductAnalyzer.read();
@@ -188,14 +186,15 @@ const ProductController = {
     //FOR TESTING
     prueba: function(req,res){
         
-        //PREGUNTAR SI CONVIENE TENER SEPARADA LA LOGICA DEL NEGOCIO MEDIANTE SERVICIOS O IMPLEMENTAR DIRECTAMENTE SOBRE EL CONTROLADOR, ¿QUE METODO ES BUENA PRACTICA?
-        userService.getById(1)
+
+
+        /*userService.getById(1)
             .then((dbResponse) => {
                 res.send(dbResponse);
             })
             .catch((error) =>{
                 res.send("ERROR.\nProducto no encontrado!");
-            });
+            });*/
     }
        
 }

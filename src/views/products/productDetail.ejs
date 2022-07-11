@@ -15,28 +15,35 @@
       <section class="contenedor-producto-detalle">
         <div class="producto-detalle-caja-1">
           <!--Imagen-->
-          <img src="/images/products/<%= producto.imagenesUrl[0] %>" class="producto-detalle-img" alt="Zapato"/>
+          <img src="/images/products/<%= product.productImages[0].image_path %>" class="producto-detalle-img" alt="Zapato"/>
         </div>
         <!-- Contenedor Titulo & Precio--> 
         <div class="producto-detalle-caja-2">
-          <h2 class="titulo"> <%= producto.titulo %> </h2>
-          <p class="precio">$<%= producto.precio %> </p>
-          <%  if (producto.porcentajeDescuento > 0) { %>
-            <p class="descuento"> <%= producto.porcentajeDescuento %>% Off</p>
+          <h2 class="titulo"> <%= product.productBrand.name %> </h2>
+          <p class="precio">$<%= product.price %> </p>
+          <%  if (product.discount_percentage > 0) { %>
+            <p class="descuento"> <%= product.discount_percentage %>% Off</p>
           <% } %>
-          <!--Talles-->
+          <!--Sizes-->
           <h4 class="talles-titulo"> Talles </h4>
           <select name="producto-detalle-talles" id="select-cantidad">
-            <!--JS bucle "for" -> talles -->
-            <% for( let i = 0; i < producto.talles.length; i++ ) { %>
-              <option value="1"> <%= producto.talles[i] %> </option>
-            <% } %>
+            <!--forEach -> Sizes -->
+            <optgroup label="EUR"></optgroup>
+            <% product.Sizes.forEach(size => { %>
+              <% if ( size.type  == "EUR") { %>
+                <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                <% } %>       
+            <% }) %>
+            <optgroup label="CM"></optgroup>
+            <% product.Sizes.forEach(size => { %>
+              <% if ( size.type  == "CM") { %>
+                <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+              <% } %>      
+            <% }) %>
           </select>
           <h4 class="seleccionar-color-titulo"> Seleccionar Color: </h4>
           <div class="producto-detalle-colores-container">
-            <% for( let i = 0; i < producto.colores.length; i++ ) { %>
-              <span class="color"> <%= producto.colores[i] %> </span>
-            <% } %>
+            <span class="color"> <%= product.color %> </span>
           </div>
           <hr class="producto-detalle-linea"> 
           <button class="producto-detalle-boton-carrito">Agregar al carrito</button>
@@ -50,13 +57,13 @@
       <section class="productos-relacionados-container">
         <div class="child-container">
           <!-- Solucionar problema <a> -->
-          <% productosRelacionados.forEach(element => { %>
+          <% relationatedProducts.forEach(element => { %>
             <a href="/productos/<%= element.id %>">
             <article class="flex-item">
-              <img src="/images/products/<%= element.imagenesUrl[0] %>" alt="Producto" />
+              <img src="/images/products/<%= element.productImages[0].image_path  %>" alt="Producto" />
               <div class="descripcion-container">
-                <p> <%= element.titulo %> </p>
-                <p>$ <%= element.precio %> </p>
+                <p> <%= element.productBrand.name %> </p>
+                <p>$ <%= element.price %> </p>
               </div>
             </article>
           </a>            
