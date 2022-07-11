@@ -10,7 +10,7 @@ const UserService = {
             }
             )
             .then((dbResponse) => {
-                return JSON.stringify(dbResponse, null, "\t");
+                return dbResponse;
             })
             .catch((error) => {
                 console.log(error);
@@ -25,7 +25,7 @@ const UserService = {
             }
         )
             .then((dbResponse) => {
-                return JSON.stringify(dbResponse, null, "\t");
+                return dbResponse;
              })
             .catch((error) => {
                 console.log(error);
@@ -41,7 +41,7 @@ const UserService = {
                 }
             })
             .then((dbResponse) => {
-                return JSON.stringify(dbResponse, null, "\t")
+                return dbResponse;
             })
             .catch((error) =>{
                 console.log(error);
