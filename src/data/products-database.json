@@ -113,7 +113,7 @@
 	},
 	{
 		"id": 6,
-		"titulo": "Vancouver 311 Machiatto",
+		"titulo": "Canada 211",
 		"colores": [
 			"Marrón"
 		],
@@ -156,6 +156,30 @@
 			"/producto_7/zapato_9849_cuero_marron_2.jpg",
 			"/producto_7/zapato_9849_cuero_marron_3.jpg",
 			"/producto_7/zapato_9849_cuero_marron_4.jpg"
+		]
+	},
+	{
+		"id": 8,
+		"titulo": "Canada 211",
+		"colores": [
+			"Negro"
+		],
+		"categoria": "Botas",
+		"genero": "masculino",
+		"porcentajeDescuento": 0,
+		"precio": 14900,
+		"talles": [
+			41,
+			42,
+			43,
+			44
+		],
+		"descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteii!",
+		"imagenesUrl": [
+			"/producto_8/botas_canada_cuero_negro_1.jpg",
+			"/producto_8/botas_canada_cuero_negro_2.jpg",
+			"/producto_8/botas_canada_cuero_negro_3.jpg",
+			"/producto_8/botas_canada_cuero_negro_4.jpg"
 		]
 	}
 ]
