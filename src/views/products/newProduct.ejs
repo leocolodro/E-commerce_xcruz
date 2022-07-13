@@ -67,10 +67,10 @@
                     <section class="section-3">
                         <article class="talle-precio-subcontainer">
                             <div class="talle-subcontainer">
-                                <label for="talles">Talles</label>
-                                <select name="talles" id="talles">
+                                <label for="talles">Talles</label><br />
+                                <select name="talles" id="talles" multiple>
                                     <% talles.forEach(talle => { %>
-                                        <option value=" <%= talle %> " > <%= talle %> </option>
+                                        <option value=" <%= talle %> "> <%= talle %> </option>
                                     <% }) %>
                                 </select>
                             </div>

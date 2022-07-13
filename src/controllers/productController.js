@@ -1,16 +1,15 @@
-//File-System Module.
-const fs = require('fs');
-
 //Path Module.
 const path = require('path');
 
 //Helpers
 const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
-const arrayRandomSortSlicer = require('../helpers/arrayRandomSortSlicer.js');
+
 /*-------------------------------SERVICES----------------------------------*/
 
 const productService = require('../services/ProductService.js');
-const userService = require('../services/UserService.js');
+const brandService = require('../services/BrandService.js');
+const productImageService = require('../services/ProductImageService.js');
+const BrandService = require('../services/BrandService.js');
 
 
 /*-------------------------------------------------------------------------*/
@@ -22,8 +21,6 @@ const coloresArray = ["Marron", "Chocolate", "Negro", "Blanco", "Azul", "Habano"
 const tallesArray = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
 /*----------------------------------------------------------------------------*/
 
-//requerir la base de datos
-let db = require ("../database/models");
 
 const ProductController = {
     
@@ -120,7 +117,7 @@ const ProductController = {
         }) 
 
         console.log(newProductImages);
-
+        
         const newProduct = {
             id: newProductId,
             titulo: req.body.titulo,
@@ -134,8 +131,32 @@ const ProductController = {
             imagenesUrl: newProductImages
         }
 
+
+        
         jsonProductAnalyzer.create(newProduct);
         
+
+        /*const product = {
+            id: newProductId,
+            titulo: req.body.titulo,
+            colores: [req.body.color],
+            categoria: req.body.categoria,
+            genero: req.body.genero,
+            porcentajeDescuento: Number.parseInt("0"),
+            precio: Number.parseFloat(req.body.precio),
+            talles: [40,42,43],
+            descripcion: req.body.descripcion,
+            imagenesUrl: newProductImages
+        }
+
+        productService.create(product)
+            .then((newProduct) => {
+                productImageService(imagesPaths, newProduct.id);
+            })
+            .catch((error) => {
+                console.log(error)
+            });*/
+
         res.redirect('/productos');
     },
 

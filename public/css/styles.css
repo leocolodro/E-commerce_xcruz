@@ -625,7 +625,6 @@ a{
     .editar-producto-container .editar-producto-form > div > section > div{
         text-align: center;
         margin: 3% auto 3%;
-        height: 30px;
         width: 100%;
     }
     
@@ -691,9 +690,13 @@ a{
         text-align: left;
         width: 100%;
     }
+
+    .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer {
+        width: 50px;
+    }
+    
     .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer > select{
         width: 100%;
-        height: 25px;
     }
     /*editProduct.ejs - END*/
 
@@ -743,7 +746,6 @@ a{
 .crear-producto-container .nuevo-producto-form > article > section > article{
     text-align: center;
     margin: 3% auto 3%;
-    height: 30px;
     width: 100%;
 }
 
@@ -800,18 +802,24 @@ a{
     justify-content: space-around;
 
 }
+
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .precio-subcontainer{
     display: flex;
     flex-direction: column;
     
 }
+
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .precio-subcontainer > label {
     text-align: left;
     width: 100%;
 }
+
+.crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer {
+    width: 50px;
+}
+
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer > select{
     width: 100%;
-    height: 25px;
 }
 
     /*newProduct.ejs - END*/

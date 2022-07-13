@@ -37,6 +37,7 @@ const ProductService = {
                     include: [ 
                         {association: "productBrand"},
                         {association: "productImages"},
+                        {association: "productCategory"},
                         {association: "Sizes"},
                          
                     ]
@@ -77,15 +78,44 @@ const ProductService = {
                         {association: "productImages"},
 
                     ]
-            }
-        );
-        
+                }
+            );
         return products
 
         }catch(error){
             console.log(error);
         }  
     },
+
+    create: function(product){
+        return db.Product.create(
+            {
+                productBrand: {
+                    name: product.name
+                },
+                gender: product.gender,
+                discount_percentage: product.discount_percentage,
+                product: product.price,
+                description: description,
+                color: product.color,
+                ProductCategory:{
+                    name: product.category
+                }
+            },
+            {
+                include: [ 
+                    {association: 'productBrand'},
+                    {association: 'ProductCategory'},
+                ]
+            }
+        )
+        .then((newProduct) => {
+            return newProduct
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
 }
 
 
