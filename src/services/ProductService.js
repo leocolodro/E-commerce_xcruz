@@ -137,9 +137,9 @@ const ProductService = {
                 newProduct.addSizes(sizeId);
             });
 
-            await productImageService.create(productData.imagesPaths, newProduct.id);
-
             console.log("Successfully added new Product into Database!");
+            
+            return newProduct;
 
         } catch(error){
             console.log("Product creation error.")

@@ -43,7 +43,7 @@ const upload = multer({storage: storage})
 router.get('/', ProductController.displayAll);
 /*+++++++++++++++++++++ Create Product +++++++++++++++++++++++*/
 router.get('/nuevo', adminRoutes, ProductController.newProduct);
-router.post('/nuevo', /*upload.array('agregar-imagen'),*/ ProductController.create);
+router.post('/nuevo', adminRoutes, upload.array('agregar-imagen'), ProductController.create);
 
 router.get('/prueba', ProductController.prueba);
 /*+++++++++++++++++++++ Show Product By ID +++++++++++++++++++++++*/

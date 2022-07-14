@@ -7,10 +7,9 @@ const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 /*-------------------------------SERVICES----------------------------------*/
 
 const productService = require('../services/ProductService.js');
+const ProductCategoryService = require('../services/ProductCategoryService.js');
 const sizesService = require('../services/SizesService.js');
 const productImageService = require('../services/ProductImageService.js');
-const db = require('../database/models/index.js');
-
 
 
 /*-------------------------------------------------------------------------*/
@@ -98,66 +97,49 @@ const ProductController = {
     },
 
     newProduct: function(req, res){
-        res.render(path.join(__dirname, '../views/products/newProduct.ejs'), 
-        {   
-            categorias: categoriasArray, 
-            colores: coloresArray, 
-            talles: tallesArray
-        });
+
+        const productCategories = ProductCategoryService.getAll()
+
+        const sizes = sizesService.getAll()
+
+        Promise.all([productCategories, sizes])
+
+            .then(([productCategories, sizes]) => {
+                res.render(path.join(__dirname, '../views/products/newProduct.ejs'), 
+                {   
+                    categorias: productCategories, 
+                    colores: coloresArray, 
+                    sizes: sizes
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
 
     create: async function(req, res){    
-        //const products = jsonProductAnalyzer.read();
-
-        //const newProductId = products.length + 1; 
-        
- 
-
-        //console.log(newProductImages);
-        
-       /* const newProduct = {
-            id: newProductId,
-            titulo: req.body.titulo,
-            colores: [req.body.color],
-            categoria: req.body.categoria,
-            genero: req.body.genero,
-            porcentajeDescuento: Number.parseInt("0"),
-            precio: Number.parseFloat(req.body.precio),
-            talles: [40,42,43],
-            descripcion: req.body.descripcion,
-            imagenesUrl: newProductImages
-        }*/
-
-
-        
-        //jsonProductAnalyzer.create(newProduct);
-       
-        //const imgPath = '/producto_' + newProductId.toString() + '/';
-
-        //let newProductImages = req.files.map(file =>{
-           // return imgPath +file.filename;
-        //}) 
 
         const product = {
-            brandName: "Test",
-            color: "Negro",
-            categoryId: 3,
-            gender: "test", //req.body.genero,
+            brandName: req.body.brandName,
+            color: req.body.color,
+            categoryId: req.body.category,
+            gender: req.body.gender,
             discount_percentage: Number.parseInt("0"),
-            price: Number.parseFloat(40.50), //Number.parseFloat(req.body.precio),
-            sizes: [19,20,21,22,27,28],
-            description: "test", //req.body.descripcion,
-            imagesPaths: [
-                "/producto_9/botas_test_cuero_negro_1.jpg",
-			    "/producto_9/botas_test_cuero_negro_2.jpg",
-			    "/producto_9/botas_test_cuero_negro_3.jpg",
-			    "/producto_9/botas_test_cuero_negro_4.jpg"
-            ]
+            price: Number.parseFloat(req.body.price),
+            sizes: req.body.sizes,
+            description: req.body.description,
             
         };
 
         let newProduct = await productService.create(product);
 
+        const imgPath = '/producto_' +  newProduct.id.toString() + '/';
+
+        let newProductImages =  req.files.map(file =>{
+            return imgPath + file.filename;
+        }) 
+
+        await productImageService.create(newProductImages, newProduct.id);
 
         res.redirect('/productos');
     

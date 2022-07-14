@@ -9,6 +9,8 @@ const ProductImageService = {
                     product_id: productId,
                     image_path: image,
                 })
+
+            console.log("Images successfully linked to Product.")
             });
         } catch(error){
             console.log("Product Images link error.")

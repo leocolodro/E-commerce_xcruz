@@ -1,9 +1,10 @@
+
 const db = require('../database/models');
 
-const UserCategoryService = {
-    getById: function(id){
+const ProductCategoryService= {
+    getById: async function(id){
 
-        const userCategory =  db.UserCategory.findByPk(id)
+        const category =  db.ProductCategory.findByPk(id)
             .then((dbResponse) => {
                return dbResponse;
             })
@@ -11,22 +12,21 @@ const UserCategoryService = {
                 console.log(error);
             });
         
-            return userCategory
+            return category
     },
 
     getAll: async function() {
-
         try{
-            const categories = await db.UserCatego.findAll()
-  
+
+            const categories = await db.ProductCategory.findAll()
+        
             return categories;
 
         } catch(error){
 
             console.log(error);
         }
-        return categories;
     }
 }
 
-module.exports = UserCategoryService;
+module.exports = ProductCategoryService;

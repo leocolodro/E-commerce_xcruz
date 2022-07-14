@@ -740,6 +740,10 @@ a{
     display: flex;
     justify-content: center;
 }
+.crear-producto-container .nuevo-producto-form .form-container-1 .section-1 .color-subcontainer .color-sub-sub-container #color{
+    width: 40%;
+    height: 2em;
+}
 .crear-producto-container .nuevo-producto-form > article > section{
     margin: 2% auto 2%;
 }
@@ -815,7 +819,7 @@ a{
 }
 
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer {
-    width: 50px;
+    width: 82px;
 }
 
 .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer > select{
@@ -1647,8 +1651,8 @@ footer .copyright-container > small {
     }
 
     .crear-producto-container .nuevo-producto-form .form-container-2 .section-2 .agregar-imagen{
-        margin-top: 40px;
-        margin-bottom: 20px;  
+        margin-top: 70px;
+        margin-bottom: 100px;  
     }
 
     .crear-producto-container .nuevo-producto-form .form-container-2 .section-3{
@@ -1668,6 +1672,10 @@ footer .copyright-container > small {
     .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
         justify-content: space-evenly;
     }
+    .crear-producto-container .nuevo-producto-form .form-container-2 .section-3 .talle-precio-subcontainer .talle-subcontainer {
+        width: 100px;
+    }
+    
         /*newProduct.ejs - END*/
 
         /*productDetail.ejs - START */
