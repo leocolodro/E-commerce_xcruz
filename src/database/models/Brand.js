@@ -5,6 +5,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.SMALLINT(8),
             primaryKey: true,
             notNull: true,
+            autoIncrement: true
         },
         name:{
             type: Sequelize.STRING(150),

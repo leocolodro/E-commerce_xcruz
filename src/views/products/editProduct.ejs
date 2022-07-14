@@ -16,7 +16,7 @@
                 <div class="form-container-1">
                     <section class="section-1">
                         <div class="titulo-subcontainer">
-                            <input type="text" name="titulo" id="titulo" placeholder=" <%= producto.titulo %> " required >
+                            <input type="text" name="titulo" id="titulo" value="<%= producto.titulo %>" required >
                         </div>
                         <div class="categoria-genero-subcontainer">
                             <div class="categoria-subcontainer">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="descripcion-subcontainer">
                             <label for="descripcion">Descripción</label>
-                            <textarea name="descripcion" id="descripcion" placeholder=" <%= producto.descripcion %> "></textarea>
+                            <textarea name="descripcion" id="descripcion"><%= producto.descripcion %></textarea>
                         </div>
                     </section>
                     </div>
@@ -78,7 +78,7 @@
                                 <label for="precio">Precio</label>
                                 <span>
                                     <label for="precio">$</label>
-                                    <input type="text" name="precio" id="precio" placeholder="<%= producto.precio %>" required>
+                                    <input type="text" name="precio" id="precio" value="<%= producto.precio %>" required>
                                 </span>
                             </div>
                         </div>

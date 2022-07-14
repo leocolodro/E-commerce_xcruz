@@ -7,9 +7,10 @@ const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 /*-------------------------------SERVICES----------------------------------*/
 
 const productService = require('../services/ProductService.js');
-const brandService = require('../services/BrandService.js');
+const sizesService = require('../services/SizesService.js');
 const productImageService = require('../services/ProductImageService.js');
-const BrandService = require('../services/BrandService.js');
+const db = require('../database/models/index.js');
+
 
 
 /*-------------------------------------------------------------------------*/
@@ -105,20 +106,16 @@ const ProductController = {
         });
     },
 
-    create: function(req, res){    
-        const products = jsonProductAnalyzer.read();
+    create: async function(req, res){    
+        //const products = jsonProductAnalyzer.read();
 
-        const newProductId = products.length + 1; 
+        //const newProductId = products.length + 1; 
         
-        const imgPath = '/producto_' + newProductId.toString() + '/';
+ 
 
-        let newProductImages = req.files.map(file =>{
-            return imgPath +file.filename;
-        }) 
-
-        console.log(newProductImages);
+        //console.log(newProductImages);
         
-        const newProduct = {
+       /* const newProduct = {
             id: newProductId,
             titulo: req.body.titulo,
             colores: [req.body.color],
@@ -129,35 +126,41 @@ const ProductController = {
             talles: [40,42,43],
             descripcion: req.body.descripcion,
             imagenesUrl: newProductImages
-        }
+        }*/
 
 
         
-        jsonProductAnalyzer.create(newProduct);
-        
+        //jsonProductAnalyzer.create(newProduct);
+       
+        //const imgPath = '/producto_' + newProductId.toString() + '/';
 
-        /*const product = {
-            id: newProductId,
-            titulo: req.body.titulo,
-            colores: [req.body.color],
-            categoria: req.body.categoria,
-            genero: req.body.genero,
-            porcentajeDescuento: Number.parseInt("0"),
-            precio: Number.parseFloat(req.body.precio),
-            talles: [40,42,43],
-            descripcion: req.body.descripcion,
-            imagenesUrl: newProductImages
-        }
+        //let newProductImages = req.files.map(file =>{
+           // return imgPath +file.filename;
+        //}) 
 
-        productService.create(product)
-            .then((newProduct) => {
-                productImageService(imagesPaths, newProduct.id);
-            })
-            .catch((error) => {
-                console.log(error)
-            });*/
+        const product = {
+            brandName: "Test",
+            color: "Negro",
+            categoryId: 3,
+            gender: "test", //req.body.genero,
+            discount_percentage: Number.parseInt("0"),
+            price: Number.parseFloat(40.50), //Number.parseFloat(req.body.precio),
+            sizes: [19,20,21,22,27,28],
+            description: "test", //req.body.descripcion,
+            imagesPaths: [
+                "/producto_9/botas_test_cuero_negro_1.jpg",
+			    "/producto_9/botas_test_cuero_negro_2.jpg",
+			    "/producto_9/botas_test_cuero_negro_3.jpg",
+			    "/producto_9/botas_test_cuero_negro_4.jpg"
+            ]
+            
+        };
+
+        let newProduct = await productService.create(product);
+
 
         res.redirect('/productos');
+    
     },
 
     edit: function(req, res){
@@ -220,17 +223,23 @@ const ProductController = {
         }
     },
     //FOR TESTING
-    prueba: function(req,res){
-        
+    prueba: async function(req,res){
 
+        /*try{
+            let var1 = await db.Product.create(product)
+            let var2 = await imagenes(img_paths, var1.id)
+        } catch(error){
 
-        /*userService.getById(1)
-            .then((dbResponse) => {
-                res.send(dbResponse);
-            })
-            .catch((error) =>{
-                res.send("ERROR.\nProducto no encontrado!");
-            });*/
+        }*/
+        let var1 = await productService.getAllWithJoins()
+        res.json(var1)
+
+            //.then((dbResponse) => {
+
+           // })
+           // .catch((error) =>{
+           //     res.send("ERROR.\nProducto no encontrad!");
+           // });
     }
        
 }

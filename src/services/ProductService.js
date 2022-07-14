@@ -1,5 +1,8 @@
 const db = require('../database/models');
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
+const { Op } = require("sequelize");
+
+const productImageService = require('./ProductImageService');
 
 
 const ProductService = {
@@ -10,6 +13,7 @@ const ProductService = {
                 include: [ 
                     {association: "productBrand"},
                     {association: "productImages"},
+                    {association: "productCategory"},
                     {association: "Sizes"},
                      
                 ],
@@ -55,8 +59,8 @@ const ProductService = {
                     include: [ 
                         {association: "productBrand"},
                         {association: "productImages"},
+                        {association: "productCategory"},
                         {association: "Sizes"},
-                        {association: "Carts"}
                     ]
             }
         );
@@ -87,34 +91,60 @@ const ProductService = {
         }  
     },
 
-    create: function(product){
-        return db.Product.create(
+    getWithDiscountPercentageRand: async function(quantity){
+        const products = await db.Product.findAll(
             {
-                productBrand: {
-                    name: product.name
-                },
-                gender: product.gender,
-                discount_percentage: product.discount_percentage,
-                product: product.price,
-                description: description,
-                color: product.color,
-                ProductCategory:{
-                    name: product.category
-                }
-            },
-            {
+                limit: quantity,
+
+                order: Sequelize.literal('rand()'),
+
+                where:{ [Op.gt]: 0},
                 include: [ 
-                    {association: 'productBrand'},
-                    {association: 'ProductCategory'},
+                    {association: "productBrand"},
+                    {association: "productImages"},
+                    {association: "productCategory"},
+                    {association: "Sizes"},
+                     
                 ]
-            }
+            },
+ 
         )
-        .then((newProduct) => {
-            return newProduct
-        })
-        .catch((error) => {
+        return products;
+    },
+
+    create: async function(productData){
+       try{
+            let newProduct = await db.Product.create(
+                {
+                    productBrand: {
+                        name: productData.brandName
+                    },
+                    gender: productData.gender,
+                    discount_percentage: productData.discount_percentage,
+                    price: productData.price,
+                    description: productData.description,
+                    color: productData.color,
+                    category_id: productData.categoryId
+                },
+                {
+                    include: [ 
+                        {association: 'productBrand'},                    
+                    ]
+                }
+            );
+
+            await productData.sizes.forEach((sizeId) =>{
+                newProduct.addSizes(sizeId);
+            });
+
+            await productImageService.create(productData.imagesPaths, newProduct.id);
+
+            console.log("Successfully added new Product into Database!");
+
+        } catch(error){
+            console.log("Product creation error.")
             console.log(error);
-        })
+        }
     }
 }
 
