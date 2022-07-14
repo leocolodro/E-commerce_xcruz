@@ -8,34 +8,33 @@ const path = require('path');
 const productosFilePath = path.join(__dirname, '../data/products-database.json');
 
 //Productos DataBase
-let productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8'));
+const productService = require('../services/ProductService.js');
 
 const MainController = {
     displayHome: function(req, res){
-        //Tamaño minimo array para aleatoriedad
-        const minArrayLength = 4; 
-        let productosDestacadosArray = [];
-        let productosEnOferta = [];
 
-        //Si el tamaño del array "productos" es inferior al valor de la constante "minArraylenght" 
-        if(productos.length < minArrayLength){
-            productosDestacadosArray = productos;
-            //Array de productos con porcentajeDescuento mayor a 0         
-            productosEnOferta = productos.filter(producto =>{
-                if(producto.porcentajeDescuento > 0){
-                    return producto;
-                }
-            });
+         /*total products to be search for "relationedProducts"*/
+        const quantity = 4;
 
+        /*Get <quantity> products from database*/
+        const productsWithDiscount = productService.getWithDiscountPercentageRand(quantity);
+
+        /*Get product where product.id = req.params.id from database*/
+        const products = productService.getSomeRandomlySorted(quantity);
+
+        /*fulfill all promises*/
+        Promise.all([productsWithDiscount, products])
+
+            .then(([productsWithDiscount, products]) => {
 
             res.render(path.join(__dirname, '../views/home.ejs'), 
             {
-                productos: productosDestacadosArray, 
-                productosEnOferta: productosEnOferta
+                products: products, 
+                productsWithDiscount: productsWithDiscount
             });
-        }
+        });
         //Si es el tamaño del array: "productos" es mayor al valor de la constante "minArraylenght" 
-        else{
+        /*else{
 
             //Sortear de manera aleatoria los elementos del array: "productos"
             productos.sort(() => Math.random() > 0.5 ? 1 : -1);
@@ -58,7 +57,7 @@ const MainController = {
                 productos: productosDestacadosArray, 
                 productosEnOferta: productosEnOferta
             });
-        }
+        }*/
     }
 }
 

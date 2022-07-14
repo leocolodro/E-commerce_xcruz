@@ -2,8 +2,6 @@ const db = require('../database/models');
 const { Sequelize } = require('sequelize');
 const { Op } = require("sequelize");
 
-const productImageService = require('./ProductImageService');
-
 
 const ProductService = {
 
@@ -98,7 +96,7 @@ const ProductService = {
 
                 order: Sequelize.literal('rand()'),
 
-                where:{ [Op.gt]: 0},
+                where:{discount_percentage:{ [Op.gt]: 1}},
                 include: [ 
                     {association: "productBrand"},
                     {association: "productImages"},
@@ -169,6 +167,18 @@ const ProductService = {
 
         await db.Product.setSizes(productData.sizes);
        
+    },
+    delete: async function(productId){
+        try{
+            await db.Product.destroy({
+                where: {id: productId}
+            });
+            
+            console.log("Se ha eliminado correctamente el producto #" + productId);
+        }
+        catch(error){
+            console.log(error);
+        }
     } 
 }
 

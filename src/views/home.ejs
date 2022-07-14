@@ -77,23 +77,23 @@
 
       <!-- PRODUCTOS DESTACADOS - GENERADOR -->
       <section class="contenedor-productos-home">
-        <% productos.forEach(producto => { %>
-          <a href="/products/<%= producto.id %>">
+        <% products.forEach(product => { %>
+          <a href="/products/<%= product.id %>">
             <article class="elements-subcontainer">
               <section class="img-container">
-                <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="producto" />
+                <img src="/images/products<%= product.productImages[0].image_path %>" alt="producto" />
               </section>
               <section class="truck-icon-container">
                 <i class="fa-solid fa-truck fa-xl"></i>
               </section>
               <section class="descripcion-container">
-                <p class="titulo"> <%= producto.titulo %> </p>
-                <% if (producto.porcentajeDescuento > 0) { %>
-                  <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>  
+                <p class="titulo"> <%= product.productBrand.name %> </p>
+                <% if (product.discount_percentage > 0) { %>
+                  <p class="descuento"> %<%= product.discount_percentage %> Off</p>  
                 <%} else { %>
                   <p class="descuento"> - </p>  
                 <% } %>
-                <p> $<%= producto.precio %> </p>
+                <p> $<%= product.price %> </p>
               </section>
             </article>
           </a>
@@ -110,19 +110,19 @@
 
       <!-- OFERTAS - GENERADOR -->
       <section class="contenedor-productos-home">
-        <% productosEnOferta.forEach(producto => { %>
-          <a href="/productos/<%= producto.id %>">
+        <% productsWithDiscount.forEach(product => { %>
+          <a href="/productos/<%= product.id %>">
             <article class="elements-subcontainer">
               <section class="img-container">
-                <img src="/images/products<%= producto.imagenesUrl[0] %>" alt="producto" />
+                <img src="/images/products<%= product.productImages[0].image_path %>" alt="producto" />
               </section>
               <section class="truck-icon-container">
                 <i class="fa-solid fa-truck fa-xl"></i>
               </section>
               <section class="descripcion-container">
-                <p class="titulo"> <%= producto.titulo %> </p>
-                <p class="descuento"> %<%= producto.porcentajeDescuento %> Off</p>
-                <p> $<%= producto.precio %> </p>
+                <p class="titulo"> <%= product.productBrand.name %> </p>
+                <p class="descuento"> %<%= product.discount_percentage %> Off</p>
+                <p> $<%= product.price %> </p>
               </section>
             </article>
           </a>

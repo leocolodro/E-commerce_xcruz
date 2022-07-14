@@ -1,6 +1,9 @@
 //Path Module.
 const path = require('path');
 
+//fs Module.
+const fs = require("fs");
+
 //Helpers
 const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 
@@ -10,6 +13,7 @@ const productService = require('../services/ProductService.js');
 const ProductCategoryService = require('../services/ProductCategoryService.js');
 const sizesService = require('../services/SizesService.js');
 const productImageService = require('../services/ProductImageService.js');
+const { fdatasyncSync, fstat } = require('fs');
 
 
 /*-------------------------------------------------------------------------*/
@@ -191,48 +195,30 @@ const ProductController = {
         
     },
 
-    delete: function(req, res){
+    delete: async function(req, res){
 
-        //Get products DataBase
-        const products = jsonProductAnalyzer.read();
+        let productToDelete = await productService.getById(req.params.id)
 
-        //Search product in "Products"      
-        const product = products.find(product => {         
-            return product.id == req.params.id;
-        });
-        
-        //Product not found
-        if(product == undefined){
-            res.send("ERROR.\nProducto no encontrado!");
-        }
-                
-        //Product founded
-        else{
-            jsonProductAnalyzer.delete(req.params.id);
+        let imagesToDelete = [];
 
-            res.redirect('/productos');
-        }
-    },
-    //FOR TESTING
-    prueba: async function(req,res){
-
-        /*try{
-            let var1 = await db.Product.create(product)
-            let var2 = await imagenes(img_paths, var1.id)
-        } catch(error){
-
-        }*/
-        let var1 = await productService.getAllWithJoins()
-        res.json(var1)
-
-            //.then((dbResponse) => {
-
-           // })
-           // .catch((error) =>{
-           //     res.send("ERROR.\nProducto no encontrad!");
-           // });
-    }
+        const imageFolderPath = path.join(__dirname, '../../public/images/products');
        
+        productToDelete.productImages.forEach((image) => {
+            imagesToDelete.push(image.image_path);
+        });
+    
+        imagesToDelete.forEach((image) =>{
+            fs.unlink(imageFolderPath + image, function (err) {
+                if (err) throw err;
+                console.log('File deleted!');
+            });
+        });
+       
+        await productService.delete(req.params.id);
+
+        res.redirect('/');
+        
+    }      
 }
 
 
