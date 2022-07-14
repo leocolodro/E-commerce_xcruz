@@ -133,9 +133,9 @@ const ProductService = {
                 }
             );
 
-            await productData.sizes.forEach((sizeId) =>{
-                newProduct.addSizes(sizeId);
-            });
+
+            await  newProduct.addSizes(productData.sizes);
+
 
             console.log("Successfully added new Product into Database!");
             
@@ -145,7 +145,31 @@ const ProductService = {
             console.log("Product creation error.")
             console.log(error);
         }
-    }
+    },
+    edit: async function(productId, productData){
+        const editedProduct = await db.Product.update(
+            {
+                productBrand:{
+                    name: productData.brandName
+                },
+                gender: productData.gender,
+                discount_percentage: productData.discount_percentage,
+                price: productData.price,
+                description: productData.description,
+                color: productData.color,
+                category_id: productData.categoryId
+            },
+            {
+                where:{id: productId},
+                include: [ 
+                    {association: 'productBrand'},                    
+                ]
+            }
+        );
+
+        await db.Product.setSizes(productData.sizes);
+       
+    } 
 }
 
 

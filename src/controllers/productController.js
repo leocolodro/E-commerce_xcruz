@@ -98,12 +98,16 @@ const ProductController = {
 
     newProduct: function(req, res){
 
+        //Get all Products from Database
         const productCategories = ProductCategoryService.getAll()
 
+        //Get all Sizes from Database
         const sizes = sizesService.getAll()
 
+        //Fulfill all promises
         Promise.all([productCategories, sizes])
-
+            
+            //render newProduct.ejs
             .then(([productCategories, sizes]) => {
                 res.render(path.join(__dirname, '../views/products/newProduct.ejs'), 
                 {   
@@ -117,8 +121,9 @@ const ProductController = {
             });
     },
 
-    create: async function(req, res){    
+    create: async function(req, res){  
 
+        //Get data from req
         const product = {
             brandName: req.body.brandName,
             color: req.body.color,
@@ -131,55 +136,59 @@ const ProductController = {
             
         };
 
+        //Add Product into database
         let newProduct = await productService.create(product);
 
-        const imgPath = '/producto_' +  newProduct.id.toString() + '/';
-
+        //Get images info and generate array with image paths
         let newProductImages =  req.files.map(file =>{
-            return imgPath + file.filename;
+            return  file.filename;
         }) 
 
+        //Link image with Product
         await productImageService.create(newProductImages, newProduct.id);
 
+        //redirect to productsList*/
         res.redirect('/productos');
     
     },
 
-    edit: function(req, res){
+    edit: async function(req, res){
 
         //Get products DataBase
-        const products = jsonProductAnalyzer.read();
+        //const products = jsonProductAnalyzer.read();
                 
         //Search product in "Products"      
-        const product = products.find(product => {         
-        return product.id == req.params.id;
-        });
+        //const product = products.find(product => {         
+        //return product.id == req.params.id;
+        //});
         
         //Product not found
-        if(product == undefined){
-            res.send("ERROR.\nProducto no encontrado!");
-        }
+        //if(product == undefined){
+        //    res.send("ERROR.\nProducto no encontrado!");
+        //}
                 
         //Product founded
-        else{
+        //else{
             
             //Generate new product
-            let newProductData = {
-                titulo : req.body.titulo,
-                colores : [req.body.color],
-                categoria : req.body.categoria,
-                genero : req.body.genero,
-                porcentajeDescuento : Number.parseInt("0"),
-                precio : Number.parseFloat(req.body.precio),
-                talles : [40,42,43],
-                descripcion : req.body.descripcion,
-                imagenesUrl : product.imagenesUrl
-            }
+        //    let newProductData = {
+        //        titulo : req.body.titulo,
+        //        colores : [req.body.color],
+        //        categoria : req.body.categoria,
+        //       genero : req.body.genero,
+        //        porcentajeDescuento : Number.parseInt("0"),
+        //        precio : Number.parseFloat(req.body.precio),
+        //       talles : [40,42,43],
+        //        descripcion : req.body.descripcion,
+        //       imagenesUrl : product.imagenesUrl
+        //    }
 
-            jsonProductAnalyzer.edit(product.id, newProductData);
+        //    jsonProductAnalyzer.edit(product.id, newProductData);
 
-            res.redirect('/productos/' + product.id);
-        }
+        await
+
+        res.redirect('/productos/' + product.id);
+        
     },
 
     delete: function(req, res){
