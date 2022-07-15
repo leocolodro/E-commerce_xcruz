@@ -31,7 +31,7 @@ router.get('/:id/editar', adminRoutes, ProductController.editById);
 router.put('/:id/editar', adminRoutes, ProductController.edit);
 
 /*+++++++++++++++++++++ Delete Product By ID +++++++++++++++++++++++*/
-router.delete('/:id/eliminar', ProductController.delete)
+router.delete('/:id/eliminar', adminRoutes,ProductController.delete)
 
 
 

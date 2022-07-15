@@ -57,6 +57,6 @@ router.post('/register', upload.single('profile-pic'), registerValidations, user
 /*+++++++++++++++++++++ Show User By ID +++++++++++++++++++++++*/
 router.get('/:id', userDetailAuthorization, userController.displayUser);
 router.put('/:id/editar', upload.single('profile-pic'), userController.editUser);
-router.delete('/:id/eliminar', userController.deleteUser);
+router.delete('/:id/eliminar', adminRoutes ,userController.deleteUser);
 
 module.exports = router;

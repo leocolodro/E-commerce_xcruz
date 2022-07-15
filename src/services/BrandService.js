@@ -3,15 +3,19 @@ const db = require('../database/models');
 
 const BrandService = {
 
-    create: function (brand) {
+    create: async function (brandName) {
         try{
-        db.create({
-                name: brand.name
+            const newBrand = await db.Brand.create({
+                name: brandName
+                
             });
+            
+            return newBrand;
+
         } catch(error){
             console.log(error);
         }
-    return newBrand
+
     }
 }
 

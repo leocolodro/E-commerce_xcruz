@@ -10,7 +10,7 @@ const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
 /*-------------------------------SERVICES----------------------------------*/
 
 const productService = require('../services/ProductService.js');
-const ProductCategoryService = require('../services/ProductCategoryService.js');
+const productCategoryService = require('../services/ProductCategoryService.js');
 const sizesService = require('../services/SizesService.js');
 const productImageService = require('../services/ProductImageService.js');
 const { fdatasyncSync, fstat } = require('fs');
@@ -74,36 +74,37 @@ const ProductController = {
             });
 
     },
+
     editById: function(req, res){
-        //Get products DataBase
-        const products = jsonProductAnalyzer.read();
 
-        //Search product in "Products"
-        const product = products.find(product => {
-            return product.id == req.params.id;
-        });
-        
-        //Product not found
-        if(product == undefined){
-            res.send("ERROR.\nProducto no encontrado!");
-        }
+        //Get products from DataBase
+        const product = productService.getById(req.params.id);
 
-        //Product founded
-        else{
-            res.render(path.join(__dirname, '../views/products/editProduct.ejs'),
-            {
-                producto: product,  
-                categorias: categoriasArray, 
-                colores: coloresArray, 
-                talles: tallesArray  
+        //Get sizes from Database
+        const sizes = sizesService.getAll();
+
+        //Get product categories from Dataabse
+        const productCategories = productCategoryService.getAll();
+
+        //Fulfill all promises
+        Promise.all([product, productCategories, sizes])
+            
+            //render newProduct.ejs
+            .then(([product, productCategories, sizes]) => {
+                res.render(path.join(__dirname, '../views/products/editProduct.ejs'),
+                {
+                    product: product,  
+                    categories: productCategories,  
+                    sizes: sizes 
+                });
             });
-        }
+            
     },
 
     newProduct: function(req, res){
 
         //Get all Products from Database
-        const productCategories = ProductCategoryService.getAll()
+        const productCategories = productCategoryService.getAll()
 
         //Get all Sizes from Database
         const sizes = sizesService.getAll()
@@ -158,40 +159,22 @@ const ProductController = {
 
     edit: async function(req, res){
 
-        //Get products DataBase
-        //const products = jsonProductAnalyzer.read();
-                
-        //Search product in "Products"      
-        //const product = products.find(product => {         
-        //return product.id == req.params.id;
-        //});
-        
-        //Product not found
-        //if(product == undefined){
-        //    res.send("ERROR.\nProducto no encontrado!");
-        //}
-                
-        //Product founded
-        //else{
+        //Get data from req
+        const productData = {
+            brandName: req.body.brandName,
+            color: req.body.color,
+            categoryId: req.body.categoryId,
+            gender: req.body.gender,
+            price: Number.parseFloat(req.body.price),
+            sizes: req.body.sizes,
+            description: req.body.description,
             
-            //Generate new product
-        //    let newProductData = {
-        //        titulo : req.body.titulo,
-        //        colores : [req.body.color],
-        //        categoria : req.body.categoria,
-        //       genero : req.body.genero,
-        //        porcentajeDescuento : Number.parseInt("0"),
-        //        precio : Number.parseFloat(req.body.precio),
-        //       talles : [40,42,43],
-        //        descripcion : req.body.descripcion,
-        //       imagenesUrl : product.imagenesUrl
-        //    }
+        };
 
-        //    jsonProductAnalyzer.edit(product.id, newProductData);
+        const productEdited = await productService.editById(req.params.id, productData);
 
-        await
 
-        res.redirect('/productos/' + product.id);
+        res.redirect('/productos/' + productEdited.id);
         
     },
 

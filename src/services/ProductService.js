@@ -1,30 +1,29 @@
 const db = require('../database/models');
 const { Sequelize } = require('sequelize');
 const { Op } = require("sequelize");
-
+const brandService = require('./BrandService.js');
 
 const ProductService = {
 
-    getById: function(id){
-        const product = db.Product.findByPk(id,
-            {
-                include: [ 
-                    {association: "productBrand"},
-                    {association: "productImages"},
-                    {association: "productCategory"},
-                    {association: "Sizes"},
-                     
-                ],
-            }
-        )
-        .then((dbResponse) => {
-            return dbResponse;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    getById: async function(id){
+        try{
+            const product = db.Product.findByPk(id,
+                {
+                    include: [ 
+                        {association: "productBrand"},
+                        {association: "productImages"},
+                        {association: "productCategory"},
+                        {association: "Sizes"}, 
+                    ],
+                }
+            );
 
-    return product;
+        return product;
+
+        }catch(error){
+            console.log(error);
+            console.log("No se ha encontrado el producto #" + id);
+        }
     },
 
     //Use this method to bring <quantity> products from database
@@ -144,28 +143,35 @@ const ProductService = {
             console.log(error);
         }
     },
-    edit: async function(productId, productData){
-        const editedProduct = await db.Product.update(
-            {
-                productBrand:{
-                    name: productData.brandName
+    editById: async function(productId, productData){
+        const newBrand = await brandService.create(productData.brandName);
+        try{
+            await db.Product.update(
+                {
+                    gender: productData.gender,
+                    discount_percentage: productData.discount_percentage,
+                    price: productData.price,
+                    description: productData.description,
+                    color: productData.color,
+                    category_id: productData.categoryId
                 },
-                gender: productData.gender,
-                discount_percentage: productData.discount_percentage,
-                price: productData.price,
-                description: productData.description,
-                color: productData.color,
-                category_id: productData.categoryId
-            },
-            {
-                where:{id: productId},
-                include: [ 
-                    {association: 'productBrand'},                    
-                ]
-            }
-        );
+                {
+                    where:{id: productId},
+                }
+            );
+            
+            let editedProduct = await this.getById(productId);
 
-        await db.Product.setSizes(productData.sizes);
+            await editedProduct.setProductBrand(newBrand);
+
+            await editedProduct.setSizes(productData.sizes);
+
+            return editedProduct;
+
+        }catch(error){
+            console.log(error);
+            console.log("ERROR.\nNo se ha podido actualizar el producto #" + productId);
+        }
        
     },
     delete: async function(productId){

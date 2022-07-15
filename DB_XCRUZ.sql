@@ -39,6 +39,7 @@ CREATE TABLE `CARTS`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 	/*Security Questions - Table*/
 DROP TABLE IF EXISTS `SECURITY_QUESTIONS`;
 CREATE TABLE `SECURITY_QUESTIONS`(
@@ -49,12 +50,15 @@ CREATE TABLE `SECURITY_QUESTIONS`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+################## Dumping Data ##################
+
 LOCK TABLES `SECURITY_QUESTIONS` WRITE;
 /*!40000 ALTER TABLE `SECURITY_QUESTIONS` DISABLE KEYS */;
 
 INSERT INTO `SECURITY_QUESTIONS` VALUES 
 	(1, "¿Cuál era el nombre de tu primer mascota?"),
-	(2, "¿Cuál era tu juego favorito de joven?");
+	(2, "¿Cuál era tu juego favorito de joven?"),
+    (3, "¿Cuál es tu platillo de comida favorito?");
     
 /*!40000 ALTER TABLE `SECURITY_QUESTIONS` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -87,18 +91,21 @@ CREATE TABLE `USERS`(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+################## Dumping Data ##################
+
 LOCK TABLES `USERS` WRITE;
 /*!40000 ALTER TABLE `USERS` DISABLE KEYS */;
 
 INSERT INTO `USERS` (`ID`, `FIRST_NAME`, `LAST_NAME`, `ADDRESS`, `ZIP_CODE`, `CITY`, `PROVINCE`, `TELEPHONE`, `GENDER`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION_ID`, `SECURITY_ANSWER`, `IMAGE`, `CATEGORY_ID`, `CART_ID`) VALUES  
-    (1, "Hugo", "Nail", "Roseti 96", "1427", "Capital Federal", "Buenos Aires", "1155628975", "Masculino", "hnail0@hotmail.com", "XFUQp6g", 1, "Flopi", "/default_profile_pic.png", 1, NULL),
+    (1, "Hugo", "Nail", "Roseti 96", "1427", "Capital Federal", "Buenos Aires", "1155628975", "Masculino", "hnail0@hotmail.com", "XFUQp6g", 1, "Flopi", "/default_profile_pic.png", 1, 1),
     (2, "Marcelo", "Cavala", "Intendente Becco 864", "1642", "San Isidro", "Buenos Aires", "1164558921", "Masculino", "marcelocavala20120@gmail.com", "tssPlG2", 2, "Fútbol", "/default_profile_pic.png", 1, NULL),
-    (3, "Juan",  "Carlos", "Arnaldo 364", "2930", "San Pedro", "Buenos Aires", "3329659874", "Masculino", "juancaboca@gmail.com", "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m", 1, "Bruno", "/default_profile_pic.png", 1, NULL),
+    (3, "Juan",  "Carlos", "Arnaldo 364", "2930", "San Pedro", "Buenos Aires", "3329659874", "Masculino", "juancaboca@gmail.com", "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m", 3, "Risoto", "/default_profile_pic.png", 1, NULL),
 	(4, "Maria Estela", "Suarez", "Balcarce 312", "2900", "San Nicolas", "Buenos Aires", "336269678", "Femenino", "marysuarez@live.com", "$2a$10$ifaU9rBP0zNE.mAV.5Os1Oa2vD.edR7KcwqmBSr/lw5a9IcmPSrmK", 1, "Chiara", "/4/profile-pic-1655877593406.jpg", 1, NULL),
 	(5, "Carla", "Lopez", "Billinghurst 1148", "1174", "Capital Federal", "Buenos Aires", "1145671533", "Femenino", "carlopez@live.com", "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q", 2, "Mario Bros", "/default_profile_pic.png", 2, NULL);
     
 /*!40000 ALTER TABLE `USERS` ENABLE KEYS */;
 UNLOCK TABLES;
+
 
 	/*Brands - Table*/
 DROP TABLE IF EXISTS `BRANDS`;
@@ -110,6 +117,8 @@ CREATE TABLE `BRANDS`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+################## Dumping Data ##################
+
 LOCK TABLES `BRANDS` WRITE;
 /*!40000 ALTER TABLE `BRANDS` DISABLE KEYS */;
 
@@ -117,8 +126,11 @@ INSERT INTO `BRANDS` (`ID`, `NAME`) VALUES
 
 	(1, "Siena"),
     (2, "2558"),
-    (3, "Beatle");
-
+    (3, "Beatle"),
+    (4, "Positano"),
+    (5, "Canada 211"),
+    (6, "9849");
+    
     
 /*!40000 ALTER TABLE `BRANDS` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -133,6 +145,8 @@ CREATE TABLE `PRODUCT_CATEGORIES`(
     PRIMARY KEY(`ID`)
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+################## Dumping Data ##################
 
 LOCK TABLES `PRODUCT_CATEGORIES` WRITE;
 /*!40000 ALTER TABLE `PRODUCT_CATEGORIES` DISABLE KEYS */;
@@ -168,6 +182,8 @@ CREATE TABLE `PRODUCTS`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+################## Dumping Data ##################
+
 LOCK TABLES `PRODUCTS` WRITE;
 /*!40000 ALTER TABLE `PRODUCTS` DISABLE KEYS */;
 
@@ -175,8 +191,11 @@ INSERT INTO `PRODUCTS` (`ID`, `BRAND_ID`, `GENDER`, `DISCOUNT_PERCENTAGE`,`PRICE
 	(1, 1, "Masculino", 11, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 1),
     (2, 2, "Masculino", 20, 12990, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 5),
     (3, 3, "Masculino", 15, 13290, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 1),
-	(4, 1, "Masculino", 11, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Marrón", 1);
-    
+	(4, 1, "Masculino", 11, 10500, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Marrón", 1),
+    (5, 4, "Masculino", 0, 12990, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 3),
+    (6, 5, "Masculino", 0, 14900, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Marrón", 1),
+    (7, 6, "Masculino", 15, 12299, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Marrón", 5),
+    (8, 5, "Masculino", 0, 14900, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo laborum isteiis!", "Negro", 1);
     
 /*!40000 ALTER TABLE `PRODUCTS` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -196,17 +215,18 @@ CREATE TABLE `CARTS_PRODUCTS`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
 	/*Sizes - Table*/
 DROP TABLE IF EXISTS `SIZES`;
 CREATE TABLE `SIZES`(
 	`ID` SMALLINT(3) NOT NULL AUTO_INCREMENT,
     `TYPE` VARCHAR(15) DEFAULT NULL,
-    `VALUE` DECIMAL(3,1) DEFAULT NULL,
+    `VALUE` DECIMAL(3, 1) DEFAULT NULL,
      
      PRIMARY KEY (`ID`)
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+################## Dumping Data ##################
 
 LOCK TABLES `SIZES` WRITE;
 /*!40000 ALTER TABLE `SIZES` DISABLE KEYS */;
@@ -263,6 +283,8 @@ CREATE TABLE `PRODUCT_SIZES`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+################## Dumping Data ##################
+
 LOCK TABLES `PRODUCT_SIZES` WRITE;
 /*!40000 ALTER TABLE `PRODUCT_SIZES` DISABLE KEYS */;
 
@@ -304,7 +326,35 @@ INSERT INTO `PRODUCT_SIZES` (`PRODUCT_ID`, `SIZE_ID`) VALUES
     (4, 17),
     (4, 18),
     (4, 19),
-    (4, 20);
+    (4, 20),
+    (5, 17),
+    (5, 18),
+    (5, 23),
+    (5, 24),
+    (6, 19),
+    (6, 20),
+    (6, 21),
+    (6, 22),
+    (6, 23),
+    (6, 24),
+    (6, 25),
+    (6, 26),
+    (6, 27),
+    (6, 28),
+    (7, 17),
+    (7, 18),
+    (7, 23),
+    (7, 24),
+    (7, 27),
+    (7, 28),
+    (8, 21),
+    (8, 22),
+    (8, 23),
+    (8, 24),
+    (8, 25),
+    (8, 26),
+    (8, 27),
+    (8, 28);
     
 /*!40000 ALTER TABLE `PRODUCT_SIZES` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -324,21 +374,36 @@ CREATE TABLE `PRODUCT_IMAGES`(
 LOCK TABLES `PRODUCT_IMAGES` WRITE;
 /*!40000 ALTER TABLE `PRODUCT_IMAGES` DISABLE KEYS */;
 
+################## Dumping Data ##################
+
 INSERT INTO `PRODUCT_IMAGES` (`ID`, `PRODUCT_ID`, `IMAGE_PATH`) VALUES 
-	(1, 1, "/producto_1/zapato_cuero_suela_1.jpg"),
-    (2, 1,  "/producto_1/zapato_cuero_suela_2.jpg"),
-	(3, 1,  "/producto_1/zapato_cuero_suela_3.jpg"),
-    (4, 2,  "/producto_2/zapato_cuero_punta_negro_1.jpg"),
-    (5, 2,  "/producto_2/zapato_cuero_punta_negro_2.jpg"),
-    (6, 2,  "/producto_2/zapato_cuero_punta_negro_3.jpg"),
-    (7, 3,  "/producto_3/bota_chelsea_cuero_negro_1.jpg"),
-    (8, 3,  "/producto_3/bota_chelsea_cuero_negro_2.jpg"),
-    (9, 3,  "/producto_3/bota_chelsea_cuero_negro_3.jpg"),
-    (10, 3, "/producto_3/bota_chelsea_cuero_negro_4.jpg"),
-    (11, 4,  "/producto_3/zapato_siena_cuero_marron_1.jpg"),
-    (12, 4,  "/producto_3/zapato_siena_cuero_marron_2.jpg"),
-    (13, 4,  "/producto_3/zapato_siena_cuero_marron_3.jpg");
-    
+	(1, 1, "/zapato_cuero_suela_1.jpg"),
+    (2, 1,  "/zapato_cuero_suela_2.jpg"),
+	(3, 1,  "/zapato_cuero_suela_3.jpg"),
+    (4, 2,  "/zapato_cuero_punta_negro_1.jpg"),
+    (5, 2,  "/zapato_cuero_punta_negro_2.jpg"),
+    (6, 2,  "/zapato_cuero_punta_negro_3.jpg"),
+    (7, 3,  "/bota_chelsea_cuero_negro_1.jpg"),
+    (8, 3,  "/bota_chelsea_cuero_negro_2.jpg"),
+    (9, 3,  "/bota_chelsea_cuero_negro_3.jpg"),
+    (10, 3, "/bota_chelsea_cuero_negro_4.jpg"),
+    (11, 4, "/zapato_siena_cuero_marron_1.jpg"),
+    (12, 4, "/zapato_siena_cuero_marron_2.jpg"),
+    (13, 4, "/zapato_siena_cuero_marron_3.jpg"),
+    (14, 5, "/zapatilla_positano_cuero_negro_1.jpg"),
+    (15, 5, "/zapatilla_positano_cuero_negro_2.jpg"),
+    (16, 5, "/zapatilla_positano_cuero_negro_3.jpg"),
+    (17, 6, "/botas_canada221_cuero_marron_1.jpg"),
+    (18, 6, "/botas_canada221_cuero_marron_2.jpg"),
+    (19, 6, "/botas_canada221_cuero_marron_3.jpg"),
+    (20, 7, "/zapato_9849_cuero_marron_1.jpg"),
+    (21, 7, "/zapato_9849_cuero_marron_2.jpg"),
+    (22, 7, "/zapato_9849_cuero_marron_3.jpg"),
+    (23, 7, "/zapato_9849_cuero_marron_4.jpg"),
+    (24, 8, "/botas_canada221_cuero_negro_1.jpg"),
+    (25, 8, "/botas_canada221_cuero_negro_2.jpg"),
+    (26, 8, "/botas_canada221_cuero_negro_3.jpg"),
+    (27, 8, "/botas_canada221_cuero_negro_4.jpg");
     
 /*!40000 ALTER TABLE `PRODUCT_IMAGES` ENABLE KEYS */;
 UNLOCK TABLES;

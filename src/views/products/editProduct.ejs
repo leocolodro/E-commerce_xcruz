@@ -12,26 +12,26 @@
     <%- include('../partials/header') %>
     <main>
        <div class="editar-producto-container">
-            <form action="/productos/<%= producto.id %>/editar?_method=PUT" method="POST" class="editar-producto-form">
+            <form action="/productos/<%= product.id %>/editar?_method=PUT" method="POST" class="editar-producto-form">
                 <div class="form-container-1">
                     <section class="section-1">
                         <div class="titulo-subcontainer">
-                            <input type="text" name="titulo" id="titulo" value="<%= producto.titulo %>" required >
+                            <input type="text" name="brandName" id="titulo" value="<%= product.productBrand.name %>" required >
                         </div>
                         <div class="categoria-genero-subcontainer">
                             <div class="categoria-subcontainer">
-                                <label for="categoria">Categoría</label><br />
+                                <label for="category">Categoría</label><br />
                                 <%# Categorias Loop %> 
-                                <select name="categoria" id="categoria">          
-                                    <% categorias.forEach(categoria => { %>
-                                        <option value=" <%= categoria %>  "> <%= categoria %> </option>
+                                <select name="categoryId" id="categoria">          
+                                    <% categories.forEach(category => { %>
+                                        <option value=" <%= category.id %>  "> <%= category.name %> </option>
                                     <% }) %>
                                 </select>
                             </div>
                             <div class="genero-subcontainer">
                                 <label for="genero">Genero</label><br />
                                 <!--Genero Select-->
-                                <select name="genero" id="genero">
+                                <select name="gender" id="genero">
                                     <option value="Masculino">Masculino</option>
                                     <option value="Femenino">Femenino</option>
                                 </select>
@@ -40,16 +40,12 @@
                         <div class="color-subcontainer">
                             <div class="color-sub-sub-container">
                                 <label for="color">Color</label><br /> 
-                                <select name="color" id="color">          
-                                    <% colores.forEach(color => { %>
-                                        <option value=" <%= color %>  "> <%= color %> </option>
-                                    <% }) %>
-                                </select>
+                                <input type="text" name="color" id="color" value=<%= product.color %> required />       
                             </div>
                         </div>
                         <div class="descripcion-subcontainer">
-                            <label for="descripcion">Descripción</label>
-                            <textarea name="descripcion" id="descripcion"><%= producto.descripcion %></textarea>
+                            <label for="description">Descripción</label>
+                            <textarea name="description" id="descripcion"><%= product.description %></textarea>
                         </div>
                     </section>
                     </div>
@@ -60,25 +56,25 @@
                         </div>
                         <div class="img-flex-container">
                             <% for( let i = 0; i < 3; i++ ) { %>
-                                <img src="/images/products<%= producto.imagenesUrl[i] %>  " alt="Foto - Producto">
+                                <img src="/images/products<%= product.productImages[i].image_path %>  " alt="Foto - Producto">
                             <% } %> 
                         </div>
                     </section>
                     <section class="section-3">
                         <div class="talle-precio-subcontainer">
                             <div class="talle-subcontainer">
-                                <label for="talles">Talles</label><br />
-                                <select name="talles" id="talles" multiple>
-                                    <% talles.forEach(talle => { %>
-                                        <option value=" <%= talle %> " > <%= talle %> </option>
+                                <label for="sizes">Talles</label><br />
+                                <select name="sizes" id="talles" multiple required>
+                                    <% sizes.forEach(size => { %>
+                                        <option value=" <%= size.id %> " > <%= size.type  + " " + size.value %> </option>
                                     <% }) %>
                                 </select>
                             </div>
                             <div class="precio-subcontainer">
                                 <label for="precio">Precio</label>
                                 <span>
-                                    <label for="precio">$</label>
-                                    <input type="text" name="precio" id="precio" value="<%= producto.precio %>" required>
+                                    <label for="price">$</label>
+                                    <input type="text" name="price" id="precio" value="<%= product.price %>" required>
                                 </span>
                             </div>
                         </div>
