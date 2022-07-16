@@ -107,7 +107,20 @@ const UserService = {
             security_answer: userData.securityAnswer,
             category_id: userData.categoryId
         }
-    }
+    },
+
+    delete: async function(userId){
+        try{
+            await db.User.destroy({
+                where: {id: userId}
+            });
+            
+            console.log("Se ha eliminado correctamente el usuario #" + userId);
+        }
+        catch(error){
+            console.log(error);
+        }
+    } 
 }
 
 module.exports = UserService;

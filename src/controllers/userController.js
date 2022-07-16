@@ -160,9 +160,9 @@ const UserController = {
       }
     },
 
-    deleteUser: function(req, res){
-      //Delete user from Database
-      jsonUsersAnalyzer.delete(req.params.id);
+    deleteUser: async function(req, res){
+      //Delete user from Database   
+      await userService.delete(req.params.id);
 
       //Redirect to users list
       res.redirect('/usuarios');
