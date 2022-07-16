@@ -37,7 +37,14 @@
               <% if (error.param=='lastName') {%>
                 <p class="register-form-error-msg"><%= error.msg %></p>
           <% }})} %>
-          </section>
+        </section>
+        <section class="gender-section">
+          <label for="gender">Genero:</label>
+          <select name="gender">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </section>
         <section class="telefono-section">
           <label for="telefono">Teléfono</label>
           <input type="telephone" name="telephone" class="telefono" placeholder="Teléfono" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
@@ -85,7 +92,24 @@
           <% }})} %> 
 
         </section>
+        <section class="security-question-section">
+          <select name="securityQuestionId">
+            <% securityQuestions.forEach(securityQuestion => { %>
+              <option value=<%= securityQuestion.id %>> <%= securityQuestion.question  %> </option>
+            <% }) %>
+          </select>
+          <label for="securityAnswer">Respuesta:</label>
+          <input type="text" name="securityAnswer" class="securityAnswer" placeholder="Respuesta" value="<%=  locals.old && old.securityAnswer ? old.securityAnswer : '' %>">
+          
+          <!--securityAnswer - Error handling-->
+          <% if(locals.errorMessages) { %>
+            <% errorMessages.forEach(error => { %>
+              <% if (error.param=='securityAnswer') {%>
+                <p class="register-form-error-msg"><%= error.msg %></p>
+          <% }})} %> 
+        </section>
         <section>
+          <label for="profile-pic">Foto de perfil:</label>
           <input type="file" name="profile-pic" placeholder="Elige tu foto de perfil..." accept="image/png, image/jpeg, image/jpg">
         </section>
         <section class="botonera-section">

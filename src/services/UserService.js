@@ -16,29 +16,31 @@ const UserService = {
             .catch((error) => {
                 console.log(error);
             });
-
+        
         return user;
     },
-    getAll: function(){
-        const users = db.User.findAll(
-            {
-               include: ["UserCategory", "SecurityQuestion"]
-            }
-        )
-            .then((dbResponse) => {
-                return dbResponse;
-             })
-            .catch((error) => {
-                console.log(error);
-            });
+    getAll: async function(){
+        try{
+            const users = await db.User.findAll(
+                {
+                    include: ["UserCategory", "SecurityQuestion"]
+                }
+            );
+
+            return users;
+
+        } catch(error){
+            console.log(error);
+            console.log("Ha ocurrido un error!\nNo se han podido traer a todos los usuarios.")
+        };
            
-        return users;
+        
     },
 
     getByFirstName: function(firstName){
         const user = db.User.findOne({
                 where:{
-                    FIRST_NAME: firstName
+                    first_name: firstName
                 }
             })
             .then((dbResponse) => {
@@ -49,6 +51,63 @@ const UserService = {
             })
     },
 
+    getByEmail: async function(email){
+        try{
+            const user = await db.User.findOne({
+                where:{
+                    email: email
+                }
+            });
+
+            return user;
+        }
+        catch(error){
+            console.log(error);
+            console.log("Error.\nNo se ha encontrado al usuario");
+        }
+    },
+    create: async function(userData){
+        try{
+            let newUser = await db.User.create(
+                {
+                    first_name: userData.firstName,
+                    last_name: userData.lastName,
+                    gender: userData.gender,
+                    telephone: userData.telephone,
+                    email: userData.email,
+                    password: userData.password,
+                    security_question_id: userData.securityQuestionId,
+                    security_answer: userData.securityAnswer,
+                    image: userData.image,
+                    category_id: userData.categoryId
+                },
+            );
+
+            console.log("Successfully added new User into Database!");
+            
+            return newUser;
+
+        } catch(error){         
+            console.log(error);
+            console.log("User creation error.");
+        }
+    },
+    edit: async function(userId, userData){
+        let editData = {
+            first_name: userData.firstName,
+            last_name: userData.lastName,
+            address: userData.address,
+            zip_code: userData.zipCode,
+            city: userData.city,
+            province: userData.province,
+            gender: userData.gender,
+            email: userData.email,
+            password: userData.password,
+            security_question_id: userData.securityQuestionId,
+            security_answer: userData.securityAnswer,
+            category_id: userData.categoryId
+        }
+    }
 }
 
 module.exports = UserService;

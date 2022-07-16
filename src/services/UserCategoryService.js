@@ -19,7 +19,7 @@ const UserCategoryService = {
     getAll: async function() {
 
         try{
-            const categories = await db.UserCatego.findAll()
+            const categories = await db.UserCategory.findAll()
   
             return categories;
 
@@ -28,6 +28,19 @@ const UserCategoryService = {
             console.log(error);
         }
         return categories;
+    },
+
+    getByName: async function(name){
+        try{
+            const category = db.UserCategory.findOne({
+                where:{name: name}
+            });
+            return category
+        }
+        catch(error){
+            console.log(error);
+            console.log("No se ha encontrado la categoria.")
+        }
     }
 }
 

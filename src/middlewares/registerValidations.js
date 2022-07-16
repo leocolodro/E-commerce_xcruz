@@ -42,6 +42,11 @@ const registerValidations = [
         return false 
       }    
       }).withMessage('Las contraseñas deben coincidir'),
-    ];
+
+      body('securityAnswer')
+      .notEmpty().withMessage("Coloca una respuesta!").bail()
+      .isLength({max: 35}).withMessage("La respuesta no debe superar los 35 caracteres!"),
+  ]
+
 
 module.exports = registerValidations

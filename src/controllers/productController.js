@@ -5,9 +5,7 @@ const path = require('path');
 
 //fs Module.
 const fs = require("fs");
-
-//Helpers
-const jsonProductAnalyzer = require('../helpers/jsonProductAnalyzer.js');
+const { fdatasyncSync, fstat } = require('fs');
 
 /*-------------------------------SERVICES----------------------------------*/
 
@@ -15,17 +13,7 @@ const productService = require('../services/ProductService.js');
 const productCategoryService = require('../services/ProductCategoryService.js');
 const sizesService = require('../services/SizesService.js');
 const productImageService = require('../services/ProductImageService.js');
-const { fdatasyncSync, fstat } = require('fs');
-
-
 /*-------------------------------------------------------------------------*/
-
-/*----------------------------------------------------------------------------*/
-//Los datos dentro de esta sección deberan ser colocados en una base de datos.
-const categoriasArray = ["Botas", "Mocacines", "Urbano", "Zapatillas", "De vestir"];
-const coloresArray = ["Marron", "Chocolate", "Negro", "Blanco", "Azul", "Habano"];
-const tallesArray = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
-/*----------------------------------------------------------------------------*/
 
 
 const ProductController = {
@@ -121,7 +109,6 @@ const ProductController = {
                 res.render(path.join(__dirname, '../views/products/newProduct.ejs'), 
                 {   
                     categorias: productCategories, 
-                    colores: coloresArray, 
                     sizes: sizes
                 });
             })

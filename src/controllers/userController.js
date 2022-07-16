@@ -1,44 +1,59 @@
+//@Author: Bautista
+
+/**************************** Require's ******************************/
+//Path Module
 const path = require('path');
+
+//Fs module
 const fs = require('fs');
+
+//Bcrypt Module
 const bcrypt = require('bcryptjs');
-const multer = require('multer');
+
+//Express-validator module -> validationResult
 const { validationResult } = require('express-validator');
 
-const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer.js')
+/*********************************************************************/
 
-const userCategories = {
-  user: "Usuario", 
-  admin:"Administrador"
-};
+/*-------------------------------SERVICES----------------------------------*/
+const userService = require('../services/UserService.js');
+const securityQuestionService = require('../services/SecurityQuestionService.js');
+const userCategoryService = require('../services/UserCategoryService.js');
+/*-------------------------------------------------------------------------*/
+const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer.js');
+
+
+
 
 const UserController = {
     displayUser: function (req, res){
       //Get users DataBase
-      const users = jsonUsersAnalyzer.read();
-        
-
-      //Search user in "users"
-      const user = users.find(user => {
-          return user.id == req.params.id;
-      });
-
-
-      //USER NOT FOUND
-      if(user == undefined){
-          res.send("ERROR.\nUsuario no encontrado!");
-      }
-
-      //USER FOUNDED
-      else{
-          res.render(path.join(__dirname, '../views/users/userDetails.ejs'), {user: user});
-      }
+      userService.getById(req.params.id)
+        .then((user) =>{
+          if(user != null){
+            return res.render(path.join(__dirname, '../views/users/userDetails.ejs'), {user: user});
+          }
+          else{
+            return res.send("ERROR.\nUsuario no encontrado!")
+          }
+        })
+        .catch((error) =>{
+          console.log(error);
+          res.send("ERROR.\nUsuario no encontrado!")
+        });
+          
     },
 
     displayUsersList: function(req, res){
         //Get all users from Database.
-        const users = jsonUsersAnalyzer.read();
-
-        res.render(path.join(__dirname, '../views/users/usersList.ejs'), {users: users});
+        userService.getAll()
+          .then((users) => {
+            res.render(path.join(__dirname, '../views/users/usersList.ejs'), {users: users});
+          })
+          .catch((error) => {
+            console.log(error);
+            res.send("ERROR.\nHa ocurrido un problema!")
+          });
     }, 
 
     displayLogin: function(req, res){
@@ -46,36 +61,60 @@ const UserController = {
     },
 
     displayRegister: function(req, res){
-        res.render(path.join(__dirname, '../views/users/register.ejs'));
+      securityQuestionService.getAll()
+        .then((securityQuestions) =>{
+          res.render(path.join(__dirname, '../views/users/register.ejs'), {securityQuestions: securityQuestions });
+        })
+        .catch(() =>{
+          res.send('ERROR!\nHa ocurrido un error, no podemos cargar esta vista :/');
+        });
     },
 
-    createUser: (req, res) => {
+    createUser: async (req, res) => {
+      
       let errors = validationResult(req);
-      const newUserId = jsonUsersAnalyzer.read().length + 1;
-      const newUserImagePath = "/" + newUserId + "/";
+
+      const defaultUserCategory = "Usuario"
+
+      const userCategory = await userCategoryService.getByName(defaultUserCategory);
+
+      
       if (errors.isEmpty()) {
-        let user = {
-          id: newUserId,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          email: req.body.email,
-          password: bcrypt.hashSync(req.body.password, 10),
-          category: userCategories.user,
+        let userData = {
+          firstName: req.body.firstName.trim(),
+          lastName: req.body.lastName.trim(),
+          gender: req.body.gender.trim(),
+          telephone: req.body.telephone.trim(),
+          email: req.body.email.trim(),
+          password: bcrypt.hashSync(req.body.password.trim(), 10),
+          securityQuestionId: req.body.securityQuestionId,
+          securityAnswer: req.body.securityAnswer.trim().toLowerCase(),
+          categoryId: userCategory.id,
           image:  req.file ? (newUserImagePath + req.file.filename) : "/default_profile_pic.png"
         }
         
-        jsonUsersAnalyzer.create(user);
+        const newUser = await userService.create(userData);
 
-        res.redirect('/');
       } 
       else {
-        return res.render(path.join(__dirname, '../views/users/register.ejs'), 
-        {
-          errorMessages: errors.array(), 
-          old: req.body
+        securityQuestionService.getAll()
+        .then((securityQuestions) =>{
+          return res.render(path.join(__dirname, '../views/users/register.ejs'), 
+          {
+            securityQuestions: securityQuestions,
+            errorMessages: errors.array(), 
+            old: req.body
+          });
+        })
+        .catch(() =>{
+          res.send('ERROR!\nHa ocurrido un error, no podemos cargar esta vista :/');
         });
       }
+
+      res.redirect('/usuarios/login');
+
     },
+
     editUser: function(req,res){
 
       //Get userId
@@ -129,32 +168,25 @@ const UserController = {
       res.redirect('/usuarios');
     },
 
-    processLogin: function(req, res) {
+    processLogin: async function(req, res) {
       //Get validation results
       let errors = validationResult(req);
       let userLoggingIn;
       
       //Checking validation errors
       if (errors.isEmpty()) {
-        //Get users from Database
-        const users = jsonUsersAnalyzer.read();
 
-        //Search user
-        for(let i = 0; i<users.length; i++){
-          //compare emails
-          if(users[i].email == req.body.email){
-            //decrypt password and compare
-            if(bcrypt.compareSync(req.body.password, users[i].password)){
-              userLoggingIn = users[i];
-              break;
-            }
-          }
+        //Search user in Database using email
+        const user = await userService.getByEmail(req.body.email)
+        
+        //decrypt password and compare
+        if(bcrypt.compareSync(req.body.password, user.password)){
+          
+          userLoggingIn = user;
         }
 
-        //Save Session
-        req.session.loggedUser = userLoggingIn;
-
         //If user wasn't found 
+        
         if(userLoggingIn == undefined){
           return res.render(path.join(__dirname, '../views/users/login.ejs'), 
           {
@@ -168,6 +200,9 @@ const UserController = {
           });
         }
 
+        //If user is found then Save Session
+        req.session.loggedUser = userLoggingIn;
+
         //Analayze rememberMe from form.
         if(req.body.rememberMe != undefined){
 
@@ -179,6 +214,7 @@ const UserController = {
         
           res.redirect('/'); 
       }
+      //Validation has errors.
       else{
         return res.render(path.join(__dirname, '../views/users/login.ejs'), 
         {
