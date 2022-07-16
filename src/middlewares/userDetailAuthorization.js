@@ -1,3 +1,5 @@
+//@Author: Bautista
+
 function userDetailAuthorization (req, res, next){
     const loggedUser = req.session.loggedUser
 

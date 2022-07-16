@@ -1,3 +1,5 @@
+//@Author: Bautista
+
 const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer');
 const bcrypt = require('bcryptjs');
 

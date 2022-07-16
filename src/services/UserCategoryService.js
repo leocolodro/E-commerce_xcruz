@@ -1,3 +1,5 @@
+//@Author: Bautista
+
 const db = require('../database/models');
 
 const UserCategoryService = {
