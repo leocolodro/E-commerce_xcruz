@@ -15,6 +15,8 @@ const cartRouter = require(path.join(__dirname,'../routes/cartRouter.js'));
 
 router.get('/', mainController.displayHome);
 
+router.get('/sucursales', mainController.displayBranches)
+
 router.use('/usuarios', userRouter);
 
 router.use('/productos', productRouter);
