@@ -1,8 +1,9 @@
-//Author: Bautista.
+//@Author: Bautista
 
 /************* Require's ************/
 const express = require('express');
 const router = express.Router();
+/***********************************/
 
 /************************* Middlewares ****************************/
 //adminRoutes
@@ -11,9 +12,10 @@ const adminRoutes = require('../middlewares/adminRoutes.js');
 //Multer
 const productsMulter = require('../middlewares/productsMulter.js')
 /*****************************************************************/
-//Controller
-const ProductController = require('../controllers/productController.js');
 
+/************************* Controller ****************************/
+const ProductController = require('../controllers/productController.js');
+/*****************************************************************/
 
 
 

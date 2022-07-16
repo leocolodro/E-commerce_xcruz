@@ -1,3 +1,5 @@
+//@Author: Bautista
+
 //Path Module.
 const path = require('path');
 
@@ -75,6 +77,7 @@ const ProductController = {
 
     },
 
+    //display editProduct.ejs with product and data
     editById: function(req, res){
 
         //Get products from DataBase
@@ -101,6 +104,7 @@ const ProductController = {
             
     },
 
+    //Display newProduct.ejs
     newProduct: function(req, res){
 
         //Get all Products from Database
@@ -126,6 +130,7 @@ const ProductController = {
             });
     },
 
+    //Product creation (productRouter -> Post)
     create: async function(req, res){  
 
         //Get data from req
@@ -156,7 +161,7 @@ const ProductController = {
         res.redirect('/productos');
     
     },
-
+    //Product edition (productRouter -> Put)
     edit: async function(req, res){
 
         //Get data from req
@@ -171,13 +176,14 @@ const ProductController = {
             
         };
 
+        //Edit product data in Database
         const productEdited = await productService.editById(req.params.id, productData);
 
-
+        //redirect to product
         res.redirect('/productos/' + productEdited.id);
         
     },
-
+    //Product removal (productRouter -> destroy)
     delete: async function(req, res){
 
         let productToDelete = await productService.getById(req.params.id)
