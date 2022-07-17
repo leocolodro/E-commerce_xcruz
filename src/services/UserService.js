@@ -1,6 +1,7 @@
 //@Author: Bautista
 
 const db = require('../database/models');
+const userCategoryService = require('./UserCategoryService');
 
 const UserService = {
     getById: function(id){
@@ -92,21 +93,26 @@ const UserService = {
             console.log("User creation error.");
         }
     },
+    
     edit: async function(userId, userData){
-        let editData = {
-            first_name: userData.firstName,
-            last_name: userData.lastName,
-            address: userData.address,
-            zip_code: userData.zipCode,
-            city: userData.city,
-            province: userData.province,
-            gender: userData.gender,
-            email: userData.email,
-            password: userData.password,
-            security_question_id: userData.securityQuestionId,
-            security_answer: userData.securityAnswer,
-            category_id: userData.categoryId
-        }
+        await db.User.update(
+            {
+                first_name: userData.firstName,
+                last_name: userData.lastName,
+                address: userData.address,
+                zip_code: userData.zipCode,
+                city: userData.city,
+                province: userData.province,
+                gender: userData.gender,
+                email: userData.email,
+                password: userData.password,
+                security_question_id: userData.securityQuestionId,
+                security_answer: userData.securityAnswer,
+            },
+            {
+                where: {id: userId}
+            }
+        );
     },
 
     delete: async function(userId){
@@ -120,7 +126,25 @@ const UserService = {
         catch(error){
             console.log(error);
         }
-    } 
+    },
+    
+    changeCategory: async function(userId, categoryName){
+        try{
+            const category = await userCategoryService.getByName(categoryName);
+
+           await db.User.update(
+                {
+                    category_id: category
+                },
+                {
+                    where: {id: userId}
+                }
+            );
+        }catch(error){
+            console.log(error);
+            console.log('Error.\nNo se ha podido cambiar la categoria del usuario #', userId);
+        }
+    }
 }
 
 module.exports = UserService;

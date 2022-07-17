@@ -151,23 +151,28 @@ const ProductController = {
     //Product edition (productRouter -> Put)
     edit: async function(req, res){
 
-        //Get data from req
-        const productData = {
-            brandName: req.body.brandName,
-            color: req.body.color,
-            categoryId: req.body.categoryId,
-            gender: req.body.gender,
-            price: Number.parseFloat(req.body.price),
-            sizes: req.body.sizes,
-            description: req.body.description,
+        try{
+            //Get data from req
+            const productData = {
+                brandName: req.body.brandName,
+                color: req.body.color,
+                categoryId: req.body.categoryId,
+                gender: req.body.gender,
+                price: Number.parseFloat(req.body.price),
+                sizes: req.body.sizes,
+                description: req.body.description,
             
-        };
+            };
 
-        //Edit product data in Database
-        const productEdited = await productService.editById(req.params.id, productData);
+            //Edit product data in Database
+            const productEdited = await productService.editById(req.params.id, productData);
 
-        //redirect to product
-        res.redirect('/productos/' + productEdited.id);
+            //redirect to product
+            res.redirect('/productos/' + productEdited.id);
+            
+        }catch(error){
+            res.send('Error. \nNo se ha podido editar el producto :/');
+        }
         
     },
     //Product removal (productRouter -> destroy)

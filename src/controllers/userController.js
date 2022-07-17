@@ -93,7 +93,7 @@ const UserController = {
           image:  req.file ? (newUserImagePath + req.file.filename) : "/default_profile_pic.png"
         }
         
-        const newUser = await userService.create(userData);
+        await userService.create(userData);
 
       } 
       else {

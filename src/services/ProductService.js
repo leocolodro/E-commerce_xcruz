@@ -145,6 +145,7 @@ const ProductService = {
             console.log(error);
         }
     },
+    
     editById: async function(productId, productData){
         const newBrand = await brandService.create(productData.brandName);
         try{
