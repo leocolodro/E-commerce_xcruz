@@ -104,10 +104,8 @@ const UserService = {
                 city: userData.city,
                 province: userData.province,
                 gender: userData.gender,
-                email: userData.email,
-                password: userData.password,
-                security_question_id: userData.securityQuestionId,
-                security_answer: userData.securityAnswer,
+                telephone: userData.telephone,
+                image: userData.image
             },
             {
                 where: {id: userId}

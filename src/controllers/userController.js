@@ -20,7 +20,7 @@ const userService = require('../services/UserService.js');
 const securityQuestionService = require('../services/SecurityQuestionService.js');
 const userCategoryService = require('../services/UserCategoryService.js');
 /*-------------------------------------------------------------------------*/
-const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer.js');
+
 
 
 
@@ -90,7 +90,7 @@ const UserController = {
           securityQuestionId: req.body.securityQuestionId,
           securityAnswer: req.body.securityAnswer.trim().toLowerCase(),
           categoryId: userCategory.id,
-          image:  req.file ? (newUserImagePath + req.file.filename) : "/default_profile_pic.png"
+          image:  req.file ? ('/' + req.file.filename) : "/default_profile_pic.png"
         }
         
         await userService.create(userData);
@@ -115,29 +115,12 @@ const UserController = {
 
     },
 
-    editUser: function(req,res){
-
-      //Get userId
-      const userId = req.params.id;
+    editUser: async function(req,res){
+      try{
+        //Get userId
+        const userId = req.params.id;
       
-      //Get users DataBase
-      const users = jsonUsersAnalyzer.read();
-        
-
-      //Search user in "users"
-      const user = users.find(user => {
-          return user.id == userId;
-      });
-
-      //USER NOT FOUND
-      if(user == undefined){
-          res.send("ERROR.\nUsuario no encontrado!");
-      }
-
-      //USER FOUNDED
-      else{
-        //User's new image path
-        const newUserImagePath = "/" + userId + "/";
+        const user = await userService.getById(userId);
 
         let newUserData = {
           firstName: req.body.firstName ? req.body.firstName : user.firstName,
@@ -151,12 +134,17 @@ const UserController = {
           email: user.email,
           password: user.password ,
           category: user.category,
-          image: req.file ? (newUserImagePath + req.file.filename) : user.image
+          image: req.file ? ("/" + req.file.filename) : user.image
         }
-        
-        jsonUsersAnalyzer.edit(userId, newUserData);
 
-        return res.redirect('/');
+        //Get users DataBase
+        await userService.edit(userId, newUserData);
+
+        res.redirect('/usuarios/' + userId);
+
+      }catch(error){
+        console.log(error);
+        res.send("Error.\nNo se han podido editar los datos del usuario!")
       }
     },
 
