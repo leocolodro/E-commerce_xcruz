@@ -139,13 +139,14 @@ const UserController = {
 
         //Get users DataBase
         await userService.edit(userId, newUserData);
-
+        
         res.redirect('/usuarios/' + userId);
-
+        
       }catch(error){
         console.log(error);
         res.send("Error.\nNo se han podido editar los datos del usuario!")
       }
+
     },
 
     deleteUser: async function(req, res){

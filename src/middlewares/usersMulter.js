@@ -12,11 +12,14 @@ function usersMulter (req, res, next){
             //Folder path
             const folderPath = path.join(__dirname, '../../public/images/users');
 
-
             cb(null, folderPath);
         },
         filename: function (req, file, cb) {
-        (null, 'profile-pic' + '-' + Date.now()+ path.extname(file.originalname));      
+            
+            //File name
+            const newFileName = (null, 'profile-pic' + '-' + Date.now()+ path.extname(file.originalname));    
+            
+            cb(null, newFileName);  
         }
     });
 
