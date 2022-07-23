@@ -8,7 +8,8 @@ const registerValidations = [
 
    //Validate fist name
     body('firstName')
-    .notEmpty().withMessage('Coloca tu nombre!').bail(),
+    .notEmpty().withMessage('Coloca tu nombre!').bail()
+    .isLength({min: 2}).withMessage('El nombre debe contener al menos 2 caractéres'),
     
     //Validate last name
     body('lastName')
@@ -27,7 +28,8 @@ const registerValidations = [
     //Validate password
     body('password')
     .notEmpty().withMessage("Coloca una contraseña").bail()
-    .isLength({min: 6}).withMessage('La contraseña debe contener al menos 6 caractéres'),
+    .isLength({min: 8}).withMessage('La contraseña debe contener al menos 8 caractéres').bail()
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i"),
       
     //Validate password confirmation
     body('confirm-password')

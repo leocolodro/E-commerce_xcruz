@@ -1,9 +1,10 @@
 //@Author: Bautista
 
-const jsonUsersAnalyzer = require('../helpers/jsonUsersAnalyzer');
+const userService = require('../services/UserService');
+
 const bcrypt = require('bcryptjs');
 
-function accountRememberer (req, res, next){
+async function accountRememberer (req, res, next){
     next();
 
     //Check if cookie exist in client and if session not
@@ -11,12 +12,11 @@ function accountRememberer (req, res, next){
         
         let userLoggingIn;
 
-        const users = jsonUsersAnalyzer.read();
+        const users = await userService.getAll();
         //Search user
         for(let i = 0; i<users.length; i++){
             //decrypt and comapre data.
             if(bcrypt.compareSync(users[i].password, req.cookies.rememberMe)) {
-
                 //Save user in session
                 userLoggingIn = users[i];
 
