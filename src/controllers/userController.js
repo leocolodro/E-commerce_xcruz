@@ -74,7 +74,6 @@ const UserController = {
       const defaultUserCategory = "Usuario"
 
       const userCategory = await userCategoryService.getByName(defaultUserCategory);
-
       
       if (errors.isEmpty()) {
         let userData = {
@@ -92,6 +91,7 @@ const UserController = {
         
         await userService.create(userData);
 
+        return res.redirect('/usuarios/login');
       } 
       else {
         securityQuestionService.getAll()
@@ -104,11 +104,9 @@ const UserController = {
           });
         })
         .catch(() =>{
-          res.send('ERROR!\nHa ocurrido un error, no podemos cargar esta vista :/');
+          return res.send('ERROR!\nHa ocurrido un error, no podemos cargar esta vista :/');
         });
       }
-
-      res.redirect('/usuarios/login');
 
     },
 
@@ -147,11 +145,21 @@ const UserController = {
     },
 
     deleteUser: async function(req, res){
-      //Delete user from Database
-      await userService.delete(req.params.id);
+      
+      //search userToDelete
+      const userToDelete = await userService.getById(req.params.id);
+      
+      //if the user id is different from logged user
+      if(userToDelete.id != req.session.loggedUser.id){
+        //Delete user from Database
+        await userService.delete(userToDelete.id);
+      }
+      else{
+        return res.send("No te puedes auto-eliminar!");
+      }
 
       //Redirect to users list
-      res.redirect('/usuarios');
+      return res.redirect('/usuarios');
     },
 
     processLogin: async function(req, res) {

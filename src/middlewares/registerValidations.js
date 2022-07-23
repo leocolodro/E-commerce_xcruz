@@ -29,7 +29,7 @@ const registerValidations = [
     body('password')
     .notEmpty().withMessage("Coloca una contraseña").bail()
     .isLength({min: 8}).withMessage('La contraseña debe contener al menos 8 caractéres').bail()
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i"),
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i").withMessage("La contraseña debe tener al menos una letra mayúscula, una minúscula y un caracter especial (!\"#$%&\'()*+,-./)"),
       
     //Validate password confirmation
     body('confirm-password')

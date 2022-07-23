@@ -5,7 +5,7 @@ const userService = require('../services/UserService');
 const bcrypt = require('bcryptjs');
 
 async function accountRememberer (req, res, next){
-    next();
+    
 
     //Check if cookie exist in client and if session not
     if(req.cookies.rememberMe != undefined && req.session.loggedUser == undefined){
@@ -27,6 +27,8 @@ async function accountRememberer (req, res, next){
         //Save Session
         req.session.loggedUser = userLoggingIn;
     }
+    
+    next();
 }
 
 module.exports = accountRememberer;
