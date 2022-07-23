@@ -22,9 +22,6 @@ const userCategoryService = require('../services/UserCategoryService.js');
 /*-------------------------------------------------------------------------*/
 
 
-
-
-
 const UserController = {
     displayUser: function (req, res){
       //Get users DataBase
@@ -150,7 +147,7 @@ const UserController = {
     },
 
     deleteUser: async function(req, res){
-      //Delete user from Database   
+      //Delete user from Database
       await userService.delete(req.params.id);
 
       //Redirect to users list
