@@ -74,24 +74,44 @@ const UserController = {
       const defaultUserCategory = "Usuario"
 
       const userCategory = await userCategoryService.getByName(defaultUserCategory);
-      
-      if (errors.isEmpty()) {
-        let userData = {
-          firstName: req.body.firstName.trim(),
-          lastName: req.body.lastName.trim(),
-          gender: req.body.gender.trim(),
-          telephone: req.body.telephone.trim(),
-          email: req.body.email.trim(),
-          password: bcrypt.hashSync(req.body.password.trim(), 10),
-          securityQuestionId: req.body.securityQuestionId,
-          securityAnswer: req.body.securityAnswer.trim().toLowerCase(),
-          categoryId: userCategory.id,
-          image:  req.file ? ('/' + req.file.filename) : "/default_profile_pic.png"
-        }
-        
-        await userService.create(userData);
 
-        return res.redirect('/usuarios/login');
+      const userExistance = await userService.getByEmail(req.body.email.trim());
+
+      if (errors.isEmpty()) {
+        if(userExistance == null){
+          let userData = {
+            firstName: req.body.firstName.trim(),
+            lastName: req.body.lastName.trim(),
+            gender: req.body.gender.trim(),
+            telephone: req.body.telephone.trim(),
+            email: req.body.email.trim(),
+            password: bcrypt.hashSync(req.body.password.trim(), 10),
+            securityQuestionId: req.body.securityQuestionId,
+            securityAnswer: req.body.securityAnswer.trim().toLowerCase(),
+            categoryId: userCategory.id,
+            image:  req.file ? ('/' + req.file.filename) : "/default_profile_pic.png"
+          }
+        
+          await userService.create(userData);
+
+          return res.redirect('/usuarios/login');
+        }
+        else{
+          securityQuestionService.getAll()
+            .then((securityQuestions) =>{
+              return res.render(path.join(__dirname, '../views/users/register.ejs'), 
+              {
+                securityQuestions: securityQuestions,
+                errorMessages: [
+                  {
+                    msg: "El email ya se encuentra registrado!",
+                    param: "email"
+                  }
+                ], 
+                  old: req.body
+              });
+            });
+        }
       } 
       else {
         securityQuestionService.getAll()

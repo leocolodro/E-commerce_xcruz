@@ -23,7 +23,7 @@ const registerValidations = [
     //Validate email
     body('email')
     .notEmpty().withMessage("Coloca tu email!").bail()
-    .isEmail().withMessage('Agrega un email válido!'),
+    .isEmail().withMessage('Agrega un email válido!').bail(),
   
     //Validate password
     body('password')
