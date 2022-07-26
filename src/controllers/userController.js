@@ -67,6 +67,12 @@ const UserController = {
         });
     },
 
+    displayProfile: function(req, res){
+        const user = req.session.loggedUser; 
+        console.log(user.id);
+        return res.redirect('/usuarios/' + user.id);
+    },
+
     createUser: async (req, res) => {
       
       let errors = validationResult(req);

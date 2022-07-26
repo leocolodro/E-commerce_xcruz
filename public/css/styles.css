@@ -80,6 +80,10 @@ a{
     padding: 0.75rem 0.5rem;
 }
 
+#bars-icon{
+    cursor: pointer;
+}
+
 /*Global - Header - Nav menu (Desktop)*/
 .nav-container-2{
     display: none;
@@ -272,7 +276,51 @@ a{
 }
     /* branches.ejs- END */
 
+    /*mobileNavBar.ejs - START*/
+.mobile-navbar-container {
+    background-color: #FFF;
+    height: 100%;
+    position: absolute;
+    right: 8px;
+    visibility: hidden;
+    width: 170px;
+    z-index: 10;
+}
+
+.mobile-navbar-container.active {
+    visibility: visible;
+}
+
+.mobile-navbar-container .main-menu .submenu-container-1 {
+    margin-bottom: 40px;
+}
+
+.mobile-navbar-container .main-menu .submenu-container-2 {
+    margin-top: 40px;
+}
+
+.mobile-navbar-container .main-menu > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-navbar-container .main-menu > ul .menu-item {
+    background-color: #d7d7d7;
+    border: black 1px solid;
+    border-radius: 5px;
+    display: block;
+    font-family: "Roboto","Arial",sans-serif;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+    /*mobileNavBar - END*/
+
     /*login.ejs - START*/
+
 .container-login{
     padding: 0 20px;
     margin: 60px auto;

@@ -10,6 +10,7 @@
 </head>
 <body>
     <%- include('../partials/header') %>  
+    <%- include('../partials/mobileNavBar') %>
     <main>
         <form action="/usuarios/<%= user.id %>/editar?_method=PUT" method="POST" class="user-detail-container" enctype="multipart/form-data">
             <section class="user-subcontainer">
