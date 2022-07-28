@@ -31,7 +31,7 @@ router.get('/register', loginRegisterCancelation, userController.displayRegister
 router.post('/register', usersMulter().single('profile-pic'), registerValidations, userController.createUser);
 
 /*+++++++++++++++++++++ Profile +++++++++++++++++++++++*/
-router.get('/profile', loginRegisterCancelation, userController.displayProfile);
+router.get('/profile', userController.displayProfile);
 
 /*+++++++++++++++++++++ Show User By ID +++++++++++++++++++++++*/
 router.get('/:id', userDetailAuthorization, userController.displayUser);

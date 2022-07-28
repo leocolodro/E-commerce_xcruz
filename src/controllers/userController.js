@@ -69,8 +69,12 @@ const UserController = {
 
     displayProfile: function(req, res){
         const user = req.session.loggedUser; 
-        console.log(user.id);
-        return res.redirect('/usuarios/' + user.id);
+        if(user == undefined){
+          return res.redirect('/usuarios/login');
+        }
+        else{
+          return res.redirect('/usuarios/' + user.id);
+        }
     },
 
     createUser: async (req, res) => {
@@ -220,8 +224,10 @@ const UserController = {
           });
         }
 
-        //If user is found then Save Session
+        /********if user was found**********/ 
+        //Save session (back-end)
         req.session.loggedUser = userLoggingIn;
+
 
         //Analayze rememberMe from form.
         if(req.body.rememberMe != undefined){
@@ -232,7 +238,7 @@ const UserController = {
         }
 
         
-          res.redirect('/'); 
+          res.redirect('/usuarios/' + userLoggingIn.id); 
       }
       //Validation has errors.
       else{
