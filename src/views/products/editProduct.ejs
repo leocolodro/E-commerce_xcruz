@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/editProductValidation.js"></script>
     <script src="https://kit.fontawesome.com/47b81c9b5a.js" crossorigin="anonymous"></script>
     <title>Editar Producto</title>
 </head>
@@ -15,6 +16,7 @@
             <form action="/productos/<%= product.id %>/editar?_method=PUT" method="POST" class="editar-producto-form" enctype="application/json">
                 <div class="form-container-1">
                     <section class="section-1">
+                        <div class="alerta-titulo"></div>
                         <div class="titulo-subcontainer">
                             <input type="text" name="brandName" id="titulo" value="<%= product.productBrand.name %>" required >
                         </div>
@@ -37,12 +39,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="alerta-color"></div>
                         <div class="color-subcontainer">
                             <div class="color-sub-sub-container">
                                 <label for="color">Color</label><br /> 
                                 <input type="text" name="color" id="color" value=<%= product.color %> required />       
                             </div>
                         </div>
+                        <div class="alerta-descripcion"></div>
                         <div class="descripcion-subcontainer">
                             <label for="description">Descripción</label>
                             <textarea name="description" id="descripcion"><%= product.description %></textarea>
@@ -68,6 +72,7 @@
                                 </select>
                             </div>
                             <div class="precio-subcontainer">
+                                <div class="alerta-precio"></div>
                                 <label for="precio">Precio</label>
                                 <span>
                                     <label for="price">$</label>

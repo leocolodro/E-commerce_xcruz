@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/newProductValidation.js"></script>
     <script src="https://kit.fontawesome.com/47b81c9b5a.js" crossorigin="anonymous"></script>
     <title>Nuevo Producto</title>
 </head>
@@ -16,6 +17,7 @@
                 <article class="form-container-1">
                     <section class="section-1">
                         <article class="titulo-subcontainer">
+                            <div class="alerta-titulo"></div>
                             <input type="text" name="brandName" id="titulo" placeholder="Título" required >
                         </article>
                         <article class="categoria-genero-subcontainer">
@@ -37,6 +39,7 @@
                                 </select>
                             </div>
                         </article>
+                        <div class="alerta-color"></div>
                         <article class="color-subcontainer">
                             <div class="color-sub-sub-container">
                                 <label for="color">Color</label><br /> 
@@ -44,6 +47,7 @@
                             </div>
                         </article>
                         <article class="descripcion-subcontainer">
+                            <div class="alerta-descripcion"></div>
                             <label for="description">Descripción</label>
                             <textarea name="description" id="descripcion"></textarea>
                         </article>
@@ -52,6 +56,7 @@
                 <article class="form-container-2">
                     <section class="section-2">
                         <div class="agregar-imagen">
+                            <div class="alerta-imagen"></div>
                             <input type="file" name="agregar-imagen" id="agregar-imagen" accept="image/png, image/jpeg, image/jpg" multiple="multiple" required>
                         </div>
                     </section>
@@ -78,6 +83,7 @@
                                 </select>
                             </div>
                             <div class="precio-subcontainer">
+                                <div class="alerta-precio"></div>
                                 <label for="price">Precio</label>
                                 <span>
                                     <label for="price">$</label>
