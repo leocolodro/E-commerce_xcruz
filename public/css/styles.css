@@ -88,6 +88,10 @@ a{
 .nav-container-2{
     display: none;
 }
+
+.nav-container-2 > ul .nav-item > a {
+    font-family: "Quicksand", sans-serif;
+}
 /*HEADER - END*/
 
 /*MAIN - START*/
@@ -310,7 +314,7 @@ a{
     border: black 1px solid;
     border-radius: 5px;
     display: block;
-    font-family: "Roboto","Arial",sans-serif;
+    font-family: "Quicksand", sans-serif;
     margin: 10px;
     padding: 10px;
     text-align: center;
