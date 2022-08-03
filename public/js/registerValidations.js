@@ -1,3 +1,5 @@
+//@Author: Leandro Colodro.
+
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 

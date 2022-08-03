@@ -1,3 +1,5 @@
+//@Author: Daniel
+
 window.addEventListener("load",function(){
     let titulo = document.querySelector("#titulo");
     let color = document.querySelector("#color");
