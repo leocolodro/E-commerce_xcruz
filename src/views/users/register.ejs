@@ -10,121 +10,173 @@
 </head>
 <body>
   <%- include('../partials/header') %>
-  <main>
-    <div class="register-container">
-      <form action="/usuarios/register" method="POST" class="register-form" enctype="multipart/form-data">
-      <h3>Crea una cuenta</h3>
-        <!--firstnName & lastName-->
-        <section class="nombre-apellido-section">
-          <!--firstName-->
-          <label for="nombre">Nombre:</label>
-          <input type="text" name="firstName" class="nombre-input" placeholder="Nombre" value="<%= locals.old && old.firstName ? old.firstName : '' %>">
-          
-          <!--firstName - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='firstName') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %>
+<main>
+  <section class="register-container">
+    <h1 class="register-title">Crear una cuenta</h1>
+    <form action="/usuarios/register" method="POST" class="formulario" id="formulario" enctype="multipart/form-data">
 
-          <!--lastName-->
-          <label for="apellido">Apellido:</label>
-          <input type="text" name="lastName" class="apellido-input" placeholder="Apellido" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+			<!-- firstnName -->
+			<article class="formulario__grupo" id="grupo__nombre">
+				<label for="firstName" class="formulario__label">Nombre:</label>
+				<article class="formulario__grupo-input">
+					<input type="text" name="firstName" id="nombre" class="formulario__input" placeholder="Nombre" value="<%= locals.old && old.firstName ? old.firstName : '' %>">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">El nombre tiene que ser de 2 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			        
+					<!--firstName - Error handling-->
+       				<% if(locals.errorMessages) { %>
+            			<% errorMessages.forEach(error => { %>
+              				<% if (error.param=='firstName') {%>
+                			<p class="register-form-error-msg"><%= error.msg %></p>
+          			<% }})} %>
+			
+			</article>
 
-          <!--lastName - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='lastName') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %>
-        </section>
-        <section class="gender-section">
-          <label for="gender">Genero:</label>
-          <select name="gender">
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
+            	<!-- lastName -->
+			<article class="formulario__grupo" id="grupo__apellido">
+				<label for="lastName" class="formulario__label">Apellido:</label>
+				<article class="formulario__grupo-input">
+					<input type="text" name="lastName" id="apellido" class="formulario__input" placeholder="Apellido" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">El apellido tiene que ser de 2 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+						
+					<!--lastName - Error handling-->
+			      	<% if(locals.errorMessages) { %>
+            			<% errorMessages.forEach(error => { %>
+             				<% if (error.param=='lastName') {%>
+                				<p class="register-form-error-msg"><%= error.msg %></p>
+          			<% }})} %>
+			</article>
+
+	       <article class="formulario__grupo">
+          		<label for="gender" class="formulario__label">Genero:</label>
+          		<select class="formulario__input" name="gender">
+            		<option value="Masculino">Masculino</option>
+            		<option value="Femenino">Femenino</option>
+          		</select>
+        	</article>
+			
+			<!-- telephone -->
+			<article class="formulario__grupo" id="grupo__telefono">
+				<label for="telefono" class="formulario__label">Teléfono:</label>
+				<article class="formulario__grupo-input">
+					<input type="telephone" name="telephone" id="telefono" class="formulario__input"  placeholder="Teléfono" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">El teléfono solo puede contener numeros y el maximo son 14 dígitos.</p>
+					
+					<!--telephone - Error handling-->
+					<% if(locals.errorMessages) { %>
+            			<% errorMessages.forEach(error => { %>
+              				<% if (error.param=='telephone') {%>
+                				<p class="register-form-error-msg"><%= error.msg %></p>
+          			<% }})} %>  
+			</article>
+
+			<!-- email -->
+			<article class="formulario__grupo" id="grupo__correo">
+				<label for="email" class="formulario__label">Email:</label>
+				<article class="formulario__grupo-input">
+					<input type="email" name="email" id="correo" class="formulario__input" placeholder="correo@correo.com" value="<%=  locals.old && old.email ? old.email : '' %>">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">El email solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+						
+					<!--email - Error handling-->
+					<% if(locals.errorMessages) { %>
+            			<% errorMessages.forEach(error => { %>
+              				<% if (error.param=='email') {%>
+                				<p class="register-form-error-msg"><%= error.msg %></p>
+          			<% }})} %>  
+			</article>
+
+			<!-- password -->
+			<article class="formulario__grupo" id="grupo__password">
+				<label for="password" class="formulario__label">Contraseña:</label>
+				<article class="formulario__grupo-input">
+					<input type="password" name="password" id="password" class="formulario__input" placeholder="Contraseña">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">La contraseña tiene que ser de 8 a 12 dígitos.</p>
+				        
+						<!--password - Error handling-->	
+						<% if(locals.errorMessages) { %>
+            				<% errorMessages.forEach(error => { %>
+              					<% if (error.param=='password') {%>
+                					<p class="register-form-error-msg"><%= error.msg %></p>
+          				<% }})} %> 
+			</article>
+
+			<!-- confirm password -->
+			<article class="formulario__grupo" id="grupo__password2">
+				<label for="confirm-password" class="formulario__label">Confirmar Contraseña:</label>
+				<article class="formulario__grupo-input">
+					<input type="password"  name="confirm-password" id="confirm-password" class="formulario__input" placeholder="Confirmar Contraseña">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+			        
+					<!--confirm-password - Error handling-->
+					<% if(locals.errorMessages) { %>
+            			<% errorMessages.forEach(error => { %>
+              				<% if (error.param=='confirm-password') {%>
+                				<p class="register-form-error-msg"><%= error.msg %></p>
+          			<% }})} %> 
+			</article>
+
+
+			 <article class="formulario__grupo" id="grupo__respuesta">
+					<select class="formulario__input" name="securityQuestionId">
+						<% securityQuestions.forEach(securityQuestion => { %>
+              			<option value=<%= securityQuestion.id %>> <%= securityQuestion.question  %> </option>
+            			<% }) %>
           </select>
-        </section>
-        <section class="telefono-section">
-          <label for="telefono">Teléfono</label>
-          <input type="telephone" name="telephone" class="telefono" placeholder="Teléfono" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+				<article class="formulario__grupo-input">
+          <label for="respuesta" class="formulario__label">Respuesta:</label>
+					<input type="text" name="securityAnswer" id="securityAnswer" class="formulario__input" placeholder="Respuesta" value="<%=  locals.old && old.securityAnswer ? old.securityAnswer : '' %>">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</article>
+				<p class="formulario__input-error">La respuesta tiene que ser de 1 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			
+			       <!--securityAnswer - Error handling-->
+          		   <% if(locals.errorMessages) { %>
+            		<% errorMessages.forEach(error => { %>
+              			<% if (error.param=='securityAnswer') {%>
+                			<p class="register-form-error-msg"><%= error.msg %></p>
+          			<% }})} %> 
+			</article> 
 
-          <!--telephone - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='telephone') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %>  
-        </section>
-        <!--email-->
-        <section class="email-section">
-          <label for="email">Email:</label>
-          <input type="email" name="email" class="email" placeholder="Email" value="<%=  locals.old && old.email ? old.email : '' %>">
+			<article class="formulario__grupo">
+          		<label class="formulario__label" for="profile-pic">Foto de perfil:</label>
+          		<div class="formulario-input_img">
+					<input type="file" class="input-img" name="profile-pic" placeholder="Elige tu foto de perfil..." accept="image/png, image/jpeg, image/jpg">
+				</div>
+        	</article>
 
-        <!--email - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='email') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %>          
-        </section>
-        <!--password & confirm password-->
-        <section class="contrasena-section">
-          <!--password-->
-          <label for="contrasena">Contraseña:</label>
-          <input type="password" name="password" class="contrasena" placeholder="Contraseña" >
+			<!-- Grupo: Terminos y Condiciones -->
+			<article class="formulario__grupo" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+					Acepto los Terminos y Condiciones
+				</label>
+			</article>
 
-        <!--password - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='password') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %> 
-          <!--confirm-password-->
-          <label for="confirmar-contrasena">Confirmar contraseña:</label>
-          <input type="password" name="confirm-password" class="confirmar-contrasena" placeholder="Confirmar contraseña">
-          
-          <!--confirm-password - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='confirm-password') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %> 
+			<article class="formulario__mensaje" id="formulario__mensaje">
+				<p class="formulario-mensaje_texto"><i class="fas fa-exclamation-triangle icon-error"></i> Error: Por favor rellena el formulario.</p>
+			</article>
 
-        </section>
-        <section class="security-question-section">
-          <select name="securityQuestionId">
-            <% securityQuestions.forEach(securityQuestion => { %>
-              <option value=<%= securityQuestion.id %>> <%= securityQuestion.question  %> </option>
-            <% }) %>
-          </select>
-          <label for="securityAnswer">Respuesta:</label>
-          <input type="text" name="securityAnswer" class="securityAnswer" placeholder="Respuesta" value="<%=  locals.old && old.securityAnswer ? old.securityAnswer : '' %>">
-          
-          <!--securityAnswer - Error handling-->
-          <% if(locals.errorMessages) { %>
-            <% errorMessages.forEach(error => { %>
-              <% if (error.param=='securityAnswer') {%>
-                <p class="register-form-error-msg"><%= error.msg %></p>
-          <% }})} %> 
-        </section>
-        <section>
-          <label for="profile-pic">Foto de perfil:</label>
-          <input type="file" name="profile-pic" placeholder="Elige tu foto de perfil..." accept="image/png, image/jpeg, image/jpg">
-        </section>
-        <section class="botonera-section">
-          <button type="submit" class="btn btn btn-info">Crear cuenta</button>
-        </section>
-      </form>
-      <p class="o-separador">O</p>
-      <div class="registrarse-google-container"> 
-        <button class="registrarse-google-btn">
-          <p>Registrarse con Google</p>
-          <i class="fa-brands fa-google"></i>
-        </button>
-      </div>
-    </div>
-  </main>
+			<article class="formulario__grupo formulario__grupo-btn-enviar">
+                <div>
+                    <button type="submit" class="formulario__btn">Crear Cuenta</button>
+				    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                </div>
+			</article>
+		</form>
+  </section>  
+</main>
+  <script src="/js/registerValidations.js"></script>
   <%- include('../partials/footerPrincipal') %>
 </body>
 </html>
