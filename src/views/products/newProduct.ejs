@@ -5,94 +5,95 @@
     <%- include('../partials/header') %>
     <%- include('../partials/mobileNavBar') %>
     <main>
-       <section class="crear-producto-container">
-            <form action="/productos/nuevo" method="POST" class="nuevo-producto-form" enctype="multipart/form-data">
-                <article class="form-container-1">
-                    <section class="section-1">
-                        <article class="titulo-subcontainer">
-                            <div class="alerta-titulo"></div>
-                            <input type="text" name="brandName" id="titulo" placeholder="Título" required >
-                        </article>
-                        <article class="categoria-genero-subcontainer">
-                            <div class="categoria-subcontainer">
-                                <label for="categoria">Categoría</label><br />
-                                <%# Categorias Loop %> 
-                                <select name="category" id="categoria">          
-                                    <% categorias.forEach(categoria => { %>
-                                        <option value=" <%= categoria.id %>  "> <%= categoria.name %> </option>
-                                    <% }) %>
-                                </select>
-                            </div>
-                            <div class="genero-subcontainer">
-                                <label for="gender">Genero</label><br />
-                                <!--Genero Select-->
-                                <select name="gender" id="genero">
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Femenino">Femenino</option>
-                                </select>
-                            </div>
-                        </article>
-                        <div class="alerta-color"></div>
-                        <article class="color-subcontainer">
-                            <div class="color-sub-sub-container">
-                                <label for="color">Color</label><br /> 
-                                <input type="text" name="color" id="color" placeholder="Color" required />          
-                            </div>
-                        </article>
-                        <article class="descripcion-subcontainer">
-                            <div class="alerta-descripcion"></div>
-                            <label for="description">Descripción</label>
-                            <textarea name="description" id="descripcion"></textarea>
-                        </article>
-                    </section>
-                </article>
-                <article class="form-container-2">
-                    <section class="section-2">
-                        <div class="agregar-imagen">
-                            <div class="alerta-imagen"></div>
-                            <input type="file" name="agregar-imagen" id="agregar-imagen" accept="image/png, image/jpeg, image/jpg, image/gif" multiple="multiple" required>
-                        </div>
-                    </section>
-                    <section class="section-3">
-                        <article class="talle-precio-subcontainer">
-                            <div class="talle-subcontainer">
-                                <label for="sizes">Talles</label><br />
-                                <select name="sizes" id="talles" multiple>
-                                    <!--forEach -> Sizes -->
-                                    <optgroup label="EUR">
-                                        <% sizes.forEach(size => { %>
-                                            <% if ( size.type  == "EUR") { %>
-                                                <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
-                                            <% } %>       
-                                        <% }) %>
-                                    </optgroup>
-                                    <optgroup label="CM"> 
-                                        <% sizes.forEach(size => { %>
-                                            <% if ( size.type  == "CM") { %>
-                                                <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
-                                            <% } %>      
-                                        <% }) %>
-                                    </optgroup>  
-                                </select>
-                            </div>
-                            <div class="precio-subcontainer">
-                                <div class="alerta-precio"></div>
-                                <label for="price">Precio</label>
-                                <span>
-                                    <label for="price">$</label>
-                                    <input type="number" name="price" id="precio" placeholder="$$$$$$" required>
-                                </span>
-                            </div>
-                        </article>
-                        <article class="botonera">
-                            <button type="submit" class="agregar-producto-btn">Agregar producto</button>
-                            <button type="reset" class="cancelar-btn">Cancelar</button>
-                        </article>
-                    </section>
-                </article>
-            </form>
-       </section> 
-    </main>
-    <%- include('../partials/footerPrincipal') %>
+        <section class="crear-producto-container">
+             <form action="/productos/nuevo" method="POST" class="nuevo-producto-form" enctype="multipart/form-data">
+                 <article class="form-container-1">
+                     <section class="section-1">
+                         <article class="titulo-subcontainer">
+                             <div class="alerta-titulo"></div>
+                             <input type="text" name="brandName" id="titulo" placeholder="Título" required >
+                         </article>
+                         <article class="categoria-genero-subcontainer">
+                             <div class="categoria-subcontainer">
+                                 <label for="categoria">Categoría</label><br />
+                                 <%# Categorias Loop %> 
+                                 <select name="category" id="categoria">          
+                                     <% categorias.forEach(categoria => { %>
+                                         <option value=" <%= categoria.id %>  "> <%= categoria.name %> </option>
+                                     <% }) %>
+                                 </select>
+                             </div>
+                             <div class="genero-subcontainer">
+                                 <label for="gender">Genero</label><br />
+                                 <!--Genero Select-->
+                                 <select name="gender" id="genero">
+                                     <option value="Masculino">Masculino</option>
+                                     <option value="Femenino">Femenino</option>
+                                 </select>
+                             </div>
+                         </article>
+                         <div class="alerta-color"></div>
+                         <article class="color-subcontainer">
+                             <div class="color-sub-sub-container">
+                                 <label for="color">Color</label><br /> 
+                                 <input type="text" name="color" id="color" placeholder="Color" required />          
+                             </div>
+                         </article>
+                         <article class="descripcion-subcontainer">
+                             <div class="alerta-descripcion"></div>
+                             <label for="description">Descripción</label>
+                             <textarea name="description" id="descripcion"></textarea>
+                         </article>
+                     </section>
+                 </article>
+                 <article class="form-container-2">
+                     <section class="section-2">
+                         <div class="agregar-imagen">
+                             <div class="alerta-imagen"></div>
+                             <input type="file" name="agregar-imagen" id="agregar-imagen" accept="image/png, image/jpeg, image/jpg" multiple="multiple" required>
+                         </div>
+                     </section>
+                     <section class="section-3">
+                         <article class="talle-precio-subcontainer">
+                             <div class="talle-subcontainer">
+                                 <label for="sizes">Talles</label><br />
+                                 <select name="sizes" id="talles" multiple>
+                                     <!--forEach -> Sizes -->
+                                     <optgroup label="EUR">
+                                         <% sizes.forEach(size => { %>
+                                             <% if ( size.type  == "EUR") { %>
+                                                 <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                                             <% } %>       
+                                         <% }) %>
+                                     </optgroup>
+                                     <optgroup label="CM"> 
+                                         <% sizes.forEach(size => { %>
+                                             <% if ( size.type  == "CM") { %>
+                                                 <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                                             <% } %>      
+                                         <% }) %>
+                                     </optgroup>  
+                                 </select>
+                             </div>
+                             <div class="precio-subcontainer">
+                                 <div class="alerta-precio"></div>
+                                 <label for="price">Precio</label>
+                                 <span>
+                                     <label for="price">$</label>
+                                     <input type="number" name="price" id="precio" placeholder="$$$$$$" required>
+                                 </span>
+                             </div>
+                         </article>
+                         <article class="botonera">
+                             <button type="submit" class="agregar-producto-btn">Agregar producto</button>
+                             <button type="reset" class="cancelar-btn">Cancelar</button>
+                         </article>
+                     </section>
+                 </article>
+             </form>
+        </section> 
+     </main>
+     <%- include('../partials/footerPrincipal') %>
+     <script src="/js/newProductValidation.js"></script>
 </body>
 </html>
