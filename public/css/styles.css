@@ -96,51 +96,6 @@ a{
 
 /*MAIN - START*/
     /*home.ejs - START*/
-.carrousel{
-    width: 100%;
-}
-
-.conteCarrousel{
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-.conteCarrousel .itemCarrousel{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.conteCarrousel .itemCarrousel .itemCarrouselTarjeta{
-    width: 100%;
-    height: 100%;
-}
-
-.conteCarrousel .itemCarrousel .itemCarrouselArrows{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px; 
-}
-
-.conteCarrousel .itemCarrousel .itemCarrouselArrows > i:hover {
-    cursor: pointer;
-}
-
-.conteCarrousel .itemCarrousel .itemCarrouselArrows > a > i{
-    color: white;
-}
-
-.itemCarrousel-img{
-    width: 100%;
-    height: 100%;
-}
 
 .contenedor-productos-home{
     width: 100%;
@@ -2053,11 +2008,6 @@ footer .copyright-container > small {
         
     }
     
-    .conteCarrousel{
-        width: 100%;
-        height: 300px;
-        overflow: hidden;
-    }
     .contenedor-productos-home .elements-subcontainer .truck-icon-container .fa-truck {
         font-size: 16px;
         height: 30px;
@@ -2080,7 +2030,7 @@ footer .copyright-container > small {
         height: 300px;
         margin-bottom: 20px;
     }
-            /* branches.ejs- END */
+    /* branches.ejs- END */
 
     /* login.ejs - START */
     .container-login .wrapper-form .login-form-row .input-login{
