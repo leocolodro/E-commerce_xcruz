@@ -1,20 +1,27 @@
 <header>
-    <div class="announcement-container">
-     </div>
-     <div class="account-container">   
-         <span class="item register" id="register-btn">
+    <div class="account-container">
+        <% if (!locals.isLogged) { %> 
+         <span class="item register">
              <a href="/usuarios/register">
                  <i class="fa-solid fa-arrow-right-to-bracket"></i>
                  <small class="text uppercase">Crear cuenta</small>
              </a>
          </span>       
-         <span class="item login" id="login-btn">  
+         <span class="item login">  
              <a href="/usuarios/login">
              <i class="fa-solid fa-address-card"></i>
              <small class="text uppercase">Iniciar sesión</small>
              </a>
-         </span> 
-       </div>
+         </span>
+        <% } else { %>
+         <span class="item">
+            <a href="/usuarios/profile" class="item-link">
+                <i class="fa-solid fa-user"></i>
+                <small class="text uppercase">Mi perfil</small>
+            </a>
+        </span>
+        <% } %>
+    </div>
      <!--Main Header-->
      <div class="header-container">
          <!--Main Header - Left-->
@@ -62,7 +69,7 @@
                      </a>
                  </li>
                  </li>
-                 <li id="bars-icon" class="nav-item toggle">
+                 <li id="bars-icon" class="nav-item bars-toggle">
                     <i class="fa-solid fa-bars"></i>
                  </li>
              </ul>

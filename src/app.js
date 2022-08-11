@@ -22,6 +22,9 @@ const cookieParser = require('cookie-parser');
 //accountRememberer
 const accountRememberer = require(path.join(__dirname, '/middlewares/accountRememberer.js'));
 
+const userLoggedMiddleware = require(path.join(__dirname, '/middlewares/userLoggedMiddleware.js'));
+
+
 //Main Router
 const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
 
@@ -59,6 +62,9 @@ app.use(cookieParser());
 
 //For cookie "rememberMe" analyzation 
 app.use(accountRememberer);
+
+//To hide profile or register and login buttons
+app.use(userLoggedMiddleware);
 
 // For View Engine
 app.set("view engine", "ejs");
