@@ -28,6 +28,9 @@ const userLoggedMiddleware = require(path.join(__dirname, '/middlewares/userLogg
 //Main Router
 const mainRouter = require(path.join(__dirname, '/routes/mainRouter.js'));
 
+//API Router
+const apiRouter = require(path.join(__dirname, '/routes/api/index.js'));
+
 
 /*++++++++ Server Port ++++++++*/
 const port = 3030;
@@ -78,5 +81,7 @@ app.listen(process.env.PORT || port, () => {
 app.use('/', mainRouter);
 
 
+/*++++++++ API Router - invocation ++++++++*/
+app.use('/api', apiRouter);
 
 
