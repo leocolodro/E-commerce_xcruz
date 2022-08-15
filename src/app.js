@@ -19,6 +19,9 @@ const session = require('express-session');
 //Cookie Parser
 const cookieParser = require('cookie-parser');
 
+//Cors (For API)
+const cors = require('cors');
+
 //accountRememberer
 const accountRememberer = require(path.join(__dirname, '/middlewares/accountRememberer.js'));
 
@@ -62,6 +65,9 @@ app.use(session(
     
     /*For Cookies*/
 app.use(cookieParser());
+
+//Cors for client to consume API.
+app.use(cors());
 
 //For cookie "rememberMe" analyzation 
 app.use(accountRememberer);
