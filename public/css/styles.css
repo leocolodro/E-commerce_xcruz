@@ -4,6 +4,15 @@
     --main-title-container-sub-conteiner-1-boder-color: #000000;
 }
 
+
+body, html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;    
+}
+
 /*Global*/
 a{
     text-decoration: none;
@@ -96,6 +105,109 @@ a{
 
 /*MAIN - START*/
     /*home.ejs - START*/
+        /*style carousel - START*/
+.center_y{
+  position: relative;
+  top:50%;
+  transform: translateX(-50%);
+}
+
+.center_x{
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+#slider-container{
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3%;
+}
+
+.slide{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-arrow{
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+
+#arrow-prev{
+  left: 30px;
+}
+
+#arrow-next{
+  right: 20px;
+}
+
+#dots-wrapper{
+  display: flex;
+  position: absolute;
+  bottom: 30px;
+}
+
+.center_x .dot-nav{
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  cursor: pointer;
+  margin: 0 8px;
+  border: 2px solid #d6d6d6;
+}
+
+.dot-nav:hover{
+  background-color: #d6d6d6;
+}
+
+.active-dot{
+  background-color: #d6d6d6;
+}
+
+.fade{
+  animation-name: fade;
+  animation-duration: .10s;
+}
+
+.slide-img{
+  width: 100%;
+  height: 100%;
+}
+
+.container-arrows{
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container-arrows .slider-arrows{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  border: solid 1px solid white;
+  justify-content: space-between;
+}
+
+@keyframes fade{
+  from {opacity: .6}
+  to { opacity: 3}
+}
+        /*style carousel - END*/
+
+
 
 .contenedor-productos-home{
     width: 100%;
@@ -1456,6 +1568,15 @@ footer .copyright-container > small {
 /*HEADER - END*/
 
 /*MAIN - START*/
+
+  .container-arrows{
+        height: 80%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+  }
+        /*style carousel - END*/
+
     .finalizar-compra-section .precio-and-btn-container .iva-container{
         background-color: #ededed;
         border-left: 1px solid #000000;
@@ -1522,7 +1643,14 @@ footer .copyright-container > small {
     /*HEADER - END*/
 
     /*MAIN - START*/
-
+        /*style carousel - START*/
+    #slider-container{
+        width: 100%;
+        height: 500px;
+        position: relative;
+        overflow: hidden;
+    }
+        /*style carousel - END*/
     .control-formulario{
         margin-bottom: 15px;
         width: 40%;
@@ -1969,6 +2097,7 @@ footer .copyright-container > small {
 }
 
 @media (min-width: 1160px) {
+    
 
     .nav-container-2{
         align-items: center;
@@ -2001,7 +2130,14 @@ footer .copyright-container > small {
 /*HEADER - END*/
 
 /*MAIN - START*/
-
+      /*style carousel - START*/
+    #slider-container{
+        width: 100%;
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+  }
+          /*style carousel - END*/
     .create-form-home .control-formulario{
         margin-bottom: 15px;
         width: 40%;

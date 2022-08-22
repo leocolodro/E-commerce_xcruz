@@ -5,6 +5,37 @@
   <%- include('./partials/header') %>
   <%- include('./partials/mobileNavBar') %>
   <main>
+
+  <section id="slider-container">
+    <div id="slide-0" class="slide fade">
+      <img class="slide-img"  src="images/img0.jpg" alt="Img 0">
+    </div>
+    <div id="slide-1" class="slide fade">
+      <img class="slide-img" src="images/img1.jpg" alt="Img 1">
+    </div>
+    <div id="slide-2" class="slide fade">
+      <img class="slide-img" src="images/img2.jpg" alt="Img 2">
+    </div>
+  <article class="container-arrows">
+    <div id="arrows-wrapper" class="slider-arrows">
+      <p id="arrow-prev" class="slider-arrow center_y">
+        &#10094;
+      </p>
+      <p id="arrow-next" class="slider-arrow center_y">
+        &#10095;
+      </p>
+    </div>
+  </article>
+
+
+      <div id="dots-wrapper" class="center_x">
+        <div class="dot-nav"></div>
+        <div class="dot-nav"></div>
+        <div class="dot-nav"></div>
+      </div>
+
+  </section>
+    
       <!-- PRODUCTOS DESTACADOS - TITULO -->
       <h2 class="home-productos-destacados-titulo">PRODUCTOS DESTACADOS</h2>
 
@@ -68,5 +99,7 @@
       </section>
   </main>
   <%- include('./partials/footerPrincipal') %>
+  <script src="js/carousel.js"></script>
+
   </body>
 </html>
