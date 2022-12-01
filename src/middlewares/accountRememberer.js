@@ -1,5 +1,3 @@
-//@Author: Bautista
-
 const userService = require('../services/UserService');
 
 const bcrypt = require('bcryptjs');

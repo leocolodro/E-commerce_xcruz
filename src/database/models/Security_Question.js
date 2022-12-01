@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 module.exports = (sequelize, dataTypes) => {
 

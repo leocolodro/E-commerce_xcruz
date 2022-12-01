@@ -1,4 +1,3 @@
-//Author: Bautista.
 
 //The module returns an array randomly sorted and 
 //reduces it size to the same value of maxRange (params: 2)

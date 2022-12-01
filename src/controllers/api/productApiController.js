@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 /*-------------------------------SERVICES----------------------------------*/
 const productService = require('../../services/ProductService.js');

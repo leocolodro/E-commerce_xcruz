@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 /*++++++++++++++ Requires ++++++++++++++*/
 const express = require('express');

@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 /*-------------------------------SERVICES----------------------------------*/
 const userService = require('../../services/UserService.js');

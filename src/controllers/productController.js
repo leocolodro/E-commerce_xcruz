@@ -1,5 +1,3 @@
-//@Author: Bautista
-
 //Path Module.
 const path = require('path');
 

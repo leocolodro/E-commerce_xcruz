@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 /*this middleware is to restrict routes to not logged users*/
 function userRoutes(req, res, next){

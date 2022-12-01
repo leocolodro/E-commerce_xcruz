@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 const db = require('../database/models');
 const userCategoryService = require('./UserCategoryService');

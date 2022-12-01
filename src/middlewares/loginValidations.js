@@ -1,4 +1,3 @@
-//@Author: Bautista.
 
 //Express Validator - Require
 const { body } = require('express-validator');

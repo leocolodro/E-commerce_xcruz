@@ -1,4 +1,3 @@
-//@Author: Bautista
 
 //UserCategoryService require
 const userCategoryService = require('../services/UserCategoryService.js');
